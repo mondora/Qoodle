@@ -1,0 +1,56 @@
+.btn-breadcrumb .btn:not(:last-child):after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 3;
+    margin-top: -17px;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid $bootstrap-theme-white;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 3;
+    margin-top: -17px;
+    margin-left: 1px;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid $bootstrap-theme-grey;
+    width: 0px;
+    height: 0px;
+    content: " ";
+}
+
+// Spacing
+.btn-breadcrumb .btn {
+    padding: 6px 12px 6px 24px;
+    // Default button
+    &.btn-default:not(:last-child):after {
+        border-left: 10px solid $bootstrap-theme-white;
+    }
+    &.btn-default:not(:last-child):before {
+        border-left: 10px solid $bootstrap-theme-grey;
+    }
+    &.btn-default:hover:not(:last-child):after {
+        border-left: 10px solid $bootstrap-theme-black;
+    }
+    &.btn-default:hover:not(:last-child):before {
+        border-left: 10px solid $bootstrap-theme-grey;
+    }
+}
+.btn-breadcrumb .btn:last-child {
+    padding: 6px 18px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+    padding: 6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:first-child:last-child {
+    padding: 6px 20px;
+}

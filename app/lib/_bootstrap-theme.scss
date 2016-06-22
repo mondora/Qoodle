@@ -1,0 +1,70 @@
+.btn {
+
+    border-radius: 0px;
+
+    &.btn-success {
+        border-color: $bootstrap-theme-success;
+        background-color: transparent;
+        color: $bootstrap-theme-success;
+
+        &:hover {
+            background-color: $bootstrap-theme-success-light;
+            color: $bootstrap-theme-white;
+        }
+    }
+
+    &.btn-danger {
+        border-color: $bootstrap-theme-danger;
+        background-color: transparent;
+        color: $bootstrap-theme-danger;
+
+        &:hover {
+            background-color: $bootstrap-theme-danger-light;
+            color: $bootstrap-theme-white;
+        }
+    }
+
+    &.btn-primary {
+        border-color: $bootstrap-theme-primary;
+        background-color: transparent;
+        color: $bootstrap-theme-primary;
+
+        &:hover {
+            background-color: $bootstrap-theme-primary-light;
+            color: $bootstrap-theme-white;
+        }
+    }
+
+    &.btn-default {
+        border-color: $bootstrap-theme-grey;
+        background-color: $bootstrap-theme-white;
+        color: $bootstrap-theme-black;
+        &.active {
+            background-color: $bootstrap-theme-light-grey;
+        }
+        &:hover {
+            background-color: $bootstrap-theme-black;
+            color: $bootstrap-theme-white;
+        }
+    }
+
+}
+
+.tag,
+.label {
+    &.label-success {
+        background-color: $bootstrap-theme-success-light;
+    }
+    &.label-danger {
+        background-color: $bootstrap-theme-danger-light;
+    }
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow: hidden;
+    .modal-body {
+        max-height: calc(90vh - 121px);
+        overflow: auto;
+    }
+}

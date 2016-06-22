@@ -1,0 +1,35 @@
+.app-width-8 {
+    display: inline-block;
+    width: 8px;
+}
+
+.app-width-16 {
+    display: inline-block;
+    width: 16px;
+}
+
+.app-width-128 {
+    display: inline-block;
+    width: 128px;
+}
+
+.app-vsp-12 {
+    display: block;
+    height: 12px;
+}
+
+.app-vsp-16 {
+    display: block;
+    height: 16px;
+}
+
+.app-inline {
+    display: inline;
+}
+
+.app-unstyled-active-state:focus,
+.app-unstyled-active-state:active {
+    outline: 0px !important;
+    outline-style: none !important;
+    outline-width: 0px !important;
+}

@@ -1,0 +1,38 @@
+var data = [
+  {
+    argument: "A Christmas Dinner",
+    chiefElem: "name",
+    struct:
+      [
+        {
+          name: "Name",
+          type: "string"
+        },
+        {
+          name: "Number of person",
+          type: "number"
+        },
+        {
+          name: "Number of vegans",
+          type: "number"
+        }
+      ],
+      elements: [
+        {
+          "name": "Francesco",
+          "Number of person": 4,
+          "Number of vegans": 4
+        },
+        {
+          "name": "Chiara",
+          "Number of person": 2,
+          "Number of vegans": 0
+        },
+        {
+          "name": "Davide",
+          "Number of person": 1,
+          "Number of vegans": 0
+        },
+      ]
+    }
+]

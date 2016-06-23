@@ -102,7 +102,6 @@ function buildTable() {
             var elementKeyToEdit = e.target.parentElement.dataset.title;
             data[0].elements[idElem][elementKeyToEdit]= e.target.value
             buildTable();
-            alert("click");
           }
         }
       e.target.appendChild(inputField);

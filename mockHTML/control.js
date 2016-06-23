@@ -62,9 +62,11 @@ function buildTable() {
   emptyNode(theadElement);
   emptyNode(tfootElement);
   emptyNode(tbodyElement);
+  emptyNode(rowStatsElement);
   var rowHead = document.createElement("tr");
   var rowBody;
   var rowFoot = document.createElement("tr");
+
   var cellStat = createStatsCell(data[0].elements.length, "Total response", rowStatsElement);
   for(var i = 0; i< data[0].struct.length; i++){
       //HEADER + FOOTER sums

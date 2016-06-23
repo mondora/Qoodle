@@ -7,11 +7,17 @@
 
   <body onload="buildTable()">
     <div class="main">
-      <div id="popupAdd">
-
+      <div class="header">
+        <div class="floatLeft">
+          <img src="img/favicon.png" style="vertical-align: top;"/>
+          <div class="btn">ADD NEW QOODLE</div>
+        </div>
+        <div class="floatRight">
+          <span style="color: #999">Nome cognome</span>
+          <div class="btn littleOne">Logout</div>
+        </div>
       </div>
       <div class="container">
-        <div class="btn">ADD</div>
     <table class="responsive-table">
       <caption></caption>
       <thead>
@@ -21,9 +27,7 @@
       </tfoot>
 
       <tbody>
-        <td><input onKeyPress="enterpressalert()" type="text" placeholder="name"></td>
-        <td><input onKeyPress="enterpressalert()" type="number" placeholder="Number of person"></td>
-        <td><input type="number" placeholder="Number of vegans"></td>
+
       </tbody>
     </table>
   </div>

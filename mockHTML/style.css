@@ -10,7 +10,9 @@ body{
 }
 
 .header{
-  background-color: #272729;
+  background-color: #FFF;
+  height: 50px;
+  padding: 30px;
 }
 
 /*TABLE*/
@@ -225,10 +227,24 @@ body{
   width: 200px;
   text-align: center;
   cursor: pointer;
+  display: inline-block;
+}
+.btn.littleOne{
+  width: 80px;
+  padding: 5px;
+  margin-top: 10px;
+  cursor: e-resize;
 }
 .responsive-table input{
   border: 1px solid #89bdd3;
   height: 30px;
   width: 100%;
   font-size: 13px;
+}
+
+.floatLeft{
+  float: left;
+}
+.floatRight{
+  float: right;
 }

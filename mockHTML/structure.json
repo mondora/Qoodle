@@ -1,12 +1,12 @@
 var data = [
   {
     argument: "A Christmas Dinner",
-    chiefElem: "name",
+    chiefElem: "Name",
     struct:
       [
         {
           name: "Name",
-          type: "string"
+          type: "text"
         },
         {
           name: "Number of person",
@@ -19,17 +19,17 @@ var data = [
       ],
       elements: [
         {
-          "name": "Francesco",
+          "Name": "Francesco",
           "Number of person": 4,
           "Number of vegans": 4
         },
         {
-          "name": "Chiara",
+          "Name": "Chiara",
           "Number of person": 2,
           "Number of vegans": 0
         },
         {
-          "name": "Davide",
+          "Name": "Davide",
           "Number of person": 1,
           "Number of vegans": 0
         },

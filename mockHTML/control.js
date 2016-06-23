@@ -31,13 +31,22 @@ function buildFormAdd(obj){
           buildTable();
       }
       // onclick stuff
-    }
+    };
     tdInput.appendChild(inputElem);
     row.appendChild(tdInput);
   }
   return row;
 }
 
+function createStatsCell(numberElem, labelName, rowStatsElement) {
+    var cellStat = document.createElement("div");
+    cellStat.setAttribute("class", "cellStats");
+    cellStat.innerHTML = numberElem;
+    var labelStat = document.createElement("label");
+    labelStat.innerHTML = labelName;
+    cellStat.appendChild(labelStat);
+    rowStatsElement.appendChild(cellStat);
+}
 function emptyNode(elementDOM){
   while(elementDOM.firstChild){
       elementDOM.removeChild(elementDOM.firstChild);
@@ -49,12 +58,14 @@ function buildTable() {
   var theadElement = document.getElementsByTagName("thead")[0];
   var tfootElement = document.getElementsByTagName("tfoot")[0];
   var tbodyElement = document.getElementsByTagName("tbody")[0];
+  var rowStatsElement = document.getElementById ("rowStats");
   emptyNode(theadElement);
   emptyNode(tfootElement);
   emptyNode(tbodyElement);
   var rowHead = document.createElement("tr");
   var rowBody;
   var rowFoot = document.createElement("tr");
+  var cellStat = createStatsCell(data[0].elements.length, "Total response", rowStatsElement);
   for(var i = 0; i< data[0].struct.length; i++){
       //HEADER + FOOTER sums
       var col = document.createElement("th");
@@ -65,6 +76,12 @@ function buildTable() {
       var node = document.createTextNode(data[0].struct[i].name);
       var sumFooter = data[0].struct[i].type == "number" ? sumCol(data[0].struct[i].name, data[0].elements) : "";
       var nodeFoot = document.createTextNode(sumFooter);
+      
+      //Stats
+      if(sumFooter > 0){
+          var cellStat = createStatsCell(sumFooter, data[0].struct[i].name, rowStatsElement);
+      }
+
       col.appendChild(node);
       colFoot.appendChild(nodeFoot);
       rowHead.appendChild(col);
@@ -72,6 +89,7 @@ function buildTable() {
   }
 
   theadElement.appendChild(rowHead);
+
 
   //BODY
   // creazione input per add new

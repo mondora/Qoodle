@@ -5,7 +5,7 @@ body{
   line-height: 1.2;
   padding: 0;
   margin: 0;
-  font-family: 'Metrophobic', sans-serif;
+  font-family: 'Muli', sans-serif;
   background-color: #F4F4F4;
 }
 
@@ -66,8 +66,8 @@ body{
   }
 }
 .responsive-table thead th {
-  background-color: #c2dde6;
-  border: 1px solid #c2dde6;
+  background-color: #afd2d1;
+  border: 1px solid #afd2d1;
   font-weight: normal;
   text-align: center;
   color: white;
@@ -133,7 +133,7 @@ body{
 .responsive-table tfoot {
   font-size: .8em;
   font-style: italic;
-  background-color: #89bdd3;
+  background-color: #ccE3E1;
   color: #FFF;
   text-align: right;
 }
@@ -153,7 +153,7 @@ body{
 }
 .responsive-table tbody tr {
   margin-bottom: 1em;
-  border: 2px solid #c2dde6;
+  border: 2px solid #afd2d1;
 }
 .responsive-table tbody tr:hover{
   background-color: #fae596;
@@ -221,8 +221,8 @@ body{
   }
 }
 .btn{
-  border: 1px solid #89bdd3;
-  color: #89bdd3;
+  border: 1px solid #ccE3E1;
+  color: #2b908f;
   padding: 20px;
   width: 200px;
   text-align: center;
@@ -236,7 +236,7 @@ body{
   cursor: e-resize;
 }
 .responsive-table input{
-  border: 1px solid #89bdd3;
+  border: 1px solid #ccE3E1;
   height: 30px;
   width: 100%;
   font-size: 13px;
@@ -247,4 +247,24 @@ body{
 }
 .floatRight{
   float: right;
+}
+
+#rowStats{
+  padding: 70px;
+}
+.cellStats{
+  width: 25vw;
+  display: inline-block;
+  text-align: center;
+  color: #2b908f;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+.cellStats > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
+
 }

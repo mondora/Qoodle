@@ -268,3 +268,20 @@ body{
   color: #333;
 
 }
+
+.mobile-menu-toggle {
+  background-color: #fff;
+  cursor: pointer;
+  height: 40px;
+  overflow: hidden;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  width: 40px;
+  z-index: 99999999;
+}

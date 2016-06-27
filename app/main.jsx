@@ -1,20 +1,6 @@
-var React  = require("react/addons");
-var Router = require("react-router");
+var React = require("react");
+var ReactDOM = require("react-dom");
 
-// Routing
-var DefaultRoute    = Router.DefaultRoute;
-var Route           = Router.Route;
-var Views           = require("./views");
+var routes = require("lib/routes");
 
-var routes = (
-    <Route path="/" handler={Views.QuestionBuilder}>
-        <Route handler={Views.QuestionBuilder} name="another" path="another/" />
-        <DefaultRoute handler={Views.QuestionBuilder} />
-    </Route>
-);
-
-Router.run(routes, function (Handler) {
-    React.render(<Handler />, document.body);
-});
-
-window.React = React;
+ReactDOM.render(routes, document.getElementById("root"));

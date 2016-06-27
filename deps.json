@@ -1,46 +1,12 @@
 {
-    "js": [
-        "bluebird",
-        "blueimp-md5",
-        "camel-case",
-        "chart.js",
-        "fluxxor",
-        "immutable",
-        "jsondiffpatch",
-        "moment",
-        "node-uuid",
-        "qs",
-        "ramda",
-        "react",
-        "react-bootstrap",
-        "react-chartjs",
-        "react-dnd",
-        "react-router",
-        "sift",
-        "tcomb-conditional-forms",
-        "tcomb-form",
-        "tcomb-input-collection",
-        "tcomb-validation",
-        "title-case",
-        "tree-model",
-        "url-parse",
-        "wolfy87-eventemitter"
-    ],
-    "externalScripts": [
-        "bower_components/q/q.js",
-        "bower_components/ddp.js/src/ddp.js"
-    ],
     "css": [
-        "bower_components/bootstrap/dist/css/bootstrap.css",
-        "bower_components/bootstrap-social/bootstrap-social.css",
-        "bower_components/font-awesome/css/font-awesome.css",
-        "node_modules/react-select/dist/default.css"
+        "node_modules/bootstrap/dist/css/bootstrap.css"
     ],
     "fonts": [
-        "bower_components/font-awesome/fonts/*",
-        "app/assets/fonts/*"
     ],
-    "images": [
-        "app/assets/images/*"
+    "js": [
+        "react",
+        "react-dom",
+        "react-router"
     ]
 }

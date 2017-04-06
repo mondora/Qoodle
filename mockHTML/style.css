@@ -159,6 +159,7 @@ body{
 }
 .responsive-table tbody tr:hover{
   background-color: #B0ADDE;
+  color : #FFF;
 }
 @media (min-width: 48em) {
   .responsive-table tbody tr {
@@ -175,6 +176,7 @@ body{
   }
   .responsive-table tbody tr:nth-of-type(even):hover {
     background-color: #B0ADDE;
+    color : #FFF;
   }
 }
 .responsive-table tbody th[scope="row"] {
@@ -254,7 +256,29 @@ body{
 #rowStats{
   padding: 70px;
 }
-.cellStats{
+.cellStats0{
+  width: 22vw;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  background: #5fe6f5 ;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+.cellStats1{
+  width: 22vw;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  background: #f5b95f ;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+.cellStats2{
   width: 22vw;
   display: inline-block;
   text-align: center;
@@ -265,12 +289,29 @@ body{
   padding: 20px 0;
   margin-left: 5px;
 }
-.cellStats > label{
+
+
+
+.cellStats0 > label{
   display: block;
   font-size: 16px;
   color: #333;
 
 }
+.cellStats1 > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
+
+}
+.cellStats2 > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
+
+}
+
+
 
 .mobile-menu-toggle {
   background-color: #fff;

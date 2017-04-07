@@ -41,17 +41,15 @@ function buildFormAdd(obj){
   }
   return row;
 }
-
-    var differenziazione = 0;
+ 
 function createStatsCell(numberElem, labelName, rowStatsElement) {
     var cellStat = document.createElement("div");
-    cellStat.setAttribute("class", "cellStats" + differenziazione);
+    cellStat.setAttribute("class", "cellStats");
     cellStat.innerHTML = numberElem;
     var labelStat = document.createElement("label");
     labelStat.innerHTML = labelName;
     cellStat.appendChild(labelStat);
     rowStatsElement.appendChild(cellStat);
-    differenziazione =  differenziazione + 1;
 }
 function emptyNode(elementDOM){
   while(elementDOM.firstChild){

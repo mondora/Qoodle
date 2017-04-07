@@ -272,60 +272,17 @@ body{
   font-size: 16px;
   color: #333;
 }
-
-.cellStats0{
-  width: 22vw;
-  display: inline-block;
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  border: 1px solid #ccE3E1;
-  background: #5fe6f5 ;
-  padding: 20px 0;
-  margin-left: 5px;
+.cellStats:nth-child(4n +1){
+  background: #5fe6f5;
+  color: #333;
 }
-.cellStats1{
-  width: 22vw;
-  display: inline-block;
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  border: 1px solid #ccE3E1;
+.cellStats:nth-child(4n +2){
   background: #f5b95f ;
-  padding: 20px 0;
-  margin-left: 5px;
 }
-.cellStats2{
-  width: 22vw;
-  display: inline-block;
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  border: 1px solid #ccE3E1;
+
+.cellStats:nth-child(4n +3), .cellStats:nth-child(4n +3) label{
   background: #716BB1 ;
-  padding: 20px 0;
-  margin-left: 5px;
-}
-
-
-
-.cellStats0 > label{
-  display: block;
-  font-size: 16px;
-  color: #333;
-
-}
-.cellStats1 > label{
-  display: block;
-  font-size: 16px;
-  color: #333;
-
-}
-.cellStats2 > label{
-  display: block;
-  font-size: 16px;
-  color: #333;
-
+  color: #FFF;
 }
 
 .mobile-menu-toggle {

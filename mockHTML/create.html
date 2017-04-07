@@ -30,11 +30,6 @@
         <div class="col-md-3" id="sideBar">
             <div class="tab-container text-center">
                 <ul class="neo-nav clearfix" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#addFieldTab" id="addFieldTab_lnk" aria-controls="home" role="tab" data-toggle="tab">
-                            Add a Field
-                        </a>
-                    </li>
                     <li role="presentation">
                         <a href="#fieldSettingTab" id="fieldSettingTab_lnk" aria-controls="profile" role="tab" data-toggle="tab">
                             Field Settings
@@ -44,42 +39,63 @@
             </div>
 
             <div class="tab-content" id="sidebar-tab-content" style="height: 346px;">
-                <div role="tabpanel" class="tab-pane active" id="addFieldTab">
+                <div role="tabpanel" class="tab-pane active" id="titlefield">
                     <p>
-                       STANDARD FIELDS
+                       COLUMN TITLE
                     </p>
 
                     <div class="collapse in" id="stdFields" aria-expanded="true">
-                        <ul class="sortable-stdFields">
-                            <li draggable="true" class="dragElement-wrapper"
-                                element-draggable="" data-index="0">
-                                <div class="drag-element">
-                                    <i class="fa fa-cogs"></i> Text
-                                </div>
-                            </li>
-                            <li draggable="true" class="dragElement-wrapper"
-                                element-draggable="" data-index="1">
-                                <div class="drag-element">
-                                    <i class="fa fa-cogs"></i> Number
-                                </div>
-                            </li>
-                            <li draggable="true" class="dragElement-wrapper"
-                                element-draggable="" data-index="2">
-                                <div class="drag-element">
-                                    <i class="fa fa-cogs"></i> Date
-                                </div>
-                            </li>
-                            <li draggable="true" class="dragElement-wrapper" 
-                                element-draggable="" data-index="3">
-                                <div class="drag-element">
-                                    <i class="fa fa-cogs"></i> Singe SelectBox
-                                </div>
-                            </li>
-                        </ul>
+                        <input type="text"/>
 
                     </div>
 
                 </div>
+                <div role="tabpanel" class="tab-pane active" id="minfield">
+                    <p>
+                        SET MIN
+                    </p>
+
+                    <div class="collapse in" id="stdMinField" aria-expanded="true">
+                        <input type="number"/><!--impostare il minimo-->
+
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="maxfield">
+                    <p>
+                        SET MAX
+                    </p>
+
+                    <div class="collapse in" id="stdMaxField" aria-expanded="true">
+                        <input type="number"/>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="uniMisura">
+                    <p>
+                        SET UNITA' DI MISURA
+                    </p>
+
+                    <div class="collapse in" id="stdUniMisuraField" aria-expanded="true">
+                        <select class="sceltaMisura" ><option value="kg">kilogrammi</option> <option value="metro">metro</option> <option value="bottle">bottle</option> </select>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="invio">
+
+                    <div class="collapse in" id="stdButton" aria-expanded="true">
+                        <button type="submit">Aggiungi alla tabella</button>
+
+                    </div>
+
+                </div>
+
+
+
                 <div role="tabpanel" class="tab-pane" id="fieldSettingTab">
                     <div class="ng-scope">
                         <div>
@@ -219,22 +235,31 @@
                             <input type="text" placeholder="Qoodle title">
                         </span>
                     </p>
-                    <p>
-                        <span class="lead">
-                            <select>
-                                <option value=" ">Chief element</option>
-                            </select>
-                        </span>
-                    </p>
+
+                <br/>
+                <br/>
+                    <div>
+
+                    <textarea>Descrizione Qoodle</textarea>
+
+                </div>
+
+
                     <br/>
                     <br/>
                     <h3>Qoodle structure</h3>
-                    <div class="container-fluid" id="dropZone">
 
-                        <code>
+                    <table class="responsive-table">
+                        <caption></caption>
+                        <thead>
+                        <tr><th>Nome</th></tr>
 
-                        </code>
-                    </div>
+
+                        </thead>
+                    </table>
+
+
+                    <div style="display: inline-block;position: absolute;margin-top: -60px;border: 1px solid #FFF;padding: 5px 10px;background-color: #FFF;right: 50px;">+</div>
 
                 </div>
             </div>

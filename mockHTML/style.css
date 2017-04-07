@@ -417,7 +417,7 @@ ul.neo-nav li.active {
   display: block;
 }
 
-#addFieldTab {
+.tab-pane {/*permette di formattare tutti i tab-pane*/
   padding-top: 20px;
   padding-left: 20px;
 }

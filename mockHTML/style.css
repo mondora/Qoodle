@@ -20,6 +20,8 @@ body{
 .container {
   margin: 5% 3%;
 }
+/*media queries servono per il response*/
+
 @media (min-width: 48em) {
   .container {
     margin: 2%;
@@ -67,8 +69,8 @@ body{
   }
 }
 .responsive-table thead th {
-  background-color: #afd2d1;
-  border: 1px solid #afd2d1;
+  background-color: #f5b95f;
+  border: 1px solid #f5b95f;
   font-weight: normal;
   text-align: center;
   color: white;
@@ -134,7 +136,7 @@ body{
 .responsive-table tfoot {
   font-size: .8em;
   font-style: italic;
-  background-color: #ccE3E1;
+  background-color: #f5b95f;
   color: #FFF;
   text-align: right;
 }
@@ -157,7 +159,8 @@ body{
   border: 2px solid #afd2d1;
 }
 .responsive-table tbody tr:hover{
-  background-color: #fae596;
+  background-color: #B0ADDE;
+  color : #FFF;
 }
 @media (min-width: 48em) {
   .responsive-table tbody tr {
@@ -173,7 +176,8 @@ body{
     background-color: #e6e9f0;
   }
   .responsive-table tbody tr:nth-of-type(even):hover {
-    background-color: #fae596;
+    background-color: #B0ADDE;
+    color : #FFF;
   }
 }
 .responsive-table tbody th[scope="row"] {
@@ -223,7 +227,7 @@ body{
 }
 .btn{
   border: 1px solid #ccE3E1;
-  color: #2b908f;
+  color: #3B3679;
   padding: 20px;
   width: 200px;
   text-align: center;
@@ -236,7 +240,7 @@ body{
   margin-top: 10px;
   cursor: e-resize;
 }
-input{
+.responsive-table input{
   border: 1px solid #ccE3E1;
   height: 30px;
   width: 100%;
@@ -267,8 +271,63 @@ input{
   display: block;
   font-size: 16px;
   color: #333;
+}
+
+.cellStats0{
+  width: 22vw;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  background: #5fe6f5 ;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+.cellStats1{
+  width: 22vw;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  background: #f5b95f ;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+.cellStats2{
+  width: 22vw;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  border: 1px solid #ccE3E1;
+  background: #716BB1 ;
+  padding: 20px 0;
+  margin-left: 5px;
+}
+
+
+
+.cellStats0 > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
 
 }
+.cellStats1 > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
+
+}
+.cellStats2 > label{
+  display: block;
+  font-size: 16px;
+  color: #333;
+
+}
+
 .mobile-menu-toggle {
   background-color: #fff;
   cursor: pointer;

@@ -1,12 +1,24 @@
 {
     "css": [
-        "node_modules/bootstrap/dist/css/bootstrap.css"
+        "app/assets/css/style.css",
+        "app/assets/css/**/*"
     ],
     "fonts": [
+        "app/assets/fonts/**/*"
     ],
     "js": [
         "react",
         "react-dom",
-        "react-router"
+        "react-redux",
+        "react-router",
+        "redux",
+        "redux-logger",
+        "redux-storage",
+        "redux-storage-engine-localstorage",
+        "redux-storage-decorator-filter",
+        "redux-thunk"
     ]
 }
+
+
+

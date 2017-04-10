@@ -422,6 +422,26 @@ ul.neo-nav li.active {
   padding-left: 20px;
 }
 
+.btnAdd{
+  background-color: white;
+  border: 4px solid #f5b95f;
+}
+
+.btnAdd:hover{
+  background: #f5b95f;
+  border: 4px solid #f5b95f;
+  color: white;
+}
+.btnDelete{
+  background-color: white;
+  border: 4px solid #3B3679;
+}
+.btnDelete:hover{
+  background: #3B3679;
+  border: 4px solid #3B3679;
+  color: white;
+}
+
 .tab-pane > p{
   margin: 0 0 10px;
 }

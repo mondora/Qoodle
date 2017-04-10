@@ -507,7 +507,7 @@ select{
   border: 1px solid #ccE3E1;
   color: #555;
   font-size: inherit;
-  margin: 0 20px;
+  margin: 0 0px;
   padding: 5px 10px;
   text-overflow: ellipsis;
   white-space: nowrap;

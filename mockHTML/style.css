@@ -477,17 +477,21 @@ ul.neo-nav li.active {
   }
 }
 
-.tab-pane.text-left > p {
-  float: left;
+.tab-pane.text-center > p {
+  float: center;
 }
 .lead input{
   width: 200px;
 
 }
 
+.tab-pane.text-left > div {
+  float:left;
+}
+
 /* END::TAB */
 h3{
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
 }
 select{

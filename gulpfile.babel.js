@@ -1,6 +1,7 @@
 import {promisify} from "bluebird";
 import browserSync from "browser-sync";
 import {execSync} from "child_process";
+import history from "connect-history-api-fallback";
 import dotenv from "dotenv";
 import fs from "fs";
 import gulp from "gulp";
@@ -249,8 +250,7 @@ gulp.task("coverage", proGulp.task("coverage"));
 proGulp.task("setupDevServer", () => {
     browserSync({
         server: {
-            baseDir: buildDir,
-            middleware: [history()]
+            baseDir: buildDir
         },
         files: `${buildDir}/**/*`,
         port: 8080,

@@ -2,8 +2,8 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
+import Header from "components/header"
 /* LIST COMPONENTS */
-import MainMenu from "components/menu/main-menu.jsx";
 
 class MasterPage extends Component {
 
@@ -15,6 +15,7 @@ class MasterPage extends Component {
         return (
             <div>
                 <div>
+                    <Header />
                     {children}
                 </div>
             </div>

@@ -4,7 +4,8 @@
   "description": "count something",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "deploy" : "npm run dev&&gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -60,7 +61,7 @@
   "bugs": {
     "url": "https://github.com/mondora-labs/qoodle/issues"
   },
-  "homepage": "https://github.com/mondora-labs/qoodle#readme",
+  "homepage": "https://Giuny.github.io/Giuny.github.io",
   "directories": {
     "test": "test"
   },

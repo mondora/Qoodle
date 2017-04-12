@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp dev",
-    "deploy" : "npm run dev&&gh-pages -d build"
+    "deploy": "npm run dev&&gh-pages -d dev"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "dotenv": "~2.0.0",
     "eslint": "~2.10.2",
     "eslint-plugin-babel": "~3.2.0",
+    "gh-pages": "^0.12.0",
     "gulp": "~3.9.1",
     "gulp-concat": "~2.6.0",
     "gulp-cssnano": "~2.1.2",
@@ -61,7 +62,7 @@
   "bugs": {
     "url": "https://github.com/mondora-labs/qoodle/issues"
   },
-  "homepage": "https://Giuny.github.io/Giuny.github.io",
+  "homepage": "https://giuny.github.io/Giuny.github.io",
   "directories": {
     "test": "test"
   },

@@ -542,7 +542,7 @@ webpackJsonp([0],{
 	            Object.keys(structure).forEach(function (key, index) {
 	                strucArr.push(_react2.default.createElement(
 	                    "th",
-	                    { scope: "col" },
+	                    { key: "th_" + key, scope: "col" },
 	                    structure[key].name
 	                ));
 	            });

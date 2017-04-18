@@ -22,7 +22,7 @@ class Header extends Component {
                 <div className="floatLeft">
                     <i className="hamburger fa fa-bars" onClick={this.toggleMenu.bind(this)} aria-hidden="true" />
                     <div className={this.state.isOpenMenu ? "containerMenu" : "containerMenu hidden"} >
-                        <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}} onclick="location.href='create.html'">ADD NEW QOODLE</div>
+                        <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}} onClick="location.href='#/create'">ADD NEW QOODLE</div>
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}}>LIST QOODLE</div>
                     </div>
                     <img src="_assets/img/logo.png" style={{verticalAlign: 'middle', width: 100}} />

@@ -108,6 +108,32 @@ class QoodleView extends Component
         return (<tr>{cellItem}</tr>);
     }
 
+    renderRigaTable(obj)
+    {//??esiste un modo per ciclare su ogni campo di un oggetto?
+        var riga = [];
+        riga.push(<td>{obj["Name"] }</td>);
+        riga.push( <td>{obj["Number of person"] }</td>);
+        riga.push( <td>{obj["Number of vegans"] }</td>);
+
+
+        return riga;
+    }
+
+
+    renderExampleTable()
+    {
+        var exampleItem = [];
+        var elementi = this.state.elementsTable;
+
+        for(var i=0; i<elementi.length; i++)
+        {
+            exampleItem.push( <tr>{this.renderRigaTable( elementi[i] )}</tr> ) ;
+        }
+
+        return (exampleItem)
+
+    }
+
 
 
     render(){
@@ -115,13 +141,16 @@ class QoodleView extends Component
                 <div id="rowStats" />
                 <table className="responsive-table">
                     <caption />
-                    <thead>{this.renderHeaderTable()}
+                    <thead>
+                    {this.renderHeaderTable()}
                     </thead>
                     <tfoot>
                     {this.renderFooterTable()}
                     </tfoot>
                     <tbody>
                     {this.renderCellTable()}
+                    {this.renderExampleTable()}
+
                     </tbody>
                 </table>
             </div>);

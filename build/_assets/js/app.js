@@ -15,11 +15,11 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _routes = __webpack_require__(195);
+	var _routes = __webpack_require__(199);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _reduxStore = __webpack_require__(264);
+	var _reduxStore = __webpack_require__(268);
 	
 	var _reduxStore2 = _interopRequireDefault(_reduxStore);
 	
@@ -35,7 +35,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 195:
+/***/ 199:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48,21 +48,21 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(196);
+	var _reactRouter = __webpack_require__(200);
 	
-	var _history = __webpack_require__(257);
+	var _history = __webpack_require__(261);
 	
 	var _history2 = _interopRequireDefault(_history);
 	
-	var _rootPage = __webpack_require__(258);
+	var _rootPage = __webpack_require__(262);
 	
 	var _rootPage2 = _interopRequireDefault(_rootPage);
 	
-	var _newQoodle = __webpack_require__(261);
+	var _newQoodle = __webpack_require__(265);
 	
 	var _newQoodle2 = _interopRequireDefault(_newQoodle);
 	
-	var _listPage = __webpack_require__(263);
+	var _listPage = __webpack_require__(267);
 	
 	var _listPage2 = _interopRequireDefault(_listPage);
 	
@@ -81,7 +81,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 257:
+/***/ 261:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -90,11 +90,11 @@ webpackJsonp([0],{
 	    value: true
 	});
 	
-	var _createHashHistory = __webpack_require__(205);
+	var _createHashHistory = __webpack_require__(209);
 	
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 	
-	var _reactRouter = __webpack_require__(196);
+	var _reactRouter = __webpack_require__(200);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -104,7 +104,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 258:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -121,7 +121,7 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _masterPage = __webpack_require__(259);
+	var _masterPage = __webpack_require__(263);
 	
 	var _masterPage2 = _interopRequireDefault(_masterPage);
 	
@@ -180,7 +180,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 259:
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -197,9 +197,9 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
-	var _header = __webpack_require__(260);
+	var _header = __webpack_require__(264);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
@@ -261,7 +261,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 260:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -278,7 +278,7 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -355,7 +355,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 261:
+/***/ 265:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -376,9 +376,9 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
-	var _createTable = __webpack_require__(262);
+	var _createTable = __webpack_require__(266);
 	
 	var _createTable2 = _interopRequireDefault(_createTable);
 	
@@ -460,7 +460,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 262:
+/***/ 266:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -477,7 +477,7 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -542,7 +542,7 @@ webpackJsonp([0],{
 	            Object.keys(structure).forEach(function (key, index) {
 	                strucArr.push(_react2.default.createElement(
 	                    "th",
-	                    { scope: "col" },
+	                    { key: "th_" + key, scope: "col" },
 	                    structure[key].name
 	                ));
 	            });
@@ -586,7 +586,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 263:
+/***/ 267:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -607,7 +607,7 @@ webpackJsonp([0],{
 	
 	var _reactRedux = __webpack_require__(167);
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -647,7 +647,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 264:
+/***/ 268:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -656,29 +656,29 @@ webpackJsonp([0],{
 	    value: true
 	});
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
-	var _reduxLogger = __webpack_require__(265);
+	var _reduxLogger = __webpack_require__(269);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
-	var _reduxStorage = __webpack_require__(266);
+	var _reduxStorage = __webpack_require__(270);
 	
 	var _reduxStorage2 = _interopRequireDefault(_reduxStorage);
 	
-	var _reduxStorageEngineLocalstorage = __webpack_require__(289);
+	var _reduxStorageEngineLocalstorage = __webpack_require__(293);
 	
 	var _reduxStorageEngineLocalstorage2 = _interopRequireDefault(_reduxStorageEngineLocalstorage);
 	
-	var _reduxThunk = __webpack_require__(290);
+	var _reduxThunk = __webpack_require__(294);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxStorageDecoratorFilter = __webpack_require__(291);
+	var _reduxStorageDecoratorFilter = __webpack_require__(295);
 	
 	var _reduxStorageDecoratorFilter2 = _interopRequireDefault(_reduxStorageDecoratorFilter);
 	
-	var _reducers = __webpack_require__(296);
+	var _reducers = __webpack_require__(300);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -699,7 +699,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 296:
+/***/ 300:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -708,7 +708,7 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(178);
 	
 	//import {documents} from "reducers/documents";
 	

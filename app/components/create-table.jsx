@@ -55,7 +55,7 @@ class CreateTable extends Component {
         var structure = this.state.struct;
         var strucArr = [];
         Object.keys(structure).forEach(function (key, index) {
-            strucArr.push(<th scope="col">{structure[key].name}</th>);
+            strucArr.push(<th key={"th_"+key} scope="col">{structure[key].name}</th>);
         });
         return(strucArr);
     }

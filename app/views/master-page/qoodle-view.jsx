@@ -105,7 +105,7 @@ class QoodleView extends Component
 
         }
 
-        return (<tr>{cellItem}</tr>);
+        return (<tr>{cellItem}</tr>);   
     }
 
 

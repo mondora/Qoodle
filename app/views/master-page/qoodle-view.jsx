@@ -76,16 +76,20 @@ class QoodleView extends Component
     {
         var sintesi = [];
         var somma;
+        var lbl;
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            if(i != 0)
+            if(i != 0) {
                 somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
-            else
-                somma=this.state.elementsTable.length;//nel primo caso devo contare quante occorrenze ho.
-
+                lbl = this.state.struct[i].name;
+            }
+            else {
+                somma = this.state.elementsTable.length;//nel primo caso devo contare quante occorrenze ho.
+                lbl = "Total Response";
+            }
             sintesi.push(<div className="cellStats">{somma}
-                <label>{this.state.struct[i].name}</label>
+                <label>{lbl}</label>
                     </div>);
 
         }

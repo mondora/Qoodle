@@ -47,7 +47,9 @@ class QoodleView extends Component
     somma(itemKey, obj)
     {
         var sum = 0;
-
+        //obj sono i dati di un partecipante che ha compilato il qoodle.
+        //prop conterrà name, numberofperson etc
+        //per ogni proprietà delloggetto, se è un numero lo sommo
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop) && itemKey === prop && typeof parseInt(obj[prop]) == "number") {
                 sum += parseInt(obj[prop]);
@@ -85,8 +87,12 @@ class QoodleView extends Component
         for(var i=0; i<this.state.struct.length; i++)
         {
             var somma;
+            //per ogni elemento dell'array struct controllo il tipo(se number)
+            //passo a somma il nome del campo, e l'array di elementi pieni (oggetti)
             somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
 
+            //cambia l'i, cioè, a che "descrizione campo" siamo, ma ne prendo sempre il nome.
+            //quindi poi ciclo sugli elements, ma ogni volta con lo stesso nome
 
             footerItem.push(<td scope="col">{somma}</td>)
 
@@ -101,7 +107,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input type={this.state.struct[i].type}/></td>)
+            cellItem.push(<td> <input type={this.state.struct[i].type} placeholder={this.state.struct[i].name}/></td>)
 
         }
 
@@ -113,7 +119,7 @@ class QoodleView extends Component
         var riga = [];
 
             //pusho un array contenente ognuno il valore di un campo dell'oggetto(tra td)
-            riga.push( Object.keys(obj).map((e) => <td>{obj[e]}</td>))
+            riga.push( Object.keys(obj).map((e) => <td>{obj[e]}</td>));
 
         return riga;
     }
@@ -132,6 +138,10 @@ class QoodleView extends Component
         return (exampleItem)
 
     }
+
+
+
+
 
 
 

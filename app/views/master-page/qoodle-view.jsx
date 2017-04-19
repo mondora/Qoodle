@@ -47,9 +47,9 @@ class QoodleView extends Component
     somma(itemKey, obj)
     {
         var sum = 0;
-        //obj sono i dati di un partecipante che ha compilato il qoodle.
+        //obj sono i dati dei partecipanti.
         //prop conterrà name, numberofperson etc
-        //per ogni proprietà delloggetto, se è un numero lo sommo
+        //per ogni proprietà delloggetto (se sto considerando quella proprietà) &&  se è un numero lo sommo
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop) && itemKey === prop && typeof parseInt(obj[prop]) == "number") {
                 sum += parseInt(obj[prop]);
@@ -59,10 +59,27 @@ class QoodleView extends Component
             }
         }
         return sum;
+    }
 
+    riassunto()
+    {
+        var sintesi = [];
+        var somma;
+
+        for(var i=0; i<this.state.struct.length; i++)
+        {
+            if(i != 0)
+                somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
+            else
+                somma=this.state.elementsTable.length;//nel primo caso devo contare quante occorrenze ho.
+            sintesi.push(<div className="cellStats">{somma}</div>);
+
+        }
+        return sintesi;
 
 
     }
+
 
 
 
@@ -146,10 +163,13 @@ class QoodleView extends Component
 
 
     render(){
-            return (      <div className="container">
-                <div id="rowStats" />
+            return (
+                <div className="container">
+                <div id="rowStats">
+                {this.riassunto()}
+                </div>
                 <table className="responsive-table">
-                    <caption />
+                    <caption> A Christmas Dinner</caption>
                     <thead>
                     {this.renderHeaderTable()}
                     </thead>

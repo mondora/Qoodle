@@ -109,12 +109,11 @@ class QoodleView extends Component
     }
 
     renderRigaTable(obj)
-    {//??esiste un modo per ciclare su ogni campo di un oggetto?
+    {
         var riga = [];
-        riga.push(<td>{obj["Name"] }</td>);
-        riga.push( <td>{obj["Number of person"] }</td>);
-        riga.push( <td>{obj["Number of vegans"] }</td>);
 
+            //pusho un array contenente ognuno il valore di un campo dell'oggetto(tra td)
+            riga.push( Object.keys(obj).map((e) => <td>{obj[e]}</td>))
 
         return riga;
     }

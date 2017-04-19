@@ -7,6 +7,7 @@ class QoodleView extends Component
 
     constructor () {
         super();
+        //this.handleI = this.handleI.bind(this);
         this.state = {
             isOpenMenu: false,
             struct: [
@@ -38,9 +39,19 @@ class QoodleView extends Component
                     "Name": "Davide",
                     "Number of person": 1,
                     "Number of vegans": 0
-                }
+                },
+
             ]
         };
+    }
+
+    handleI() {
+
+        {console.log("CIAOOOOOOOOOOOOO")};
+        return <p>ciaoooooooooooooo</p>
+        //{console.log(e.charCode);}
+        //this.setState( { statobottone : true});
+
     }
 
 
@@ -72,25 +83,25 @@ class QoodleView extends Component
                 somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
             else
                 somma=this.state.elementsTable.length;//nel primo caso devo contare quante occorrenze ho.
-            sintesi.push(<div className="cellStats">{somma}</div>);
+
+            sintesi.push(<div className="cellStats">{somma}
+                <label>{this.state.struct[i].name}</label>
+                    </div>);
 
         }
-        return sintesi;
-
-
+        return (sintesi);
     }
+
+
 
 
 
 
     renderHeaderTable(){
         var  headerItem = [];
-
-
         for(var i =0; i< this.state.struct.length; i++)
         {
             headerItem.push(<th scope="col" >{ this.state.struct[i].name }</th>)
-
         }
 
 
@@ -124,7 +135,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input type={this.state.struct[i].type} placeholder={this.state.struct[i].name}/></td>)
+            cellItem.push(<td> <input type={this.state.struct[i].type} placeholder={this.state.struct[i].name} onKeyPress={(e) => this.handleI(e)}/></td>)
 
         }
 
@@ -185,6 +196,8 @@ class QoodleView extends Component
             </div>);
 
     }
+
+
 
 }
 

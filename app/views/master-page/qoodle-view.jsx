@@ -7,7 +7,7 @@ class QoodleView extends Component
 
     constructor () {
         super();
-        this.handleI = this.handleI.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.state = {
             isOpenMenu: false,
             struct: [
@@ -45,13 +45,14 @@ class QoodleView extends Component
         };
     }
 
-    handleI(event) {
+    handleKeyPress(e)
+    {
+        //if(e.charCode == 13)
+            console.log("sei entrato nell'handler");
+        alert(this.state.isOpenMenu);
 
-        {console.log("CIAOOOOOOOOOOOOO")};
-        return <p>ciaoooooooooooooo</p>
-        //{console.log(e.charCode);}
-        //this.setState( { statobottone : true});
-
+        //else
+          //  this.setState({isOpenMenu: true});
     }
 
 
@@ -139,7 +140,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input type={this.state.struct[i].type} placeholder={this.state.struct[i].name} onKeyPress={this.handleI}/></td>)
+            cellItem.push(<td onkeypress={this.handleKeyPress} > <input /*onKeyPress={this.handleKeyPress.bind(this)}*/ type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
 
         }
 

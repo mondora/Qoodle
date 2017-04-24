@@ -7,7 +7,7 @@ class QoodleView extends Component
 
     constructor () {
         super();
-        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.state = {
             isOpenMenu: false,
             struct: [
@@ -45,15 +45,23 @@ class QoodleView extends Component
         };
     }
 
-    handleKeyPress(e)
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+        alert('Ultimo carattere inserito '+ event.target.value
+        );
+    }
+
+   /* handleChange(event)
     {
         //if(e.charCode == 13)
+        e.keyCodeCode
             console.log("sei entrato nell'handler");
         alert(this.state.isOpenMenu);
 
         //else
           //  this.setState({isOpenMenu: true});
-    }
+    }*/
 
 
     somma(itemKey, obj)
@@ -140,7 +148,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td onkeypress={this.handleKeyPress} > <input /*onKeyPress={this.handleKeyPress.bind(this)}*/ type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
+            cellItem.push(<td> <input onChange={this.handleChange}/*onKeyPress={this.handleKeyPress.bind(this)}*/ type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
 
         }
 

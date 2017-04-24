@@ -15,12 +15,14 @@ class ListPage extends Component {
                 {
                     titolo: "Christams Dinner",
                     descrizione: "pranzo di natale",
-                    total_response: 5
-                },
+                    total_response: 5,
+                    closing_date: new Date("October 13, 2014 11:13:00").toDateString()
+    },
                 {
                     titolo: "Gas",
                     descrizione: "acquisto di frutta",
-                    total_response: 3
+                    total_response: 3,
+                    closing_date: new Date("May 13, 2014 11:13:00").toDateString()
                 }
 
 
@@ -71,11 +73,10 @@ class ListPage extends Component {
                     </tr>
                     </thead>
                     <tfoot >
-                    {this.renderFooterTable()}
+                        {this.renderFooterTable()}
                     </tfoot>
                     <tbody>
-                    {this.renderBody()}
-
+                        {this.renderBody()}
                     </tbody>
                 </table>
             </div>

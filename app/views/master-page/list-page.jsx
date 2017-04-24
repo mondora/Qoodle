@@ -32,7 +32,7 @@ class ListPage extends Component {
     renderHeader()
     {
         return (
-            Object.keys(this.state.struct[0]).map( (e) => <td>{e}</td>)
+            Object.keys(this.state.struct[0]).map( (e) => <th scope="col">{e}</th>)
         );
     }
 
@@ -52,6 +52,13 @@ class ListPage extends Component {
         return righe;
     }
 
+    renderFooterTable(){
+        //var span= this.state.struct[0].keys.length;
+        return (<td scope="col" colSpan={3}>I qoodle presenti in memoria sono:  {this.state.struct.length}</td>);
+
+    }
+
+
 
     renderTable()
     {
@@ -63,8 +70,8 @@ class ListPage extends Component {
                         {this.renderHeader()}
                     </tr>
                     </thead>
-                    <tfoot>
-
+                    <tfoot >
+                    {this.renderFooterTable()}
                     </tfoot>
                     <tbody>
                     {this.renderBody()}

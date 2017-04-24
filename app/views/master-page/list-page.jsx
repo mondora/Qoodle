@@ -53,8 +53,8 @@ class ListPage extends Component {
     }
 
     renderFooterTable(){
-        //var span= this.state.struct[0].keys.length;
-        return (<td scope="col" colSpan={3}>I qoodle presenti in memoria sono:  {this.state.struct.length}</td>);
+        var span= Object.keys(this.state.struct[0]).length;//numero colonne da unire
+        return (<td scope="col" colSpan={span}>I qoodle presenti in memoria sono:  {this.state.struct.length}</td>);
 
     }
 

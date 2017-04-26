@@ -52,15 +52,14 @@ class QoodleView extends Component
         );
     }
 
-   /* handleChange(event)
-    {
-        //if(e.charCode == 13)
-        e.keyCodeCode
-            console.log("sei entrato nell'handler");
-        alert(this.state.isOpenMenu);
 
-        //else
-          //  this.setState({isOpenMenu: true});
+    /*handleChange(event) {
+        if(event.target.value.keyCode() !== 13)
+        {
+            this.setState({value: value + '' + event.target.value});
+            alert('Ultimo carattere inserito '+ event.target.value
+            );}
+        else alert('wei '+ event.target.value);
     }*/
 
 

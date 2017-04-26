@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import SideField from "./side-field";
 
 class SideBar extends Component {
 
@@ -24,19 +25,18 @@ class SideBar extends Component {
                 </ul>
 
                 <div className="tab-content" id="sidebar-tab-content" style={{height: '86vh'}}>
-                    <div role="tabpanel" className="tab-pane active" id="titleField">
-                        <p>
-                            COLUMN TITLE
-                        </p>
 
-                        <div className="collapse in" id="stdTitleField" aria-expanded="true">
-                            <input type="text"/>
 
-                        </div>
+                    <SideField tipo="text" nome='title'/>
+                    <SideField tipo="number" nome="min"/>
+                    <SideField tipo="number" nome="Max"/>
 
-                    </div>
+
 
                 </div>
+
+
+
 
 
             </div>

@@ -376,11 +376,12 @@ body{
   padding: 7px 16px 8px;
   border-top: 1px solid rgb(243, 246, 248);
   background-color: #FFF;
+  width: 69vw;
 }
 
 .cardContainer {
   position: relative;
-  width: 100%;
+  width: 70vw;
   height: 50px;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -406,7 +407,7 @@ body{
 
 @media (min-width: 992px){
   .col-md-9 {
-    width: calc(74vw);
+    width: calc(75vw);
     float:left;
   }
 }
@@ -551,7 +552,7 @@ ul.neo-nav li.active {
 #formBuilderContent {
   background-color: white;
   padding: 20px;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 50px);
 }
 
 @media (min-width: 992px){

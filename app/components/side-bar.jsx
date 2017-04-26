@@ -32,6 +32,33 @@ class SideBar extends Component {
                     <SideField tipo="number" nome="Max"/>
 
 
+                    <div role="tabpanel" className="tab-pane active" id="uniMisura">
+                        <p>
+                            SET UNITA' DI MISURA
+                        </p>
+
+                        <div className="collapse in" id="stdUniMisuraField" aria-expanded="true">
+                            <select className="sceltaMisura" ><option value="kg">kilogrammi</option> <option value="metro">metro</option> <option value="bottle">bottle</option> </select>
+
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" className="tab-pane active" id="invio">
+
+                        <div className="collapse in"  id="stdAdd" aria-expanded="true">
+                            <button className="btnAdd" type="submit">Aggiungi alla tabella</button>
+
+                        </div>
+                        <br/><br/>
+
+                        <div className="collapse in" id="stdDelete" aria-expanded="true">
+                            <button className="btnDelete" type="sumbit">Rimuovi ultima colonna</button>
+                        </div>
+                    </div>
+
+
+
 
                 </div>
 

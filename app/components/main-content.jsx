@@ -14,6 +14,7 @@ class MainContent extends Component {
             <div>
         <div className="col-md-9 text-center" id="main-content">
             <div className="tab-content">
+                <div role="tabpanel" className="tab-pane active text-left" id="formBuilderContent">
                 <div className="blockChoice">
                     <div className="cardContainer">
                         <input type="text" placeholder="Title" className="inputChoice"/>
@@ -40,6 +41,7 @@ class MainContent extends Component {
 
                 <CreateTable />
 
+            </div>
             </div>
         </div>
             </div>);

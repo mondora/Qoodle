@@ -14,7 +14,7 @@ class RichiestePage extends Component {
     render() {
         return (
 
-            <div style={{margin: "20px"}}>
+            <div>
                 <div className="row">
                 <SideBar/>
                 <MainContent/>

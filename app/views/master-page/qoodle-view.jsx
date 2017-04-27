@@ -62,9 +62,10 @@ class QoodleView extends Component
     handleKeyPress(event)
     {
         //console.log(event.charCode);
-        //console.log(this.state.currentValue.length);
+        //console.log(Object.keys(this.state.currentValue).length);
         //console.log(this.state.currentValue + "   " + this.state.struct.length)
-        if(event.charCode === 13 /* && this.state.currentValue.length === this.state.struct.length*/)
+        //controllo che almeno 3 campi siano inizializzati
+        if(event.charCode === 13  && Object.keys(this.state.currentValue).length === this.state.struct.length)
         {
             this.setState({elementsTable: this.state.elementsTable.concat([this.state.currentValue])});
         }
@@ -157,7 +158,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
+            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} min={0}/></td>)
 
         }
 

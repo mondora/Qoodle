@@ -7,9 +7,10 @@ class QoodleView extends Component
 
     constructor () {
         super();
-        this.handleChange = this.handleChange.bind(this);
+
         this.state = {
             isOpenMenu: false,
+            currentValue: {},
             struct: [
                 {
                     name: "Name",
@@ -46,21 +47,30 @@ class QoodleView extends Component
     }
 
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-        alert('Ultimo carattere inserito '+ event.target.value
-        );
+    handleChange(fieldName, event) {
+       // var currentValue = this.state.currentValue;// se ho già qualcosa
+       // currentValue[fieldName] = event.target.value;
+        var result = {};
+        for (var attrname in this.state.currentValue) { result[attrname] = this.state.currentValue[attrname]; }
+        result[fieldName] = event.target.value;
+
+        this.setState({currentValue: result});
+        //console.log(fieldName);
+        //console.log(event.target.value);
     }
 
-
-    /*handleChange(event) {
-        if(event.target.value.keyCode() !== 13)
+    handleKeyPress(event)
+    {
+        //console.log(event.charCode);
+        //console.log(this.state.currentValue.length);
+        //console.log(this.state.currentValue + "   " + this.state.struct.length)
+        if(event.charCode === 13 /* && this.state.currentValue.length === this.state.struct.length*/)
         {
-            this.setState({value: value + '' + event.target.value});
-            alert('Ultimo carattere inserito '+ event.target.value
-            );}
-        else alert('wei '+ event.target.value);
-    }*/
+            this.setState({elementsTable: this.state.elementsTable.concat([this.state.currentValue])});
+        }
+
+    }
+
 
 
     somma(itemKey, obj)
@@ -147,7 +157,7 @@ class QoodleView extends Component
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input onChange={this.handleChange}/*onKeyPress={this.handleKeyPress.bind(this)}*/ type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
+            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} /></td>)
 
         }
 

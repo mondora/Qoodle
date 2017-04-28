@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
-
+import Riassunto from "components/riassunto";
+import QVHeaderTable from "components/qv-header-table";
+import QVFooterTable from "components/qv-footer-table";
 
 class QoodleView extends Component
 {
@@ -91,47 +93,14 @@ class QoodleView extends Component
         return sum;
     }
 
-    riassunto()
-    {
-        var sintesi = [];
-        var somma;
-        var lbl;
-
-        for(var i=0; i<this.state.struct.length; i++)
-        {
-            if(i != 0) {
-                somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
-                lbl = this.state.struct[i].name;
-            }
-            else {
-                somma = this.state.elementsTable.length;//nel primo caso devo contare quante occorrenze ho.
-                lbl = "Total Response";
-            }
-            sintesi.push(<div className="cellStats">{somma}
-                <label>{lbl}</label>
-                    </div>);
-
-        }
-        return (sintesi);
-    }
 
 
 
 
 
 
-    renderHeaderTable(){
-        var  headerItem = [];
-        for(var i =0; i< this.state.struct.length; i++)
-        {
-            headerItem.push(<th scope="col" >{ this.state.struct[i].name }</th>)
-        }
 
-
-        return (<tr>{headerItem}</tr>)
-    }
-
-    renderFooterTable()   {
+    /* renderFooterTable()   {
         var footerItem = [];
 
 
@@ -151,14 +120,14 @@ class QoodleView extends Component
 
         return (<tr>{footerItem}</tr>);
 
-    }
+    }*/
 
     renderCellTable()   {
         var cellItem = [];
 
         for(var i=0; i<this.state.struct.length; i++)
         {
-            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} min={0}/></td>)
+            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} min={0} /></td>)
 
         }
 
@@ -197,18 +166,21 @@ class QoodleView extends Component
 
 
     render(){
+        console.log(this.state.elementsTable);
             return (
                 <div className="container">
                 <div id="rowStats">
-                {this.riassunto()}
+                <Riassunto struct={this.state.struct} elementsTable={this.state.elementsTable}/>
                 </div>
                 <table className="responsive-table">
                     <caption> A Christmas Dinner</caption>
                     <thead>
-                    {this.renderHeaderTable()}
+                    <QVHeaderTable struct={this.state.struct}/>
                     </thead>
                     <tfoot>
-                    {this.renderFooterTable()}
+
+                    <QVFooterTable struct={this.state.struct} elementsTable={this.state.elementsTable}/>
+
                     </tfoot>
                     <tbody>
                     {this.renderCellTable()}

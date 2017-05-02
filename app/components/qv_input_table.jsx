@@ -9,7 +9,7 @@ class QVInputTable extends Component
         super(props);
     }
 
-    //richiamo le mesime funzioni 
+    //richiamo le mesime funzioni
     handleInputChange(fieldName, e) {
 
         this.props.onChangeTip(fieldName, e)

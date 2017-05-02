@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import Riassunto from "components/riassunto";
 import QVHeaderTable from "components/qv-header-table";
 import QVFooterTable from "components/qv-footer-table";
+import QVInputTable from "../../components/qv_input_table";
+//import QVDataTable from "components/qv-data-table";
 
 class QoodleView extends Component
 {
@@ -54,6 +56,7 @@ class QoodleView extends Component
        // currentValue[fieldName] = event.target.value;
         var result = {};
         for (var attrname in this.state.currentValue) { result[attrname] = this.state.currentValue[attrname]; }
+        console.log(event);
         result[fieldName] = event.target.value;
 
         this.setState({currentValue: result});
@@ -94,46 +97,6 @@ class QoodleView extends Component
     }
 
 
-
-
-
-
-
-
-    /* renderFooterTable()   {
-        var footerItem = [];
-
-
-        for(var i=0; i<this.state.struct.length; i++)
-        {
-            var somma;
-            //per ogni elemento dell'array struct controllo il tipo(se number)
-            //passo a somma il nome del campo, e l'array di elementi pieni (oggetti)
-            somma = this.state.struct[i].type == "number" ? this.somma(this.state.struct[i].name, this.state.elementsTable) : "";
-
-            //cambia l'i, cioè, a che "descrizione campo" siamo, ma ne prendo sempre il nome.
-            //quindi poi ciclo sugli elements, ma ogni volta con lo stesso nome
-
-            footerItem.push(<td scope="col">{somma}</td>)
-
-        }
-
-        return (<tr>{footerItem}</tr>);
-
-    }*/
-
-    renderCellTable()   {
-        var cellItem = [];
-
-        for(var i=0; i<this.state.struct.length; i++)
-        {
-            cellItem.push(<td> <input onChange={this.handleChange.bind(this, this.state.struct[i].name)} onKeyPress={this.handleKeyPress.bind(this)} type={this.state.struct[i].type} placeholder={this.state.struct[i].name} min={0} /></td>)
-
-        }
-
-        return (<tr>{cellItem}</tr>);
-    }
-
     renderRigaTable(obj)
     {
         var riga = [];
@@ -145,7 +108,7 @@ class QoodleView extends Component
     }
 
 
-    renderExampleTable()
+    renderDataTable()
     {
         var exampleItem = [];
         var elementi = this.state.elementsTable;
@@ -183,8 +146,12 @@ class QoodleView extends Component
 
                     </tfoot>
                     <tbody>
-                    {this.renderCellTable()}
-                    {this.renderExampleTable()}
+
+                    <QVInputTable onChangeTip={this.handleChange.bind(this)} onKeyTip={this.handleKeyPress.bind(this)} struct={this.state.struct}/>
+
+                    {this.renderDataTable()}
+
+                    {/*<QVDataTable elementsTable={this.state.elementsTable}/>*/}
 
                     </tbody>
                 </table>

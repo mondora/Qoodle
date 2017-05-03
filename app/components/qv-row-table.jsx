@@ -16,8 +16,8 @@ class QVRowTable extends Component
       var riga = [];
 
       //pusho un array contenente ognuno il valore di un campo dell'oggetto(tra td)
-      riga.push( Object.keys(this.props.ele).map((e) => <td>{obj[e]}</td>));
-      return (<tr>riga</tr>);
+      riga.push( Object.keys(this.props.ele).map((e) => <td>{this.props.ele[e]}</td>));
+      return (<tr>{riga}</tr>);
 
     }
 

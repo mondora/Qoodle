@@ -97,45 +97,16 @@ class QoodleView extends Component
     }
 
 
-  /*  renderRigaTable(obj)
-    {
-        var riga = [];
-
-            //pusho un array contenente ognuno il valore di un campo dell'oggetto(tra td)
-            riga.push( Object.keys(obj).map((e) => <td>{obj[e]}</td>));
-
-        return riga;
-    }
-
-
-    renderDataTable()
-    {
-        var exampleItem = [];
-        var elementi = this.state.elementsTable;
-
-        for(var i=0; i<elementi.length; i++)
-        {
-            exampleItem.push( <tr>{this.renderRigaTable( elementi[i] )}</tr> ) ;
-        }
-
-        return (exampleItem)
-
-    }*/
-
-
-
-
-
-
 
     render(){
       //per ogni elemento mi creo una riga come deciso da QVRowTable
         var dataRows = [];
         var elementi = this.state.elementsTable;
 
-        for(var i=0; elementi.length; i++)
-          dataRows.push(<QVRowTable ele= elementi[i]);
-
+        for(var i=0; i<elementi.length; i++)
+        {
+            dataRows.push( <QVRowTable ele={elementi[i]}></QVRowTable> ) ;
+        }
         console.log(dataRows);
 
 

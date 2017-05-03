@@ -4,7 +4,7 @@ import Riassunto from "components/riassunto";
 import QVHeaderTable from "components/qv-header-table";
 import QVFooterTable from "components/qv-footer-table";
 import QVInputTable from "../../components/qv_input_table";
-//import QVDataTable from "components/qv-data-table";
+import QVRowTable from "components/qv-row-table";
 
 class QoodleView extends Component
 {
@@ -97,7 +97,7 @@ class QoodleView extends Component
     }
 
 
-    renderRigaTable(obj)
+  /*  renderRigaTable(obj)
     {
         var riga = [];
 
@@ -120,7 +120,7 @@ class QoodleView extends Component
 
         return (exampleItem)
 
-    }
+    }*/
 
 
 
@@ -129,7 +129,16 @@ class QoodleView extends Component
 
 
     render(){
-        console.log(this.state.elementsTable);
+      //per ogni elemento mi creo una riga come deciso da QVRowTable
+        var dataRows = [];
+        var elementi = this.state.elementsTable;
+
+        for(var i=0; elementi.length; i++)
+          dataRows.push(<QVRowTable ele= elementi[i]);
+
+        console.log(dataRows);
+
+
             return (
                 <div className="container">
                 <div id="rowStats">
@@ -149,7 +158,9 @@ class QoodleView extends Component
 
                     <QVInputTable onChangeTip={this.handleChange.bind(this)} onKeyTip={this.handleKeyPress.bind(this)} struct={this.state.struct}/>
 
-                    {this.renderDataTable()}
+
+                    {dataRows}
+                    {/*this.renderDataTable()*/}
 
                     {/*<QVDataTable elementsTable={this.state.elementsTable}/>*/}
 

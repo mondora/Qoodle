@@ -15,7 +15,6 @@ class RichiestePage extends Component {
         return (
 
                 <div className="row">
-                  <SideBar/>
                   <MainContent/>
                 </div>
         );

@@ -12,7 +12,7 @@ class MainContent extends Component {
 
         return (
             <div>
-        <div className="col-md-9 text-center" id="main-content">
+        <div className="col-md-10 text-center" id="main-content">
             <div className="tab-content">
                 <div role="tabpanel" className="tab-pane active text-left" id="formBuilderContent">
                 <div className="blockChoice">

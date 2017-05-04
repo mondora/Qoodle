@@ -34,7 +34,7 @@ class SideBar extends Component {
 
                     <div role="tabpanel" className="tab-pane active" id="uniMisura">
                         <p>
-                            SET UNITA' DI MISURA
+                            SET UNITÀ DI MISURA
                         </p>
 
                         <div className="collapse in" id="stdUniMisuraField" aria-expanded="true">

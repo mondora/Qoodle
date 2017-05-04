@@ -14,16 +14,12 @@ class RichiestePage extends Component {
     render() {
         return (
 
-            <div>
                 <div className="row">
-                <SideBar/>
-                <MainContent/>
+                  <SideBar/>
+                  <MainContent/>
                 </div>
-    </div>
         );
     }
 }
 
 export default RichiestePage;
-
-

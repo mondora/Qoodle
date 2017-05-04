@@ -131,9 +131,6 @@ class QoodleView extends Component
 
 
                     {dataRows}
-                    {/*this.renderDataTable()*/}
-
-                    {/*<QVDataTable elementsTable={this.state.elementsTable}/>*/}
 
                     </tbody>
                 </table>

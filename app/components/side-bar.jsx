@@ -1,9 +1,7 @@
 import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 import SideField from "./side-field";
 
-class SideBar extends Component {
+export default class SideBar extends Component {
 
 
 
@@ -75,5 +73,3 @@ class SideBar extends Component {
     );
     }
 }
-
-export default connect(null, null) (SideBar);

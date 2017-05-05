@@ -1,10 +1,8 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
 
-class SideField extends Component
+export default class SideField extends Component
 {
 
     constructor(props)
@@ -50,4 +48,3 @@ class SideField extends Component
 
 
 }
-export default (SideField);

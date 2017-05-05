@@ -1,12 +1,10 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
 import CreateTable from "components/create-table";
 import QCBasicInfo from "components/QCBasicInfo";
 
-class MainContent extends Component {
+export default class MainContent extends Component {
 
 
     render() {
@@ -27,4 +25,3 @@ class MainContent extends Component {
     }
 }
 
-export default connect(null, null) (MainContent);

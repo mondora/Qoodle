@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 
-
 class QVInputTable extends Component
 {
     constructor(props)
@@ -19,9 +18,9 @@ class QVInputTable extends Component
         this.props.onKeyTip(e);
     }
 
-
-
-
+    renderColumns () {
+        {}
+    }
 
     render()
     {
@@ -35,13 +34,7 @@ class QVInputTable extends Component
         }
 
         return (<tr>{cellItem}</tr>);
-
-
-
     }
-
-
-
 }
 
 export default QVInputTable;

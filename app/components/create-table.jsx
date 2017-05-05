@@ -1,8 +1,6 @@
 import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
-class CreateTable extends Component {
+export default class CreateTable extends Component {
 
     constructor () {
         super();
@@ -67,7 +65,7 @@ class CreateTable extends Component {
                 <thead>
                     <tr>
                         {this.renderHeader()}
-                        <th onClick={this.addStruct.bind(this)} style={{cursor: "pointer", backgroundColor: "#FFF", color: "#f5b95f", border: "1px solid #f5b95f"}}>
+                        <th style={{cursor: "pointer", backgroundColor: "#FFF", color: "#f5b95f", border: "1px solid #f5b95f"}}>
                             <div>+</div>
                         </th>
                     </tr>
@@ -82,5 +80,3 @@ class CreateTable extends Component {
         );
     }
 }
-
-export default connect(null, null) (CreateTable);

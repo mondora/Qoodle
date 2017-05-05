@@ -1,10 +1,8 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
 
-class QCBasicInfo extends Component
+export default class QCBasicInfo extends Component
 {
 
   render()
@@ -45,4 +43,3 @@ class QCBasicInfo extends Component
 
 
 }
-export default QCBasicInfo;

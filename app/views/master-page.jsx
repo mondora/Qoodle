@@ -1,11 +1,9 @@
 import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
 import Header from "components/header"
 /* LIST COMPONENTS */
 
-class MasterPage extends Component {
+export default class MasterPage extends Component {
 
     static propTypes = {
         children: PropTypes.node
@@ -33,6 +31,3 @@ class MasterPage extends Component {
         return (this.renderMainPage());
     }
 }
-
-
-export default connect(null, null)(MasterPage);

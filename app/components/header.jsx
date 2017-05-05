@@ -1,8 +1,6 @@
 import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
-class Header extends Component {
+export default class Header extends Component {
     constructor () {
         super();
         this.state = {
@@ -20,9 +18,9 @@ class Header extends Component {
         return(
             <div className={"header"}>
                 <div className="floatLeft">
-                    <i className="hamburger fa fa-bars" onClick={this.toggleMenu.bind(this)} aria-hidden="true" />
+                    <i className="hamburger fa fa-bars" aria-hidden="true" />
                     <div className={this.state.isOpenMenu ? "containerMenu" : "containerMenu hidden"} >
-                        <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}} onClick="location.href='#/create'">ADD NEW QOODLE</div>
+                        <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}} >ADD NEW QOODLE</div>
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}}>LIST QOODLE</div>
                     </div>
                     <img src="_assets/img/logo.png" style={{verticalAlign: 'middle', width: 100}} />
@@ -34,5 +32,3 @@ class Header extends Component {
         );
     }
 }
-
-export default connect(null, null) (Header);

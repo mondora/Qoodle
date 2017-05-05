@@ -1,24 +1,17 @@
-import React, {Component, PropTypes} from "react";
-import ReactDOM from "react-dom";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import React, {Component} from "react";
 
-import CreateTable from "components/create-table";
-import SideBar from "components/side-bar";
-import MainContent from "components/main-content";
+import ColumnCreationModal from "components/ColumnCreationModal";
 /////////////List Actions
 
 
-class RichiestePage extends Component {
+export default class RichiestePage extends Component {
 
     render() {
         return (
-
-                <div className="row">
-                  <MainContent/>
-                </div>
+            <div className="row">
+              <ColumnCreationModal onAdd={() => console.log('ciao')}/>
+            </div>
         );
     }
-}
 
-export default RichiestePage;
+}

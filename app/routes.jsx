@@ -9,9 +9,7 @@ import QoodleView from "views/master-page/qoodle-view";
 export default (
     <Router history={history} >
         <Route component={RootPage} path="/" name="root">
-            <IndexRoute component={ListPage} name="list" />
             <Route component={NewQoodle} name="new" path="/create"/>
-            <Route component={QoodleView} name="qoodle" path="/qoodle"/>
         </Route>
 
 

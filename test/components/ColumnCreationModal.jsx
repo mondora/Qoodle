@@ -62,16 +62,35 @@ describe('ColumnCreationModal', () => {
 
 
 
-    describe('when user clicks on add button', () => {
+  describe('when user clicks on add button', () => {
 
-        it('calls onAdd function', () => {
-            const onAdd = sinon.spy();
-            const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
-            element.find(Button).simulate('click');
-            expect(onAdd).has.callCount(1);
-        });
+  it('calls onAdd function providing name and min values', () => {
+      const onAdd = sinon.spy();
+      const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
 
-    });
+      element
+          .find(FormControl)
+          .findWhere(n => n.prop('placeholder') === 'Nome')
+          .simulate('change', {target: {value: 'name value'}});
+      element
+          .find(FormControl)
+          .findWhere(n => n.prop('placeholder') === 'Min')
+          .simulate('change', {target: {value: 'min value'}});
+
+      element
+          .find(FormControl)
+          .findWhere(n => n.prop('placeholder') === 'Max')
+          .simulate('change', {target: {value: 'max value'}});
+      element
+          .find(FormControl)
+          .findWhere(n => n.prop('componentClass') === 'select')
+          .simulate('change', {target: {value: 'sel value'}});
+
+      element.find(Button).simulate('click');
+      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value');
+  });
+
+});
 
     it('sets name in state as empty string', () => {
         const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
@@ -82,53 +101,6 @@ describe('ColumnCreationModal', () => {
         const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
         expect(element.state('name')).to.be.equal('');
     });
-
-
-
-    var assert = require('assert');
-    describe('Array', function() {
-      describe('#indxOf()', function() {
-        it('should return -1 when the value is not present', function() {
-          assert.equal(-1, [1,2,3].indexOf(4));
-          assert.equal(2, [1,2,3].indexOf(3));
-
-          assert('foo' !== 'bar', 'foo is not bar');
-          assert(Array.isArray([]), 'empty arrays are arrays');
-assert.equal(3, '3', '== coerces values to strings');//funziona bene! non confronta il tipo , come ==
-
-
-        });
-      });
-    });
-
-
-
-    var vett = [1,7,8];
-    describe('test equal', () =>
-    {
-      it('eql fa check contenuto, l"altro indirizzo', () =>{
-        expect([1,2,3]).to.be.eql([1,2,3]);
-        expect(vett).to.be.eql([1,7,8]);
-
-        expect(vett).to.not.be.equal([1,7,8]);
-        var ore = vett;
-        expect(ore).to.be.equal(vett);
-        expect(vett).to.be.equal(vett);
-
-
-      });
-    });
-
-    describe('test keys', () =>
-    {
-      if('giusto',() =>
-      {
-        expect({ foo: 1, bar: 2 }).to.have.all.keys({'bar': 6, 'foo': 7});
-        expect({ foo: 1, bar: 2, baz: 3 }).to.contain.all.keys(['bar', 'fooffds']);
-      });
-
-    } );
-
 
 
 

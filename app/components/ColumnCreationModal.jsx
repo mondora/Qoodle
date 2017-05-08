@@ -8,7 +8,10 @@ export default class ColumnCreationModal extends Component {
         super();
         this.state = {
             name: '',
-            min: 0
+            min: 0,
+            max: 99999,
+            option: ''
+
         };
     }
 
@@ -16,8 +19,32 @@ export default class ColumnCreationModal extends Component {
         onAdd: PropTypes.func.isRequired
     }
 
+    handleNameChange(nome)
+    {
+      this.setState({name : nome.target.value});
+    }
+
+    handleMinChange(mi)
+    {
+      this.setState({min : mi.target.value});
+    }
+
+
+    handleMaxChange(ma)
+    {
+      this.setState({max : ma.target.value});
+    }
+
     render () {
         const {onAdd} = this.props;
+        const name = this.state.name;
+        const min = this.state.min;
+        const max = this.state.max;
+        const option = this.state.option;
+
+        console.log(name);
+        console.log(min);
+
         return (
             <Modal.Dialog>
                 <Modal.Header>
@@ -26,29 +53,27 @@ export default class ColumnCreationModal extends Component {
                 <Modal.Body>
                     <form>
                         <FormGroup>
-                            <FormControl type="text" placeholder="Nome" />
+                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl type="number" placeholder="Min" />
+                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl type="number" placeholder="Max" />
+                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
                         </FormGroup>
                         <FormGroup>
                         <FormControl componentClass="select" multiple>
-                          <option value="select">
-                            select (multiple)
-                          </option>
-                          <option value="kg">kilograms</option>
-                          <option value="m">meter</option>
-                          <option value="bott">bottles</option>
+                          <option value="wui">Whitout unit of measure</option>
+                          <option value="kg">Kilograms</option>
+                          <option value="m">Meter</option>
+                          <option value="bott">Bottles</option>
                         </FormControl>
                       </FormGroup>
 
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={onAdd}>{"Aggiungi"}</Button>
+                    <Button onClick={() => onAdd(name, min, max)}>{"Aggiungi"}</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         )

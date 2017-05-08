@@ -14,20 +14,12 @@
   "author": "mondora",
   "license": "MIT",
   "dependencies": {
-    "axios": "~0.12.0",
-    "react": "~15.1.0",
-    "react-dom": "~15.1.0",
-    "react-dropzone": "~3.9.2 ",
-    "react-motion": "~0.4.7",
-    "react-redux": "~4.4.5",
-    "react-router": "^2.7.0",
-    "redux": "~3.5.2",
-    "redux-logger": "~2.6.1",
-    "redux-storage": "~4.0.0",
-    "redux-storage-decorator-filter": "~1.1.4",
-    "redux-storage-engine-localstorage": "~1.1.0",
-    "redux-thunk": "~2.1.0",
-    "sha256": "~0.2.0"
+    "bootstrap": "^3.3.7",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.5.4",
+    "react-router": "^3.0.2"
   },
   "devDependencies": {
     "babel-cli": "~6.9.0",
@@ -40,7 +32,9 @@
     "babel-register": "^6.9.0",
     "bluebird": "~3.4.0",
     "browser-sync": "~2.12.8",
+    "chai": "^3.5.0",
     "dotenv": "~2.0.0",
+    "enzyme": "^2.8.2",
     "eslint": "~2.10.2",
     "eslint-plugin-babel": "~3.2.0",
     "gh-pages": "^0.12.0",
@@ -57,6 +51,9 @@
     "gulp-util": "~3.0.7",
     "mocha": "~2.5.3",
     "pro-gulp": "~0.3.0",
+    "react-addons-test-utils": "^15.5.1",
+    "sinon": "^2.2.0",
+    "sinon-chai": "^2.10.0",
     "webpack": "~1.13.1"
   },
   "bugs": {

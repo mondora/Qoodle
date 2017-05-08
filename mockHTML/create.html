@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" media="screen" href="style.css">
+    <link rel="stylesheet" media="screen" href="font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="header" style="margin:0 -15px">
+        <div class="floatLeft">
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <img src="img/logo.png" style="vertical-align: middle; width: 100px">
+
+        </div>
+        <div class="floatRight">
+            <span style="color: #999">Nome cognome</span>
+            <div class="btn littleOne">Logout</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" id="sideBar">
+            <div class="tab-container text-center">
+                <ul class="neo-nav clearfix" role="tablist">
+                    <li role="presentation">
+                        <a href="#fieldSettingTab" id="fieldSettingTab_lnk" aria-controls="profile" role="tab" data-toggle="tab">
+                            Field Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content" id="sidebar-tab-content" style="height: 86vh;">
+                <div role="tabpanel" class="tab-pane active" id="titleField">
+                    <p>
+                       COLUMN TITLE
+                    </p>
+
+                    <div class="collapse in" id="stdTitleField" aria-expanded="true">
+                        <input type="text"/>
+
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="minField">
+                    <p>
+                        SET MIN
+                    </p>
+
+                    <div class="collapse in" id="stdMinField" aria-expanded="true">
+                        <input type="number"/><!--impostare il minimo-->
+
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="maxField">
+                    <p>
+                        SET MAX
+                    </p>
+
+                    <div class="collapse in" id="stdMaxField" aria-expanded="true">
+                        <input type="number"/>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="uniMisura">
+                    <p>
+                        SET UNITA' DI MISURA
+                    </p>
+
+                    <div class="collapse in" id="stdUniMisuraField" aria-expanded="true">
+                        <select class="sceltaMisura" ><option value="kg">kilogrammi</option> <option value="metro">metro</option> <option value="bottle">bottle</option> </select>
+
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane active" id="invio">
+
+                    <div class="collapse in" style="display:inline-block"  id="stdAdd" aria-expanded="true">
+                        <button class="btnAdd" type="submit">Aggiungi alla tabella</button>
+
+                    </div>
+                <br/><br/>
+
+                    <div class="collapse in" id="stdDelete" aria-expanded="true">
+                        <button class="btnDelete" type="sumbit">Rimuovi ultima colonna</button>
+                    </div>
+
+                </div>
+
+
+
+                <div role="tabpanel" class="tab-pane" id="fieldSettingTab">
+                    <div class="ng-scope">
+                        <div>
+                            <div class="form-group">
+                                <label for="Field_Label" class="ng-binding">Field Label</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="Field_Label" value="Field Label" placeholder="Field Label">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ng-scope">
+                        <div>
+                            <div class="form-group ">
+                                <label for="Short_Label" class="ng-binding">Short Label</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="Short_Label" value="Short Label" placeholder="Short Label">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ng-scope">
+                        <div>
+                            <div class="form-group">
+                                <label for="Internal_Name" class="ng-binding">Internal Name</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="Internal_Name" value="Internal Name" placeholder="Internal Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ng-scope">
+                        <div>
+                            <div class="form-group">
+                                <label class="ng-binding">Field Type</label>
+                                <br>
+                                <span class="ng-binding">Date</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ng-scope">
+                        <div>
+                            <div class="form-group" ng-switch-when="radio">
+                                <div ng-repeat="val in set.PossibleValue" class="radio">
+                                    <label class="ng-binding">
+                                        <input type="radio" name="optionsRadios" value="true" ng-checked="val.Checked"
+                                               checked="checked">
+                                        DateTimeInstance
+                                    </label>
+                                </div><!-- end ngRepeat: val in set.PossibleValue -->
+                                <div ng-repeat="val in set.PossibleValue" class="radio">
+                                    <label class="ng-binding">
+                                        <input type="radio" name="optionsRadios" value="false" ng-checked="val.Checked">
+                                        DateTimeLocal
+                                    </label>
+                                </div><!-- end ngRepeat: val in set.PossibleValue -->
+                                <div ng-repeat="val in set.PossibleValue" class="radio">
+                                    <label class="ng-binding">
+                                        <input type="radio" name="optionsRadios" value="false" ng-checked="val.Checked">
+                                        DateLocal
+                                    </label>
+                                </div><!-- end ngRepeat: val in set.PossibleValue -->
+                                <div ng-repeat="val in set.PossibleValue" class="radio">
+                                    <label class="ng-binding">
+                                        <input type="radio" name="optionsRadios" value="false" ng-checked="val.Checked">
+                                        Time
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div ng-repeat="set in current_field.Settings" ng-switch="" on="set.Type" class="ng-scope">
+                        <div>
+                            <div class="form-group " ng-switch-when="dropdown">
+                                <label class="ng-binding">Column Span</label>
+                                <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="set.Value">
+                                    <!-- ngRepeat: op in set.PossibleValue -->
+                                    <option ng-repeat="op in set.PossibleValue" class="ng-binding" value="1">
+                                        1
+                                    </option><!-- end ngRepeat: op in set.PossibleValue -->
+                                    <option ng-repeat="op in set.PossibleValue" class="ng-binding" value="2">
+                                        2
+                                    </option><!-- end ngRepeat: op in set.PossibleValue -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-repeat="set in current_field.Settings" ng-switch="" on="set.Type" class="ng-scope">
+                        <div>
+                            <div ng-switch-when="checkBoxZone" class="ng-scope">
+                                <a role="button" data-toggle="collapse" href="#chkBoxZone" class="ng-binding">
+                                    <i class="fa fa-lg fa-plus-square-o"></i><i class="fa fa-lg fa-minus-square-o"></i>
+                                    General Options
+                                </a>
+                                <div class="collapse in" id="chkBoxZone">
+                                    <!-- ngRepeat: op in set.Options -->
+                                    <div class="form-group" ng-repeat="op in set.Options">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="false" ng-model="op.Value"
+                                                   class="ng-pristine ng-untouched ng-valid"> Required
+                                        </label>
+                                    </div><!-- end ngRepeat: op in set.Options -->
+                                    <div class="form-group" ng-repeat="op in set.Options">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="false" ng-model="op.Value"
+                                                   class="ng-pristine ng-untouched ng-valid"> Show on list
+                                        </label>
+                                    </div><!-- end ngRepeat: op in set.Options -->
+                                    <div class="form-group" ng-repeat="op in set.Options">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="false" ng-model="op.Value"
+                                                   class="ng-pristine ng-untouched ng-valid"> Unique
+                                        </label>
+                                    </div><!-- end ngRepeat: op in set.Options -->
+                                    <div class="form-group" ng-repeat="op in set.Options">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="false" ng-model="op.Value"
+                                                   class="ng-pristine ng-untouched ng-valid"> Index
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+        <div class="col-md-9 text-center" id="main-content">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active text-left" id="formBuilderContent">
+                    <h2>Qoodle info</h2>
+                    <p>
+                        <i class="fa fa-pencil fa-lg"></i>
+                        <span class="lead">
+                            <input type="text" placeholder="Qoodle title">
+                        </span>
+                    </p>
+
+                <br/>
+                <br/>
+                <div id="descrizione" style="position: relative">
+
+                    <textarea style="width: 640px; height: 96px;">Descrizione Qoodle</textarea>
+
+                </div>
+
+
+                <br/>
+                <br/>
+                <br/><br/><br/><br/>
+
+                <h3 >Qoodle structure</h3>
+
+
+                    <table class="responsive-table">
+                        <caption></caption>
+                        <thead>
+                        <tr><th>Nome</th></tr>
+
+
+                        </thead>
+                    </table>
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="structure.json"></script>
+<script type="text/javascript" src="control.js"></script>
+</body>
+</html>

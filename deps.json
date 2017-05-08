@@ -1,13 +1,16 @@
 {
     "css": [
         "app/assets/css/style.css",
-        "app/assets/css/**/*"
+        "app/assets/css/**/*",
+        "node_modules/bootstrap/dist/css/bootstrap.css"
     ],
     "fonts": [
-        "app/assets/fonts/**/*"
+        "app/assets/fonts/**/*",
+        "node_modules/bootstrap/dist/fonts/*"
     ],
     "js": [
         "react",
+        "react-bootstrap",
         "react-dom",
         "react-redux",
         "react-router",

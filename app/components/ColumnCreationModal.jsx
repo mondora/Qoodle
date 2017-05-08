@@ -39,7 +39,9 @@ export default class ColumnCreationModal extends Component {
                           <option value="select">
                             select (multiple)
                           </option>
-                          <option value="other">...</option>
+                          <option value="kg">kilograms</option>
+                          <option value="m">meter</option>
+                          <option value="bott">bottles</option>
                         </FormControl>
                       </FormGroup>
 

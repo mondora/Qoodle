@@ -37,7 +37,7 @@ describe('ColumnCreationModal', () => {
       expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
     ).to.length(2);
 
-    })
+  });
 
     it('check the length of input', () =>
     {//so di avere 4 input
@@ -45,19 +45,20 @@ describe('ColumnCreationModal', () => {
 
       expect(element.find(FormControl)).to.length(4);
 
-    }
+    });
 
-    )
-
-  /*  it('renders a select box for unit of measure', () =>
+    it('renders a select box for unit of measure', () =>{
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.find(FormControl))
+    expect(element.find(FormControl).findWhere(n => n.prop('componentClass') === 'select')
+    ).to.length(1);
+    });
 
-
-    )
-*/
-
-
+    it('renders all option', () =>
+    {
+      const element = shallow (<ColumnCreationModal onAdd={sinon.spy()} />);
+      expect(element.find(FormControl).find('option')).to.length(4);
+      //modo brutto di controllare quante option ci sono.
+  });
 
 
 

@@ -34,8 +34,8 @@ describe('ColumnCreationModal', () => {
         element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Max' )
     ).to.length(1);
 
-      expect(element.find(FormControl).findWhere(n => typeof n.type() !== 'text')
-    ).to.length(3);
+      expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
+    ).to.length(2);
 
 
     })

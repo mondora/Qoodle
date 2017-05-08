@@ -29,10 +29,10 @@ export default class ColumnCreationModal extends Component {
                             <FormControl type="text" placeholder="Nome" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl type="text" placeholder="Min" />
+                            <FormControl type="number" placeholder="Min" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl type="text" placeholder="Max" />
+                            <FormControl type="number" placeholder="Max" />
                         </FormGroup>
 
                     </form>

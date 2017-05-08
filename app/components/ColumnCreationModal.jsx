@@ -31,6 +31,10 @@ export default class ColumnCreationModal extends Component {
                         <FormGroup>
                             <FormControl type="text" placeholder="Min" />
                         </FormGroup>
+                        <FormGroup>
+                            <FormControl type="text" placeholder="Max" />
+                        </FormGroup>
+
                     </form>
                 </Modal.Body>
                 <Modal.Footer>

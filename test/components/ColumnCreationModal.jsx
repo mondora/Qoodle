@@ -37,8 +37,28 @@ describe('ColumnCreationModal', () => {
       expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
     ).to.length(2);
 
-
     })
+
+    it('check the length of input', () =>
+    {//so di avere 4 input
+      const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+
+      expect(element.find(FormControl)).to.length(4);
+
+    }
+
+    )
+
+  /*  it('renders a select box for unit of measure', () =>
+    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+    expect(element.find(FormControl))
+
+
+    )
+*/
+
+
+
 
 
     describe('when user clicks on add button', () => {

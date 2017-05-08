@@ -34,6 +34,14 @@ export default class ColumnCreationModal extends Component {
                         <FormGroup>
                             <FormControl type="number" placeholder="Max" />
                         </FormGroup>
+                        <FormGroup>
+                        <FormControl componentClass="select" multiple>
+                          <option value="select">
+                            select (multiple)
+                          </option>
+                          <option value="other">...</option>
+                        </FormControl>
+                      </FormGroup>
 
                     </form>
                 </Modal.Body>

@@ -331,7 +331,11 @@ body{
 .medium {
   width: 60vw;
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 15px;
+}
+
+.cent{
+  position: relative;
 }
 
 .container-fluid {
@@ -344,6 +348,7 @@ body{
 .row{
   margin-right: -15px;
   margin-left: -15px;
+  text-align: center;
 }
 
 #sideBar {

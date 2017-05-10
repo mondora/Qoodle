@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
 
 export default class ColumnCreationModal extends Component {
 
@@ -10,7 +10,8 @@ export default class ColumnCreationModal extends Component {
             name: '',
             min: 0,
             max: 99999,
-            option: ''
+            umoption: '',
+            coinoption: ''
 
         };
     }
@@ -35,15 +36,29 @@ export default class ColumnCreationModal extends Component {
       this.setState({max : ma.target.value});
     }
 
+    handleUMChange(um)
+    {
+      this.setState({umoption : um.target.value});
+    }
+
+    handleCoinChange(coin)
+    {
+      this.setState({coinoption : coin.target.value});
+    }
+
+
+
     render () {
         const {onAdd} = this.props;
         const name = this.state.name;
         const min = this.state.min;
         const max = this.state.max;
-        const option = this.state.option;
+        const umoption = this.state.umoption;
+        const coinoption = this.state.coinoption;
 
+        console.log(umoption);
         console.log(name);
-        console.log(min);
+        console.log(coinoption);
 
         return (
             <Modal.Dialog>
@@ -61,8 +76,10 @@ export default class ColumnCreationModal extends Component {
                         <FormGroup>
                             <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
                         </FormGroup>
+
                         <FormGroup>
-                        <FormControl componentClass="select" placeholder="select">
+                        <label>select Unit of measure</label>
+                        <FormControl componentClass="select" id="um" onChange={this.handleUMChange.bind(this)} placeholder="select">
                           <option value="wui">Whitout unit of measure</option>
                           <option value="kg">Kilograms</option>
                           <option value="m">Meter</option>
@@ -70,10 +87,20 @@ export default class ColumnCreationModal extends Component {
                         </FormControl>
                       </FormGroup>
 
+                      <FormGroup>
+                      <label>select type of coin(if you need it)</label>
+                      <FormControl componentClass="select" id="coin"  onChange={this.handleCoinChange.bind(this)} placeholder="select coin">
+                        <option value="empty"></option>
+                        <option value="dollars">$</option>
+                        <option value="euro">€</option>
+                      </FormControl>
+                    </FormGroup>
+
+
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => onAdd(name, min, max)}>{"Aggiungi"}</Button>
+                    <Button onClick={() => onAdd(name, min, max, umoption, coinoption)}>{"Aggiungi"}</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         )

@@ -19,8 +19,6 @@ describe('ColumnCreationModal', () => {
     expect(element.state('umoption')).to.be.empty;
     expect(element.state('coinoption')).to.be.empty;
 
-
-
   });
 
   //renderizzo per finta la modale e ci attacco una funzione spia
@@ -76,7 +74,8 @@ describe('ColumnCreationModal', () => {
 
   describe('when user clicks on add button', () => {
 
-  it('calls onAdd function providing name and min values', () => {
+
+    it('calls onAdd function providing name, min, max, um and coin values', () => {
       const onAdd = sinon.spy();
       const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
 
@@ -109,6 +108,25 @@ describe('ColumnCreationModal', () => {
       element.find(Button).simulate('click');
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
   });
+
+
+  it('calls onAdd function providing new name value', () => {
+      const onAdd = sinon.spy();
+      const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
+
+      element
+      .find(FormControl)
+      .findWhere(n => n.prop('placeholder') === 'Nome')
+      .simulate('change', {target: {value: 'Pere'}});
+
+      element.find(Button).simulate('click');
+
+      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
+
+});
+
+
+
 
 });
 

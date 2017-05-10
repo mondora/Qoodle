@@ -109,8 +109,18 @@ describe('ColumnCreationModal', () => {
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
   });
 
+  it('sets name in state as empty string', () => {
+    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+    expect(element.state('name')).to.be.equal('');
+});
 
-  it('calls onAdd function providing new name value', () => {
+it('sets min in state as 0 string', () => {
+    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+    expect(element.state('min')).to.be.equal(0);
+});
+
+
+    it('calls onAdd function providing new name value', () => {
       const onAdd = sinon.spy();
       const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
 
@@ -124,7 +134,7 @@ describe('ColumnCreationModal', () => {
       //se non simulo il change, la funzione viene chiamata con i valori di default dello stato(specificato questo nel componente)
       expect(onAdd).has.been.calledWith('Pere', 0, 99999, '', '');
 
-});
+    });
 
 
 
@@ -140,6 +150,34 @@ describe('ColumnCreationModal', () => {
         const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
         expect(element.state('name')).to.be.equal('');
     });
+
+    describe('when users changes \'name\' input', () => {
+
+        it('changes name value in state', () => {
+            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            element
+                .find(FormControl)
+                .findWhere(n => n.prop('placeholder') === 'Nome')
+                .simulate('change', {target: {value: 'this is a new value'}});
+            expect(element.state('name')).to.be.equal('this is a new value');
+        });
+
+    });
+
+    describe('when users changes \'min\' input', () => {
+
+        it('changes name value in state', () => {
+            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            element
+                .find(FormControl)
+                .findWhere(n => n.prop('placeholder') === 'Min')
+                .simulate('change', {target: {value: 'this is a new value'}});
+                //faccio un check dello state
+            expect(element.state('min')).to.be.equal('this is a new value');
+        });
+
+    })
+
 
 
 

@@ -36,6 +36,9 @@ export default class NewQoodle extends Component {
                     <FormControl type="text" placeholder="Description" />
                   </FormGroup>
 
+                  <Button className="cent" bsStyle="primary"  bsSize="large"  onClick={this.open.bind(this)}>
+                    Add column
+                     </Button>
               <ColumnCreationModal onAdd={() => console.log('ciao')} show={this.state.showColumnModal}/>
             </div>
         );

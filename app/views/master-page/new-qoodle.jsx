@@ -4,7 +4,7 @@ import ColumnCreationModal from "components/ColumnCreationModal";
 /////////////List Actions
 
 
-export default class RichiestePage extends Component {
+export default class NewQoodle extends Component {
 
     render() {
         return (

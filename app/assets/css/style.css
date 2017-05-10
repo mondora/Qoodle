@@ -327,6 +327,13 @@ body{
 
 
 /* BEGIN:: CREATE PAGE */
+
+.medium {
+  width: 60vw;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;

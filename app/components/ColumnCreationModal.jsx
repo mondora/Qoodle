@@ -4,8 +4,8 @@ import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
 
 export default class ColumnCreationModal extends Component {
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
             name: '',
             min: 0,
@@ -61,20 +61,21 @@ export default class ColumnCreationModal extends Component {
         console.log(coinoption);
 
         return (
-            <Modal.Dialog>
+            <Modal show={this.props.show}>
+              {console.log(this.props.show)}
                 <Modal.Header>
                     <Modal.Title>{"Nuova colonna"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form>
+
                         <FormGroup>
                             <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" />
+                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0}/>
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
+                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0}/>
                         </FormGroup>
 
                         <FormGroup>
@@ -97,12 +98,11 @@ export default class ColumnCreationModal extends Component {
                     </FormGroup>
 
 
-                    </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={() => onAdd(name, min, max, umoption, coinoption)}>{"Aggiungi"}</Button>
                 </Modal.Footer>
-            </Modal.Dialog>
+            </Modal>
         )
     }
 

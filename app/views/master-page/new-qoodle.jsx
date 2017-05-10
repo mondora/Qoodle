@@ -16,9 +16,6 @@ export default class NewQoodle extends Component {
 
   }
 
-
-
-
   close() {
     this.setState({ showColumnModal: false });
   }

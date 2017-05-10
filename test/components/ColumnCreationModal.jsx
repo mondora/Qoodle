@@ -82,6 +82,7 @@ describe('ColumnCreationModal', () => {
           .findWhere(n => n.prop('placeholder') === 'Max')
           .simulate('change', {target: {value: 'max value'}});
 
+
       element
           .find(FormControl)
           .findWhere(n => n.prop('id') === 'um')
@@ -93,7 +94,7 @@ describe('ColumnCreationModal', () => {
           .simulate('change', {target: {value: 'coin value'}})
 
       element.find(Button).simulate('click');
-      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value');
+      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
   });
 
 });

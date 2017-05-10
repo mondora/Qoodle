@@ -62,7 +62,7 @@ export default class ColumnCreationModal extends Component {
                             <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
                         </FormGroup>
                         <FormGroup>
-                        <FormControl componentClass="select" multiple>
+                        <FormControl componentClass="select" placeholder="select">
                           <option value="wui">Whitout unit of measure</option>
                           <option value="kg">Kilograms</option>
                           <option value="m">Meter</option>

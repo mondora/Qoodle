@@ -35,4 +35,15 @@ describe('NewQoodle', () => {
   });
 
 
+  it('renders a button to add Column', () =>
+  {
+      const element = shallow (<NewQoodle />);
+      expect(
+          element.find(FormControl).find(Button)).to.exist
+
+
+  });
+
+
+
 });

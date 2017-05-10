@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
 
 import ColumnCreationModal from "components/ColumnCreationModal";
 /////////////List Actions
@@ -6,10 +7,39 @@ import ColumnCreationModal from "components/ColumnCreationModal";
 
 export default class NewQoodle extends Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      showColumnModal : false
+    }
+
+  }
+
+
+
+
+  close() {
+    this.setState({ showColumnModal: false });
+  }
+
+  open() {
+  this.setState({ showColumnModal: true });
+}
+
+
+
     render() {
         return (
             <div className="row">
-              <ColumnCreationModal onAdd={() => console.log('ciao')}/>
+                  <FormGroup className='medium' bsSize="large">
+                    <FormControl type="text" placeholder="Title" />
+                  </FormGroup>
+                  <FormGroup className='medium'>
+                    <FormControl type="text" placeholder="Description" />
+                  </FormGroup>
+
+              <ColumnCreationModal onAdd={() => console.log('ciao')} show={this.state.showColumnModal}/>
             </div>
         );
     }

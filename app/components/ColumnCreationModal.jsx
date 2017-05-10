@@ -56,9 +56,6 @@ export default class ColumnCreationModal extends Component {
         const umoption = this.state.umoption;
         const coinoption = this.state.coinoption;
 
-        console.log(umoption);
-        console.log(name);
-        console.log(coinoption);
 
         return (
             <Modal show={this.props.show}>

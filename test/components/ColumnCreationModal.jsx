@@ -11,6 +11,14 @@ chai.use(sinonChai);
 
 describe('ColumnCreationModal', () => {
 
+  it('check input default vaule',() =>{
+    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+    expect(element.find('.name')).to.be.empty;
+
+
+
+  });
+
   //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an input box for column name', () => {
         const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
@@ -92,6 +100,7 @@ describe('ColumnCreationModal', () => {
           .find(FormControl)
           .findWhere(n => n.prop('id') === 'coin')
           .simulate('change', {target: {value: 'coin value'}})
+
 
       element.find(Button).simulate('click');
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');

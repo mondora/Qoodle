@@ -43,20 +43,20 @@ describe('ColumnCreationModal', () => {
     {//so di avere 4 input
       const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
 
-      expect(element.find(FormControl)).to.length(4);
+      expect(element.find(FormControl)).to.length(5);
 
     });
 
     it('renders a select box for unit of measure', () =>{
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
     expect(element.find(FormControl).findWhere(n => n.prop('componentClass') === 'select')
-    ).to.length(1);
+  ).to.length(2);
     });
 
     it('renders all option', () =>
     {
       const element = shallow (<ColumnCreationModal onAdd={sinon.spy()} />);
-      expect(element.find(FormControl).find('option')).to.length(4);
+      expect(element.find(FormControl).find('option')).to.length(7);
       //modo brutto di controllare quante option ci sono.
   });
 
@@ -81,10 +81,16 @@ describe('ColumnCreationModal', () => {
           .find(FormControl)
           .findWhere(n => n.prop('placeholder') === 'Max')
           .simulate('change', {target: {value: 'max value'}});
+
       element
           .find(FormControl)
-          .findWhere(n => n.prop('componentClass') === 'select')
-          .simulate('change', {target: {value: 'sel value'}});
+          .findWhere(n => n.prop('id') === 'um')
+          .simulate('change', {target: {value: 'um value'}});
+
+      element
+          .find(FormControl)
+          .findWhere(n => n.prop('id') === 'coin')
+          .simulate('change', {target: {value: 'coin value'}})
 
       element.find(Button).simulate('click');
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value');

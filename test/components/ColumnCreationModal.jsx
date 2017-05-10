@@ -13,7 +13,7 @@ describe('ColumnCreationModal', () => {
 
   it('check input default vaule',() =>{
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.find('.name')).to.be.empty;
+    expect(element.state('name')).to.be.empty;
 
 
 

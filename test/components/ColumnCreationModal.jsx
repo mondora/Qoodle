@@ -121,7 +121,8 @@ describe('ColumnCreationModal', () => {
 
       element.find(Button).simulate('click');
 
-      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
+      //se non simulo il change, la funzione viene chiamata con i valori di default dello stato(specificato questo nel componente)
+      expect(onAdd).has.been.calledWith('Pere', 0, 99999, '', '');
 
 });
 

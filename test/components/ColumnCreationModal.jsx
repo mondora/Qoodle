@@ -14,6 +14,10 @@ describe('ColumnCreationModal', () => {
   it('check input default vaule',() =>{
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
     expect(element.state('name')).to.be.empty;
+    expect(element.state('min')).to.be.equal(0);
+    expect(element.state('max')).to.be.equal(99999);
+    expect(element.state('umoption')).to.be.empty;
+    expect(element.state('coinoption')).to.be.empty;
 
 
 

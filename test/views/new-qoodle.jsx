@@ -26,5 +26,13 @@ describe('NewQoodle', () => {
       ).to.have.length(1);
   });
 
+  it('renders an input box fot Description', () => {
+      const element = shallow(<NewQoodle />);
+      expect(
+          element.find(FormControl)
+          .findWhere(n => n.prop('placeholder') === 'Description')
+      ).to.have.length(1);
+  });
+
 
 });

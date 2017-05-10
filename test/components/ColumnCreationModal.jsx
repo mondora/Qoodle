@@ -166,7 +166,7 @@ it('sets min in state as 0 string', () => {
 
     describe('when users changes \'min\' input', () => {
 
-        it('changes name value in state', () => {
+        it('changes min value in state', () => {
             const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
             element
                 .find(FormControl)
@@ -176,7 +176,49 @@ it('sets min in state as 0 string', () => {
             expect(element.state('min')).to.be.equal('this is a new value');
         });
 
-    })
+    });
+
+    describe('when users changes \'max\' input', () => {
+
+        it('changes max value in state', () => {
+            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            element
+                .find(FormControl)
+                .findWhere(n => n.prop('placeholder') === 'Max')
+                .simulate('change', {target: {value: 8}});
+                //faccio un check dello state
+            expect(element.state('max')).to.be.equal(8);
+        });
+
+    });
+
+    describe('when users changes \'umoption\' input', () => {
+
+        it('changes umoption value in state', () => {
+            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            element
+                .find(FormControl)
+                .findWhere(n => n.prop('id') === 'um')
+                .simulate('change', {target: {value: 'kg'}});
+                //faccio un check dello state
+            expect(element.state('umoption')).to.be.equal('kg');
+        });
+
+    });
+
+    describe('when users changes \'coinoption\' input', () => {
+
+        it('changes coinoption value in state', () => {
+            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            element
+                .find(FormControl)
+                .findWhere(n => n.prop('id') === 'coin')
+                .simulate('change', {target: {value: 'dollars'}});
+                //faccio un check dello state
+            expect(element.state('coinoption')).to.be.equal('dollars');
+        });
+
+    });
 
 
 

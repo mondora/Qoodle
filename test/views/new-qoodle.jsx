@@ -18,6 +18,13 @@ describe('NewQoodle', () => {
 
   });
 
+  it('renders an input box fot Title', () => {
+      const element = shallow(<NewQoodle />);
+      expect(
+          element.find(FormControl)
+          .findWhere(n => n.prop('placeholder') === 'Title')
+      ).to.have.length(1);
+  });
 
 
 });

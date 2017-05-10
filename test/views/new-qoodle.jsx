@@ -39,10 +39,13 @@ describe('NewQoodle', () => {
   {
       const element = shallow (<NewQoodle />);
       expect(
-          element.find(FormControl).find(Button)).to.exist
+          element.find(FormControl).find(Button)).to.exist;
+      expect(element.find(Button).findWhere(n => n.prop('className') == 'cent')).to.have.length(1);
 
 
   });
+
+  it('renders')
 
 
 

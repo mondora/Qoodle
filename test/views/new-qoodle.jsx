@@ -38,16 +38,20 @@ describe('NewQoodle', () => {
     expect(element.state('columns')[0]).to.include.keys('coinoption');
   });
 
-  it('render titleInputBox and real title in sync', () =>
+  it('set state providing new title', () =>
   {
-    const element = shallow(<NewQoodle/>);
+
+    const handleOnChangeTitle = sinon.spy();
+    const element = shallow(<NewQoodle onAdd={handleOnChangeTitle} />);
+
+
+
     element
         .find(FormControl)
         .findWhere(n => n.prop('placeholder') === 'Title')
         .simulate('change', {target: {value: 'titlevalue'}});
 
-        expect(handleOnChangeTitle).has.been.calledWith('titlevalue')
-    //expect().to.be.equal(element.state('columns')[0].prop('title'))
+    expect(element.state('title')).to.be.equal('titlevalue');
 
   });
 
@@ -88,25 +92,7 @@ describe('NewQoodle', () => {
 
   });
 
-  describe('check table', () => {
 
-    it('exist CreateTable', () =>{
-
-      const element = render(<NewQoodle />);
-      expect(element.find(CreateTable)).to.exist;
-
-
-      //expect(element).to.contain(QVHeaderTable);
-      //expect(element.find(CreateTable).find(QVHeaderTable).findWhere(n => n.prop('scope') === 'col')).to.have.length(4);
-
-    //  expect(element.find(CreateTable).find(QVHeaderTable).find('th')).to.have.length(4);
-
-
-    }
-  );
-
-
-  });
 
 
 

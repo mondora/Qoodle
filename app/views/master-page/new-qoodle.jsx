@@ -11,6 +11,8 @@ export default class NewQoodle extends Component {
   {
     super(props);
     this.state = {
+      title: 'Dovrò mettere qui il Title',
+      description: '',
       showColumnModal : false,
       columns: [
                 {
@@ -48,13 +50,20 @@ export default class NewQoodle extends Component {
   this.setState({ showColumnModal: true });
 }
 
+handleOnChangeTitle(e)
+{
+  this.setState({ title: e.target.value})
+}
 
 
     render() {
+      const title = this.state.title;
+
         return (
+
             <div className="row">
                   <FormGroup className='medium' bsSize="large">
-                    <FormControl type="text" placeholder="Title" />
+                    <FormControl type="text" placeholder="Title" onChange={ this.handleOnChangeTitle.bind(this)}/>
                   </FormGroup>
                   <FormGroup className='medium'>
                     <FormControl type="text" placeholder="Description" />
@@ -65,7 +74,7 @@ export default class NewQoodle extends Component {
                      </Button>
 
 
-                     <CreateTable colonne={this.state.columns}/>
+                     <CreateTable colonne={this.state.columns} tit={this.state.title}/>
 
 
 

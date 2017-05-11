@@ -20,6 +20,24 @@ describe('NewQoodle', () => {
 
   });
 
+  it('check state default value for Title and description',() =>{
+
+    const element = shallow(<NewQoodle />)
+    expect(element.state('title')).to.be.empty;
+    expect(element.state('description')).to.be.empty;
+  });
+
+  it('check state default value for columns',() =>{
+
+    const element = shallow(<NewQoodle />)
+    expect(element.state('columns')).to.have.length(3);
+    expect(element.state('columns')[0]).to.include.keys('name');
+    expect(element.state('columns')[0]).to.include.keys('min');
+    expect(element.state('columns')[0]).to.include.keys('max');
+    expect(element.state('columns')[0]).to.include.keys('umoption');
+    expect(element.state('columns')[0]).to.include.keys('coinoption');
+  });
+
   it('renders an input box fot Title', () => {
       const element = shallow(<NewQoodle />);
       expect(
@@ -64,7 +82,11 @@ describe('NewQoodle', () => {
       expect(element.find(CreateTable)).to.exist;
 
 
-    
+      //expect(element).to.contain(QVHeaderTable);
+      //expect(element.find(CreateTable).find(QVHeaderTable).findWhere(n => n.prop('scope') === 'col')).to.have.length(4);
+
+    //  expect(element.find(CreateTable).find(QVHeaderTable).find('th')).to.have.length(4);
+
 
     }
   );

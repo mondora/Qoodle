@@ -1,11 +1,13 @@
 import chai, {expect} from 'chai';
-import {shallow} from 'enzyme';
+import {shallow, render} from 'enzyme';
 import React from 'react';
 import {Button, FormControl} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
+import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
+import QVHeaderTable from 'components/qv-header-table'
 
 chai.use(sinonChai);
 
@@ -51,6 +53,22 @@ describe('NewQoodle', () => {
     element.find(Button).simulate('click');
 
     expect(element.state('showColumnModal')).to.be.true
+
+  });
+
+  describe('check table', () => {
+
+    it('exist CreateTable', () =>{
+
+      const element = render(<NewQoodle />);
+      expect(element.find(CreateTable)).to.exist;
+
+
+    
+
+    }
+  );
+
 
   });
 

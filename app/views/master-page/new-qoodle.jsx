@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
-
-import QVHeaderTable from "components/qv-header-table";
+import CreateTable from "components/create-table"
 import ColumnCreationModal from "components/ColumnCreationModal";
 /////////////List Actions
 
@@ -15,36 +14,28 @@ export default class NewQoodle extends Component {
       showColumnModal : false,
       columns: [
                 {
-                    name: "Name",
-                    type: "text"
+                  name: 'Name',
+                  min: 0,
+                  max: 99999,
+                  umoption: '',
+                  coinoption: ''
                 },
                 {
-                    name: "Number of person",
-                    type: "number"
+                  name: 'Number Of Person',
+                  min: 0,
+                  max: 99999,
+                  umoption: '',
+                  coinoption: ''
                 },
                 {
-                    name: "Number of vegans",
-                    type: "number"
+                  name: 'Number of Vegans',
+                  min: 0,
+                  max: 99999,
+                  umoption: '',
+                  coinoption: ''
                 }
             ],
-            elementsTable: [
-                {
-                    "Name": "Francesco",
-                    "Number of person": 4,
-                    "Number of vegans": 4
-                },
-                {
-                    "Name": "Chiara",
-                    "Number of person": 2,
-                    "Number of vegans": 0
-                },
-                {
-                    "Name": "Davide",
-                    "Number of person": 1,
-                    "Number of vegans": 0
-                },
 
-              ]
     }
 
   }
@@ -74,19 +65,7 @@ export default class NewQoodle extends Component {
                      </Button>
 
 
-                     <table className="responsive-table">
-                       <caption> Dovrò mettere qui il Title</caption>
-                       <thead>
-                         <QVHeaderTable struct={this.state.columns}/>
-
-                       </thead>
-                       <tfoot>
-                       </tfoot>
-                       <tbody>
-
-
-                       </tbody>
-                     </table>
+                     <CreateTable colonne={this.state.columns}/>
 
 
 

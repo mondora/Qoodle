@@ -14,12 +14,15 @@ class QVHeaderTable extends Component {
     render() {
         var headerItem = [];
         var colonne=this.props.struct;
+        console.log('props attese',this.props);
+        console.log('struct',this.props.struct);
+
         for (var i = 0; i < colonne.length; i++) {
             headerItem.push(<th scope="col">{ colonne[i].name }</th>)
         }
 
 
-        return (<tr>{headerItem}</tr>)
+        return (<tr>{headerItem}</tr>);
     }
 
 }

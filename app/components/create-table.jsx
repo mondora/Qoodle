@@ -13,7 +13,7 @@ export default class CreateTable extends Component {
     render(){
         return(
           <table className="responsive-table">
-            <caption> Dovrò mettere qui il Title</caption>
+            <caption>{this.props.tit}</caption>
             <thead>
               <QVHeaderTable struct={this.props.colonne}/>
 

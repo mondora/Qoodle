@@ -23,7 +23,7 @@ describe('NewQoodle', () => {
   it('check state default value for Title and description',() =>{
 
     const element = shallow(<NewQoodle />)
-    expect(element.state('title')).to.be.empty;
+    expect(element.state('title')).to.be.equal('Dovrò mettere qui il Title');
     expect(element.state('description')).to.be.empty;
   });
 
@@ -37,6 +37,20 @@ describe('NewQoodle', () => {
     expect(element.state('columns')[0]).to.include.keys('umoption');
     expect(element.state('columns')[0]).to.include.keys('coinoption');
   });
+
+  it('render titleInputBox and real title in sync', () =>
+  {
+    const element = shallow(<NewQoodle/>);
+    element
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Title')
+        .simulate('change', {target: {value: 'titlevalue'}});
+
+        expect(handleOnChangeTitle).has.been.calledWith('titlevalue')
+    //expect().to.be.equal(element.state('columns')[0].prop('title'))
+
+  });
+
 
   it('renders an input box fot Title', () => {
       const element = shallow(<NewQoodle />);

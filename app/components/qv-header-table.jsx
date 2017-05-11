@@ -18,7 +18,12 @@ class QVHeaderTable extends Component {
             headerItem.push(<th scope="col">{ this.state.str[i].name }</th>)
         }
 
-
+        headerItem.push(
+          <th
+            style={{cursor: "pointer", backgroundColor: "#FFF", color: "#f5b95f", border: "1px solid #f5b95f"}}>
+            <div>+</div>
+          </th>
+        );
         return (<tr>{headerItem}</tr>)
     }
 

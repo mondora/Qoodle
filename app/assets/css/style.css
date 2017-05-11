@@ -52,9 +52,14 @@ body{
     max-width: 75em;
   }
 }
+table{
+  border: black;
+}
+
 
 .responsive-table {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   margin-bottom: 1.5em;
 }
 @media (min-width: 48em) {

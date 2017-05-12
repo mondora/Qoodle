@@ -7,7 +7,7 @@ import sinonChai from 'sinon-chai';
 
 import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
-import QVHeaderTable from 'components/qv-header-table'
+import QoodleHeaderTable from 'components/QoodleHeaderTable'
 
 chai.use(sinonChai);
 

@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import Riassunto from "components/riassunto";
-import QVHeaderTable from "components/qv-header-table";
+import QoodleHeaderTable from "components/QoodleHeaderTable";
 import QVFooterTable from "components/qv-footer-table";
 import QVInputTable from "../../components/qv_input_table";
 import QVRowTable from "components/qv-row-table";

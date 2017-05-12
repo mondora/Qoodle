@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 
 import CreateTable from 'components/create-table'
-import QVHeaderTable from 'components/qv-header-table'
+import QoodleHeaderTable from 'components/QoodleHeaderTable'
 
 chai.use(sinonChai);
 
@@ -52,12 +52,12 @@ describe('CreateTable', () => {
   ;});
 
 
-  it('renders QVHeaderTable using props',() => {
+  it('renders QoodleHeaderTable using props',() => {
     const element = shallow(<CreateTable tit='A Christmas Dinner' colonne={columne}/>);
-    expect(element.find(QVHeaderTable)).exist;
+    expect(element.find(QoodleHeaderTable)).exist;
 
-    //qui uso struct proprio perché a QVHeaderTable passo colonne in una props chiamata struct
-    expect(element.find(QVHeaderTable).props().struct).to.be.equal(columne);
+    //qui uso struct proprio perché a QoodleHeaderTable passo colonne in una props chiamata struct
+    expect(element.find(QoodleHeaderTable).props().struct).to.be.equal(columne);
 
   });
 

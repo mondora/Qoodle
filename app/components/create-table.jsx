@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from "react";
-import QVHeaderTable from "components/qv-header-table";
+import QoodleHeaderTable from "components/QoodleHeaderTable";
 
 export default class CreateTable extends Component {
 
@@ -15,7 +15,7 @@ export default class CreateTable extends Component {
           <table className="responsive-table">
             <caption>{this.props.tit}</caption>
             <thead>
-              <QVHeaderTable struct={this.props.colonne}/>
+              <QoodleHeaderTable struct={this.props.colonne}/>
 
             </thead>
             <tfoot>

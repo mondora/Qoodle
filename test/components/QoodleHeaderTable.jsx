@@ -5,12 +5,12 @@ import {Button, FormControl} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai'
 
-import QVHeaderTable from 'components/qv-header-table'
+import QoodleHeaderTable from 'components/QoodleHeaderTable'
 
 
 chai.use(sinonChai);
 
-describe('QVHeaderTable', () => {
+describe('QoodleHeaderTable', () => {
 
   const columnsDescription = [
                   {
@@ -40,11 +40,10 @@ describe('QVHeaderTable', () => {
 
   it('renders well the struct(columns) props', ()=>{
 
-    const element = shallow(<QVHeaderTable struct={columnsDescription}/>);
+    const element = shallow(<QoodleHeaderTable struct={columnsDescription}/>);
 
       console.log(element.html());
-
-    expect(element.find('th')).to.have.length(element.instance().props.struct.columnsDescription.length);
+    expect(element.find('th')).to.have.length( element.instance().props.struct.length);
 
   });
 

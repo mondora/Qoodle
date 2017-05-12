@@ -17,7 +17,8 @@ export default class ColumnCreationModal extends Component {
     }
 
     static propTypes = {
-        onAdd: PropTypes.func.isRequired
+        onAdd: PropTypes.func.isRequired,
+        show: PropTypes.bool
     }
 
     handleNameChange(nome)
@@ -56,15 +57,13 @@ export default class ColumnCreationModal extends Component {
         const umoption = this.state.umoption;
         const coinoption = this.state.coinoption;
 
-
+        console.log('dovrebbe essere false', this.props.show);
         return (
             <Modal show={this.props.show}>
-              {console.log(this.props.show)}
                 <Modal.Header>
                     <Modal.Title>{"Nuova colonna"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
                         <FormGroup>
                             <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" />
                         </FormGroup>

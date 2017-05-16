@@ -18,7 +18,7 @@ export default class ColumnCreationModal extends Component {
 
     static propTypes = {
         onAdd: PropTypes.func.isRequired,
-        show: PropTypes.bool
+        show: PropTypes.bool,
     }
 
     handleNameChange(nome)

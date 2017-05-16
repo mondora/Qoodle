@@ -28,6 +28,13 @@ describe('ColumnCreationModal', () => {
 
   });
 
+  it('check show default value', () =>
+  {
+    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+    expect(element.instance().props.show).to.be.false;
+
+  });
+
   //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an input box for column name', () => {
         const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);

@@ -8,6 +8,7 @@ import sinonChai from 'sinon-chai';
 import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
 import QoodleHeaderTable from 'components/QoodleHeaderTable'
+import ColumnCreationModal from 'components/ColumnCreationModal'
 
 chai.use(sinonChai);
 
@@ -92,8 +93,21 @@ describe('NewQoodle', () => {
 
   });
 
+  describe('update state when calls addNewColumn()', () => {
 
+    it('increment number of columns', () =>
+    {
+      const element = shallow(<NewQoodle />);
+      const oldNrColumns = element.state('columns').length;
+      element.instance().handleAddColumn('Name',
+      1,
+      12435,
+      'um',
+      'coin');
+      expect(element.state('columns').length).to.be.equal(oldNrColumns + 1);
 
+  });
 
+});
 
 });

@@ -10,6 +10,7 @@ export default class NewQoodle extends Component {
   constructor(props)
   {
     super(props);
+    this.handleAddColumn = this.handleAddColumn.bind(this);
     this.state = {
       title: 'Dovrò mettere qui il Title',
       description: '',
@@ -50,10 +51,32 @@ export default class NewQoodle extends Component {
   this.setState({ showColumnModal: true });
 }
 
+
 handleOnChangeTitle(e)
 {
   this.setState({ title: e.target.value})
 }
+
+
+
+
+
+
+handleAddColumn(na, mi, ma, um, co)
+{
+  console.log('OOOOU', this.state.columns.length)
+    let colonna=this.state.columns.concat({
+    name: na,
+    min: mi,
+    max: ma,
+    umoption: um,
+    coinoption: co
+  })
+
+  this.setState({columns: colonna});
+}
+
+
 
 
     render() {

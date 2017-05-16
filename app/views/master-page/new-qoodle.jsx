@@ -58,10 +58,6 @@ handleOnChangeTitle(e)
 }
 
 
-
-
-
-
 handleAddColumn(na, mi, ma, um, co)
 {
   console.log('OOOOU', this.state.columns.length)

@@ -108,6 +108,26 @@ describe('NewQoodle', () => {
 
   });
 
+
+  it('call of handleAddColumn have the correct parameters', () =>
+  {
+    const element = shallow(<NewQoodle />);
+    const oldNrColumns = element.state('columns').length;
+    element.instance().handleAddColumn = sinon.spy();
+    element.instance().handleAddColumn('Name',
+    1,
+    12435,
+    'um',
+    'coin');
+
+    expect(element.instance().handleAddColumn).calledWith('Name',
+    1,
+    12435,
+    'um',
+    'coin');
+
+});
+
 });
 
 });

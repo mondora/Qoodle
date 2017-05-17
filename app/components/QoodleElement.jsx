@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
+import {Button, Image} from 'react-bootstrap';
 
 export default class QoodleElement extends Component {
 
@@ -26,11 +26,12 @@ export default class QoodleElement extends Component {
         <div id='one'>
 
           <span id='spa'>
+            <Image src="../assets/log.png" responsive />
            </span>
           </div>
 
         <i className="fa fa-plus"></i>
-        <h3 id="item-two">Eco Bag</h3>
+        <h3 id="title">Eco Bag</h3>
         <p>45.99</p>
 </div>);
 

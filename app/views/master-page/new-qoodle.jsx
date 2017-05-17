@@ -61,7 +61,9 @@ handleOnChangeTitle(e)
 handleAddColumn(na, mi, ma, um, co)
 {
   console.log('OOOOU', this.state.columns.length)
-    let colonna=this.state.columns.concat({
+  this.setState({showColumnModal: false});
+
+  let colonna=this.state.columns.concat({
     name: na,
     min: mi,
     max: ma,
@@ -99,7 +101,7 @@ handleAddColumn(na, mi, ma, um, co)
 
 
 
-              <ColumnCreationModal onAdd={() => console.log('ciao')} show={this.state.showColumnModal}/>
+              <ColumnCreationModal onAdd={this.handleAddColumn.bind(this)} show={this.state.showColumnModal}/>
             </div>
         );
     }

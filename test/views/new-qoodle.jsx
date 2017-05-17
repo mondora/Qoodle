@@ -128,6 +128,23 @@ describe('NewQoodle', () => {
 
 });
 
+
+  it('changes value of showColumnModal over the time', () =>
+  {
+    const element = shallow(<NewQoodle />);
+    expect(element.state('showColumnModal')).to.be.false;
+    element.find(Button).simulate('click');
+    expect(element.state('showColumnModal')).to.be.true;
+    element.instance().handleAddColumn('Name',
+    1,
+    12435,
+    'um',
+    'coin');
+    expect(element.state('showColumnModal')).to.be.false;
+
+
+
+  });
 });
 
 });

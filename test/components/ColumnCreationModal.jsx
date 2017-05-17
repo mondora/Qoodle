@@ -121,7 +121,10 @@ describe('ColumnCreationModal', () => {
 
       element.find(Button).simulate('click');
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
+
   });
+
+  
 
   it('sets name in state as empty string', () => {
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);

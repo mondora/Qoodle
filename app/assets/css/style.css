@@ -340,7 +340,7 @@ table{
     margin: 0 10px;
     position: relative;
 }
-.box img {
+.box Image {
     width: 230px;
 }
 .box i {
@@ -359,6 +359,7 @@ table{
     cursor: pointer;
     transition: all 0.3s;
 }
+
 .box h3 {
     margin-left: 20px;
 }
@@ -367,8 +368,9 @@ table{
 }
 .box #counter
 {
+  border-radius: 2px;
   top: 0;
-  left: 5px;
+  left: 0px;
   background: #FFF;
   color: #333
 }

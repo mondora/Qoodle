@@ -26,7 +26,7 @@ export default class QoodleElement extends Component {
         <div id='one'>
 
           <span id='spa'>
-            <Image src="../assets/log.png" responsive />
+            <Image src="http://chenyiya.com/codepen/product-2.jpg" responsive />
            </span>
           </div>
 

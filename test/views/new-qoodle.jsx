@@ -14,7 +14,7 @@ chai.use(sinonChai);
 
 describe('NewQoodle', () => {
 
-  it('check state default vaule of Modal',() =>{
+  it('check state default value of Modal',() =>{
 
     const element = shallow(<NewQoodle />)
     expect(element.state('showColumnModal')).to.be.false;

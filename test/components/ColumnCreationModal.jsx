@@ -119,10 +119,14 @@ it('renders an 3 FormControl of type number', () =>
           .findWhere(n => n.prop('id') === 'um')
           .simulate('change', {target: {value: 'um value'}});
 
+        element
+            .find(InputGroup)
+            .simulate('change', {target: {value: 'price value'}});
+
 
 
       element.find(Button).simulate('click');
-      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value');
+      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'price value');
 
   });
 

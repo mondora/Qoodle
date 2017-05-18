@@ -91,7 +91,7 @@ export default class ColumnCreationModal extends Component {
 
 
 
-                        <InputGroup onChange={this.handleMaxChange.bind(this)} >
+                        <InputGroup onChange={this.handlePriceChange.bind(this)} >
                           <FormControl type="number" />
                           <InputGroup.Addon>{coinoption}</InputGroup.Addon>
                         </InputGroup>
@@ -103,7 +103,7 @@ export default class ColumnCreationModal extends Component {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => onAdd(name, min, max, umoption)}>{"Aggiungi"}</Button>
+                    <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>
                 </Modal.Footer>
             </Modal>
         )

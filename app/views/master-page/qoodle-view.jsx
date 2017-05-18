@@ -20,7 +20,7 @@ export default class QoodleView extends Component {
     render(){
 
     return(
-      <QoodleElement imgUrl="_assets/img/bana.png" name="banana" um="$" price={35}/>
+      <QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" price={35} um="kg"/>
     );
     }
 

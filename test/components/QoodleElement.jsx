@@ -85,6 +85,12 @@ describe('QoodleElement', () => {
     expect(element.instance().props.counter).to.be.equal(0);
   });
 
+  it('renders an input box for column name', () =>
+  {
+    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" um="$" price={35} />);
+    expect(element.findWhere(n => n.prop('id') === 'title').text()).to.be.equal('banana');
+
+  });
 
 
 });

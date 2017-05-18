@@ -39,7 +39,7 @@ export default class QoodleElement extends Component {
           </div>
 
         <i className="fa fa-plus"></i>
-        <h3 id="title">Eco Bag</h3>
+        <h3 id="title">{this.props.name}</h3>
         <p>45.99</p>
 </div>);
 

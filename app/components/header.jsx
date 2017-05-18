@@ -13,7 +13,7 @@ export default class Header extends Component {
             isOpenMenu: !this.state.isOpenMenu
         })
     }
-    
+
     render(){
         return(
             <div className={"header"}>

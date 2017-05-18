@@ -9,6 +9,7 @@ export default class QoodleElement extends Component {
       name: PropTypes.string.isRequired,
       coin: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired
   };
   static defaultProps =
   {
@@ -20,6 +21,7 @@ export default class QoodleElement extends Component {
   {
     super(props);
   }
+
 
 
 

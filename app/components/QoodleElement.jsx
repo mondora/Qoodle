@@ -25,9 +25,9 @@ export default class QoodleElement extends Component {
       <i className="fa fa-minus" id='minus'></i>
         <div id='one'>
 
-          <span id='spa'>
-            <Image src="http://chenyiya.com/codepen/product-2.jpg" responsive />
-           </span>
+
+            <Image src="_assets/img/bana.png" alt="ti devi caricare" responsive />
+
           </div>
 
         <i className="fa fa-plus"></i>

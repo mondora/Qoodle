@@ -4,6 +4,13 @@ import {Button, Image} from 'react-bootstrap';
 
 export default class QoodleElement extends Component {
 
+  static propTypes = {
+      imgUrl: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      um: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+  };
+
   constructor(props)
   {
     super(props);
@@ -12,12 +19,14 @@ export default class QoodleElement extends Component {
       counter : 0,
     }
 
-
   }
+
 
 
   render()
   {
+    const backgroundImage = this.props.imgUrl;
+
 
     return(
       <div className='box'>
@@ -26,8 +35,7 @@ export default class QoodleElement extends Component {
         <div id='one'>
 
 
-            <Image src="_assets/img/bana.png" alt="ti devi caricare" responsive />
-
+            <Image src={backgroundImage} alt="loading" responsive />
           </div>
 
         <i className="fa fa-plus"></i>

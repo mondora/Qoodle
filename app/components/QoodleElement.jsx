@@ -10,15 +10,15 @@ export default class QoodleElement extends Component {
       um: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
   };
+  static defaultProps =
+  {
+      counter : 0
+  }
+
 
   constructor(props)
   {
     super(props);
-    this.state =
-    {
-      counter : 0,
-    }
-
   }
 
 
@@ -30,7 +30,7 @@ export default class QoodleElement extends Component {
 
     return(
       <div className='box'>
-      <i  id='counter'> {this.state.counter} </i>
+      <i  id='counter'> {this.props.counter} </i>
       <i className="fa fa-minus" id='minus'></i>
         <div id='one'>
 

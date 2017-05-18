@@ -19,7 +19,7 @@ describe('QoodleElement', () => {
           price={13.5}
           um={'$'} />);
 
-      expect(element.state('counter')).to.be.equal(0);
+      expect(element.instance().props.counter).to.be.equal(0);
 
     });
 
@@ -65,6 +65,25 @@ describe('QoodleElement', () => {
         price={13.5}
         um={'$'} />);
   expect(element.find(Image)).to.have.length(1);
+  });
+
+
+  it('check props', () =>
+  {
+    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" um="$" price={35}/>);
+    expect(element.instance().props.imgUrl).to.be.equal("_assets/img/bana.png");
+    expect(element.instance().props.name).to.be.equal("banana");
+    expect(element.instance().props.um).to.be.equal("$");
+    expect(element.instance().props.price).to.be.equal(35);
+  });
+
+  it('render correct name and price', () =>
+  {
+    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" um="$" price={35}/>);
+    expect(element.instance().props.imgUrl).to.be.equal("_assets/img/bana.png");
+    expect(element.instance().props.name).to.be.equal("banana");
+    expect(element.instance().props.um).to.be.equal("$");
+    expect(element.instance().props.price).to.be.equal(35);
   });
 
 

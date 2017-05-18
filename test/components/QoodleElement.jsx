@@ -114,7 +114,7 @@ describe('QoodleElement', () => {
 
    it('calls increase function providing an id', () => {
       const Inc = sinon.spy();
-      const element = shallow(<QoodleElement id="banana" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10} onInc={Inc}/>);
+      const element = shallow(<QoodleElement id="id value" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10} onInc={Inc}/>);
 
 
       expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);

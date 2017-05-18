@@ -22,13 +22,14 @@ export default class QoodleElement extends Component {
     super(props);
   }
 
+I
 
 
 
   render()
   {
     const backgroundImage = this.props.imgUrl;
-
+    const Inc = this.props.onInc;
 
     return(
       <div className='box'>
@@ -40,7 +41,7 @@ export default class QoodleElement extends Component {
             <Image src={backgroundImage} alt="loading" responsive />
           </div>
 
-        <i className="fa fa-plus"></i>
+        <i className="fa fa-plus" onClick={() => Inc(this.props.id)}></i>
         <h3 id="title">{this.props.name}</h3>
         <p>{this.props.price} {this.props.coin} al {this.props.um}</p>
 </div>);

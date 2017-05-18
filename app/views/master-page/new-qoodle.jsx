@@ -21,21 +21,24 @@ export default class NewQoodle extends Component {
                   min: 0,
                   max: 99999,
                   umoption: '',
-                  coinoption: ''
+                  coinoption: '',
+                  price: 0
                 },
                 {
                   name: 'Number Of Person',
                   min: 0,
                   max: 99999,
                   umoption: '',
-                  coinoption: ''
+                  coinoption: '',
+                  price: 0
                 },
                 {
                   name: 'Number of Vegans',
                   min: 0,
                   max: 99999,
                   umoption: '',
-                  coinoption: ''
+                  coinoption: '',
+                  price: 0
                 }
             ],
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup} from 'react-bootstrap';
 
 export default class ColumnCreationModal extends Component {
 
@@ -11,7 +11,8 @@ export default class ColumnCreationModal extends Component {
             min: 0,
             max: 99999,
             umoption: '',
-            coinoption: ''
+            coinoption: '€',
+            price: 0
 
         };
     }
@@ -43,6 +44,10 @@ export default class ColumnCreationModal extends Component {
       this.setState({coinoption : coin.target.value});
     }
 
+    handlePriceChange(pr)
+    {
+      this.setState({price : pr.target.value});
+    }
 
 
     render () {
@@ -52,6 +57,7 @@ export default class ColumnCreationModal extends Component {
         const max = this.state.max;
         const umoption = this.state.umoption;
         const coinoption = this.state.coinoption;
+        const price = this.state.price;
 
         return (
             <Modal show={this.props.show}>
@@ -80,18 +86,24 @@ export default class ColumnCreationModal extends Component {
                       </FormGroup>
 
                       <FormGroup>
-                      <label>select type of coin(if you need it)</label>
-                      <FormControl componentClass="select" id="coin"  onChange={this.handleCoinChange.bind(this)} placeholder="select coin">
-                        <option value="empty"></option>
-                        <option value="dollars">$</option>
-                        <option value="euro">€</option>
-                      </FormControl>
+                      <label>select price relative of Measure Unit</label>
+
+
+
+
+                        <InputGroup onChange={this.handleMaxChange.bind(this)} >
+                          <FormControl type="number" />
+                          <InputGroup.Addon>{coinoption}</InputGroup.Addon>
+                        </InputGroup>
+
+
+
                     </FormGroup>
 
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => onAdd(name, min, max, umoption, coinoption)}>{"Aggiungi"}</Button>
+                    <Button onClick={() => onAdd(name, min, max, umoption)}>{"Aggiungi"}</Button>
                 </Modal.Footer>
             </Modal>
         )

@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import {shallow} from 'enzyme';
 import React from 'react';
-import {Button, FormControl} from 'react-bootstrap';
+import {Button, FormControl, InputGroup} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -17,7 +17,8 @@ describe('ColumnCreationModal', () => {
     expect(element.state('min')).to.be.equal(0);
     expect(element.state('max')).to.be.equal(99999);
     expect(element.state('umoption')).to.be.empty;
-    expect(element.state('coinoption')).to.be.empty;
+    expect(element.state('coinoption')).to.be.equal('€');
+    expect(element.state('price')).to.be.equal(0);
 
   });
 
@@ -58,8 +59,18 @@ describe('ColumnCreationModal', () => {
         element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Max' )
     ).to.length(1);
 
-      expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
-    ).to.length(2);
+
+
+
+  });
+it('renders an 3 FormControl of type number', () =>
+  {
+  const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+  expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
+).to.length(3);
+
+  expect(element.find(InputGroup)).to.length(1);
+
 
   });
 
@@ -71,16 +82,11 @@ describe('ColumnCreationModal', () => {
 
     });
 
-    it('renders a select box for unit of measure', () =>{
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.find(FormControl).findWhere(n => n.prop('componentClass') === 'select')
-  ).to.length(2);
-    });
 
     it('renders all option', () =>
     {
       const element = shallow (<ColumnCreationModal onAdd={sinon.spy()} />);
-      expect(element.find(FormControl).find('option')).to.length(7);
+      expect(element.find(FormControl).find('option')).to.length(4);
       //modo brutto di controllare quante option ci sono.
   });
 
@@ -89,7 +95,7 @@ describe('ColumnCreationModal', () => {
   describe('when user clicks on add button', () => {
 
 
-    it('calls onAdd function providing name, min, max, um and coin values', () => {
+    it('calls onAdd function providing name, min, max, um', () => {
       const onAdd = sinon.spy();
       const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
 
@@ -113,18 +119,14 @@ describe('ColumnCreationModal', () => {
           .findWhere(n => n.prop('id') === 'um')
           .simulate('change', {target: {value: 'um value'}});
 
-      element
-          .find(FormControl)
-          .findWhere(n => n.prop('id') === 'coin')
-          .simulate('change', {target: {value: 'coin value'}})
 
 
       element.find(Button).simulate('click');
-      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'coin value');
+      expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value');
 
   });
 
-  
+
 
   it('sets name in state as empty string', () => {
     const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
@@ -149,7 +151,7 @@ it('sets min in state as 0 string', () => {
       element.find(Button).simulate('click');
 
       //se non simulo il change, la funzione viene chiamata con i valori di default dello stato(specificato questo nel componente)
-      expect(onAdd).has.been.calledWith('Pere', 0, 99999, '', '');
+      expect(onAdd).has.been.calledWith('Pere', 0, 99999, '');
 
     });
 
@@ -223,19 +225,6 @@ it('sets min in state as 0 string', () => {
 
     });
 
-    describe('when users changes \'coinoption\' input', () => {
-
-        it('changes coinoption value in state', () => {
-            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-            element
-                .find(FormControl)
-                .findWhere(n => n.prop('id') === 'coin')
-                .simulate('change', {target: {value: 'dollars'}});
-                //faccio un check dello state
-            expect(element.state('coinoption')).to.be.equal('dollars');
-        });
-
-    });
 
 
 

@@ -110,25 +110,45 @@ describe('QoodleElement', () => {
   });
 
 
-  describe('when user clicks on add button', () => {
+  describe('when user clicks plus button', () => {
 
-   it('calls increase function providing an id', () => {
-      const Inc = sinon.spy();
-      const element = shallow(<QoodleElement id="id value" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10} onInc={Inc}/>);
+     it('calls increase function providing an id', () => {
+        const Inc = sinon.spy();
+        const element = shallow(<QoodleElement id="id value" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10} onInc={Inc}/>);
 
 
-      expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
+        expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
 
-      element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id cane'}});
+        element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id cane'}});
+  //qui praticamente simulando un click non ricambio lo stato.
+  //quindi l'id vale sembre quello con cui ho creato l'elemento
+
+        expect(Inc).has.been.calledWith('id value');
+    });
+  });
+
+  describe('when user clicks plus button', () => {
+
+    it('calls increase function providing an id', () => {
+      const Dec = sinon.spy();
+      const element = shallow(<QoodleElement id="id value" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10} onDec={Dec}/>);
+
+
+      expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
+
+      element.findWhere(n => n.prop('className') === 'fa fa-minus').simulate('click', {target: {value: 'id cane'}});
 //qui praticamente simulando un click non ricambio lo stato.
 //quindi l'id vale sembre quello con cui ho creato l'elemento
 
-      expect(Inc).has.been.calledWith('id value');
+      expect(Dec).has.been.calledWith('id value');
+
+
+
+
+    });
+
+
   });
 
 
-
-
-
-  });
 });

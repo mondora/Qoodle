@@ -41,11 +41,6 @@ describe('QoodleView', () => {
 
 
     var newQoodleElement = element.instance().Object2QoodleElement(colonna).props;
-    console.log('ELEMENTOTATATATATATA',newQoodleElement);
-    console.log('ELEMENTOTATATATATATA2',<QoodleElement counter={5} id={'Name'}
-      imgUrl={'_assets/img/bana.png'} name="Name" coin="€"
-      price={35} um="kg" onInc={element.instance().Inc.bind(this)}
-      onDec={element.instance().Dec.bind(this)}/>.props);
 
     expect(JSON.stringify(newQoodleElement) == JSON.stringify(<QoodleElement counter={5}
         id={'Name'}

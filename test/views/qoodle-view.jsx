@@ -34,16 +34,6 @@ describe('QoodleView', () => {
 
   describe('update state when Inc(Name)', () => {
 
-    it('Decrement counter of specific element ', () =>
-    {
-      const element = shallow(<QoodleView />);
-      const oldCounter = element.state('elements')[0].counter;
-      element.instance().Inc('Name');
-      expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 1);
-
-      element.instance().Inc('Name');
-      expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 2);
-    });
 
 
 
@@ -60,17 +50,23 @@ describe('QoodleView', () => {
   });
 
 
-/*  it('Decrement counter of specific element ', () =>
-  {
-    const element = shallow(<QoodleView />);
-    const oldCounter = element.state('elements')[0].counter;
-    element.instance().Dec('Name');
-    expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -1);
-
-    element.instance().Dec('Name');
-    expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -2);
-  });
-*/
 
 });
+
+  describe('update state when Dec(Name)', () => {
+    it('Decrement counter of specific element ', () =>
+    {
+      const element = shallow(<QoodleView />);
+      const oldCounter = element.state('elements')[0].counter;
+      element.instance().Dec('Name');
+      expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -1);
+
+      element.instance().Dec('Name');
+      expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -2);
+    });
+
+});
+
+
+
 });

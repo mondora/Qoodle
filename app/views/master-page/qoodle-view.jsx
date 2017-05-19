@@ -71,10 +71,15 @@ export default class QoodleView extends Component {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
       var i =elementi.findIndex(el => el.name === iden );
       var elemento = elementi[i];
+
+      console.log('ELEMENTO COUNTEEEEEEEEERR DEC ', elemento.counter);
+
       if(elemento.counter > 0) elemento.counter-- ;
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
+
+            console.log('ELEMENTO COUNTEEEEEEEEERR DEC ', this.state.elements[0].counter);
       }
     }
 
@@ -86,7 +91,9 @@ export default class QoodleView extends Component {
     return(
       <QoodleElement counter={this.state.elements[0].counter}
         id={this.state.elements[0].name}
-        imgUrl={this.state.elements[0].imgUrl} name="Name" coin="$" price={35} um="kg" onInc={this.Inc.bind(this)}/>
+        imgUrl={this.state.elements[0].imgUrl} name="Name" coin="$"
+        price={35} um="kg" onInc={this.Inc.bind(this)}
+        onDec={this.Dec.bind(this)}/>
 
   );
     }

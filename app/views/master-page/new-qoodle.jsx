@@ -22,7 +22,8 @@ export default class NewQoodle extends Component {
                   max: 99999,
                   umoption: '',
                   coinoption: '',
-                  price: 0
+                  price: 0,
+                  imgUrl: '_assets/img/bana.png'
                 },
                 {
                   name: 'Number Of Person',
@@ -30,7 +31,8 @@ export default class NewQoodle extends Component {
                   max: 99999,
                   umoption: '',
                   coinoption: '',
-                  price: 0
+                  price: 0,
+                  imgUrl: '_assets/img/redApple.png'
                 },
                 {
                   name: 'Number of Vegans',
@@ -38,7 +40,8 @@ export default class NewQoodle extends Component {
                   max: 99999,
                   umoption: '',
                   coinoption: '',
-                  price: 0
+                  price: 0,
+                  imgUrl: '_assets/img/kiwi.png'
                 }
             ],
 

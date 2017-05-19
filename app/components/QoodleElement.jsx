@@ -30,11 +30,12 @@ I
   {
     const backgroundImage = this.props.imgUrl;
     const Inc = this.props.onInc;
+    const Dec = this.props.onDec;
 
     return(
       <div className='box'>
       <i  id='counter'>{this.props.counter}</i>
-      <i className="fa fa-minus" id='minus'></i>
+      <i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.id)}></i>
         <div id='one'>
 
 

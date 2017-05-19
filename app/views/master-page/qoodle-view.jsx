@@ -85,7 +85,6 @@ export default class QoodleView extends Component {
 
     Object2QoodleElement(rowObject)
     {
-      {console.log('ELEMENTO COUNTEEEEEEEEERR DEC ', rowObject.name);}
 
       return(
         <QoodleElement counter={rowObject.counter}
@@ -100,30 +99,18 @@ export default class QoodleView extends Component {
 
 
     render(){
-/*    var StampableElement = [];
     var elementi = this.state.elements;
+    var StampableElement = [];
 
 
       elementi.forEach(
-        (ele) => console.log('GUARDAAAAAAAAAAAAAAAAA', ele)
+        (ele) => StampableElement.push(this.Object2QoodleElement(ele))
       );
 
-  elementi.push(
-      <QoodleElement counter={this.state.elements[0].counter}
-        id={this.state.elements[0].name}
-        imgUrl={this.state.elements[0].imgUrl} name="Name" coin="$"
-        price={35} um="kg" onInc={this.Inc.bind(this)}
-        onDec={this.Dec.bind(this)}/>
-    )*/
 
     return(
         <div>
-          <QoodleElement counter={this.state.elements[0].counter}
-            id={this.state.elements[0].name}
-            imgUrl={this.state.elements[0].imgUrl} name="Name" coin="$"
-            price={35} um="kg" onInc={this.Inc.bind(this)}
-            onDec={this.Dec.bind(this)}/>
-
+          {StampableElement}
         </div>
 
 

@@ -53,12 +53,12 @@ describe('QoodleView', () => {
 
   describe('update state when calls Inc(Name)', () => {
 
-    /*it('Render all QoodleElement',() =>{
+    it('Render all QoodleElement',() =>{
 
       const element = shallow(<QoodleView />)
       expect(element.find('QoodleElement')).to.have.length(element.state('elements').length);
       //why not using find(QoodleElement);
-    });*/
+    });
   });
 
 

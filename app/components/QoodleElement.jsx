@@ -13,7 +13,9 @@ export default class QoodleElement extends Component {
   };
   static defaultProps =
   {
-      counter : 0
+      counter : 0,
+      coin: '€'
+
   }
 
 

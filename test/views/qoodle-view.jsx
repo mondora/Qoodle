@@ -25,18 +25,50 @@ describe('QoodleView', () => {
 
   });
 
-  it('Render QoodleElement',() =>{
 
+    it('return QoodleElement from relative object using CreateQoodleElement',() =>{
     const element = shallow(<QoodleView />)
-    expect(element.find('QoodleElement')).to.have.length(1);
-    //why not using find(QoodleElement);
+    var colonna = {
+      name: 'Name',
+      min: 0,
+      max: 99999,
+      umoption: 'kg',
+      coinoption: '',
+      price: 35,
+      counter: 5,
+      imgUrl: '_assets/img/bana.png'
+    };
+
+
+    var newQoodleElement = element.instance().Object2QoodleElement(colonna).props;
+    console.log('ELEMENTOTATATATATATA',newQoodleElement);
+    console.log('ELEMENTOTATATATATATA2',<QoodleElement counter={5} id={'Name'}
+      imgUrl={'_assets/img/bana.png'} name="Name" coin="€"
+      price={35} um="kg" onInc={element.instance().Inc.bind(this)}
+      onDec={element.instance().Dec.bind(this)}/>.props);
+
+    expect(JSON.stringify(newQoodleElement) == JSON.stringify(<QoodleElement counter={5}
+        id={'Name'}
+        imgUrl={'_assets/img/bana.png'} name="Name" coin="€"
+        price={35} um="kg" onInc={element.instance().Inc.bind(this)}
+        onDec={element.instance().Dec.bind(this)}/>.props)).to.be.true;
+
+    });
+
+
+  describe('update state when calls Inc(Name)', () => {
+
+    /*it('Render all QoodleElement',() =>{
+
+      const element = shallow(<QoodleView />)
+      expect(element.find('QoodleElement')).to.have.length(element.state('elements').length);
+      //why not using find(QoodleElement);
+    });*/
   });
 
+
+
   describe('update state when Inc(Name)', () => {
-
-
-
-
 
     it('Increment counter of specific element', () =>
     {

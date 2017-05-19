@@ -164,15 +164,6 @@ it('sets min in state as 0 string', () => {
 
 });
 
-    it('sets name in state as empty string', () => {
-        const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-        expect(element.state('name')).to.be.equal('');
-    });
-
-    it('sets name in state as empty string', () => {
-        const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-        expect(element.state('name')).to.be.equal('');
-    });
 
     describe('when users changes \'name\' input', () => {
 

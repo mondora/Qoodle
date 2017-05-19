@@ -119,15 +119,15 @@ describe('QoodleElement', () => {
 
       expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
 
-      element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id value'}});
-
+      element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id cane'}});
+//qui praticamente simulando un click non ricambio lo stato.
+//quindi l'id vale sembre quello con cui ho creato l'elemento
 
       expect(Inc).has.been.calledWith('id value');
-
-
-
-
   });
+
+
+
 
 
   });

@@ -95,7 +95,7 @@ table{
 .responsive-table thead th {
   background-color: #f5b95f;
   border: 1px solid #f5b95f;
-  font-weight: normal;
+  font-size: 18px;
   text-align: center;
   color: white;
 }
@@ -265,7 +265,7 @@ table{
   padding: 8px 10px;
   color: #FFF;
   display: inline-block;
-  width: 26px;
+  width: 70px;
   cursor: pointer;
 }
 .responsive-table input{
@@ -431,7 +431,8 @@ color: red
   position: relative;
   min-height: 1px;
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 20px;
+  padding-bottom: 40px;
 }
 
 #sideBar {

@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import QoodleHeaderTable from "components/QoodleHeaderTable";
+import RowTable from "components/RowTable"
 
 export default class CreateTable extends Component {
 
@@ -11,6 +12,7 @@ export default class CreateTable extends Component {
     }
 
     render(){
+
         return(
           <table className="responsive-table">
             <caption>{this.props.tit}</caption>
@@ -19,6 +21,7 @@ export default class CreateTable extends Component {
 
             </thead>
             <tfoot>
+              <RowTable ele={this.props.colonne} />
             </tfoot>
             <tbody>
 

@@ -15,7 +15,7 @@ describe('QoodleView', () => {
   it('check state default number of elements',() =>{
 
     const element = shallow(<QoodleView />)
-    expect(element.state('elements')).to.have.length(3);
+    expect(element.state('elements')).to.have.length(9);
   });
 
   it('check state default name of the first element',() =>{

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement"
+import CreateTable from "components/create-table"
 /////////////List Actions
 
 
@@ -41,6 +42,66 @@ export default class QoodleView extends Component {
                       price: 0,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
+                    },
+                    {
+                      name: 'Pesca',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 5,
+                      imgUrl: '_assets/img/bana.png'
+                    },
+                    {
+                      name: 'Uva',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 0,
+                      imgUrl: '_assets/img/redApple.png'
+                    },
+                    {
+                      name: 'Number of Vegetarian',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 0,
+                      imgUrl: '_assets/img/kiwi.png'
+                    },
+                    {
+                      name: 'Nome',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 5,
+                      imgUrl: '_assets/img/bana.png'
+                    },
+                    {
+                      name: 'Number Of People',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 0,
+                      imgUrl: '_assets/img/redApple.png'
+                    },
+                    {
+                      name: 'Number of Veggie',
+                      min: 0,
+                      max: 99999,
+                      umoption: '',
+                      coinoption: '',
+                      price: 0,
+                      counter: 0,
+                      imgUrl: '_assets/img/kiwi.png'
                     }
                 ]
           }
@@ -72,14 +133,10 @@ export default class QoodleView extends Component {
       var i =elementi.findIndex(el => el.name === iden );
       var elemento = elementi[i];
 
-      console.log('ELEMENTO COUNTEEEEEEEEERR DEC ', elemento.counter);
-
       if(elemento.counter > 0) elemento.counter-- ;
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
-
-            console.log('ELEMENTO COUNTEEEEEEEEERR DEC ', this.state.elements[0].counter);
       }
     }
 
@@ -99,6 +156,8 @@ export default class QoodleView extends Component {
 
 
     render(){
+      const headerRiassunto = [{name:'Cosa'},{name:'Costo'},{name:'Quanti'}, {name: 'Costo Riga'}];
+
       var elementi = this.state.elements;
       var StampableElement = [];
 
@@ -108,9 +167,14 @@ export default class QoodleView extends Component {
 
 
       return(
+        <div>
           <div className="row">
             {StampableElement}
           </div>
+        </div>
+
+
+
       );
     }
 

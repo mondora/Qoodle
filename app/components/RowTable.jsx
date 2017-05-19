@@ -1,22 +1,28 @@
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 
-class QVRowTable extends Component
+class RowTable extends Component
 {
 
     constructor(props)
     {
       //props avrò un solo parametro con l'elemento
         super(props);
+
+
+
+
     }
+
+
 
 
     render()
     {
-      var riga = [];
+      const rows = this.props.ele;
 
-      //pusho un array contenente ognuno il valore di un campo dell'oggetto(tra td)
-      riga.push( Object.keys(this.props.ele).map((e) => <td>{this.props.ele[e]}</td>));
+      var riga = [];
+      //riga.push( Object.keys(this.props.ele).map((e) => <td>{this.props.ele[e]}</td>));
       return (<tr>{riga}</tr>);
 
     }
@@ -24,4 +30,4 @@ class QVRowTable extends Component
 
 }
 
-export default QVRowTable;
+export default RowTable;

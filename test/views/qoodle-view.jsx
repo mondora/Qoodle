@@ -60,7 +60,7 @@ describe('QoodleView', () => {
   });
 
 
-  it('Decrement counter of specific element ', () =>
+/*  it('Decrement counter of specific element ', () =>
   {
     const element = shallow(<QoodleView />);
     const oldCounter = element.state('elements')[0].counter;
@@ -70,7 +70,7 @@ describe('QoodleView', () => {
     element.instance().Dec('Name');
     expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -2);
   });
-
+*/
 
 });
 });

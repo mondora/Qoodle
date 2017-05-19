@@ -50,32 +50,18 @@ export default class QoodleView extends Component {
     Inc(iden)
     {
       const elementi = this.state.elements;
-
-
-      console.log('QUESTI SONO GLI ELEMENTIIII',elementi[0].counter + 1 );
-
-
-
-
       var elemento;
       var somma=0;
-      for(var i=0; i<elementi.length; i++)
-        if (elementi[i].name === iden)
-        {
-          elemento = elementi[i];
-          somma = elementi[i].counter + 1;
-          break;
-        }
 
-{
-      elemento.counter = somma;
-
+      {
+//usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
+      var i =elementi.findIndex(el => el.name === iden );
+      elemento = elementi[i];
+      elemento.counter++;
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
-}
-
-
+      }
     }
 
 

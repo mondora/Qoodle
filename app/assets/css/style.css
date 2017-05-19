@@ -14,8 +14,8 @@ body{
 }
 .header{
   background-color: #FFF;
-  height: 50px;
-  padding: 30px;
+  height: 90px;
+  padding: 20px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -365,6 +365,7 @@ table{
 }
 .box p {
     margin-left: 20px;
+    font-size: 22px
 }
 .box #counter
 {
@@ -419,9 +420,18 @@ color: red
 }
 
 .row{
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin: 20px;
   text-align: center;
+}
+
+.col{
+  display: inline-block;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 #sideBar {

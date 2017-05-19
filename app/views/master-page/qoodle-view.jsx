@@ -99,22 +99,19 @@ export default class QoodleView extends Component {
 
 
     render(){
-    var elementi = this.state.elements;
-    var StampableElement = [];
-
+      var elementi = this.state.elements;
+      var StampableElement = [];
 
       elementi.forEach(
-        (ele) => StampableElement.push(this.Object2QoodleElement(ele))
+        (ele) => StampableElement.push(<div className="col">{this.Object2QoodleElement(ele)}</div>)
       );
 
 
-    return(
-        <div>
-          {StampableElement}
-        </div>
-
-
-  );
+      return(
+          <div className="row">
+            {StampableElement}
+          </div>
+      );
     }
 
 

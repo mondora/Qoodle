@@ -13,26 +13,23 @@ describe('SummaryRow', () => {
 
   it('Render correct Name', ()=>{
 
-    const oggetto = {
-      name: 'Name',
-      min: 0,
-      max: 99999,
-      umoption: '',
-      coinoption: '€',
-      price: 1,
-      counter: 4,
-      imgUrl: '_assets/img/bana.png'
-    };
-
-    const element = shallow(<SummaryRow object = {oggetto} />);
+    const element = shallow(<SummaryRow name = 'Name' price ={1}  counter ={4} coinoption = '€'/>);
 
 
     expect(element.find('div').text()).to.be.equal('Name 4€');
 
-
-
   });
 
+  it('Render correct text using  price*counter', ()=>{
+  const nom = 'Banana';
+  const pri = 5;
+  const cou = 4;
+  const coi = '€';
+
+  const element = shallow(<SummaryRow name = {nom} price={pri}  counter = {cou} coinoption ={coi}/>);
+
+  expect(element.find('div').text()).to.be.equal('Banana ' +pri * cou +coi);
+  });
 
 
 });

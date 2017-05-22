@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, PropTypes} from "react";
 
 
 export default class SummaryRow extends Component
@@ -8,14 +8,17 @@ export default class SummaryRow extends Component
     super(props);
   }
 
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    counter: PropTypes.number.isRequired,
+    coinoption: PropTypes.string.isRequired
+};
+
   render()
   {
     return (
-      <div>{this.props.object.name} {this.props.object.price * this.props.object.counter}{this.props.object.coinoption}</div>
+      <div>{this.props.name} {this.props.price * this.props.counter}{this.props.coinoption}</div>
     );
   }
-
-
-
-
 }

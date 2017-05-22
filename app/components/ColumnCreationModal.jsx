@@ -112,5 +112,6 @@ export default class ColumnCreationModal extends Component {
 }
 
 ColumnCreationModal.defaultProps = {
-  show : false
+  show : false,
+  coinoption: '€'
 };

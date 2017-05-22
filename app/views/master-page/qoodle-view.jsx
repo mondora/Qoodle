@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
-import QoodleElement from "components/QoodleElement"
-import CreateTable from "components/create-table"
+import QoodleElement from "components/QoodleElement";
+import Summary from "components/Summary";
 /////////////List Actions
 
 
@@ -18,7 +18,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
@@ -28,7 +28,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 0,
                       imgUrl: '_assets/img/redApple.png'
@@ -38,7 +38,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
@@ -48,7 +48,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
@@ -58,7 +58,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 0,
                       imgUrl: '_assets/img/redApple.png'
@@ -68,7 +68,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
+                      coinoption: '€',
                       price: 0,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
@@ -78,8 +78,8 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
-                      price: 0,
+                      coinoption: '€',
+                      price: 3,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
                     },
@@ -88,8 +88,8 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
-                      price: 0,
+                      coinoption: '€',
+                      price: 4,
                       counter: 0,
                       imgUrl: '_assets/img/redApple.png'
                     },
@@ -98,8 +98,8 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '',
-                      price: 0,
+                      coinoption: '€',
+                      price: 5,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
                     }
@@ -171,6 +171,7 @@ export default class QoodleView extends Component {
           <div className="row">
             {StampableElement}
           </div>
+          <Summary rows={this.state.elements} />
         </div>
 
 

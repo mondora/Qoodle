@@ -1,6 +1,6 @@
 import React from "react";
 import {Router, IndexRoute, Route} from "react-router";
-import history from "libs/history";
+import history from "components/libs/history";
 import RootPage from "views/root-page.jsx";
 import NewQoodle from "views/master-page/new-qoodle.jsx";
 import QoodleView from "views/master-page/qoodle-view.jsx";

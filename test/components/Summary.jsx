@@ -50,7 +50,6 @@ describe('Summary', () => {
     const element = shallow(<Summary rows = {lista} />);
     expect(element.find(SummaryRow)).to.have.length(3);
 
-
     });
 
 });

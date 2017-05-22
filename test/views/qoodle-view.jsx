@@ -7,6 +7,7 @@ import sinonChai from 'sinon-chai';
 
 import QoodleElement from 'components/create-table';
 import QoodleView from 'views/master-page/qoodle-view';
+import Summary from 'components/Summary';
 
 chai.use(sinonChai);
 
@@ -25,19 +26,24 @@ describe('QoodleView', () => {
 
   });
 
+  it('render the Summary component',() =>{
+  const element = shallow(<QoodleView />)
+  expect(element.find(Summary)).to.have.length(1);
+  });
 
-    it('return QoodleElement from relative object using CreateQoodleElement',() =>{
-    const element = shallow(<QoodleView />)
-    var colonna = {
-      name: 'Name',
-      min: 0,
-      max: 99999,
-      umoption: 'kg',
-      coinoption: '',
-      price: 35,
-      counter: 5,
-      imgUrl: '_assets/img/bana.png'
-    };
+
+  it('return QoodleElement from relative object using CreateQoodleElement',() =>{
+  const element = shallow(<QoodleView />)
+  var colonna = {
+    name: 'Name',
+    min: 0,
+    max: 99999,
+    umoption: 'kg',
+    coinoption: '',
+    price: 35,
+    counter: 5,
+    imgUrl: '_assets/img/bana.png'
+  };
 
 
     var newQoodleElement = element.instance().Object2QoodleElement(colonna).props;

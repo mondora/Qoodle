@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {Button, FormGroup, Panel} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement";
-import Summary from "components/Summary";
+import SummaryModal from "components/SummaryModal";
+
 /////////////List Actions
 
 
@@ -12,6 +13,7 @@ export default class QoodleView extends Component {
         super();
 
         this.state = {
+          showSummaryModal: false,
           elements: [
                     {
                       name: 'Banana',
@@ -152,9 +154,14 @@ export default class QoodleView extends Component {
         />);
     }
 
-    PurchaseEnded()
+    OpenSummary()
     {
-        alert('hai terminato un acquisto');
+        this.setState({showSummaryModal: true});
+    }
+
+    CloseSummary()
+    {
+        this.setState({showSummaryModal: false})
     }
 
 
@@ -171,20 +178,16 @@ export default class QoodleView extends Component {
       );
 
 
+
       return(
         <div>
           <div className="row">
             {StampableElement}
           </div>
 
-          <Panel header = 'Riassunto scelte compiute:' bsStyle="success">
-            <Summary rows={this.state.elements}/>
+            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>Totale</Button>
 
-              <Panel header = "Procedi all &#39;acquisto" bsStyle="primary" id="BuyPanel">
-                <Button bsStyle="primary" onClick={this.PurchaseEnded.bind(this)}>Totale</Button>
-              </Panel>
-          </Panel>
-
+              <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal} close={this.CloseSummary.bind(this)}/>
 
 
         </div>

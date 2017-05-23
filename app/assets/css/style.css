@@ -395,30 +395,12 @@ font-size: 60px;
 color: red
 
 }
-
-.panel  {
-  width: 70vw;
+#buyButton{
+  width: 50vw;
   margin: 0 auto;
-  font-size: 22px;
+  font-size: 30px;
+  margin-left: 25vw;
 }
-.panel p{
-  margin-left: 20px;
-}
-.panel #BuyPanel{
-
-  display: inline-block;
-  position: relative;
-  float: right;
-  width: 20vw;
-  border: 3px solid #337ab7;
-  padding: 2px;
-  font-size: 22px;
-}
-.inlineRows
-{
-  width: 20vw;
-}
-
 
 /* END:: QoodleView PAGE */
 

@@ -13,8 +13,6 @@ export default class Summary extends Component
     rows: PropTypes.array
     };
 
-
-
   render()
   {
     var summaryRows = [];

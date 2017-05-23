@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
+import {Button, FormGroup, Panel} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement";
 import Summary from "components/Summary";
 /////////////List Actions
@@ -171,7 +171,12 @@ export default class QoodleView extends Component {
           <div className="row">
             {StampableElement}
           </div>
-          <Summary rows={this.state.elements} />
+
+          <Panel header = 'Riassunto scelte fatte' bsStyle="success">
+            <Summary rows={this.state.elements}/>
+          </Panel>
+
+
         </div>
 
 

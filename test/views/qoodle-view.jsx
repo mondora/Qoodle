@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import {shallow, render} from 'enzyme';
 import React from 'react';
-import {Button, FormControl} from 'react-bootstrap';
+import {Button, FormControl, Panel} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -29,6 +29,13 @@ describe('QoodleView', () => {
   it('render the Summary component',() =>{
   const element = shallow(<QoodleView />)
   expect(element.find(Summary)).to.have.length(1);
+  });
+
+  it('render Panel ',() =>
+  {
+    const element = shallow(<QoodleView />);
+    expect(element.find(Panel).prop('bsStyle')).to.be.equal('success');
+
   });
 
 

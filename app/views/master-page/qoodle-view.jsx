@@ -191,7 +191,9 @@ export default class QoodleView extends Component {
 
             <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{somma}</Button>
 
-              <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal} close={this.CloseSummary.bind(this)}/>
+              <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal}
+                close={this.CloseSummary.bind(this)}
+                check={this.CloseSummary.bind(this)}/>
 
 
         </div>

@@ -21,6 +21,7 @@ export default class SummaryModal extends Component {
     var summaryRows = [];
     const elements = this.props.rows;
     const {close} = this.props;
+    const {check} = this.props;
 
     for(var i=0; i<elements.length; i++)
     {
@@ -44,7 +45,8 @@ export default class SummaryModal extends Component {
                 {summaryRows}
               </Modal.Body>
               <Modal.Footer>
-                  <Button onClick={() => close()}>{"Aggiungi"}</Button>
+                  <Button onClick={() => check()}>{"Controlla lista, INDIETRO"}</Button>
+                  <Button onClick={() => close()}>{"Lista esatta, PROCEDI"}</Button>
               </Modal.Footer>
           </Modal>
       )

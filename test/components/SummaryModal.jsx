@@ -115,7 +115,7 @@ describe('SummaryModal', () => {
 
   it('Check default show props', () =>
   {
-    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} />);
+    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} check={sinon.spy()}/>);
     expect(element.instance().props.show).to.be.false;
 
   });
@@ -131,6 +131,13 @@ describe('SummaryModal', () => {
         howMany++;
     }
     expect(element.find('p')).have.length(howMany);
+
+  });
+
+  it('render 2 button', ()=>
+  {
+    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} check={sinon.spy()}/>);
+    expect(element.find(Button)).to.have.length(2);
 
   });
 

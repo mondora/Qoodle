@@ -22,7 +22,7 @@ describe('QoodleView', () => {
   it('check state default name of the first element',() =>{
 
     const element = shallow(<QoodleView />)
-    expect(element.state('elements')[0].name).to.be.equal('Name');
+    expect(element.state('elements')[0].name).to.be.equal('Banana');
 
   });
 
@@ -111,10 +111,10 @@ describe('QoodleView', () => {
     {
       const element = shallow(<QoodleView />);
       const oldCounter = element.state('elements')[0].counter;
-      element.instance().Inc('Name');
+      element.instance().Inc('Banana');
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 1);
 
-      element.instance().Inc('Name');
+      element.instance().Inc('Banana');
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 2);
   });
 
@@ -127,10 +127,10 @@ describe('QoodleView', () => {
     {
       const element = shallow(<QoodleView />);
       const oldCounter = element.state('elements')[0].counter;
-      element.instance().Dec('Name');
+      element.instance().Dec('Banana');
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -1);
 
-      element.instance().Dec('Name');
+      element.instance().Dec('Banana');
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -2);
     });
 

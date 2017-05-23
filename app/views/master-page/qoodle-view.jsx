@@ -14,32 +14,32 @@ export default class QoodleView extends Component {
         this.state = {
           elements: [
                     {
-                      name: 'Name',
+                      name: 'Banana',
                       min: 0,
                       max: 99999,
                       umoption: '',
                       coinoption: '€',
-                      price: 0,
+                      price: 1.5,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
                     },
                     {
-                      name: 'Number Of Person',
+                      name: 'MelaRossa',
                       min: 0,
                       max: 99999,
                       umoption: '',
                       coinoption: '€',
-                      price: 0,
+                      price: 2,
                       counter: 0,
                       imgUrl: '_assets/img/redApple.png'
                     },
                     {
-                      name: 'Number of Vegans',
+                      name: 'Kiwi',
                       min: 0,
                       max: 99999,
                       umoption: '',
                       coinoption: '€',
-                      price: 0,
+                      price: 3.5,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
                     },

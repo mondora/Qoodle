@@ -177,7 +177,11 @@ export default class QoodleView extends Component {
         (ele) => StampableElement.push(<div className="col">{this.Object2QoodleElement(ele)}</div>)
       );
 
+      var somma = 0;
+      for(var i = 0; i<elementi.length; i++)
+        somma += elementi[i].price * elementi[i].counter;
 
+      somma = 'Totale: ' + somma +'€';
 
       return(
         <div>
@@ -185,7 +189,7 @@ export default class QoodleView extends Component {
             {StampableElement}
           </div>
 
-            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>Totale</Button>
+            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{somma}</Button>
 
               <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal} close={this.CloseSummary.bind(this)}/>
 

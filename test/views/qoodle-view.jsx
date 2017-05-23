@@ -1,5 +1,5 @@
 import chai, {expect} from 'chai';
-import {shallow, render} from 'enzyme';
+import {shallow, render, mount} from 'enzyme';
 import React from 'react';
 import {Button, FormControl, Panel} from 'react-bootstrap';
 import sinon from 'sinon';
@@ -26,47 +26,16 @@ describe('QoodleView', () => {
 
   });
 
-/*
-  it('render the Summary component',() =>{
-  const element = shallow(<QoodleView />)
-  expect(element.find(Summary)).to.have.length(1);
-  });
 
-  it('render Panel with resume',() =>
-  {
-    const element = shallow(<QoodleView />);
-    expect(element.find(Panel).findWhere(n => n.prop('bsStyle') === 'success')).to.have.length(1);
-    expect(element.find(Panel).findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')).to.have.length(1);
+  it('render Button to check the total',() =>{
+  const element = shallow(<QoodleView />);
+  expect(element.find(Button).prop('id') === 'buyButton').to.be.equal(true);
 
+  expect(element.find(Button).children().text()).to.be.equal('Totale: 22.5€');
   });
 
 
-    it('render Panel content other panel',() =>
-    {
-      const element = shallow(<QoodleView />);
-      //expect(
-      element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
-      .contains(
-        <Panel header = "Procedi all &#39;acquisto" bsStyle="primary" id="BuyPanel">
-          <Button bsStyle="primary" onClick={this.PurchaseEnded.bind(this)}>Totale</Button>
-        </Panel>)
-    //  ).to.equal(true);
 
-      expect(element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
-      .children().find(Panel)).to.have.length(1);
-
-    });
-
-    it('render Panel content other panel content Button',() =>{
-      const element = shallow(<QoodleView />);
-      expect(element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
-      .children().find(Panel).find(Button)).to.have.length(1);
-
-      console.log('MI ASPETTO COSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ',
-      element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
-      .children().find(Panel).find(Button).text());
-    });
-*/
 
 
 

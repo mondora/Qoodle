@@ -113,12 +113,31 @@ describe('SummaryModal', () => {
 
   });
 
-  it('check default show props', () =>
+  it('Check default show props', () =>
   {
     const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} />);
     expect(element.instance().props.show).to.be.false;
 
   });
+
+  it('Render p foreach element with value != 0', () =>
+  {
+    const elementi = {elementi};
+    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} />);
+    var howMany=0
+    for(var i=0; elementi.length; i++)
+    {
+        if (elementi[i].counter * elmenti[i].price != 0)
+        howMany++;
+    }
+    expect(element.find('p')).have.length(howMany);
+
+  });
+
+
+
+
+
 
 
 });

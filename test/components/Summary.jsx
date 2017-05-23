@@ -21,7 +21,7 @@ describe('Summary', () => {
                 max: 99999,
                 umoption: '',
                 coinoption: '',
-                price: 0,
+                price: 1,
                 counter: 5,
                 imgUrl: '_assets/img/bana.png'
               },
@@ -31,8 +31,8 @@ describe('Summary', () => {
                 max: 99999,
                 umoption: '',
                 coinoption: '',
-                price: 0,
-                counter: 0,
+                price: 2,
+                counter: 2,
                 imgUrl: '_assets/img/redApple.png'
               },
               {
@@ -42,13 +42,13 @@ describe('Summary', () => {
                 umoption: '',
                 coinoption: '',
                 price: 0,
-                counter: 0,
+                counter: 5,
                 imgUrl: '_assets/img/kiwi.png'
               }];
 
 
     const element = shallow(<Summary rows = {lista} />);
-    expect(element.find(SummaryRow)).to.have.length(3);
+    expect(element.find(SummaryRow)).to.have.length(2);
 
     });
 

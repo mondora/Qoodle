@@ -31,13 +31,41 @@ describe('QoodleView', () => {
   expect(element.find(Summary)).to.have.length(1);
   });
 
-  it('render Panel ',() =>
+  it('render Panel with resume',() =>
   {
     const element = shallow(<QoodleView />);
-    expect(element.find(Panel).prop('bsStyle')).to.be.equal('success');
-    expect(element.find(Panel).prop('header')).to.be.equal('Riassunto scelte compiute:');
+    expect(element.find(Panel).findWhere(n => n.prop('bsStyle') === 'success')).to.have.length(1);
+    expect(element.find(Panel).findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')).to.have.length(1);
 
   });
+
+
+    it('render Panel content other panel',() =>
+    {
+      const element = shallow(<QoodleView />);
+      /*expect(
+      element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
+      .contains(
+        <Panel header = "Procedi all &#39;acquisto" bsStyle="primary" id="BuyPanel">
+          <Button bsStyle="primary" onClick={this.PurchaseEnded.bind(this)}>Totale</Button>
+        </Panel>)
+      ).to.equal(true);
+*/
+      expect(element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
+      .children().find(Panel)).to.have.length(1);
+
+    });
+
+    it('render Panel content other panel content Button',() =>{
+      const element = shallow(<QoodleView />);
+      expect(element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
+      .children().find(Panel).find(Button)).to.have.length(1);
+
+      //expect(element.findWhere(n => n.prop('header') === 'Riassunto scelte compiute:')
+      //.children().find(Panel).children().find(Button).text()).to.be.equal('Totale');
+    });
+
+
 
 
   it('return QoodleElement from relative object using CreateQoodleElement',() =>{

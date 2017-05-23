@@ -18,18 +18,21 @@ export default class Summary extends Component
   render()
   {
     var summaryRows = [];
-    const element = this.props.rows;
+    const elements = this.props.rows;
 
-    for(var i=0; i<element.length; i++){
-      summaryRows.push(
-      <SummaryRow name={element[i].name}
-      price={element[i].price}
-      counter = {element[i].counter}
-      coinoption ={element[i].coinoption}/>
-  );
+    for(var i=0; i<elements.length; i++){
+      if(elements[i].price * elements[i].counter)
+      {
+        summaryRows.push(
+          <SummaryRow name={elements[i].name}
+          price={elements[i].price}
+          counter = {elements[i].counter}
+          coinoption ={elements[i].coinoption}/>
+        );
+      }
 }
 
-    return (<div>{summaryRows}</div>);
+    return (<div id="inlineRows">{summaryRows}</div>);
 
 
 

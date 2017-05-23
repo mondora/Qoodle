@@ -147,9 +147,14 @@ export default class QoodleView extends Component {
         <QoodleElement counter={rowObject.counter}
         id={rowObject.name}
         imgUrl={rowObject.imgUrl} name={rowObject.name} coin="€"
-        price={35} um="kg" onInc={this.Inc.bind(this)}
+        price={rowObject.price} um="kg" onInc={this.Inc.bind(this)}
         onDec={this.Dec.bind(this)}
         />);
+    }
+
+    PurchaseEnded()
+    {
+        alert('hai terminato un acquisto');
     }
 
 
@@ -174,7 +179,12 @@ export default class QoodleView extends Component {
 
           <Panel header = 'Riassunto scelte compiute:' bsStyle="success">
             <Summary rows={this.state.elements}/>
+
+              <Panel header = "Procedi all &#39;acquisto" bsStyle="primary" id="BuyPanel">
+                <Button bsStyle="primary" onClick={this.PurchaseEnded.bind(this)}>Totale</Button>
+              </Panel>
           </Panel>
+
 
 
         </div>

@@ -35,6 +35,7 @@ describe('QoodleView', () => {
   {
     const element = shallow(<QoodleView />);
     expect(element.find(Panel).prop('bsStyle')).to.be.equal('success');
+    expect(element.find(Panel).prop('header')).to.be.equal('Riassunto scelte compiute:');
 
   });
 

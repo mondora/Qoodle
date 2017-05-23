@@ -172,7 +172,7 @@ export default class QoodleView extends Component {
             {StampableElement}
           </div>
 
-          <Panel header = 'Riassunto scelte fatte' bsStyle="success">
+          <Panel header = 'Riassunto scelte compiute:' bsStyle="success">
             <Summary rows={this.state.elements}/>
           </Panel>
 

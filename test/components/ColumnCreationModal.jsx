@@ -11,30 +11,8 @@ chai.use(sinonChai);
 
 describe('ColumnCreationModal', () => {
 
-  it('check input default vaule',() =>{
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.state('name')).to.be.empty;
-    expect(element.state('min')).to.be.equal(0);
-    expect(element.state('max')).to.be.equal(99999);
-    expect(element.state('umoption')).to.be.empty;
-    expect(element.state('coinoption')).to.be.equal('€');
-    expect(element.state('price')).to.be.equal(0);
 
-  });
 
-  it('check show props', () =>
-  {
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} show={false}/>);
-    expect(element.instance().props.show).to.be.false;
-
-  });
-
-  it('check show default value', () =>
-  {
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.instance().props.show).to.be.false;
-
-  });
 
   //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an input box for column name', () => {
@@ -132,15 +110,7 @@ it('renders an 3 FormControl of type number', () =>
 
 
 
-  it('sets name in state as empty string', () => {
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.state('name')).to.be.equal('');
-});
 
-it('sets min in state as 0 string', () => {
-    const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
-    expect(element.state('min')).to.be.equal(0);
-});
 
 
     it('calls onAdd function providing new name value', () => {

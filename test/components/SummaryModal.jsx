@@ -142,9 +142,24 @@ describe('SummaryModal', () => {
   });
 
 
+  describe('when user clicks on INDIETRO button', () => {
 
 
+    it('calls check function without parameters', () => {
+      const check = sinon.spy();
+      const element = shallow(
+        <SummaryModal
+          rows= {elementi}
+          close={sinon.spy()}
+          check={check}
+          />
+      );
 
 
+      element.find(Button).findWhere(n => n.prop('id') === 'check').simulate('click');
+
+      expect(check).to.have.callCount(1);
+    });
+});
 
 });

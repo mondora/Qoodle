@@ -57,7 +57,7 @@ describe('QoodleElement', () => {
   });
 
 
-  it('renders all i tag', () =>
+  it('renders image tag', () =>
   {
     const element = shallow(
       <QoodleElement
@@ -68,18 +68,6 @@ describe('QoodleElement', () => {
   });
 
 
-  it('check props passed', () =>
-  {
-    const element = shallow(<QoodleElement id="banana" imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" um="kg" price={35} counter={10}/>);
-    expect(element.instance().props.id).to.be.equal("banana");
-    expect(element.instance().props.imgUrl).to.be.equal("_assets/img/bana.png");
-    expect(element.instance().props.name).to.be.equal("banana");
-    expect(element.instance().props.coin).to.be.equal("$");
-    expect(element.instance().props.price).to.be.equal(35);
-    expect(element.instance().props.counter).to.be.equal(10);
-    expect(element.instance().props.um).to.be.equal("kg");
-
-  });
 
   it('check counter ', () =>
   {
@@ -133,9 +121,17 @@ describe('QoodleElement', () => {
 
     it('calls increase function providing an id', () => {
       const Dec = sinon.spy();
-      const element = shallow(<QoodleElement id="id value"
-      imgUrl="_assets/img/bana.png" name="banana" coin="$"
-      um="kg" um="kg" price={35} counter={10} onDec={Dec}/>);
+      const element = shallow(
+      <QoodleElement
+        id="id value"
+        imgUrl="_assets/img/bana.png"
+        name="banana"
+        coin="$"
+        um="kg"
+        um="kg"
+        price={35}
+        counter={10}
+        onDec={Dec}/>);
 
 
       expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);

@@ -4,13 +4,6 @@ import {Button, Image} from 'react-bootstrap';
 
 export default class QoodleElement extends Component {
 
-  static propTypes = {
-      imgUrl: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      coin: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      id: PropTypes.string.isRequired
-  };
   static defaultProps =
   {
       counter : 0,

@@ -117,7 +117,7 @@ export default class QoodleView extends Component {
 
       {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
-      var i =elementi.findIndex(el => el.name === iden );
+      var i = elementi.findIndex(el => el.name === iden );
       var elemento = elementi[i];
       elemento.counter++;
       elementi[i] = elemento;
@@ -149,7 +149,7 @@ export default class QoodleView extends Component {
         <QoodleElement counter={rowObject.counter}
         id={rowObject.name}
         imgUrl={rowObject.imgUrl} name={rowObject.name} coin="€"
-        price={rowObject.price} um="kg" onInc={this.Inc.bind(this)}
+        price={rowObject.price} um={rowObject.umoption} onInc={this.Inc.bind(this)}
         onDec={this.Dec.bind(this)}
         />);
     }
@@ -165,7 +165,21 @@ export default class QoodleView extends Component {
     }
 
 
-
+    renderQoodleElements () {
+      return this.state.elements.map(element => (
+        <QoodleElement
+          counter={element.counter}
+          id={element.name}
+          imgUrl={element.imgUrl}
+          name={element.name}
+          coin="€"
+          price={element.price}
+          um={element.umoption}
+          onInc={this.Inc.bind(this)}
+          onDec={this.Dec.bind(this)}
+        />
+      ));
+    }
 
     render(){
       const headerRiassunto = [{name:'Cosa'},{name:'Costo'},{name:'Quanti'}, {name: 'Costo Riga'}];
@@ -186,7 +200,7 @@ export default class QoodleView extends Component {
       return(
         <div>
           <div className="row">
-            {StampableElement}
+            {this.renderQoodleElements()}
           </div>
 
             <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{somma}</Button>

@@ -4,8 +4,8 @@ import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup} from 'react
 
 export default class ColumnCreationModal extends Component {
 
-    constructor (props) {
-        super(props);
+    constructor () {
+        super();
         this.state = {
             name: '',
             min: 0,

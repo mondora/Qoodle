@@ -5,7 +5,7 @@ import {Button, FormControl, Panel} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import QoodleElement from 'components/create-table';
+import QoodleElement from 'components/QoodleElement';
 import QoodleView from 'views/master-page/qoodle-view';
 import Summary from 'components/Summary';
 
@@ -39,38 +39,14 @@ describe('QoodleView', () => {
 
 
 
-  it('return QoodleElement from relative object using CreateQoodleElement',() =>{
-  const element = shallow(<QoodleView />)
-  var colonna = {
-    name: 'Name',
-    min: 0,
-    max: 99999,
-    umoption: 'kg',
-    coinoption: '',
-    price: 35,
-    counter: 5,
-    imgUrl: '_assets/img/bana.png'
-  };
-
-
-    var newQoodleElement = element.instance().Object2QoodleElement(colonna).props;
-
-    expect(JSON.stringify(newQoodleElement) == JSON.stringify(<QoodleElement counter={5}
-        id={'Name'}
-        imgUrl={'_assets/img/bana.png'} name="Name" coin="€"
-        price={35} um="kg" onInc={element.instance().Inc.bind(this)}
-        onDec={element.instance().Dec.bind(this)}/>.props)).to.be.true;
-
-    });
-
 
   describe('update state when calls Inc(Name)', () => {
 
     it('Render all QoodleElement',() =>{
 
       const element = shallow(<QoodleView />)
-      expect(element.find('QoodleElement')).to.have.length(element.state('elements').length);
-      //why not using find(QoodleElement);
+      expect(element.find(QoodleElement)).to.have.length(element.state('elements').length);
+
     });
   });
 

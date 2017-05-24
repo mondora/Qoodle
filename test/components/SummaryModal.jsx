@@ -105,21 +105,6 @@ describe('SummaryModal', () => {
         ];
 
 
-
-  it('check show props', () =>
-  {
-    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} show={false}/>);
-    expect(element.instance().props.show).to.be.false;
-
-  });
-
-  it('Check default show props', () =>
-  {
-    const element = shallow(<SummaryModal rows= {elementi} close={sinon.spy()} check={sinon.spy()}/>);
-    expect(element.instance().props.show).to.be.false;
-
-  });
-
   it('Render p foreach element with value != 0', () =>
   {
     const elementi = {elementi};

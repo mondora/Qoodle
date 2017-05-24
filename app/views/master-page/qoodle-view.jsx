@@ -109,15 +109,27 @@ export default class QoodleView extends Component {
           }
         }
 
+    renderSum()
+    {
+      var elementi = this.state.elements;
 
-    Inc(iden)
+      var sum = 0;
+      for(var i = 0; i<elementi.length; i++){
+        sum += elementi[i].price * elementi[i].counter;
+      }
+      sum = 'Totale: ' + sum +'€';
+      return sum;
+
+    }
+
+    Inc(id)
     {
       const elementi = this.state.elements;
-      var somma=0;
+      var sum=0;
 
       {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
-      var i = elementi.findIndex(el => el.name === iden );
+      var i = elementi.findIndex(el => el.name === id );
       var elemento = elementi[i];
       elemento.counter++;
       elementi[i] = elemento;
@@ -129,7 +141,7 @@ export default class QoodleView extends Component {
     Dec(iden)
     {
       const elementi = this.state.elements;
-      var somma=0;
+      var sum=0;
       {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
       var i =elementi.findIndex(el => el.name === iden );
@@ -142,17 +154,7 @@ export default class QoodleView extends Component {
       }
     }
 
-    Object2QoodleElement(rowObject)
-    {
 
-      return(
-        <QoodleElement counter={rowObject.counter}
-        id={rowObject.name}
-        imgUrl={rowObject.imgUrl} name={rowObject.name} coin="€"
-        price={rowObject.price} um={rowObject.umoption} onInc={this.Inc.bind(this)}
-        onDec={this.Dec.bind(this)}
-        />);
-    }
 
     OpenSummary()
     {
@@ -165,8 +167,9 @@ export default class QoodleView extends Component {
     }
 
 
+
     renderQoodleElements () {
-      return this.state.elements.map(element => (
+      return this.state.elements.map(element => (<div className="col">
         <QoodleElement
           counter={element.counter}
           id={element.name}
@@ -178,24 +181,14 @@ export default class QoodleView extends Component {
           onInc={this.Inc.bind(this)}
           onDec={this.Dec.bind(this)}
         />
+      </div>
       ));
     }
 
     render(){
       const headerRiassunto = [{name:'Cosa'},{name:'Costo'},{name:'Quanti'}, {name: 'Costo Riga'}];
 
-      var elementi = this.state.elements;
-      var StampableElement = [];
 
-      elementi.forEach(
-        (ele) => StampableElement.push(<div className="col">{this.Object2QoodleElement(ele)}</div>)
-      );
-
-      var somma = 0;
-      for(var i = 0; i<elementi.length; i++)
-        somma += elementi[i].price * elementi[i].counter;
-
-      somma = 'Totale: ' + somma +'€';
 
       return(
         <div>
@@ -203,7 +196,7 @@ export default class QoodleView extends Component {
             {this.renderQoodleElements()}
           </div>
 
-            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{somma}</Button>
+            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
 
               <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal}
                 close={this.CloseSummary.bind(this)}

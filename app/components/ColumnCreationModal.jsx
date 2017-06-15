@@ -12,7 +12,8 @@ export default class ColumnCreationModal extends Component {
             max: 99999,
             umoption: '',
             coinoption: '€',
-            price: 0
+            price: 0,
+            showAlert: false
 
         };
     }
@@ -25,13 +26,25 @@ export default class ColumnCreationModal extends Component {
 
     handleMinChange(mi)
     {
-      this.setState({min : mi.target.value});
+      if(this.state.max <= mi.target.value)
+        this.setState({showAlert: true,
+                min : mi.target.value });
+      else
+      this.setState({showAlert: false,
+              min: mi.target.value });
     }
 
 
     handleMaxChange(ma)
     {
-      this.setState({max : ma.target.value});
+      console.log("GUARDA CHE QUI DOVREBBE ALL'INIZIO ESSERE FALSO", this.state.min > ma.target.value)
+      if(this.state.min > ma.target.value)
+        this.setState({showAlert: true,
+                max : ma.target.value });
+      else{
+      this.setState({showAlert: false,
+              max : ma.target.value });
+      }
     }
 
     handleUMChange(um)
@@ -47,6 +60,18 @@ export default class ColumnCreationModal extends Component {
     handlePriceChange(pr)
     {
       this.setState({price : pr.target.value});
+    }
+
+
+    renderAlert()
+    {
+
+      if(this.state.showAlert){
+        return(
+        <ListGroup>
+          <ListGroupItem bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
+        </ListGroup>);
+      }
     }
 
 
@@ -76,10 +101,7 @@ export default class ColumnCreationModal extends Component {
                         </FormGroup>
 
 
-
-                        <ListGroup>
-                          <ListGroupItem bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
-                        </ListGroup>
+                        {this.renderAlert()}
 
 
                         <FormGroup>

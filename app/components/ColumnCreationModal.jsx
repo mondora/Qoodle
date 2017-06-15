@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
 
 export default class ColumnCreationModal extends Component {
 
@@ -75,6 +75,13 @@ export default class ColumnCreationModal extends Component {
                             <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0}/>
                         </FormGroup>
 
+
+
+                        <ListGroup>
+                          <ListGroupItem bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
+                        </ListGroup>
+
+
                         <FormGroup>
                         <label>select Unit of measure</label>
                         <FormControl componentClass="select" id="um" onChange={this.handleUMChange.bind(this)} placeholder="select">
@@ -92,7 +99,7 @@ export default class ColumnCreationModal extends Component {
 
 
                         <InputGroup onChange={this.handlePriceChange.bind(this)} >
-                          <FormControl type="number" />
+                          <FormControl type="number" min={0}/>
                           <InputGroup.Addon>{coinoption}</InputGroup.Addon>
                         </InputGroup>
 

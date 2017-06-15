@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import {shallow} from 'enzyme';
 import React from 'react';
-import {Button, FormControl, InputGroup, ListGroupItem, ListrGroup} from 'react-bootstrap';
+import {Button, FormControl, InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -227,8 +227,10 @@ it('renders an 3 FormControl of type number', () =>
 
         expect(
           element
-          .find(ListrGroup)
-          .findWhere(n => n.prop('bsStyle') === 'danger').text()
+          .find(ListGroup)
+          .findWhere(n => n.prop('bsStyle') === 'danger')
+          .children()
+          .text()
         ).to.be.equal('Il minimo impostato deve essere minore del massimo');
     });
 

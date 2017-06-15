@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import {shallow} from 'enzyme';
 import React from 'react';
-import {Button, FormControl, InputGroup} from 'react-bootstrap';
+import {Button, FormControl, InputGroup, ListGroupItem, ListrGroup} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -190,8 +190,49 @@ it('renders an 3 FormControl of type number', () =>
 
     });
 
+    describe('when user clicks on add button with wrong parameters', () => {
 
 
+      it('dont calls onAdd function but render an error message', () => {
+        const onAdd = sinon.spy();
+        const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
+
+        const wrongMin = 6;
+        const wrongMax = 5;
+
+        element
+            .find(FormControl)
+            .findWhere(n => n.prop('placeholder') === 'Nome')
+            .simulate('change', {target: {value: 'name value'}});
+        element
+            .find(FormControl)
+            .findWhere(n => n.prop('placeholder') === 'Min')
+            .simulate('change', {target: {value: 'min value'}});
+//ho impostato il minimo a un valore maggiore del massimo => render error
+        element
+            .find(FormControl)
+            .findWhere(n => n.prop('placeholder') === 'Max')
+            .simulate('change', {target: {value: 'max value'}});
+
+
+        element
+            .find(FormControl)
+            .findWhere(n => n.prop('id') === 'um')
+            .simulate('change', {target: {value: 'um value'}});
+
+          element
+              .find(InputGroup)
+              .simulate('change', {target: {value: -4}});
+
+
+        expect(
+          element
+          .find(ListrGroup)
+          .findWhere(n => n.prop('bsStyle') === 'danger').text()
+        ).to.be.equal('Il minimo impostato deve essere minore del massimo');
+    });
+
+    });
 
 
 

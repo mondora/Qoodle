@@ -12,9 +12,22 @@ export default class QoodleElement extends Component {
   }
 
 
-  constructor(props)
+
+  static propTypes = {
+    counter: PropTypes.number,
+    id: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    coin: PropTypes.string.isRequired,
+    price: PropTypes.number,
+    um: PropTypes.string,
+    onInc: PropTypes.function,
+    onDec: PropTypes.function
+  }
+
+  constructor()
   {
-    super(props);
+    super();
   }
 
 I

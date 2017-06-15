@@ -332,6 +332,30 @@ table{
 
 
 /* BEGIN:: QoodleView PAGE */
+@font-face {
+  font-family: 'air';
+  src: url('../air.ttf');
+}
+
+.body h1 {
+  width: 40vw;
+  margin: 0 auto;
+  padding-top: 15px;
+  font-family: 'air';
+  color : #f5b95f;
+  font-style: oblique;
+}
+.body h2 {
+    width: 70vw;
+    margin: 0 auto;
+    padding-top: 15px;
+    font-family: 'air';
+    color : #5888d6;
+    font-style: italic;
+}
+
+
+
 .box {
     width: 230px;
     background-color: #fff;

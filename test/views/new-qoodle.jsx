@@ -7,7 +7,7 @@ import sinonChai from 'sinon-chai';
 
 import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
-import QoodleHeaderTable from 'components/QoodleHeaderTable'
+import QoodleElement from 'components/QoodleElement'
 import ColumnCreationModal from 'components/ColumnCreationModal'
 
 chai.use(sinonChai);
@@ -21,25 +21,18 @@ describe('NewQoodle', () => {
 
   });
 
-  it('check state default value for Title and description',() =>{
+
+
+  it('render 3 elements from state',() =>{
 
     const element = shallow(<NewQoodle />)
-    expect(element.state('title')).to.be.equal('Dovrò mettere qui il Title');
-    expect(element.state('description')).to.be.empty;
+
+    expect(element.find(QoodleElement)).to.have.length(element.state('elements').length);
+
+
   });
 
-  it('check state default value for columns',() =>{
-
-    const element = shallow(<NewQoodle />)
-    expect(element.state('columns')).to.have.length(3);
-    expect(element.state('columns')[0]).to.include.keys('name');
-    expect(element.state('columns')[0]).to.include.keys('min');
-    expect(element.state('columns')[0]).to.include.keys('max');
-    expect(element.state('columns')[0]).to.include.keys('umoption');
-    expect(element.state('columns')[0]).to.include.keys('coinoption');
-  });
-
-  it('set state providing new title', () =>
+/*  it('set state providing new title', () =>
   {
 
     const handleOnChangeTitle = sinon.spy();
@@ -146,5 +139,5 @@ describe('NewQoodle', () => {
 
   });
 });
-
+*/
 });

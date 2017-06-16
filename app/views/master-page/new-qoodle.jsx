@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
-import CreateTable from "components/create-table"
+import CreateTable from "components/create-table";
+import QoodleElement from "components/QoodleElement"
 import ColumnCreationModal from "components/ColumnCreationModal";
 /////////////List Actions
 
@@ -10,39 +11,44 @@ export default class NewQoodle extends Component {
   constructor(props)
   {
     super(props);
-    this.handleAddColumn = this.handleAddColumn.bind(this);
     this.state = {
       title: 'Dovrò mettere qui il Title',
       description: '',
       showColumnModal : false,
-      columns: [
-                {
-                  name: 'Name',
-                  min: 0,
-                  max: 99999,
-                  umoption: '',
-                  coinoption: '',
-                  price: 0,
-                  imgUrl: '_assets/img/bana.png'
-                },
-                {
-                  name: 'Number Of Person',
-                  min: 0,
-                  max: 99999,
-                  umoption: '',
-                  coinoption: '',
-                  price: 0,
-                  imgUrl: '_assets/img/redApple.png'
-                },
-                {
-                  name: 'Number of Vegans',
-                  min: 0,
-                  max: 99999,
-                  umoption: '',
-                  coinoption: '',
-                  price: 0,
-                  imgUrl: '_assets/img/kiwi.png'
-                }
+      elements: [
+              {
+                id:1,
+                name: 'Banana',
+                min: 0,
+                max: 99999,
+                umoption: 'kg',
+                coinoption: '€',
+                price: 1.5,
+                counter: 5,
+                imgUrl: '_assets/img/bana.png'
+              },
+              {
+                id:2,
+                name: 'MelaRossa',
+                min: 0,
+                max: 99999,
+                umoption: 'kg',
+                coinoption: '€',
+                price: 2,
+                counter: 0,
+                imgUrl: '_assets/img/redApple.png'
+              },
+              {
+                id:3,
+                name: 'Kiwi',
+                min: 0,
+                max: 99999,
+                umoption: '',
+                coinoption: '€',
+                price: 3.5,
+                counter: 0,
+                imgUrl: '_assets/img/kiwi.png'
+              }
             ],
 
     }
@@ -64,20 +70,41 @@ handleOnChangeTitle(e)
 }
 
 
-handleAddColumn(na, mi, ma, um, co)
+handleAddElement(na, mi, ma, um, pr)
 {
-  console.log('OOOOU', this.state.columns.length)
+  console.log('OOOOU', this.state.elements.length)
   this.setState({showColumnModal: false});
 
-  let colonna=this.state.columns.concat({
+  let element=this.state.elements.concat({
+    id:5,
     name: na,
     min: mi,
     max: ma,
     umoption: um,
-    coinoption: co
+    coinoption: '€',
+    price: pr,
+    counter: 0,
+    imgUrl: '_assets/img/kiwi.png'
   })
 
-  this.setState({columns: colonna});
+  this.setState({elements: element});
+}
+
+
+renderQoodleElements () {
+  return this.state.elements.map(element => (
+    <div className="col">
+      <QoodleElement
+        counter={element.counter}
+        id={element.id}
+        imgUrl={element.imgUrl}
+        name={element.name}
+        coin={element.coinoption}
+        price={element.price}
+        um={element.umoption}
+      />
+  </div>
+  ));
 }
 
 
@@ -97,17 +124,21 @@ handleAddColumn(na, mi, ma, um, co)
                   </FormGroup>
 
                   <Button className="cent" bsStyle="primary"  bsSize="large"  onClick={this.open.bind(this)}>
-                    Add column
+                    Add Element
                      </Button>
 
 
-                     <CreateTable colonne={this.state.columns} tit={this.state.title}/>
+
+                       <div className="body">
+                         <h1 ><center>{this.state.title}</center></h1>
+                         <div className="row">
+                           {this.renderQoodleElements()}
+                         </div>
+                      </div>
 
 
 
-
-
-              <ColumnCreationModal onAdd={this.handleAddColumn.bind(this)} show={this.state.showColumnModal}/>
+              <ColumnCreationModal onAdd={this.handleAddElement.bind(this)} show={this.state.showColumnModal}/>
             </div>
         );
     }

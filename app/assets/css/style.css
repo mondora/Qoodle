@@ -334,24 +334,24 @@ table{
 /* BEGIN:: QoodleView PAGE */
 @font-face {
   font-family: 'air';
-  src: url('../air.ttf');
+  src: url(../fonts/air.ttf);
 }
 
 .body h1 {
-  width: 40vw;
-  margin: 0 auto;
   padding-top: 15px;
-  font-family: 'air';
+  font-family: "Times New Roman", Times, serif;;
   color : #f5b95f;
   font-style: oblique;
+  font-weight: bold;
 }
-.body h2 {
-    width: 70vw;
-    margin: 0 auto;
+.body h3 {
+    width: 100%;
+    margin-bottom: auto;
+    text-align: left;
     padding-top: 15px;
-    font-family: 'air';
+    padding-left: 55px;
     color : #5888d6;
-    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
 }
 
 

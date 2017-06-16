@@ -14,6 +14,8 @@ export default class QoodleView extends Component {
 
         this.state = {
           showSummaryModal: false,
+          title: 'Acquisto di gruppo di novembre',
+          description: 'È a disposizione sortita varietà di verdure e frutta di stagione',
           elements: [
                     {
                       name: 'Banana',
@@ -135,6 +137,7 @@ export default class QoodleView extends Component {
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
+
       }
     }
 
@@ -169,18 +172,19 @@ export default class QoodleView extends Component {
 
 
     renderQoodleElements () {
-      return this.state.elements.map(element => (<div className="col">
-        <QoodleElement
-          counter={element.counter}
-          id={element.name}
-          imgUrl={element.imgUrl}
-          name={element.name}
-          coin="€"
-          price={element.price}
-          um={element.umoption}
-          onInc={this.Inc.bind(this)}
-          onDec={this.Dec.bind(this)}
-        />
+      return this.state.elements.map(element => (
+        <div className="col">
+          <QoodleElement
+            counter={element.counter}
+            id={element.name}
+            imgUrl={element.imgUrl}
+            name={element.name}
+            coin={element.coinoption}
+            price={element.price}
+            um={element.umoption}
+            onInc={this.Inc.bind(this)}
+            onDec={this.Dec.bind(this)}
+          />
       </div>
       ));
     }
@@ -191,16 +195,21 @@ export default class QoodleView extends Component {
 
 
       return(
-        <div>
+        <div className="body">
+          <h1 ><center>{this.state.title}</center></h1>
+          <h3>{this.state.description}</h3>
           <div className="row">
             {this.renderQoodleElements()}
           </div>
 
             <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
 
-              <SummaryModal rows={this.state.elements} show={this.state.showSummaryModal}
+              <SummaryModal
+                rows={this.state.elements}
+                show={this.state.showSummaryModal}
                 close={this.CloseSummary.bind(this)}
-                check={this.CloseSummary.bind(this)}/>
+                check={this.CloseSummary.bind(this)}
+                />
 
 
         </div>

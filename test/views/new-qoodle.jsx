@@ -32,7 +32,7 @@ describe('NewQoodle', () => {
 
   });
 
-/*  it('set state providing new title', () =>
+  it('set state providing new title', () =>
   {
 
     const handleOnChangeTitle = sinon.spy();
@@ -48,6 +48,7 @@ describe('NewQoodle', () => {
     expect(element.state('title')).to.be.equal('titlevalue');
 
   });
+
 
 
   it('renders an input box fot Title', () => {
@@ -86,38 +87,39 @@ describe('NewQoodle', () => {
 
   });
 
+
   describe('update state when calls addNewColumn()', () => {
 
     it('increment number of columns', () =>
     {
       const element = shallow(<NewQoodle />);
-      const oldNrColumns = element.state('columns').length;
-      element.instance().handleAddColumn('Name',
+      const oldNrElements = element.state('elements').length;
+      element.instance().handleAddElement('Name',
       1,
       12435,
       'um',
-      'coin');
-      expect(element.state('columns').length).to.be.equal(oldNrColumns + 1);
+      9);
+      expect(element.state('elements').length).to.be.equal(oldNrElements + 1);
 
   });
 
 
-  it('call of handleAddColumn have the correct parameters', () =>
+  it('call of handleAddElement have the correct parameters', () =>
   {
     const element = shallow(<NewQoodle />);
-    const oldNrColumns = element.state('columns').length;
-    element.instance().handleAddColumn = sinon.spy();
-    element.instance().handleAddColumn('Name',
+    const oldNrColumns = element.state('elements').length;
+    element.instance().handleAddElement = sinon.spy();
+    element.instance().handleAddElement('Name',
     1,
     12435,
     'um',
-    'coin');
+    1.8);
 
-    expect(element.instance().handleAddColumn).calledWith('Name',
+    expect(element.instance().handleAddElement).calledWith('Name',
     1,
     12435,
     'um',
-    'coin');
+    1.8);
 
 });
 
@@ -128,16 +130,17 @@ describe('NewQoodle', () => {
     expect(element.state('showColumnModal')).to.be.false;
     element.find(Button).simulate('click');
     expect(element.state('showColumnModal')).to.be.true;
-    element.instance().handleAddColumn('Name',
+    element.instance().handleAddElement('Name',
     1,
     12435,
     'um',
-    'coin');
+    20);
     expect(element.state('showColumnModal')).to.be.false;
 
 
 
   });
-});
-*/
+
+  });
+
 });

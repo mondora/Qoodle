@@ -3,6 +3,7 @@ import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
 import CreateTable from "components/create-table";
 import QoodleElement from "components/QoodleElement"
 import ColumnCreationModal from "components/ColumnCreationModal";
+import InfiniteCalendar from 'react-infinite-calendar';
 /////////////List Actions
 
 
@@ -113,15 +114,33 @@ renderQoodleElements () {
     render() {
       const title = this.state.title;
       console.log('show nella view',this.state.showColumnModal)
+      var today = new Date();
+      var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+
         return (
 
+
+
             <div className="row">
+
                   <FormGroup className='medium' bsSize="large">
                     <FormControl type="text" placeholder="Title" onChange={ this.handleOnChangeTitle.bind(this)}/>
                   </FormGroup>
-                  <FormGroup className='medium'>
+              {/*    <div className ="block">
+                    <InfiniteCalendar
+                        width={150}
+                        height={225}
+                        selected={today}
+                        disabledDays={[0,6]}
+                        minDate={lastWeek}
+                      />
+                  </div>
+                  */}
+                    <FormGroup className='medium'>
                     <FormControl type="text" placeholder="Description" />
                   </FormGroup>
+
+
 
                   <Button className="cent" bsStyle="primary"  bsSize="large"  onClick={this.open.bind(this)}>
                     Add Element

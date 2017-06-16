@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
 
+
+
 export default class ColumnCreationModal extends Component {
 
     constructor () {
@@ -84,6 +86,7 @@ export default class ColumnCreationModal extends Component {
         const coinoption = this.state.coinoption;
         const price = this.state.price;
 
+
         return (
             <Modal show={this.props.show}>
                 <Modal.Header>
@@ -125,9 +128,10 @@ export default class ColumnCreationModal extends Component {
                           <InputGroup.Addon>{coinoption}</InputGroup.Addon>
                         </InputGroup>
 
-
-
                     </FormGroup>
+
+
+
 
 
                 </Modal.Body>

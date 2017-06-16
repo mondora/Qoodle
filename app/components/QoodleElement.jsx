@@ -22,8 +22,7 @@ export default class QoodleElement extends Component {
     coin: PropTypes.string.isRequired,
     price: PropTypes.number,
     um: PropTypes.string,
-    onInc: PropTypes.function,
-    onDec: PropTypes.function
+
   }
 
   constructor()

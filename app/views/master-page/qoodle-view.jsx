@@ -183,7 +183,7 @@ export default class QoodleView extends Component {
 
     renderQoodleElements () {
       return this.state.elements.map(element => (
-        <div className="col">
+        <div className="col" key={element.id}>
           <QoodleElement
             counter={element.counter}
             id={element.id}

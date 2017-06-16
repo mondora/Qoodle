@@ -13,6 +13,24 @@ chai.use(sinonChai);
 
 describe('QoodleView', () => {
 
+  it('render Title and Description',() =>{
+
+    const element = shallow(<QoodleView />);
+    expect(
+      element
+      .find('h1')
+      .text()
+    ).to.be.equal('Acquisto di gruppo di novembre');
+
+    expect(
+      element
+      .find('h3')
+      .text()
+    ).to.be.equal('È a disposizione sortita varietà di verdure e frutta di stagione');
+
+  });
+
+
   it('check state default number of elements',() =>{
 
     const element = shallow(<QoodleView />)
@@ -40,7 +58,7 @@ describe('QoodleView', () => {
 
 
 
-  describe('update state when calls Inc(Name)', () => {
+  describe('update state when calls Inc(id)', () => {
 
     it('Render all QoodleElement',() =>{
 
@@ -52,16 +70,18 @@ describe('QoodleView', () => {
 
 
 
-  describe('update state when Inc(Name)', () => {
+  describe('update state when Inc(iden)', () => {
 
     it('Increment counter of specific element', () =>
     {
       const element = shallow(<QoodleView />);
       const oldCounter = element.state('elements')[0].counter;
-      element.instance().Inc('Banana');
-      expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 1);
 
-      element.instance().Inc('Banana');
+
+      element.instance().Inc(1);
+      expect(element.state('elements')[0].counter).to.be.equal(oldCounter + 1);
+
+      element.instance().Inc(1);
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter + 2);
   });
 
@@ -74,14 +94,16 @@ describe('QoodleView', () => {
     {
       const element = shallow(<QoodleView />);
       const oldCounter = element.state('elements')[0].counter;
-      element.instance().Dec('Banana');
+      element.instance().Dec(1);
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -1);
 
-      element.instance().Dec('Banana');
+      element.instance().Dec(1);
       expect(element.state('elements')[0]['counter']).to.be.equal(oldCounter -2);
     });
 
 });
+
+
 
 
 

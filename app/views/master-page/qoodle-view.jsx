@@ -142,6 +142,7 @@ export default class QoodleView extends Component {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
       var i = elementi.findIndex(el => el.id === iden );
       var elemento = elementi[i];
+
       elemento.counter++;
       elementi[i] = elemento;
 

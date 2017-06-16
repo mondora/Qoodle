@@ -18,26 +18,29 @@ export default class QoodleView extends Component {
           description: 'È a disposizione sortita varietà di verdure e frutta di stagione',
           elements: [
                     {
+                      id:1,
                       name: 'Banana',
                       min: 0,
                       max: 99999,
-                      umoption: '',
+                      umoption: 'kg',
                       coinoption: '€',
                       price: 1.5,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
                     },
                     {
+                      id:2,
                       name: 'MelaRossa',
                       min: 0,
                       max: 99999,
-                      umoption: '',
+                      umoption: 'kg',
                       coinoption: '€',
                       price: 2,
                       counter: 0,
                       imgUrl: '_assets/img/redApple.png'
                     },
                     {
+                      id:3,
                       name: 'Kiwi',
                       min: 0,
                       max: 99999,
@@ -48,6 +51,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/kiwi.png'
                     },
                     {
+                      id:4,
                       name: 'Pesca',
                       min: 0,
                       max: 99999,
@@ -58,6 +62,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/bana.png'
                     },
                     {
+                      id:5,
                       name: 'Uva',
                       min: 0,
                       max: 99999,
@@ -68,6 +73,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/redApple.png'
                     },
                     {
+                      id:6,
                       name: 'Number of Vegetarian',
                       min: 0,
                       max: 99999,
@@ -78,6 +84,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/kiwi.png'
                     },
                     {
+                      id:7,
                       name: 'Nome',
                       min: 0,
                       max: 99999,
@@ -88,6 +95,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/bana.png'
                     },
                     {
+                      id: 8,
                       name: 'Number Of People',
                       min: 0,
                       max: 99999,
@@ -98,6 +106,7 @@ export default class QoodleView extends Component {
                       imgUrl: '_assets/img/redApple.png'
                     },
                     {
+                      id: 9,
                       name: 'Number of Veggie',
                       min: 0,
                       max: 99999,
@@ -124,14 +133,14 @@ export default class QoodleView extends Component {
 
     }
 
-    Inc(id)
+    Inc(iden)
     {
       const elementi = this.state.elements;
       var sum=0;
 
       {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
-      var i = elementi.findIndex(el => el.name === id );
+      var i = elementi.findIndex(el => el.id === iden );
       var elemento = elementi[i];
       elemento.counter++;
       elementi[i] = elemento;
@@ -147,7 +156,7 @@ export default class QoodleView extends Component {
       var sum=0;
       {
 //usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
-      var i =elementi.findIndex(el => el.name === iden );
+      var i =elementi.findIndex(el => el.id === iden );
       var elemento = elementi[i];
 
       if(elemento.counter > 0) elemento.counter-- ;
@@ -176,7 +185,7 @@ export default class QoodleView extends Component {
         <div className="col">
           <QoodleElement
             counter={element.counter}
-            id={element.name}
+            id={element.id}
             imgUrl={element.imgUrl}
             name={element.name}
             coin={element.coinoption}

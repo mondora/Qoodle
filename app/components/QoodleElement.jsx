@@ -7,7 +7,8 @@ export default class QoodleElement extends Component {
   static defaultProps =
   {
       counter : 0,
-      coin: '€'
+      coin: '€',
+      um: 'kg'
 
   }
 
@@ -15,7 +16,7 @@ export default class QoodleElement extends Component {
 
   static propTypes = {
     counter: PropTypes.number,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     imgUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     coin: PropTypes.string.isRequired,

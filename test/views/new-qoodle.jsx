@@ -84,7 +84,6 @@ describe('NewQoodle', () => {
     element.find('.cent').simulate('click');
 
     expect(element.state('showColumnModal')).to.be.true
-
   });
 
 
@@ -122,12 +121,12 @@ describe('NewQoodle', () => {
 
 });
 
-/*
+
   it('changes value of showColumnModal over the time', () =>
   {
     const element = shallow(<NewQoodle />);
     expect(element.state('showColumnModal')).to.be.false;
-    element.find(Button).simulate('click');
+    element.find('.cent').simulate('click');
     expect(element.state('showColumnModal')).to.be.true;
     element.instance().handleAddElement('Name',
     1,
@@ -139,7 +138,7 @@ describe('NewQoodle', () => {
 
 
   });
-*/
+
   });
 
 });

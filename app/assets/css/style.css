@@ -420,6 +420,7 @@ font-size: 60px;
 color: red
 
 }
+
 #buyButton{
   width: 50vw;
   margin: 0 auto;
@@ -431,6 +432,14 @@ color: red
 
 
 /* BEGIN:: CREATE PAGE */
+#saveButton{
+  width: 50vw;
+  position: relative;
+  font-size: 35px;
+  background-color: green;
+}
+
+
 
 .medium {
   width: 60vw;

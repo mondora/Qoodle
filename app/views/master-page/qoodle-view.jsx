@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, FormGroup, Panel} from 'react-bootstrap';
+import {Button, FormGroup, Panel, Popover} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement";
 import SummaryModal from "components/SummaryModal";
 import Countdown from 'react-cntdwn';
@@ -210,15 +210,31 @@ export default class QoodleView extends Component {
 
       return(
         <div className="body">
+
+          <div id="popover-div">
+            <Popover
+              id="popover-basic"
+              placement="rigth"
+              positionTop={10}
+              title="La possibilità di fare acquisti termina tra:"
+            >
+
+               <strong>
+                        <Countdown targetDate={new Date(2017, 5, 25)}
+                          interval={1000}
+                          timeSeparator={'  '}
+                          leadingZero
+                          onFinished={()=> console.log('PAZZOOOOOOOOOOOOOOOOOOOOOOOOOOO')}
+                          format= {dateFormat} />
+
+               </strong>
+
+            </Popover>
+          </div>
+
+
+
           <h1 ><center>{this.state.title}</center></h1>
-
-
-            <Countdown targetDate={new Date(2017, 5, 25)}
-             interval={1000}
-             timeSeparator={':'}
-             leadingZero
-             onFinished={()=> console.log('PAZZOOOOOOOOOOOOOOOOOOOOOOOOOOO')}
-             format= {dateFormat} />
 
           <h3>{this.state.description}</h3>
           <div className="row">

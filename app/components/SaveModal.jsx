@@ -8,16 +8,19 @@ export default class SaveModal extends Component{
   constructor(props){
     super(props);
     this.state = {
-      scadenza: ''
+      chiusura: new Date("June 24, 2017 11:13:00")
     }
   }
 
 
-  select(dataScadenza){
-    console.log("QUESTÈ VUOL DIRE CHE HO FATTO UN SELECT", dataScadenza );
-    this.setState(scadenza: dataScadenza);
+  static propTypes = {
+      onSave: PropTypes.func.isRequired,
+      show: PropTypes.bool
+  }
 
-    console.log("QUESTÈ VUOL DIRE CHE HO FATTO UN SELECT", this.state.scadenza );
+
+  selectDate(dataScadenza){
+    this.setState({chiusura: dataScadenza})
   }
 
   render () {
@@ -38,11 +41,12 @@ export default class SaveModal extends Component{
                 <div className ="block">
                     <InfiniteCalendar
                         width={570}
-                        height={500}
+                        height={300}
                         selected={today}
                         disabledDays={[0,6]}
                         minDate={lastWeek}
-                        onSelect={this.select.bind(this)}
+                        selected={this.state.chiusura}
+                        onSelect={this.selectDate.bind(this)}
                       />
                   </div>
 
@@ -51,7 +55,7 @@ export default class SaveModal extends Component{
               </Modal.Body>
 
               <Modal.Footer>
-                  <Button onClick={() => onSave()}>{"Salva il Qoodle"}</Button>
+                  <Button onClick={() => onSave(this.state.chiusura)}>{"Salva il Qoodle"}</Button>
               </Modal.Footer>
           </Modal>
       )

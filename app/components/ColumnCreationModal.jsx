@@ -21,6 +21,10 @@ export default class ColumnCreationModal extends Component {
     }
 
 
+    static propTypes = {
+        onAdd: PropTypes.func.isRequired
+    }
+
     handleNameChange(nome)
     {
       this.setState({name : nome.target.value});

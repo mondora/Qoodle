@@ -154,4 +154,18 @@ describe('NewQoodle', () => {
 
   });
 
+
+  describe('update state when calls handleSave()', () => {
+
+    it('change closingDate into a specific Date', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      element.instance().handleSave(new Date('June 22, 2017 11:13:00'));
+
+      expect(element.state('closingDate')).to.be.eql(new Date('June 22, 2017 11:13:00'));
+
+    });
+  });
+
 });

@@ -18,6 +18,7 @@ export default class NewQoodle extends Component {
       description: '',
       showColumnModal : false,
       showSaveModal: false,
+      closingDate: new Date(),
       elements: [
               {
                 id:1,
@@ -103,12 +104,10 @@ handleAddElement(na, mi, ma, um, pr)
   this.setState({elements: element});
 }
 
-  handleSave()
+  handleSave(date)
   {
-    console.log('WAGIOOOFLSfdsfdsf');
-
-    this.setState({showSaveModal: false});
-
+    this.setState({showSaveModal: false,
+            closingDate: date});
   }
 
 

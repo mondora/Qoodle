@@ -60,7 +60,7 @@ describe('NewQoodle', () => {
       ).to.have.length(1);
   });
 
-  it('renders an input box fot Description', () => {
+  it('renders an input box for Description', () => {
       const element = shallow(<NewQoodle />);
       expect(
           element.find(FormControl)
@@ -73,10 +73,13 @@ describe('NewQoodle', () => {
   {
       const element = shallow (<NewQoodle />);
       expect(
-          element.find(Button)).to.exist;
+          element.find(Button)).to.have.length(2);
       expect(element.find(Button).findWhere(n => n.prop('className') == 'cent')).to.have.length(1);
 
+      expect(element.find(Button).findWhere(n => n.prop('id') == 'saveButton').children().text())
+      .to.be.equal('Salva!');
   });
+
 
   it('calls open function when click Button', () =>
   {
@@ -85,6 +88,16 @@ describe('NewQoodle', () => {
 
     expect(element.state('showColumnModal')).to.be.true
   });
+
+  it('calls open4Save function when click Button', () =>
+  {
+    const element = shallow(<NewQoodle />);
+    expect(element.state('showSaveModal')).to.be.false;
+
+    element.find('#saveButton').simulate('click');
+    expect(element.state('showSaveModal')).to.be.true;
+  });
+
 
 
   describe('update state when calls addNewColumn()', () => {

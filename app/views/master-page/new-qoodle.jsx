@@ -16,6 +16,7 @@ export default class NewQoodle extends Component {
       title: 'Dovrò mettere qui il Title',
       description: '',
       showColumnModal : false,
+      showSaveModal: false,
       elements: [
               {
                 id:1,
@@ -63,6 +64,16 @@ export default class NewQoodle extends Component {
   open() {
   this.setState({ showColumnModal: true });
 }
+
+  sclose() {
+    this.setState({ showSaveModal: false });
+  }
+
+  sopen() {
+  this.setState({ showSaveModal: true });
+  }
+
+
 
 
 handleOnChangeTitle(e)
@@ -154,6 +165,10 @@ renderQoodleElements () {
                            {this.renderQoodleElements()}
                          </div>
                       </div>
+
+
+                      <Button id="saveButton" bsStyle="primary" onClick={this.sopen.bind(this)}>Salva!</Button>
+
 
 
 

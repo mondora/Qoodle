@@ -29,8 +29,9 @@ describe('NewQoodle', () => {
 
     expect(element.find(QoodleElement)).to.have.length(element.state('elements').length);
 
-
   });
+
+
 
   it('set state providing new title', () =>
   {
@@ -68,20 +69,19 @@ describe('NewQoodle', () => {
   });
 
 
-  it('renders a button to add Column', () =>
+  it('renders 2 button to add Column, and to save qoodle', () =>
   {
       const element = shallow (<NewQoodle />);
       expect(
           element.find(Button)).to.exist;
       expect(element.find(Button).findWhere(n => n.prop('className') == 'cent')).to.have.length(1);
 
-
   });
 
   it('calls open function when click Button', () =>
   {
     const element = shallow(<NewQoodle />);
-    element.find(Button).simulate('click');
+    element.find('.cent').simulate('click');
 
     expect(element.state('showColumnModal')).to.be.true
 
@@ -103,7 +103,6 @@ describe('NewQoodle', () => {
 
   });
 
-
   it('call of handleAddElement have the correct parameters', () =>
   {
     const element = shallow(<NewQoodle />);
@@ -123,7 +122,7 @@ describe('NewQoodle', () => {
 
 });
 
-
+/*
   it('changes value of showColumnModal over the time', () =>
   {
     const element = shallow(<NewQoodle />);
@@ -140,7 +139,7 @@ describe('NewQoodle', () => {
 
 
   });
-
+*/
   });
 
 });

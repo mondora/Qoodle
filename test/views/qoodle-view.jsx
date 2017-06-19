@@ -8,6 +8,7 @@ import sinonChai from 'sinon-chai';
 import QoodleElement from 'components/QoodleElement';
 import QoodleView from 'views/master-page/qoodle-view';
 import Summary from 'components/Summary';
+import Countdown from 'react-cntdwn';
 
 chai.use(sinonChai);
 
@@ -30,6 +31,12 @@ describe('QoodleView', () => {
 
   });
 
+
+    it('check render counter object',() =>{
+
+      const element = shallow(<QoodleView />)
+      expect(element.find(Countdown)).to.have.length(1);
+    });
 
   it('check state default number of elements',() =>{
 

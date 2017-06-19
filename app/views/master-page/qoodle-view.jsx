@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button, FormGroup, Panel} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement";
 import SummaryModal from "components/SummaryModal";
+import Countdown from 'react-cntdwn';
 
 /////////////List Actions
 
@@ -200,17 +201,31 @@ export default class QoodleView extends Component {
     }
 
     render(){
-      const headerRiassunto = [{name:'Cosa'},{name:'Costo'},{name:'Quanti'}, {name: 'Costo Riga'}];
-
-
+      const dateFormat = {
+        day: 'DD',
+        hour: 'HH',
+        minute: 'MM',
+        second: 'SS'
+      }
 
       return(
         <div className="body">
           <h1 ><center>{this.state.title}</center></h1>
+
+
+            <Countdown targetDate={new Date(2017, 5, 25)}
+             interval={1000}
+             timeSeparator={':'}
+             leadingZero
+             onFinished={()=> console.log('PAZZOOOOOOOOOOOOOOOOOOOOOOOOOOO')}
+             format= {dateFormat} />
+
           <h3>{this.state.description}</h3>
           <div className="row">
             {this.renderQoodleElements()}
           </div>
+
+
 
             <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
 

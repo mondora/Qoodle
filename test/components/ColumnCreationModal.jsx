@@ -224,7 +224,7 @@ it('renders an 3 FormControl of type number', () =>
               .find(InputGroup)
               .simulate('change', {target: {value: -4}});
 
-        
+
         expect(
           element
           .find(ListGroup)

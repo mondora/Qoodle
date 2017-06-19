@@ -5,12 +5,20 @@ import InfiniteCalendar from 'react-infinite-calendar';
 
 export default class SaveModal extends Component{
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+    this.state = {
+      scadenza: ''
+    }
   }
 
 
+  select(dataScadenza){
+    console.log("QUESTÈ VUOL DIRE CHE HO FATTO UN SELECT", dataScadenza );
+    this.setState(scadenza: dataScadenza);
 
+    console.log("QUESTÈ VUOL DIRE CHE HO FATTO UN SELECT", this.state.scadenza );
+  }
 
   render () {
       const {onSave} = this.props;
@@ -29,11 +37,12 @@ export default class SaveModal extends Component{
 
                 <div className ="block">
                     <InfiniteCalendar
-                        width={150}
-                        height={225}
+                        width={570}
+                        height={500}
                         selected={today}
                         disabledDays={[0,6]}
                         minDate={lastWeek}
+                        onSelect={this.select.bind(this)}
                       />
                   </div>
 

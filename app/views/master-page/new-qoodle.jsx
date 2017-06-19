@@ -4,6 +4,7 @@ import CreateTable from "components/create-table";
 import QoodleElement from "components/QoodleElement"
 import ColumnCreationModal from "components/ColumnCreationModal";
 import InfiniteCalendar from 'react-infinite-calendar';
+import SaveModal from 'components/SaveModal';
 /////////////List Actions
 
 
@@ -102,6 +103,15 @@ handleAddElement(na, mi, ma, um, pr)
   this.setState({elements: element});
 }
 
+  handleSave()
+  {
+    console.log('WAGIOOOFLSfdsfdsf');
+
+    this.setState({showSaveModal: false});
+
+  }
+
+
 
 renderQoodleElements () {
   return this.state.elements.map(element => (
@@ -125,8 +135,6 @@ renderQoodleElements () {
     render() {
       const title = this.state.title;
       console.log('show nella view',this.state.showColumnModal)
-      var today = new Date();
-      var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
         return (
 
@@ -137,16 +145,7 @@ renderQoodleElements () {
                   <FormGroup className='medium' bsSize="large">
                     <FormControl type="text" placeholder="Title" onChange={ this.handleOnChangeTitle.bind(this)}/>
                   </FormGroup>
-              {/*    <div className ="block">
-                    <InfiniteCalendar
-                        width={150}
-                        height={225}
-                        selected={today}
-                        disabledDays={[0,6]}
-                        minDate={lastWeek}
-                      />
-                  </div>
-                  */}
+
                     <FormGroup className='medium'>
                     <FormControl type="text" placeholder="Description" />
                   </FormGroup>
@@ -173,6 +172,10 @@ renderQoodleElements () {
 
 
               <ColumnCreationModal onAdd={this.handleAddElement.bind(this)} show={this.state.showColumnModal}/>
+
+              <SaveModal onSave={this.handleSave.bind(this)} show={this.state.showSaveModal}/>
+
+
             </div>
         );
     }

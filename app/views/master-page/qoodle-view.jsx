@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {Button, FormGroup, Panel, Popover} from 'react-bootstrap';
 import QoodleElement from "components/QoodleElement";
 import SummaryModal from "components/SummaryModal";
-import Countdown from 'react-cntdwn';
+
+import Timer from "components/Timer"
 
 /////////////List Actions
 
@@ -201,38 +202,12 @@ export default class QoodleView extends Component {
     }
 
     render(){
-      const dateFormat = {
-        day: 'DD',
-        hour: 'HH',
-        minute: 'MM',
-        second: 'SS'
-      }
+
 
       return(
         <div className="body">
 
-          <div id="popover-div" style={{ height: 20 }}>
-            <Popover
-              id="popover-basic"
-              placement="right"
-              positionTop={95}
-              positionLeft={1100}
-              title="Puoi compiere acquisti fino a:"
-            >
-
-               <strong>
-                        <Countdown targetDate={new Date(2017, 5, 25)}
-                          interval={1000}
-                          startDelay={2000}
-                          timeSeparator={'  '}
-                          leadingZero
-                          onFinished={()=> console.log('PAZZOOOOOOOOOOOOOOOOOOOOOOOOOOO')}
-                          format= {dateFormat} />
-
-               </strong>
-
-            </Popover>
-          </div>
+          <Timer closingQoodle={new Date(2017, 5, 25)} title={'Termine per acquistare:'}/>
 
 
 

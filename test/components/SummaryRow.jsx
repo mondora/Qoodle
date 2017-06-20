@@ -16,7 +16,7 @@ describe('SummaryRow', () => {
     const element = shallow(<SummaryRow name = 'Banana' price ={1}  counter ={4} coinoption = '€'/>);
 
 
-    expect(element.find('p').text()).to.be.equal('Banana 4€');
+    expect(element.find('p').text()).to.be.equal('Banana ( 1  x  4 )    = 4€');
 
   });
 
@@ -28,8 +28,9 @@ describe('SummaryRow', () => {
 
   const element = shallow(<SummaryRow name = {nom} price={pri}  counter = {cou} coinoption ={coi}/>);
 
-  expect(element.find('p').text()).to.be.equal('Banana ' +pri * cou +coi);
+  expect(element.find('p').text()).to.be.equal('Banana ( ' + pri + '  x  ' + cou+ ' )    = ' +  pri * cou +coi);
   });
+
 
 
 });

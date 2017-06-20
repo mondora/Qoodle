@@ -18,7 +18,7 @@ export default class SummaryRow extends Component
   render()
   {
     return (
-          <p>{this.props.name} {this.props.price * this.props.counter}{this.props.coinoption}
+          <p>{this.props.name} {'( '+this.props.price} {' x '} {this.props.counter +' )'} {'   = ' + this.props.price * this.props.counter}{this.props.coinoption}
           </p>
     );
   }

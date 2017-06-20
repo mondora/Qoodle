@@ -52,7 +52,7 @@ describe('QoodleView', () => {
   const element = shallow(<QoodleView />);
   expect(element.find(Button).prop('id') === 'buyButton').to.be.equal(true);
 
-  expect(element.find(Button).children().text()).to.be.equal('Totale: 22.5€');
+  expect(element.find(Button).children().text()).to.be.equal("Procedi all'acquisto (Totale: 22.5€)");
   });
 
 

@@ -11,7 +11,8 @@ constructor(){
 
 static propTypes = {
     closingQoodle: PropTypes.any.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    finish: PropTypes.func.isRequired,
 }
 
 render(){
@@ -38,7 +39,7 @@ return(
                     startDelay={2000}
                     timeSeparator={'  '}
                     leadingZero
-                    onFinished={()=> alert("non puoi più compiere acquisti")}
+                    onFinished={this.props.onFinished}
                     format= {dateFormat} />
 
          </strong>

@@ -130,7 +130,7 @@ export default class QoodleView extends Component {
       for(var i = 0; i<elementi.length; i++){
         sum += elementi[i].price * elementi[i].counter;
       }
-      sum = 'Totale: ' + sum +'€';
+      sum = "Procedi all'acquisto " + '(Totale: ' + sum +'€)';
       return sum;
 
     }
@@ -207,13 +207,11 @@ export default class QoodleView extends Component {
       return(
         <div className="body">
 
-          <Timer closingQoodle={new Date(2017, 5, 25)} title={'Termine per acquistare:'}/>
-
-
+          <Timer closingQoodle={new Date(2017, 5, 21, 11, 5)} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <h1 ><center>{this.state.title}</center></h1>
-
           <h3>{this.state.description}</h3>
+
           <div className="row">
             {this.renderQoodleElements()}
           </div>

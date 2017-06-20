@@ -1,7 +1,7 @@
  import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import {bindActionCreators} from "redux";
-
+import ListQoodleElement from "components/ListQoodleElement";
 /////////////List Actions
 
 
@@ -30,69 +30,41 @@ class ListPage extends Component {
     }
 
 
-    renderHeader()
-    {
-        return (
-            Object.keys(this.state.struct[0]).map( (e) => <th scope="col">{e}</th>)
-        );
-    }
-
-    renderBody()
-    {
-        var righe = [];
-        var riga =[];
-        var obj ;
-
-
-        for(var i=0; i<this.state.struct.length; i++) {
-            obj = this.state.struct[i];
-            riga = (Object.keys(obj).map((e) => <td>{obj[e]}</td>));
-            righe.push(<tr>{riga }</tr>);
-        }
-
-        return righe;
-    }
-
-    renderFooterTable(){
-        var span= Object.keys(this.state.struct[0]).length;//numero colonne da unire
-        return (<td scope="col" colSpan={span}>I qoodle presenti in memoria sono:  {this.state.struct.length}</td>);
-
+    open(){
+      {alert("per i dettagli stiamo lavorando")}
     }
 
 
 
-    renderTable()
-    {
-        return (<div>
-                <table className="responsive-table">
-                    <caption>List of open Qoodles</caption>
-                    <thead>
-                    <tr>
-                        {this.renderHeader()}
-                    </tr>
-                    </thead>
-                    <tfoot >
-                        {this.renderFooterTable()}
-                    </tfoot>
-                    <tbody>
-                        {this.renderBody()}
-                    </tbody>
-                </table>
-            </div>
-        );
 
-    }
+
+
+
+
+
 
 
     render()
     {
-        return (
-            this.renderTable()
+      var d = new Date();
+      var n = d.toString();
 
-        );
+
+      return (
+        <div id="lista">
+        <h1>PROVAA</h1>
+          <ListQoodleElement
+            id={1}
+            title={"Gas di Novembre"}
+            partecipants={6}
+            description={"quaququa anche la per un acquisto migliore"}
+            closingDate={n}
+            openIt={this.open.bind(this)}
+            />
+
+        </div>
+        )
     }
 }
 
 export default ListPage;
-
-

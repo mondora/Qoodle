@@ -761,3 +761,16 @@ option {
     width: calc(100vw - 90px);
   }
 }
+
+
+/*BEGIN CREATE PAGE*/
+.box #lone
+{
+  display: inline-block;
+  text-align: center;
+  width: 230px;
+  background-color: red;
+  height: 172px;
+  color: #FFF
+}
+/*END CREATE PAGE*/

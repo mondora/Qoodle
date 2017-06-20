@@ -211,17 +211,19 @@ export default class QoodleView extends Component {
       return(
         <div className="body">
 
-          <div id="popover-div">
+          <div id="popover-div" style={{ height: 20 }}>
             <Popover
               id="popover-basic"
-              placement="rigth"
-              positionTop={10}
-              title="La possibilità di fare acquisti termina tra:"
+              placement="right"
+              positionTop={95}
+              positionLeft={1100}
+              title="Puoi compiere acquisti fino a:"
             >
 
                <strong>
                         <Countdown targetDate={new Date(2017, 5, 25)}
                           interval={1000}
+                          startDelay={2000}
                           timeSeparator={'  '}
                           leadingZero
                           onFinished={()=> console.log('PAZZOOOOOOOOOOOOOOOOOOOOOOOOOOO')}

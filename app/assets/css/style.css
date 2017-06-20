@@ -337,6 +337,22 @@ table{
   src: url(../fonts/air.ttf);
 }
 
+#popover-basic{
+  font-size: 25px;
+}
+#popover-basic h3{
+  font-size: 20px;
+
+}
+
+#popover-div
+  {
+
+      align: right;
+
+  }
+
+
 .body h1 {
   padding-top: 15px;
   font-family: "Times New Roman", Times, serif;

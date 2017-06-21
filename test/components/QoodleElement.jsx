@@ -22,7 +22,7 @@ describe('QoodleElement', () => {
       expect(element.instance().props.counter).to.be.equal(0);
     });
 
-    it('renders an div with className box', () =>
+    it('renders a div with className box', () =>
     {
       const element = shallow(
         <QoodleElement

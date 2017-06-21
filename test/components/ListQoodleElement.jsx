@@ -5,33 +5,41 @@ import {Button, FormControl, Image} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import QoodleElement from 'components/QoodleElement';
+import ListQoodleElement from 'components/ListQoodleElement';
 
 chai.use(sinonChai);
 
-describe('QoodleElement', () => {
+describe('ListQoodleElement', () => {
 
     it('check default value of counter, and id', () =>
     {
       const element = shallow(
-        <QoodleElement
-          name={'Banana'}
-          price={13.5}
-          coin={'$'} um={'kg'} />);
+        <ListQoodleElement
+          id={1}
+          title={"Gas di Novembre"}
+          partecipants={6}
+          description={"quaququa anche la per un acquisto migliore"}
+          closingDate={new Date(2017, 5, 22, 12).toString()}
+          openIt={sinon.spy()}
+          />);
 
-      expect(element.instance().props.counter).to.be.equal(0);
+      expect(element.find('h2').text()).to.be.equal("Gas di Novembre");
     });
-/*
-    it('renders an div with className box', () =>
+
+    it('renders a p with number of partecipants', () =>
     {
       const element = shallow(
-        <QoodleElement
-          name={'Banana'}
-          price={13.5}
-          coin={'$'} um={'kg'} />);
-        expect(element.findWhere(n => n.prop('className') === 'box')).to.have.length(1);
+        <ListQoodleElement
+          id={1}
+          title={"Gas di Novembre"}
+          partecipants={6}
+          description={"quaququa anche la per un acquisto migliore"}
+          closingDate={new Date(2017, 5, 22, 12).toString()}
+          openIt={sinon.spy()}
+          />);
+        expect(element.find('#one').find('p').text()).to.be.equal("partecipanti: 6");
     });
-
+/*
     it('renders i tag with specific id', () =>
     {
       const element = shallow(

@@ -33,14 +33,17 @@ export default class ListQoodleElement extends Component {
     return(
       <div className='box'>
       <i  id='counter'>{this.props.partecipants}</i>
-        <div id='lone'>
+        <div id='one'>
+            <h2 id="title">{this.props.title}</h2>
+            <p>partecipanti: {this.props.partecipants}</p>
+          </div>
 
+          <div id='lone'>
+
+            <p>{this.props.closingDate}</p>
 
           </div>
 
-
-        <h3 id="title">{this.props.title}</h3>
-        <p>{this.props.closingDate}</p>
       </div>
 );
 

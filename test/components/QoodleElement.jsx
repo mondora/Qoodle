@@ -11,7 +11,7 @@ chai.use(sinonChai);
 
 describe('QoodleElement', () => {
 
-    it('check default value of counter, and id', () =>
+    it('check default value of counter', () =>
     {
       const element = shallow(
         <QoodleElement
@@ -20,6 +20,7 @@ describe('QoodleElement', () => {
           coin={'$'} um={'kg'} />);
 
       expect(element.instance().props.counter).to.be.equal(0);
+
     });
 
     it('renders a div with className box', () =>
@@ -40,8 +41,8 @@ describe('QoodleElement', () => {
           price={13.5}
           coin={'$'}
           um={'kg'} />);
-    expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
-    expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
+    expect(element.find('#one').findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
+    expect(element.find('#one').findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
     expect(element.findWhere(n => n.prop('id') === 'counter')).to.have.length(1);
 
   });
@@ -53,7 +54,8 @@ describe('QoodleElement', () => {
         name={'Banana'}
         price={13.5}
         coin={'$'} um={'kg'} />);
-  expect(element.find('i')).to.have.length(3);
+  expect(element.find('#one').find('i')).to.have.length(2);
+  expect(element.find('#one').find('i')).to.have.length(2);
   });
 
 

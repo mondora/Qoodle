@@ -42,8 +42,7 @@ class ListPage extends Component {
 
     renderListQoodleElements () {
       return this.state.Qoodle.map(element => (
-        <div className="col" key={element.id}>
-
+        <div className="col" key={element.id.toString()} id ={element.id}>
           <ListQoodleElement
             id={element.id}
             title={element.titolo}
@@ -73,9 +72,8 @@ class ListPage extends Component {
 
       return (
 
-        <div id="lista">
-        <h1>Lista di tutti i Qoodle</h1>
-
+        <div id="list">
+          <h1 ><center>Lista di tutti i Qoodle</center></h1>
 
           <div className="row">
             {this.renderListQoodleElements()}

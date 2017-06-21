@@ -766,7 +766,16 @@ option {
 
 
 /*BEGIN CREATE PAGE*/
-
+#list
+{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  font-weight: bold;
+}
+#list h1
+{
+  color: #f5b95f;
+}
 
 .box h3
 {

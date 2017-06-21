@@ -123,13 +123,11 @@ renderQoodleElements () {
         coin={element.coinoption}
         price={element.price}
         um={element.umoption}
+        create={() => alert('stiamo lavorando per voi')}
       />
   </div>
   ));
 }
-
-
-
 
     render() {
       const title = this.state.title;

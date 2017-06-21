@@ -17,11 +17,11 @@ static propTypes = {
 
 render(){
 
-  const dateFormat = {
-    day: 'DD',
-    hour: 'HH',
-    minute: 'MM',
-    second: 'SS'
+  const dateFormat =  {
+    day:  'dd' + ' giorni ',
+    hour:  'hh'+ ' ore ',
+    minute: 'mm'+ ' minuti ',
+    second: ' e '+ 'ss' + ' secondi '
   }
 return(
     <div id="popover-div" style={{ height: 20 }}>

@@ -107,17 +107,10 @@ describe("render different color if time has expired", () =>
 
 
 
-/*
-it('renders all i tag', () =>
-{
-const element = shallow(
-<QoodleElement
-name={'Banana'}
-price={13.5}
-coin={'$'} um={'kg'} />);
-expect(element.find('i')).to.have.length(3);
-});
 
+
+
+/*
   it('renders image tag', () =>
   {
     const element = shallow(

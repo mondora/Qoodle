@@ -8,7 +8,7 @@ export default class QoodleElement extends Component {
   {
       counter : 0,
       coin: '€',
-      um: 'kg'
+      um: 'kg',
 
   }
 
@@ -30,7 +30,7 @@ export default class QoodleElement extends Component {
     super();
   }
 
-I
+
 
 
 
@@ -39,18 +39,37 @@ I
     const backgroundImage = this.props.imgUrl;
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
+    const changeSettings = this.props.create;
+
+    console.log("BUONAAAAAAAAAAAAAAAAAASERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", this.props.create === undefined)
+    var plus;
+    var minus;
+    var settings;
+
+    if(this.props.create === undefined){
+      plus =  (<i className="fa fa-plus" onClick={() => Inc(this.props.id)}></i>);
+      minus = (<i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.id)}></i>);
+    }else {
+      settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.id)}></i>);
+    }
 
     return(
       <div className='box'>
       <i  id='counter'>{this.props.counter}</i>
-      <i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.id)}></i>
-        <div id='one'>
+
+      <div id='one'>
+
+          {plus}
+          {minus}
+          {settings}
+
+
 
 
             <Image src={backgroundImage} alt="loading" responsive />
           </div>
 
-        <i className="fa fa-plus" onClick={() => Inc(this.props.id)}></i>
+
         <h3 id="title">{this.props.name}</h3>
         <p>{this.props.price} {this.props.coin} al {this.props.um}</p>
 </div>);

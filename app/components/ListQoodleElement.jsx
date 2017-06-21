@@ -61,7 +61,7 @@ export default class ListQoodleElement extends Component {
       if(this.state.status === "success")
         return (element);
       else
-        return ("SCADUTO");
+        return (<h2>SCADUTO</h2>);
 
 
     return (element);
@@ -82,7 +82,7 @@ export default class ListQoodleElement extends Component {
 
 
     return(
-      <div className='box'>
+      <div className='box' onClick = {() => this.props.openIt()}>
 
           <ListGroup>
           <ListGroupItem><h3>{this.props.title}</h3></ListGroupItem>

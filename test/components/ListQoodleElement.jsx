@@ -52,9 +52,9 @@ describe('ListQoodleElement', () => {
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
           />);
-        expect(element.find(ListGroupItem)).to.have.length(3);
-
         expect(element.find(ListGroup)).to.have.length(1);
+
+        expect(element.find(ListGroupItem)).to.have.length(3);
 
   });
 

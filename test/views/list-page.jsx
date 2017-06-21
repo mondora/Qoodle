@@ -19,4 +19,11 @@ describe('ListPage', () => {
 
 });
 
+  it('render a list title', () =>{
+
+    const element = shallow(<ListPage/>);
+
+    expect(element.find('h1').text()).to.be.equal('Lista di tutti i Qoodle')
+  });
+
 });

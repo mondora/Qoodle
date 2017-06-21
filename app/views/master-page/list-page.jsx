@@ -53,7 +53,7 @@ class ListPage extends Component {
 
       return (
         <div id="lista">
-        <h1>PROVAA</h1>
+        <h1>Lista di tutti i Qoodle</h1>
           <ListQoodleElement
             id={1}
             title={"Gas di Novembre"}

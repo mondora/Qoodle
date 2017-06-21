@@ -40,31 +40,27 @@ export default class QoodleElement extends Component {
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
     const changeSettings = this.props.create;
-
-    console.log("BUONAAAAAAAAAAAAAAAAAASERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", this.props.create === undefined)
     var plus;
     var minus;
     var settings;
+    var counter;
 
     if(this.props.create === undefined){
       plus =  (<i className="fa fa-plus" onClick={() => Inc(this.props.id)}></i>);
       minus = (<i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.id)}></i>);
+      counter = (<i  id='counter'>{this.props.counter}</i>);
     }else {
-      settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.id)}></i>);
+      settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.id)}>&#9881;</i>);
     }
 
     return(
       <div className='box'>
-      <i  id='counter'>{this.props.counter}</i>
+      {counter}
 
       <div id='one'>
-
           {plus}
           {minus}
           {settings}
-
-
-
 
             <Image src={backgroundImage} alt="loading" responsive />
           </div>

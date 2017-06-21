@@ -131,12 +131,7 @@ renderQoodleElements () {
 
     render() {
       const title = this.state.title;
-      console.log('show nella view',this.state.showColumnModal)
-
         return (
-
-
-
             <div className="row">
 
                   <FormGroup className='medium' bsSize="large">

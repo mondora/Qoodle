@@ -11,6 +11,7 @@ export default class ListQoodleElement extends Component {
 
 
     this.state = {
+      status: "success"
           }
   }
 
@@ -25,6 +26,13 @@ export default class ListQoodleElement extends Component {
     closingDate: PropTypes.any.isRequired,
     openIt: PropTypes.func.isRequired
   }
+
+
+  changeStatus(){
+    this.setState({status: "danger"})
+  }
+
+
 
 
   renderClosingTime()
@@ -46,8 +54,15 @@ export default class ListQoodleElement extends Component {
       timeSeparator={'  '}
       leadingZero
       format={dateFormat}
-      onFinished={() => alert("cambia  colore")}
+      onFinished={this.changeStatus.bind(this)}
       />
+
+
+      if(this.state.status === "success")
+        return (element);
+      else
+        return ("SCADUTO");
+
 
     return (element);
 
@@ -61,7 +76,10 @@ export default class ListQoodleElement extends Component {
     const {openIt} = this.props;
     var date = new Date(this.props.closingDate)
 
-    var min= date.getMinutes();
+    var timePadding = this.state.status === "success" ? "mancano: ": "";
+
+
+
 
     return(
       <div className='box'>
@@ -69,7 +87,7 @@ export default class ListQoodleElement extends Component {
           <ListGroup>
           <ListGroupItem><h3>{this.props.title}</h3></ListGroupItem>
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
-          <ListGroupItem bsStyle="success">mancano:{this.renderClosingTime()} </ListGroupItem>
+          <ListGroupItem bsStyle={this.state.status}>{timePadding} {this.renderClosingTime()} </ListGroupItem>
           </ListGroup>
 
 

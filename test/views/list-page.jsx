@@ -15,7 +15,7 @@ describe('ListPage', () => {
   it('render ListQoodleElement',() =>{
     const element = shallow(<ListPage/>);
 
-    expect(element.find(ListQoodleElement)).to.have.length(1);
+    expect(element.find(ListQoodleElement)).to.have.length(2);
 
 });
 

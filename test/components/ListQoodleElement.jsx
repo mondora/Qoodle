@@ -58,19 +58,65 @@ describe('ListQoodleElement', () => {
 
   });
 
+describe("render different color if time has expired", () =>
+{
+  it('renders success ListGroupItem', () =>
+  {
+
+    const testDate = new Date();
+    testDate.setSeconds(testDate.getSeconds() + 30);
+
+    const element = shallow(
+      <ListQoodleElement
+        id={1}
+        title={"Gas di Novembre"}
+        partecipants={6}
+        description={"quaququa anche la per un acquisto migliore"}
+        closingDate={testDate.toString()}
+        openIt={sinon.spy()}
+        />);
+
+
+      expect(element.findWhere(n => n.prop('bsStyle') ==='success')).have.length(1);
+
+  });
+//COME FARE QUESTO??
+  /*it('renders "danger" ListGroupItem', () =>
+  {
+
+    var testDate = new Date();
+    testDate = new Date( (testDate.getTime() - 100000));
+
+    const element = shallow(
+      <ListQoodleElement
+        id={1}
+        title={"Gas di Novembre"}
+        partecipants={6}
+        description={"quaququa anche la per un acquisto migliore"}
+        closingDate={testDate.toString()}
+        openIt={sinon.spy()}
+        />);
+
+
+      expect(element.findWhere(n => n.prop('bsStyle') ==='danger')).have.length(1);
+
+
+  });*/
+
+});
+
 
 
 /*
-  it('renders all i tag', () =>
-  {
-    const element = shallow(
-      <QoodleElement
-        name={'Banana'}
-        price={13.5}
-        coin={'$'} um={'kg'} />);
-  expect(element.find('i')).to.have.length(3);
-  });
-
+it('renders all i tag', () =>
+{
+const element = shallow(
+<QoodleElement
+name={'Banana'}
+price={13.5}
+coin={'$'} um={'kg'} />);
+expect(element.find('i')).to.have.length(3);
+});
 
   it('renders image tag', () =>
   {

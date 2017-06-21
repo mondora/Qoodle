@@ -10,18 +10,21 @@ class ListPage extends Component {
     constructor() {
         super();
         this.state = {
-            struct: [
+            Qoodle: [
                 {
-                    titolo: "Christams Dinner",
-                    descrizione: "pranzo di natale",
-                    total_response: 5,
-                    closing_date: new Date("October 13, 2014 11:13:00").toDateString()
+                    id: 1,
+                    titolo: "Gas di Novembre",
+                    descrizione: "idfsofdsijjfsdijfsdijfsijosdfjiofd",
+                    partecipanti: 6,
+                    dataChiusura: new Date("October 13, 2014 11:13:00").toDateString()
+
     },
                 {
-                    titolo: "Gas",
-                    descrizione: "acquisto di frutta",
-                    total_response: 3,
-                    closing_date: new Date("May 13, 2014 11:13:00").toDateString()
+                  id: 2,
+                  titolo: "Christams Dinner",
+                  descrizione: "idfsofdsijjfsdijfsdijfsijosdfjiofd",
+                  partecipanti: 4,
+                  dataChiusura: new Date("October 13, 2018 11:13:00").toDateString()
                 }
 
 
@@ -37,7 +40,21 @@ class ListPage extends Component {
 
 
 
+    renderListQoodleElements () {
+      return this.state.Qoodle.map(element => (
+        <div className="col" key={element.id}>
 
+          <ListQoodleElement
+            id={element.id}
+            title={element.titolo}
+            partecipants={element.partecipanti}
+            description={element.descrizione}
+            closingDate={element.dataChiusura.toString()}
+            openIt={this.open.bind(this)}
+            />
+      </div>
+      ));
+    }
 
 
 
@@ -49,19 +66,20 @@ class ListPage extends Component {
       var d = new Date(2017, 5, 22);
       var n = d.toString();
 
+      var testDate = new Date();
+      testDate = new Date( (testDate.getTime() - 100000));
+
 
 
       return (
+
         <div id="lista">
         <h1>Lista di tutti i Qoodle</h1>
-          <ListQoodleElement
-            id={1}
-            title={"Gas di Novembre"}
-            partecipants={6}
-            description={"quaququa anche la per un acquisto migliore"}
-            closingDate={n}
-            openIt={this.open.bind(this)}
-            />
+
+
+          <div className="row">
+            {this.renderListQoodleElements()}
+          </div>
 
         </div>
         )

@@ -365,6 +365,8 @@ table{
 
 
 .box {
+    border: 2px solid #5888d6;
+    border-radius: 5px;
     width: 230px;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -412,7 +414,7 @@ table{
 {
   display: inline-block;
   text-align: center;
-  width: 230px;
+  width: 100%;
   background-color: #CCC;
   height: 172px;
   color: #FFF
@@ -764,13 +766,19 @@ option {
 
 
 /*BEGIN CREATE PAGE*/
-.box #lone
+
+
+.box h3
 {
-  display: inline-block;
-  text-align: center;
-  width: 230px;
-  background-color: red;
-  height: 172px;
-  color: #FFF
+  color: #5888d6;
+  font-family: "Times New Roman", Times, serif;
 }
+
+.box .list-group
+{
+  margin-bottom: 0px;
+  font-size: 20px
+}
+
+
 /*END CREATE PAGE*/

@@ -46,9 +46,9 @@ class ListPage extends Component {
 
     render()
     {
-      var d = new Date();
+      var d = new Date(2017, 5, 22);
       var n = d.toString();
-      
+
 
 
       return (

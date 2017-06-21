@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
+import Countdown from 'react-cntdwn';
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 export default class ListQoodleElement extends Component {
 
   constructor()
   {
     super();
+
+
+    this.state = {
+          }
   }
 
 
@@ -22,27 +27,51 @@ export default class ListQoodleElement extends Component {
   }
 
 
+  renderClosingTime()
+  {
+    const dateFormat = {
+      day:  'dd' + ' giorni ',
+      hour:  'hh'+ ' ore ',
+      minute: 'mm'+ ' minuti ',
+      second: ' e '+ 'ss' + ' secondi '
+    }
 
+
+    const d = new Date(this.props.closingDate)
+
+    const element=
+    <Countdown
+      targetDate={d}
+      interval={1000}
+      timeSeparator={'  '}
+      leadingZero
+      format={dateFormat}
+      onFinished={() => alert("cambia  colore")}
+      />
+
+    return (element);
+
+
+  }
 
 
 
   render()
   {
     const {openIt} = this.props;
+    var date = new Date(this.props.closingDate)
+
+    var min= date.getMinutes();
 
     return(
       <div className='box'>
-      <i  id='counter'>{this.props.partecipants}</i>
-        <div id='one'>
-            <h2 id="title">{this.props.title}</h2>
-            <p>partecipanti: {this.props.partecipants}</p>
-          </div>
 
-          <div id='lone'>
+          <ListGroup>
+          <ListGroupItem><h3>{this.props.title}</h3></ListGroupItem>
+          <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
+          <ListGroupItem bsStyle="success">mancano:{this.renderClosingTime()} </ListGroupItem>
+          </ListGroup>
 
-            <p>{this.props.closingDate}</p>
-
-          </div>
 
       </div>
 );

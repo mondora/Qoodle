@@ -1,17 +1,18 @@
 import chai, {expect} from 'chai';
-import {shallow} from 'enzyme';
+import {shallow, render} from 'enzyme';
 import React from 'react';
+import Countdown from 'react-cntdwn';
 import {Button, FormControl, Image} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import ListQoodleElement from 'components/ListQoodleElement';
 
 chai.use(sinonChai);
 
 describe('ListQoodleElement', () => {
 
-    it('check default value of counter, and id', () =>
+    it('check default value of title', () =>
     {
       const element = shallow(
         <ListQoodleElement
@@ -23,10 +24,10 @@ describe('ListQoodleElement', () => {
           openIt={sinon.spy()}
           />);
 
-      expect(element.find('h2').text()).to.be.equal("Gas di Novembre");
+      expect(element.find('h3').text()).to.be.equal("Gas di Novembre");
     });
 
-    it('renders a p with number of partecipants', () =>
+    it('renders a 4 ListGroupItem', () =>
     {
       const element = shallow(
         <ListQoodleElement
@@ -37,23 +38,29 @@ describe('ListQoodleElement', () => {
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
           />);
-        expect(element.find('#one').find('p').text()).to.be.equal("partecipanti: 6");
+        expect(element.find('ListGroupItem')).to.have.length(3);
     });
-/*
-    it('renders i tag with specific id', () =>
+
+    it('renders ListGroup containing 3 ListGroupItem', () =>
     {
       const element = shallow(
-        <QoodleElement
-          name={'Banana'}
-          price={13.5}
-          coin={'$'}
-          um={'kg'} />);
-    expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
-    expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
-    expect(element.findWhere(n => n.prop('id') === 'counter')).to.have.length(1);
+        <ListQoodleElement
+          id={1}
+          title={"Gas di Novembre"}
+          partecipants={6}
+          description={"quaququa anche la per un acquisto migliore"}
+          closingDate={new Date(2017, 5, 22, 12).toString()}
+          openIt={sinon.spy()}
+          />);
+        expect(element.find(ListGroupItem)).to.have.length(3);
+
+        expect(element.find(ListGroup)).to.have.length(1);
 
   });
 
+
+
+/*
   it('renders all i tag', () =>
   {
     const element = shallow(

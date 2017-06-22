@@ -18,6 +18,7 @@ export default class NewQoodle extends Component {
       description: '',
       showColumnModal : false,
       showSaveModal: false,
+      showModifyModal: false,
       closingDate: new Date(),
       elements: [
               {
@@ -104,6 +105,12 @@ handleAddElement(na, mi, ma, um, pr)
   this.setState({elements: element});
 }
 
+  modifyElement()
+  {
+    this.setState({showModifyModal: true});
+  }
+
+
   handleModification(newId, na, mi, ma, um, pr)
   {
     var elementi = this.state.elements;
@@ -155,7 +162,7 @@ renderQoodleElements () {
         coin={element.coinoption}
         price={element.price}
         um={element.umoption}
-        create={this.handleModification.bind(this)}
+        create={() => this.modifyElement()}
       />
   </div>
   ));
@@ -212,6 +219,11 @@ renderQoodleElements () {
               <SaveModal
               onSave={this.handleSave.bind(this)}
               show={this.state.showSaveModal}/>
+
+            /*  <ColumnCreationModal
+              onAdd={this.handleModification.bind(this)}
+              show={this.state.showModifyModal}
+              />*/
 
 
             </div>

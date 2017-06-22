@@ -156,7 +156,7 @@ describe('NewQoodle', () => {
 
   describe('update state when calls handleModification()', () => {
 
-    it('call handleModification with correct parameters', () =>
+    it('modify state with correct parameters', () =>
     {
       const element = shallow(<NewQoodle />);
 
@@ -197,6 +197,24 @@ describe('NewQoodle', () => {
 
 
     });
+
+
+    it('show modifymodal when call modifyElement', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      expect(element.state('showModifyModal')).to.be.false;
+
+      element.instance().modifyElement();
+
+      expect(element.state('showModifyModal')).to.be.true;
+
+
+
+
+    });
+
+
   });
 
 

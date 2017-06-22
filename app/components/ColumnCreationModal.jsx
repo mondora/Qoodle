@@ -22,7 +22,8 @@ export default class ColumnCreationModal extends Component {
 
 
     static propTypes = {
-        onAdd: PropTypes.func.isRequired
+        onAdd: PropTypes.func.isRequired,
+        targetId: PropTypes.number
     }
 
     handleNameChange(nome)
@@ -90,6 +91,16 @@ export default class ColumnCreationModal extends Component {
         const coinoption = this.state.coinoption;
         const price = this.state.price;
 
+        var bottone;
+
+        if (this.props.targetId === -1) {
+          bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>
+        } else {
+          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Aggiungi"}</Button>
+
+        }
+
+
 
         return (
             <Modal show={this.props.show}>
@@ -140,7 +151,7 @@ export default class ColumnCreationModal extends Component {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>
+                  {bottone}
                 </Modal.Footer>
             </Modal>
         )
@@ -150,5 +161,6 @@ export default class ColumnCreationModal extends Component {
 
 ColumnCreationModal.defaultProps = {
   show : false,
-  coinoption: '€'
+  coinoption: '€',
+  targetId: -1
 };

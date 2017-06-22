@@ -89,7 +89,7 @@ describe('NewQoodle', () => {
     expect(element.state('showColumnModal')).to.be.true
   });
 
-  it('calls open function when click Button', () =>
+  it('change states when calls modifyElement', () =>
   {
     const element = shallow(<NewQoodle />);
     expect(element.state('showModifyModal')).to.be.false;

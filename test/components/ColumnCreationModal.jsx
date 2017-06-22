@@ -109,7 +109,7 @@ it('renders an 3 FormControl of type number', () =>
   });
 
 
-  it('calls onAdd function providing name, min, max, um', () => {
+  it('calls onAdd(qui handleModification) function providing id, name, min, max, um', () => {
     const onAdd = sinon.spy();
     const element = shallow(<ColumnCreationModal onAdd={onAdd} targetId={2}/>);
 
@@ -144,6 +144,37 @@ it('renders an 3 FormControl of type number', () =>
     expect(onAdd).has.been.calledWith(element.instance().props.targetId,'name value', 'min value', 'max value', 'um value', 'price value');
 
 });
+
+it('calls onAdd(qui handleModification) function providing incomplete parameters', () => {
+  const onAdd = sinon.spy();
+  const element = shallow(<ColumnCreationModal onAdd={onAdd} targetId={2}/>);
+
+
+  element
+      .find(FormControl)
+      .findWhere(n => n.prop('placeholder') === 'Min')
+      .simulate('change', {target: {value: 'min value'}});
+
+  element
+      .find(FormControl)
+      .findWhere(n => n.prop('placeholder') === 'Max')
+      .simulate('change', {target: {value: 'max value'}});
+
+
+
+
+    element
+        .find(InputGroup)
+        .simulate('change', {target: {value: 'price value'}});
+
+
+
+  element.find(Button).simulate('click');
+
+  expect(onAdd).has.been.calledWith(element.instance().props.targetId, '','min value', 'max value', '','price value');
+
+});
+
 
 
 

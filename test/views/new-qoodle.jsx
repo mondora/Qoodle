@@ -89,6 +89,19 @@ describe('NewQoodle', () => {
     expect(element.state('showColumnModal')).to.be.true
   });
 
+  it('calls open function when click Button', () =>
+  {
+    const element = shallow(<NewQoodle />);
+    expect(element.state('showModifyModal')).to.be.false;
+
+    element.instance().modifyElement(2);
+
+    expect(element.state('showModifyModal')).to.be.true;
+
+
+  });
+
+
   it('calls open4Save function when click Button', () =>
   {
     const element = shallow(<NewQoodle />);

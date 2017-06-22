@@ -115,6 +115,7 @@ handleAddElement(na, mi, ma, um, pr)
 
   handleModification(newId, na, mi, ma, um, pr)
   {
+    this.setState({showModifyModal: false});
     var elementi = this.state.elements;
 
     var target;

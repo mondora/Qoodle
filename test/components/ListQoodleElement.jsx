@@ -38,7 +38,7 @@ describe('ListQoodleElement', () => {
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
           />);
-        expect(element.find('ListGroupItem')).to.have.length(3);
+        expect(element.find('ListGroupItem')).to.have.length(4);
     });
 
     it('renders ListGroup containing 3 ListGroupItem', () =>
@@ -54,7 +54,7 @@ describe('ListQoodleElement', () => {
           />);
         expect(element.find(ListGroup)).to.have.length(1);
 
-        expect(element.find(ListGroupItem)).to.have.length(3);
+        expect(element.find(ListGroupItem)).to.have.length(4);
 
   });
 
@@ -80,6 +80,32 @@ describe("render different color if time has expired", () =>
       expect(element.findWhere(n => n.prop('bsStyle') ==='success')).have.length(1);
 
   });
+
+
+  it('renders ListGroupItem', () =>
+  {
+
+    const testDate = new Date();
+    testDate.setSeconds(testDate.getSeconds() + 30);
+
+    const element = shallow(
+      <ListQoodleElement
+        id={1}
+        title={"Gas di Novembre"}
+        partecipants={6}
+        description={"quaququa anche la per un acquisto migliore"}
+        closingDate={testDate.toString()}
+        openIt={sinon.spy()}
+        />);
+
+
+      expect( element.findWhere(n => n.prop('bsStyle') ==='warning').children().text() ).to.be.equal("PARTECIPA!");
+
+  });
+
+
+
+
 //COME FARE QUESTO??
   /*it('renders "danger" ListGroupItem', () =>
   {

@@ -795,5 +795,19 @@ option {
   font-size: 35px;
 }
 
+.list-group-item.list-group-item-warning{
+  font-size: 32px;
+  border: #5888d6 outset 3px;
+  border-radius: 10px;
+
+}
+
+
+.list-group-item.list-group-item-warning:hover {
+  font-size: 32px;
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
 
 /*END CREATE PAGE*/

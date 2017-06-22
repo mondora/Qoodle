@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
-import {ListGroup, ListGroupItem} from 'react-bootstrap';
+import {ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 
 export default class ListQoodleElement extends Component {
 
@@ -33,7 +33,12 @@ export default class ListQoodleElement extends Component {
   }
 
 
-
+  renderParticipates()
+  {
+    if(this.state.status === "success")
+      return ( <ListGroupItem bsStyle={"warning"}>PARTECIPA!</ListGroupItem> );
+      //  return <Button bsStyle="info">PARTECIPA!</Button>;
+  }
 
   renderClosingTime()
   {
@@ -88,6 +93,7 @@ export default class ListQoodleElement extends Component {
           <ListGroupItem><h3>{this.props.title}</h3></ListGroupItem>
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status}>{timePadding} {this.renderClosingTime()} </ListGroupItem>
+          {this.renderParticipates()}
           </ListGroup>
 
 

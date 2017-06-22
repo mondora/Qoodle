@@ -160,9 +160,6 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
       .findWhere(n => n.prop('placeholder') === 'Max')
       .simulate('change', {target: {value: 'max value'}});
 
-
-
-
     element
         .find(InputGroup)
         .simulate('change', {target: {value: 'price value'}});

@@ -180,11 +180,11 @@ renderQoodleElements () {
                     <FormControl
                     type="text"
                     placeholder="Title"
-                    onChange={ this.handleOnChangeTitle.bind(this)}/>
+                    onChange={ this.handleOnChangeTitle.bind(this)} maxLength={30}/>
                   </FormGroup>
 
                     <FormGroup className='medium'>
-                    <FormControl type="text" placeholder="Description" />
+                    <FormControl type="text" placeholder="Description" maxLength={80}/>
                   </FormGroup>
 
 

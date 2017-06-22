@@ -109,13 +109,13 @@ export default class ColumnCreationModal extends Component {
                 </Modal.Header>
                 <Modal.Body>
                         <FormGroup>
-                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" />
+                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={15}/>
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0}/>
+                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0} maxLength={15}/>
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0}/>
+                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0} maxLength={15}/>
                         </FormGroup>
 
 
@@ -139,7 +139,7 @@ export default class ColumnCreationModal extends Component {
 
 
                         <InputGroup onChange={this.handlePriceChange.bind(this)} >
-                          <FormControl type="number" min={0}/>
+                          <FormControl type="number" min={0} maxLength={15}/>
                           <InputGroup.Addon>{coinoption}</InputGroup.Addon>
                         </InputGroup>
 

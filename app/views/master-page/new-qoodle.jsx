@@ -104,20 +104,35 @@ handleAddElement(na, mi, ma, um, pr)
   this.setState({elements: element});
 }
 
-  handleModification(id, na, mi, ma, um, pr)
+  handleModification(newId, na, mi, ma, um, pr)
   {
-    var elements = this.state.elements;
+    var elementi = this.state.elements;
 
-    var target, i=0;
-    elements.forEach(function (el, i) {
+    var target;
+    elementi.forEach(function (el, i) {
     console.log(el);
-    if (el.id === id) {
+    if (el.id === newId) {
        target = el;
 
     }
-    i++;
     });
     console.log(target);
+
+    var targetIndex = elementi.indexOf(target);
+
+    elementi[targetIndex] = {
+      id: newId,
+      name: na,
+      min: mi,
+      max: ma,
+      umoption: um,
+      coinoption: '€',
+      price: pr,
+      counter: 5,
+      imgUrl: '_assets/img/redApple.png'
+    };
+
+    this.setState({elements: elementi});
 
   }
 

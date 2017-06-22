@@ -180,7 +180,7 @@ describe('NewQoodle', () => {
 
         expect(
           element.instance().state.elements[targetIndex]
-        ).to.be.equal(
+        ).to.be.eql(
           {
             id:2,
             name: 'pere',

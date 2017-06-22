@@ -128,6 +128,14 @@ handleAddElement(na, mi, ma, um, pr)
     });
     console.log(target);
 
+    if(na == '')   na = target.name;
+    if(mi == '')   mi = target.min;
+    if(mi == '')   ma = target.max;
+    if(um == '')   um = target.umoption;
+    if(pr == '')   pr = target.price;
+
+
+
     var targetIndex = elementi.indexOf(target);
 
     elementi[targetIndex] = {

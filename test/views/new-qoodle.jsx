@@ -154,6 +154,52 @@ describe('NewQoodle', () => {
 
   });
 
+  describe('update state when calls handleModification()', () => {
+
+    it('call handleModification with correct parameters', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      element.instance().handleModification(2, 'pere', 4, 8, 'kg', 3.4);
+      var target;
+      var targetIndex= -1;
+      var i = 1;
+
+      var elements = element.instance().state.elements;
+
+//codice brutto!!
+  elements.forEach(function (el, i) {
+  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
+  if (el.id === 2) {
+     target = el;
+     targetIndex=i;
+  }
+  i++;
+  });
+
+
+        expect(
+          element.instance().state.elements[targetIndex]
+        ).to.be.equal(
+          {
+            id:2,
+            name: 'pere',
+            min: 4,
+            max: 8,
+            umoption: 'kg',
+            coinoption: '€',
+            price: 3.4,
+            counter: 5,
+            imgUrl: '_assets/img/redApple.png'
+          }
+        )
+
+
+
+    });
+  });
+
+
 
   describe('update state when calls handleSave()', () => {
 

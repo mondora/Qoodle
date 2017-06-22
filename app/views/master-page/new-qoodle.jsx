@@ -104,6 +104,23 @@ handleAddElement(na, mi, ma, um, pr)
   this.setState({elements: element});
 }
 
+  handleModification(id, na, mi, ma, um, pr)
+  {
+    var elements = this.state.elements;
+
+    var target, i=0;
+    elements.forEach(function (el, i) {
+    console.log(el);
+    if (el.id === id) {
+       target = el;
+
+    }
+    i++;
+    });
+    console.log(target);
+
+  }
+
   handleSave(date)
   {
     this.setState({showSaveModal: false,
@@ -123,7 +140,7 @@ renderQoodleElements () {
         coin={element.coinoption}
         price={element.price}
         um={element.umoption}
-        create={() => alert('stiamo lavorando per voi')}
+        create={this.handleModification.bind(this)}
       />
   </div>
   ));
@@ -135,7 +152,10 @@ renderQoodleElements () {
             <div className="row">
 
                   <FormGroup className='medium' bsSize="large">
-                    <FormControl type="text" placeholder="Title" onChange={ this.handleOnChangeTitle.bind(this)}/>
+                    <FormControl
+                    type="text"
+                    placeholder="Title"
+                    onChange={ this.handleOnChangeTitle.bind(this)}/>
                   </FormGroup>
 
                     <FormGroup className='medium'>
@@ -144,7 +164,11 @@ renderQoodleElements () {
 
 
 
-                  <Button className="cent" bsStyle="primary"  bsSize="large"  onClick={this.open.bind(this)}>
+                  <Button
+                  className="cent"
+                  bsStyle="primary"
+                  bsSize="large"
+                  onClick={this.open.bind(this)}>
                     Add Element
                      </Button>
 
@@ -158,14 +182,21 @@ renderQoodleElements () {
                       </div>
 
 
-                      <Button id="saveButton" bsStyle="primary" onClick={this.sopen.bind(this)}>Salva!</Button>
+                      <Button id="saveButton"
+                      bsStyle="primary"
+                      onClick={this.sopen.bind(this)}
+                      >Salva!</Button>
 
 
 
 
-              <ColumnCreationModal onAdd={this.handleAddElement.bind(this)} show={this.state.showColumnModal}/>
+              <ColumnCreationModal
+              onAdd={this.handleAddElement.bind(this)}
+              show={this.state.showColumnModal}/>
 
-              <SaveModal onSave={this.handleSave.bind(this)} show={this.state.showSaveModal}/>
+              <SaveModal
+              onSave={this.handleSave.bind(this)}
+              show={this.state.showSaveModal}/>
 
 
             </div>

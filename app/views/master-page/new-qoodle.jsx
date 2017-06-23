@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {Button, FormGroup, FormControl, Modal, Checkbox} from 'react-bootstrap';
-import CreateTable from "components/create-table";
 import QoodleElement from "components/QoodleElement"
 import ElementCreationModal from "components/ElementCreationModal";
 import InfiniteCalendar from 'react-infinite-calendar';

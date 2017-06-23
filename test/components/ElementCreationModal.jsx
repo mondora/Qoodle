@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
-import {shallow} from 'enzyme';
+import {shallow, render} from 'enzyme';
 import React from 'react';
-import {Button, FormControl, InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import {Button, FormControl, InputGroup, ListGroupItem, ListGroup, Modal} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -68,7 +68,13 @@ it('renders an 3 FormControl of type number', () =>
       //modo brutto di controllare quante option ci sono.
   });
 
+it('render settings title, when want modify an element', () => {
+    const onAdd = sinon.spy();
+    const element = shallow(<ElementCreationModal onAdd={onAdd} targetId={2}/>);
 
+    expect(element.find('Modal').childAt(0).childAt(0).children().text()).to.be.equal("Nuovo Elemento");
+
+  });
 
   describe('when user clicks on add button', () => {
 

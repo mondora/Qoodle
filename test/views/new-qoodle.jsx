@@ -5,7 +5,6 @@ import {Button, FormControl} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
 import QoodleElement from 'components/QoodleElement'
 import ElementCreationModal from 'components/ElementCreationModal'

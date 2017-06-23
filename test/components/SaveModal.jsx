@@ -10,7 +10,7 @@ import SaveModal from 'components/SaveModal';
 
 chai.use(sinonChai);
 
-describe('ColumnCreationModal', () => {
+describe('ElementCreationModal', () => {
 
 
 

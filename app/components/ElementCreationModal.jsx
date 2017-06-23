@@ -4,7 +4,7 @@ import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup, ListGroupIt
 
 
 
-export default class ColumnCreationModal extends Component {
+export default class ElementCreationModal extends Component {
 
     constructor () {
         super();
@@ -159,7 +159,7 @@ export default class ColumnCreationModal extends Component {
 
 }
 
-ColumnCreationModal.defaultProps = {
+ElementCreationModal.defaultProps = {
   show : false,
   coinoption: '€',
   targetId: -1

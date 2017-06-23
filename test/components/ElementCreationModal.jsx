@@ -5,25 +5,25 @@ import {Button, FormControl, InputGroup, ListGroupItem, ListGroup} from 'react-b
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import ColumnCreationModal from 'components/ColumnCreationModal';
+import ElementCreationModal from 'components/ElementCreationModal';
 
 chai.use(sinonChai);
 
-describe('ColumnCreationModal', () => {
+describe('ElementCreationModal', () => {
 
 
 
 
   //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an input box for column name', () => {
-        const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+        const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
         expect(
             element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Nome')
         ).to.have.length(1);
     });
 
     it('renders an input box for column min', () => {
-        const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+        const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
         expect(
           element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Min')
         ).to.have.length(1);
@@ -32,7 +32,7 @@ describe('ColumnCreationModal', () => {
     it('renders an input box for column Max', () =>
     {
       //mi creo l'elemento, ricorda che qui shallow è come per instanziare loggetto
-      const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+      const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
       expect(
         element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Max' )
     ).to.length(1);
@@ -43,7 +43,7 @@ describe('ColumnCreationModal', () => {
   });
 it('renders an 3 FormControl of type number', () =>
   {
-  const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+  const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
   expect(element.find(FormControl).findWhere(n => n.prop('type') === 'number')
 ).to.length(3);
 
@@ -54,7 +54,7 @@ it('renders an 3 FormControl of type number', () =>
 
     it('check the length of input', () =>
     {//so di avere 4 input
-      const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+      const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
 
       expect(element.find(FormControl)).to.length(5);
 
@@ -63,7 +63,7 @@ it('renders an 3 FormControl of type number', () =>
 
     it('renders all option', () =>
     {
-      const element = shallow (<ColumnCreationModal onAdd={sinon.spy()} />);
+      const element = shallow (<ElementCreationModal onAdd={sinon.spy()} />);
       expect(element.find(FormControl).find('option')).to.length(4);
       //modo brutto di controllare quante option ci sono.
   });
@@ -75,7 +75,7 @@ it('renders an 3 FormControl of type number', () =>
 
     it('calls onAdd function providing name, min, max, um', () => {
       const onAdd = sinon.spy();
-      const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
+      const element = shallow(<ElementCreationModal onAdd={onAdd} />);
 
       element
           .find(FormControl)
@@ -111,7 +111,7 @@ it('renders an 3 FormControl of type number', () =>
 
   it('calls onAdd(qui handleModification) function providing id, name, min, max, um', () => {
     const onAdd = sinon.spy();
-    const element = shallow(<ColumnCreationModal onAdd={onAdd} targetId={2}/>);
+    const element = shallow(<ElementCreationModal onAdd={onAdd} targetId={2}/>);
 
     element
         .find(FormControl)
@@ -147,7 +147,7 @@ it('renders an 3 FormControl of type number', () =>
 
 it('calls onAdd(qui handleModification) function providing incomplete parameters', () => {
   const onAdd = sinon.spy();
-  const element = shallow(<ColumnCreationModal onAdd={onAdd} targetId={2}/>);
+  const element = shallow(<ElementCreationModal onAdd={onAdd} targetId={2}/>);
 
 
   element
@@ -181,7 +181,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
 
     it('calls onAdd function providing new name value', () => {
       const onAdd = sinon.spy();
-      const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
+      const element = shallow(<ElementCreationModal onAdd={onAdd} />);
 
       element
       .find(FormControl)
@@ -204,7 +204,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
     describe('when users changes \'name\' input', () => {
 
         it('changes name value in state', () => {
-            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
             element
                 .find(FormControl)
                 .findWhere(n => n.prop('placeholder') === 'Nome')
@@ -217,7 +217,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
     describe('when users changes \'min\' input', () => {
 
         it('changes min value in state', () => {
-            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
             element
                 .find(FormControl)
                 .findWhere(n => n.prop('placeholder') === 'Min')
@@ -231,7 +231,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
     describe('when users changes \'max\' input', () => {
 
         it('changes max value in state', () => {
-            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
             element
                 .find(FormControl)
                 .findWhere(n => n.prop('placeholder') === 'Max')
@@ -245,7 +245,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
     describe('when users changes \'umoption\' input', () => {
 
         it('changes umoption value in state', () => {
-            const element = shallow(<ColumnCreationModal onAdd={sinon.spy()} />);
+            const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
             element
                 .find(FormControl)
                 .findWhere(n => n.prop('id') === 'um')
@@ -261,7 +261,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
 
       it('dont calls onAdd function but render an error message', () => {
         const onAdd = sinon.spy();
-        const element = shallow(<ColumnCreationModal onAdd={onAdd} />);
+        const element = shallow(<ElementCreationModal onAdd={onAdd} />);
 
         const wrongMin = 6;
         const wrongMax = 5;

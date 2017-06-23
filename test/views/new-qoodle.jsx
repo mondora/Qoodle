@@ -8,7 +8,7 @@ import sinonChai from 'sinon-chai';
 import CreateTable from 'components/create-table'
 import NewQoodle from 'views/master-page/new-qoodle';
 import QoodleElement from 'components/QoodleElement'
-import ColumnCreationModal from 'components/ColumnCreationModal'
+import ElementCreationModal from 'components/ElementCreationModal'
 
 chai.use(sinonChai);
 

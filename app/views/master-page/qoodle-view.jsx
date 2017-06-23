@@ -209,8 +209,8 @@ export default class QoodleView extends Component {
 
           <Timer closingQoodle={new Date("October 13, 2018 11:13:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
-          <h1 ><center>{this.state.title}</center></h1>
-          <h3>{this.state.description}</h3>
+          <center><h1 >{this.state.title}</h1></center>
+          <h3 id="QoodleDescription">{this.state.description}</h3>
 
           <div className="row">
             {this.renderQoodleElements()}

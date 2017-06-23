@@ -208,7 +208,7 @@ renderQoodleElements () {
 
 
                        <div className="body">
-                         <h1 ><center>{this.state.title}</center></h1>
+                         <center><h1 id="create">{this.state.title}</h1></center>
                          <div className="row">
                            {this.renderQoodleElements()}
                          </div>

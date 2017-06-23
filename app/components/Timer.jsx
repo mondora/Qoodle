@@ -24,12 +24,10 @@ render(){
     second: ' e '+ 'ss' + ' secondi '
   }
 return(
-    <div id="popover-div" style={{ height: 20 }}>
+    <div id="popover-div" style={{ height: 40}}>
       <Popover
         id="popover-basic"
         placement="right"
-        positionTop={95}
-        positionLeft={1100}
         title={this.props.title}
       >
 

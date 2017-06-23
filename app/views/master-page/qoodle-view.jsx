@@ -30,7 +30,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: 'kg',
-                      coinoption: '€',
+                      coinoption: '',
                       price: 1.5,
                       counter: 5,
                       imgUrl: '_assets/img/bana.png'
@@ -52,7 +52,7 @@ export default class QoodleView extends Component {
                       min: 0,
                       max: 99999,
                       umoption: '',
-                      coinoption: '€',
+                      coinoption: '',
                       price: 3.5,
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'

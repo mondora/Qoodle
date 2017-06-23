@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Image} from 'react-bootstrap';
+import Price from 'components/Price';
 
 export default class QoodleElement extends Component {
 
   static defaultProps =
   {
       counter : 0,
-      coin: '€',
-      um: 'kg',
+      um: '',
+      coin: '',
 
   }
 
@@ -42,6 +43,7 @@ export default class QoodleElement extends Component {
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
     const changeSettings = this.props.create;
+    var coin="";
     var plus;
     var minus;
     var settings;
@@ -54,6 +56,13 @@ export default class QoodleElement extends Component {
     }else {
       settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.id)}>&#9881;</i>);
     }
+
+
+  /*  if(this.props.coin != '')
+    {
+      coin = " " + this.props.coin + " al "
+    }*/
+
 
     return(
       <div className='box'>
@@ -69,7 +78,10 @@ export default class QoodleElement extends Component {
 
 
         <h3 id="title">{this.props.name}</h3>
-        <p>{this.props.price} {this.props.coin} al {this.props.um}</p>
+            <p>
+            <Price coin={this.props.coin} price={this.props.price}></Price>
+            {this.props.um}
+            </p>
 </div>);
 
 

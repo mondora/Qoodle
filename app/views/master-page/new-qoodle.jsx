@@ -49,8 +49,8 @@ export default class NewQoodle extends Component {
                 min: 0,
                 max: 99999,
                 umoption: '',
-                coinoption: '€',
-                price: 3.5,
+                coinoption: '',
+                price: 0,
                 counter: 0,
                 imgUrl: '_assets/img/kiwi.png'
               }
@@ -87,8 +87,7 @@ handleOnChangeTitle(e)
 
 handleAddElement(na, mi, ma, um, pr)
 {
-  console.log('OOOOU', this.state.elements.length)
-  this.setState({showColumnModal: false});
+    this.setState({showColumnModal: false});
 
   let element=this.state.elements.concat({
     id:5,

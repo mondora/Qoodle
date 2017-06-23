@@ -5,6 +5,7 @@ import {Button, FormControl, Image} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
+import Price from 'components/Price';
 import QoodleElement from 'components/QoodleElement';
 
 chai.use(sinonChai);
@@ -88,8 +89,8 @@ describe('QoodleElement', () => {
   it('renders a price of the element', () =>
   {
     const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-    expect(element.find('p').text()).to.be.equal('35 $ al kg');
-
+    //expect(element.find('Price').text()).to.be.equal('35 $ al kg');
+    expect(element.find('p').childAt(1).text()).to.be.equal('kg')
 
   });
 

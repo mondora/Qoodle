@@ -68,7 +68,7 @@ it('renders an 3 FormControl of type number', () =>
       //modo brutto di controllare quante option ci sono.
   });
 
-it('render different Aggiungi Eaggiungi elemento', () => {
+it('render "Aggiungi elemento" nel titolo', () => {
     const onAdd = sinon.spy();
     const element = shallow(<ElementCreationModal onAdd={onAdd} />);
 
@@ -78,13 +78,13 @@ it('render different Aggiungi Eaggiungi elemento', () => {
 
   });
 
-  it('render different title for modify and for add', () => {
+  it('render "Modifica Elemento" nel titolo', () => {
   const onAdd = sinon.spy();
   const element = shallow(<ElementCreationModal onAdd={onAdd} targetId={2}/>);
 
   expect(element.find('Modal').childAt(0).childAt(0).children().text()).to.be.equal("Modifica Elemento");
 
-});
+}); 
 
 
   describe('when user clicks on add button', () => {

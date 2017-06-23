@@ -11,8 +11,8 @@ export default (
     <Router history={history} >
         <Route component={RootPage} path="/" name="root">
             <Route component={NewQoodle} name="new" path="/create"/>
-            <Route component={QoodleView} name="view" path="/qoodlev"/>
-            <Route component={ListPage} name="list" path="/qoodlelist"/>
+            <Route component={QoodleView} name="view" path="/view"/>
+            <Route component={ListPage} name="list" path="/list"/>
         </Route>
 
 

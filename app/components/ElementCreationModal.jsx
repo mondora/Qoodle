@@ -70,6 +70,7 @@ export default class ElementCreationModal extends Component {
     }
 
 
+
     renderAlert()
     {
 
@@ -93,8 +94,9 @@ export default class ElementCreationModal extends Component {
 
         var bottone;
 
+
         if (this.props.targetId === -1) {
-          bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>
+          bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>;
         } else {
           bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Aggiungi"}</Button>
 
@@ -105,8 +107,9 @@ export default class ElementCreationModal extends Component {
         return (
             <Modal show={this.props.show}>
                 <Modal.Header>
-                    <Modal.Title>{"Nuova colonna"}</Modal.Title>
-                </Modal.Header>
+                    <Modal.Title>{this.props.targetId == -1 ? "Nuovo Elemento": "Modifica Elemento"}</Modal.Title>
+                    {console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPPPP',this.props.targetId === -1)}
+                  </Modal.Header>
                 <Modal.Body>
                         <FormGroup>
                             <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={15}/>

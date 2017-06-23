@@ -20,8 +20,8 @@ export default class ListQoodleElement extends Component {
 
   static propTypes = {
     id: PropTypes.number.isRequired,
-    partecipants: PropTypes.number,
     title: PropTypes.string.isRequired,
+    partecipants: PropTypes.number,
     description: PropTypes.string.isRequired,
     closingDate: PropTypes.any.isRequired,
     openIt: PropTypes.func.isRequired

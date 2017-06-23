@@ -84,7 +84,7 @@ it('render "Aggiungi elemento" nel titolo', () => {
 
   expect(element.find('Modal').childAt(0).childAt(0).children().text()).to.be.equal("Modifica Elemento");
 
-}); 
+});
 
 
   describe('when user clicks on add button', () => {

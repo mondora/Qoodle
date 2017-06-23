@@ -14,6 +14,11 @@ export default class QoodleView extends Component {
     constructor () {
         super();
 
+
+
+
+
+
         this.state = {
           showSummaryModal: false,
           title: 'Acquisto di gruppo di novembre',
@@ -184,6 +189,7 @@ export default class QoodleView extends Component {
 
 
     renderQoodleElements () {
+
       return this.state.elements.map(element => (
         <div className="col" key={element.id}>
           <QoodleElement

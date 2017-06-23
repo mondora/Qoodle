@@ -810,7 +810,7 @@ option {
   color: #f5b95f;
 }
 
-.box h3
+#QoodleCardTitle
 {
   color: #5888d6;
   font-family: "Times New Roman", Times, serif;
@@ -827,10 +827,15 @@ option {
   font-size: 35px;
 }
 
+.list-group-item{
+  font-size: 25px;
+}
+
 .list-group-item.list-group-item-warning{
   font-size: 32px;
   border: #5888d6 outset 3px;
   border-radius: 10px;
+  cursor: pointer; cursor: hand;
 
 }
 

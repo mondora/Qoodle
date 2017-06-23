@@ -44,9 +44,9 @@ export default class ListQoodleElement extends Component {
   {
     const dateFormat = {
       day:  'dd' + ' giorni ',
-      hour:  'hh'+ ' ore ',
-      minute: 'mm'+ ' minuti ',
-      second: ' e '+ 'ss' + ' secondi '
+      hour:  'hh'+ ' h. ',
+      minute: 'mm'+ ' min. ',
+      second: ' e '+ 'ss' + ' sec. '
     }
 
 
@@ -84,13 +84,24 @@ export default class ListQoodleElement extends Component {
     var timePadding = this.state.status === "success" ? "mancano: ": "";
 
 
+  /*  var ciao;
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("lastname", "TEST2");
+        // Retrieve
+        ciao = localStorage.getItem("lastname");
+    } else {
+        ciao = "Sorry, your browser does not support Web Storage...";
+    }
 
+    console.log('CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO', ciao);
+*/
 
     return(
       <div className='box' onClick = {() => this.props.openIt()}>
 
           <ListGroup>
-          <ListGroupItem><h3>{this.props.title}</h3></ListGroupItem>
+          <ListGroupItem><h2 id="QoodleCardTitle">{this.props.title}</h2></ListGroupItem>
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status}>{timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}

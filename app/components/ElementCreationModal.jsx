@@ -44,7 +44,6 @@ export default class ElementCreationModal extends Component {
 
     handleMaxChange(ma)
     {
-      console.log("GUARDA CHE QUI DOVREBBE ALL'INIZIO ESSERE FALSO", this.state.min > ma.target.value)
       if(this.state.min > ma.target.value)
         this.setState({showAlert: true,
                 max : ma.target.value });
@@ -105,10 +104,10 @@ export default class ElementCreationModal extends Component {
 
 
         return (
-            <Modal show={this.props.show}>
+
+              <Modal show={this.props.show}>
                 <Modal.Header>
                     <Modal.Title>{this.props.targetId == -1 ? "Nuovo Elemento": "Modifica Elemento"}</Modal.Title>
-                    {console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPPPP',this.props.targetId === -1)}
                   </Modal.Header>
                 <Modal.Body>
                         <FormGroup>

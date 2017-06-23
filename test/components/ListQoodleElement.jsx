@@ -24,7 +24,7 @@ describe('ListQoodleElement', () => {
           openIt={sinon.spy()}
           />);
 
-      expect(element.find('h3').text()).to.be.equal("Gas di Novembre");
+      expect(element.find('h2').text()).to.be.equal("Gas di Novembre");
     });
 
     it('renders a 4 ListGroupItem', () =>

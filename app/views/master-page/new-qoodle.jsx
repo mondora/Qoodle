@@ -135,7 +135,7 @@ handleAddElement(na, mi, ma, um, pr)
 
 
     var targetIndex = elementi.indexOf(target);
-
+    if(targetIndex != -1)
     elementi[targetIndex] = {
       id: newId,
       name: na,
@@ -144,9 +144,9 @@ handleAddElement(na, mi, ma, um, pr)
       umoption: um,
       coinoption: '€',
       price: pr,
-      counter: 5,
+      counter: 0,
       imgUrl: '_assets/img/redApple.png'
-    };
+    }
 
     this.setState({elements: elementi});
 

@@ -147,6 +147,27 @@ describe('NewQoodle', () => {
 });
 
 
+it('call of handleAddElement have the correct parameters', () =>
+{
+  const element = shallow(<NewQoodle />);
+  const oldNrColumns = element.state('elements').length;
+  element.instance().handleAddElement = sinon.spy();
+  element.instance().handleAddElement('',
+  0,
+  99999,
+  'kg',
+  0 );
+
+  expect(element.instance().handleAddElement).calledWith('',
+  0,
+  99999,
+  'kg',
+  0);
+
+});
+
+
+
   it('changes value of showColumnModal over the time', () =>
   {
     const element = shallow(<NewQoodle />);
@@ -201,7 +222,7 @@ describe('NewQoodle', () => {
             umoption: 'kg',
             coinoption: '€',
             price: 3.4,
-            counter: 5,
+            counter: 0,
             imgUrl: '_assets/img/redApple.png'
           }
         )
@@ -209,6 +230,136 @@ describe('NewQoodle', () => {
 
 
     });
+
+    it('modify state with different but complete parameters', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      element.instance().handleModification(2, 'avocado', 7, 8, 'kg', 3.4);
+      var target;
+      var targetIndex= -1;
+      var i = 1;
+
+      var elements = element.instance().state.elements;
+
+//codice brutto!!
+  elements.forEach(function (el, i) {
+  if (el.id === 2) {
+     target = el;
+     targetIndex=i;
+  }
+  i++;
+  });
+
+
+        expect(
+          element.instance().state.elements[targetIndex]
+        ).to.be.eql(
+          {
+            id:2,
+            name: 'avocado',
+            min: 7,
+            max: 8,
+            umoption: 'kg',
+            coinoption: '€',
+            price: 3.4,
+            counter: 0,
+            imgUrl: '_assets/img/redApple.png'
+          }
+        )
+
+
+
+    });
+
+
+
+
+    it('modify state (el2) with incomplete parameters', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      element.instance().handleModification(2, 'pere', 4, 8, 'kg', 1);
+      var target;
+      var targetIndex= -1;
+      var i = 1;
+
+      var elements = element.instance().state.elements;
+
+//codice brutto!!
+  elements.forEach(function (el, i) {
+  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
+  if (el.id === 2) {
+     target = el;
+     targetIndex=i;
+  }
+  i++;
+  });
+
+
+        expect(
+          element.instance().state.elements[targetIndex]
+        ).to.be.eql(
+          {
+            id:2,
+            name: 'pere',
+            min: 4,
+            max: 8,
+            umoption: 'kg',
+            coinoption: '€',
+            price: 1,
+            counter: 0,
+            imgUrl: '_assets/img/redApple.png'
+          }
+        )
+
+
+
+    });
+
+
+
+        it('modify state (el2) with incomplete parameters', () =>
+        {
+          const element = shallow(<NewQoodle />);
+
+          element.instance().handleModification(3, 'pere', 4, 8, 'kg', 1);
+          var target;
+          var targetIndex= -1;
+          var i = 1;
+
+          var elements = element.instance().state.elements;
+
+    //codice brutto!!
+      elements.forEach(function (el, i) {
+      console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
+      if (el.id === 3) {
+         target = el;
+         targetIndex=i;
+      }
+      i++;
+      });
+
+
+            expect(
+              element.instance().state.elements[targetIndex]
+            ).to.be.eql(
+              {
+                id:3,
+                name: 'pere',
+                min: 4,
+                max: 8,
+                umoption: 'kg',
+                coinoption: '€',
+                price: 1,
+                counter: 0,
+                imgUrl: '_assets/img/redApple.png'
+              }
+            )
+
+
+
+        });
 
 
     it('show modifymodal when call modifyElement', () =>

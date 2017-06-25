@@ -124,6 +124,93 @@ it('render "Aggiungi elemento" nel titolo', () => {
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'price value');
 
   });
+/*
+  it('calls onAdd function providing name, min, max, um', () => {
+    const onAdd = sinon.spy();
+    const element = shallow(<ElementCreationModal onAdd={onAdd} />);
+
+    element
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Nome')
+        .simulate('change', {target: {value: 'name value2'}});
+
+    expect(element.state('name')).to.be.equal('name value2');
+
+    element
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Min')
+        .simulate('change', {target: {value: 'min value'}});
+
+    element
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Max')
+        .simulate('change', {target: {value: 'max value'}});
+
+
+    element
+        .find(FormControl)
+        .findWhere(n => n.prop('id') === 'um')
+        .simulate('change', {target: {value: 'um value'}});
+
+      element
+          .find(InputGroup)
+          .simulate('change', {target: {value: 'price value'}});
+
+
+
+    element.find(Button).simulate('click');
+    expect(onAdd).has.been.calledWith('name value2', 'min value', 'max value', 'um value', 'price value');
+
+
+    const onAdd2 = sinon.spy();
+    const element2 = shallow(<ElementCreationModal onAdd={onAdd2} />);
+
+
+    element2
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Nome')
+        .simulate('change', {target: {value: 'name value3'}});
+
+    //expect(element.state('name')).to.be.equal('name value3');
+
+    element2
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Min')
+        .simulate('change', {target: {value: 5}});
+
+            expect(element.state('min')).to.be.equal(5);
+
+    element2
+        .find(FormControl)
+        .findWhere(n => n.prop('placeholder') === 'Max')
+        .simulate('change', {target: {value: 'max value3'}});
+
+        expect(element.state('max')).to.be.equal('max value3');
+
+    element2
+        .find(FormControl)
+        .findWhere(n => n.prop('id') === 'um')
+        .simulate('change', {target: {value: 'um value3'}});
+
+
+        expect(element.state('umoption')).to.be.equal('um value3');
+
+      element2
+          .find(InputGroup)
+          .simulate('change', {target: {value: 'price value3'}});
+
+
+        expect(element.state('price')).to.be.equal('price value3');
+
+
+        expect(onAdd2).has.been.calledWith('name value3', 'min valu3', 'max value3', 'um value3', 'price value3');
+
+
+});*/
+
+
+
+
 
 
   it('calls onAdd(qui handleModification) function providing id, name, min, max, um', () => {

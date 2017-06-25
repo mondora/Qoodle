@@ -14,6 +14,7 @@ export default class NewQoodle extends Component {
     super(props);
     this.state = {
       title: 'Dovrò mettere qui il Title',
+      globalId: 4,
       description: '',
       showColumnModal : false,
       showSaveModal: false,
@@ -89,8 +90,12 @@ handleAddElement(na, mi, ma, um, pr)
 {
     this.setState({showColumnModal: false});
 
+    console.log('idDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:  ', this.state.globalId, ' name:  ', na, ' min:  ', mi, ' max: ', ma, ' umoption: ', um, ' price: ', pr);
+
+
+
   let element=this.state.elements.concat({
-    id:5,
+    id: this.state.globalId,
     name: na,
     min: mi,
     max: ma,
@@ -101,7 +106,8 @@ handleAddElement(na, mi, ma, um, pr)
     imgUrl: '_assets/img/kiwi.png'
   })
 
-  this.setState({elements: element});
+  this.setState({elements: element,
+                globalId: this.state.globalId + 1});
 }
 
   modifyElement(tId)
@@ -117,7 +123,7 @@ handleAddElement(na, mi, ma, um, pr)
     var elementi = this.state.elements;
 
     var target;
-    elementi.forEach(function (el, i) {
+    elementi.forEach(function (el) {
     console.log(el);
     if (el.id === newId) {
        target = el;
@@ -133,7 +139,7 @@ handleAddElement(na, mi, ma, um, pr)
     if(pr == '')   pr = target.price;
 
 
-
+    console.log('idDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:  ', newId, ' name:  ', na, ' min:  ', mi, ' max: ', ma, ' umoption: ', um, ' price: ', pr);
     var targetIndex = elementi.indexOf(target);
     if(targetIndex != -1)
     elementi[targetIndex] = {
@@ -148,7 +154,7 @@ handleAddElement(na, mi, ma, um, pr)
       imgUrl: '_assets/img/redApple.png'
     }
 
-    this.setState({elements: elementi});
+    this.setState({elements: elementi, targetId: -1});
 
   }
 

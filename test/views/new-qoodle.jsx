@@ -150,7 +150,7 @@ describe('NewQoodle', () => {
 it('call of handleAddElement have the correct parameters', () =>
 {
   const element = shallow(<NewQoodle />);
-  const oldNrColumns = element.state('elements').length;
+
   element.instance().handleAddElement = sinon.spy();
   element.instance().handleAddElement('',
   0,
@@ -165,6 +165,80 @@ it('call of handleAddElement have the correct parameters', () =>
   0);
 
 });
+
+it('call of modifyElement and after addelement ', () =>
+{
+  const element = shallow(<NewQoodle />);
+  element.instance().handleAddElement = sinon.spy();
+  element.instance().modifyElement = sinon.spy();
+
+  element.instance().modifyElement(2, '',
+  0,
+  99999,
+  'kg',
+  0 );
+
+  expect(element.instance().modifyElement).calledWith(2, '',
+  0,
+  99999,
+  'kg',
+  0);
+
+
+  element.instance().handleAddElement('',
+  0,
+  99999,
+  'kg',
+  0 );
+
+  expect(element.instance().handleAddElement).calledWith('',
+  0,
+  99999,
+  'kg',
+  0);
+
+
+});
+
+it('call 2 addElement in sequence', () =>
+{
+  const element = shallow(<NewQoodle />);
+  element.instance().handleAddElement = sinon.spy();
+  element.instance().modifyElement = sinon.spy();
+
+  element.instance().handleAddElement('ciao',
+  0,
+  99999,
+  'kg',
+  3 );
+
+  expect(element.instance().handleAddElement).calledWith('ciao',
+  0,
+  99999,
+  'kg',
+  3);
+
+
+ element.instance().handleAddElement('',
+  0,
+  99999,
+  'kg',
+  0 );
+
+  expect(element.instance().handleAddElement).calledWith('',
+  0,
+  99999,
+  'kg',
+  0);
+
+
+
+
+});
+
+
+
+
 
 
 
@@ -230,6 +304,53 @@ it('call of handleAddElement have the correct parameters', () =>
 
 
     });
+
+
+    it('modify state with correct parameters', () =>
+    {
+      const element = shallow(<NewQoodle />);
+
+      element.instance().handleModification(3, 'pere', 0 , 99999 , 'kg', 3.4);
+      var target;
+      var targetIndex= -1;
+      var i = 1;
+
+      var elements = element.instance().state.elements;
+
+//codice brutto!!
+  elements.forEach(function (el, i) {
+  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
+  if (el.id === 3) {
+     target = el;
+     targetIndex=i;
+  }
+  i++;
+  });
+
+
+        expect(
+          element.instance().state.elements[targetIndex]
+        ).to.be.eql(
+          {
+            id:3,
+            name: 'pere',
+            min: 0,
+            max: 99999,
+            umoption: 'kg',
+            coinoption: '€',
+            price: 3.4,
+            counter: 0,
+            imgUrl: '_assets/img/redApple.png'
+          }
+        )
+
+
+
+    });
+
+
+
+
 
     it('modify state with different but complete parameters', () =>
     {

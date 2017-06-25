@@ -69,6 +69,28 @@ export default class ElementCreationModal extends Component {
     }
 
 
+    handleClick()
+    {
+      const {onAdd} = this.props;
+
+
+      this.props.onAdd(this.state.name,
+        this.state.min,
+        this.state.max,
+        this.state.umoption,
+        this.state.price);
+
+      this.setState({    name: '',
+          min: 0,
+          max: 99999,
+          umoption: '',
+          coinoption: '€',
+          price: 0,
+          showAlert: false});
+
+    }
+
+
 
     renderAlert()
     {
@@ -94,8 +116,11 @@ export default class ElementCreationModal extends Component {
         var bottone;
 
 
+
         if (this.props.targetId === -1) {
-          bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>;
+          //bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>;
+          bottone = <Button onClick={this.handleClick.bind(this)}>{"Aggiungi"}</Button>;
+
         } else {
           bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Aggiungi"}</Button>
 
@@ -111,7 +136,7 @@ export default class ElementCreationModal extends Component {
                   </Modal.Header>
                 <Modal.Body>
                         <FormGroup>
-                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={15}/>
+                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={15} value={name}/>
                         </FormGroup>
                         <FormGroup>
                             <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0} maxLength={15}/>
@@ -141,7 +166,7 @@ export default class ElementCreationModal extends Component {
 
 
                         <InputGroup onChange={this.handlePriceChange.bind(this)} >
-                          <FormControl type="number" min={0} maxLength={15}/>
+                          <FormControl type="number" min={0} maxLength={15} value={price}/>
                           <InputGroup.Addon>{coinoption}</InputGroup.Addon>
                         </InputGroup>
 

@@ -392,6 +392,40 @@ table{
     font-family: "Times New Roman", Times, serif;
 }
 
+.boxList {
+
+  width: 300px;
+  background-color: #fff;
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  vertical-align: top;
+}
+.boxList Image {
+    width: 230px;
+}
+
+
+.boxList p {
+    margin-left: 20px;
+    font-size: 22px
+}
+
+.boxList #one
+{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  background-color: #CCC;
+  height: 172px;
+  color: #FFF
+}
+.boxList ul {
+    border: 2px solid #5888d6;
+    border-radius: 5px;
+
+}
+
 
 
 .box {
@@ -403,6 +437,8 @@ table{
     display: inline-block;
     margin: 0 10px;
     position: relative;
+    min-height: 303.633px;
+    vertical-align: top;
 }
 .box Image {
     width: 230px;

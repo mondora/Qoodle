@@ -97,7 +97,7 @@ export default class ListQoodleElement extends Component {
 */
 
     return(
-      <div className='box' onClick = {() => this.props.openIt()}>
+      <div className='boxList' onClick = {() => this.props.openIt()}>
 
           <ListGroup>
           <ListGroupItem><h2 id="QoodleCardTitle">{this.props.title}</h2></ListGroupItem>

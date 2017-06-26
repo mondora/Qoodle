@@ -33,4 +33,18 @@ describe('SummaryRow', () => {
 
 
 
+  it("Render correct text if isn't a price element", ()=>{
+  const nom = 'Vegani';
+  const pri = 0;
+  const cou = 4;
+  const coi = '€';
+  const um = 'persone'
+
+  const element = shallow(<SummaryRow name = {nom} price = {pri}  counter = {cou} coinoption ={coi} umoption={um}/>);
+
+  expect(element.find('p').text()).to.be.equal('Numero di Vegani: ' + cou + " " + um );
+  });
+
+
+
 });

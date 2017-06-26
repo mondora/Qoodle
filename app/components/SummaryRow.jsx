@@ -12,18 +12,27 @@ export default class SummaryRow extends Component
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     counter: PropTypes.number.isRequired,
-    coinoption: PropTypes.string.isRequired
+    coinoption: PropTypes.string.isRequired,
+    umoption: PropTypes.string
 };
 
 
   renderDifferentRowType()
   {
-    var riga =  this.props.name
-    + ' ( '+ this.props.price
-    + '  x  ' +
-    this.props.counter +' )' +
-    '    = ' + (this.props.price * this.props.counter) +
-    this.props.coinoption
+    var riga = '';
+    if(this.props.price != 0 ){
+        riga = this.props.name
+        + ' ( '+ this.props.price
+        + '  x  ' +
+        this.props.counter +' )' +
+        '    = ' + (this.props.price * this.props.counter) +
+        this.props.coinoption
+    }else {
+      riga = "Numero di " +
+      this.props.name + ": " +
+      this.props.counter + " " +
+      this.props.umoption
+    }
 
 
     return    (  riga );

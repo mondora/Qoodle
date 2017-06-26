@@ -31,7 +31,8 @@ export default class SummaryModal extends Component {
           <SummaryRow name={elements[i].name}
           price={elements[i].price}
           counter = {elements[i].counter}
-          coinoption ={elements[i].coinoption}/></p>
+          coinoption ={elements[i].coinoption}
+          umoption={elements[i].umoption}/></p>
         );
       }
 

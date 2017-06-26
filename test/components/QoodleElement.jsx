@@ -89,19 +89,11 @@ describe('QoodleElement', () => {
   it('renders a price of the element', () =>
   {
     const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-    //expect(element.find('Price').text()).to.be.equal('35 $ al kg');
-    expect(element.find('p').childAt(1).text()).to.be.equal('kg')
+    expect(element.find('Price')).to.have.length(1);
 
   });
 
 
-  it('renders a price of the element', () =>
-  {
-    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="" um="kg" price={0} />);
-    //expect(element.find('Price').text()).to.be.equal('35 $ al kg');
-    expect(element.find('p').childAt(1).text()).to.be.equal('kg')
-
-  });
 
 
   it('renders a counter of the element', () =>

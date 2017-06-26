@@ -24,12 +24,12 @@ export default class NewQoodle extends Component {
       elements: [
               {
                 id:1,
-                name: 'Nr vegetariani',
+                name: 'Banana',
                 min: 0,
                 max: 99999,
-                umoption: '',
+                umoption: 'kg',
                 coinoption: '€',
-                price: 0,
+                price: 3.5,
                 counter: 5,
                 imgUrl: '_assets/img/bana.png'
               },

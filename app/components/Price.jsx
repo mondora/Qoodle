@@ -6,7 +6,8 @@ export default class Price extends Component{
   static defaultProps =
   {
     coin: '',
-    price: '0'
+    price: '0',
+    um: ''
   }
 
 
@@ -21,14 +22,14 @@ export default class Price extends Component{
   {
     var priceString='';
 
-    if(this.props.price != '0')
+    if(this.props.price != '0' & this.props.um !='')
     {
-      priceString = " " +  this.props.price + " " + this.props.coin + " al " ;
-      return(<span id="price">{priceString}</span>);
+      priceString = " " +  this.props.price + " " + this.props.coin + " al " + this.props.um;
+      return(<p id="price">{priceString}</p>);
     }
 
   else {
-    return(<span id="price">{priceString}</span>);
+    return(<p id="price">{this.props.um}</p>);
   }
 
   }

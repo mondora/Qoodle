@@ -17,11 +17,26 @@ describe('Price', () => {
         <Price
           price={13.5}
           coin={'$'}
+          um={'kg'}
            />);
 
-      expect(element.text()).to.be.equal(' 13.5 $ al ');
+      expect(element.text()).to.be.equal(' 13.5 $ al kg');
 
     });
+
+
+    it('render only unit of measure', () =>
+    {
+      const element = shallow(
+        <Price
+        um={'kg'}
+           />);
+
+      expect(element.text()).to.be.equal('kg');
+
+    });
+
+
 
 
     it('check default value strinprice', () =>

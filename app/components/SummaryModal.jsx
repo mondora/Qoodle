@@ -25,7 +25,7 @@ export default class SummaryModal extends Component {
 
     for(var i=0; i<elements.length; i++)
     {
-      if(elements[i].price * elements[i].counter)
+      if(elements[i].counter)
       {
         summaryRows.push(<p>
           <SummaryRow name={elements[i].name}
@@ -34,6 +34,8 @@ export default class SummaryModal extends Component {
           coinoption ={elements[i].coinoption}/></p>
         );
       }
+
+
     }
     return(
         <Modal.Body>

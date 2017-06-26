@@ -15,11 +15,24 @@ export default class SummaryRow extends Component
     coinoption: PropTypes.string.isRequired
 };
 
+
+  renderDifferentRowType()
+  {
+    var riga =  this.props.name
+    + ' ( '+ this.props.price
+    + '  x  ' +
+    this.props.counter +' )' +
+    '    = ' + (this.props.price * this.props.counter) +
+    this.props.coinoption
+
+
+    return    (  riga );
+  }
+
   render()
   {
     return (
-          <p>{this.props.name} {'( '+this.props.price} {' x '} {this.props.counter +' )'} {'   = ' + this.props.price * this.props.counter}{this.props.coinoption}
-          </p>
+    <p>{this.renderDifferentRowType()}</p>
     );
   }
 }

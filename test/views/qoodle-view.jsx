@@ -48,7 +48,7 @@ describe('QoodleView', () => {
   });
 
 
-  it('render Button to check the total',() =>{
+  it('render Button to check the total price',() =>{
   const element = shallow(<QoodleView />);
   expect(element.find(Button).prop('id') === 'buyButton').to.be.equal(true);
 
@@ -56,6 +56,12 @@ describe('QoodleView', () => {
   });
 
 
+  it('render Button to check the total number of elment choice',() =>{
+  const element = shallow(<QoodleView purchase={false}/>);
+  expect(element.find(Button).prop('id') === 'buyButton').to.be.equal(true);
+
+  expect(element.find(Button).children().text()).to.be.equal("Conferma le scelte prese (sono 15)");
+  });
 
 
 

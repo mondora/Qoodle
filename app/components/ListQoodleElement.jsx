@@ -94,7 +94,6 @@ export default class ListQoodleElement extends Component {
         ciao = "Sorry, your browser does not support Web Storage...";
     }
 
-    console.log('CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO', ciao);
 */
 
     return(

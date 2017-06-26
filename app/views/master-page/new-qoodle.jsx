@@ -124,13 +124,11 @@ handleAddElement(na, mi, ma, um, pr)
 
     var target;
     elementi.forEach(function (el) {
-    console.log(el);
-    if (el.id === newId) {
+        if (el.id === newId) {
        target = el;
 
     }
     });
-    console.log(target);
 
     if(na == '')   na = target.name;
     if(mi == '')   mi = target.min;
@@ -138,8 +136,6 @@ handleAddElement(na, mi, ma, um, pr)
     if(um == '')   um = target.umoption;
     if(pr == '')   pr = target.price;
 
-
-    console.log('idDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:  ', newId, ' name:  ', na, ' min:  ', mi, ' max: ', ma, ' umoption: ', um, ' price: ', pr);
     var targetIndex = elementi.indexOf(target);
     if(targetIndex != -1)
     elementi[targetIndex] = {

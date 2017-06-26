@@ -10,6 +10,12 @@ import Timer from "components/Timer"
 
 export default class QoodleView extends Component {
 
+  static defaultProps =
+  {
+    purchase: true
+  }
+
+
 
     constructor () {
         super();
@@ -131,12 +137,18 @@ export default class QoodleView extends Component {
     {
       var elementi = this.state.elements;
 
-      var sum = 0;
+      var sum = 0, counterSum = 0;
       for(var i = 0; i<elementi.length; i++){
         sum += elementi[i].price * elementi[i].counter;
+        counterSum += elementi[i].counter;
       }
       sum = "Procedi all'acquisto " + '(Totale: ' + sum +'€)';
-      return sum;
+      counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
+
+      if(this.props.purchase)
+        return sum;
+      else
+        return counterSum;
 
     }
 
@@ -208,6 +220,11 @@ export default class QoodleView extends Component {
     }
 
     render(){
+if(this.props.purchase === true)
+
+  <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
+else
+  <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
 
 
       return(

@@ -276,7 +276,6 @@ it('call 2 addElement in sequence', () =>
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
   if (el.id === 2) {
      target = el;
      targetIndex=i;
@@ -319,7 +318,6 @@ it('call 2 addElement in sequence', () =>
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
   if (el.id === 3) {
      target = el;
      targetIndex=i;
@@ -409,7 +407,6 @@ it('call 2 addElement in sequence', () =>
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
   if (el.id === 2) {
      target = el;
      targetIndex=i;
@@ -453,7 +450,6 @@ it('call 2 addElement in sequence', () =>
 
     //codice brutto!!
       elements.forEach(function (el, i) {
-      console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',el);
       if (el.id === 3) {
          target = el;
          targetIndex=i;

@@ -508,7 +508,6 @@ color: red
 .col{
   display: inline-block;
   position: relative;
-  min-height: 1px;
   padding-right: 15px;
   padding-left: 20px;
   padding-bottom: 40px;

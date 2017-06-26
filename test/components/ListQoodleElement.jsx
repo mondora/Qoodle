@@ -106,6 +106,23 @@ describe("render different color if time has expired", () =>
 
 
 
+  it('renders icon for magnifyng glass and timer', () =>
+  {
+    const testDate = new Date();
+    testDate.setSeconds(testDate.getSeconds() + 30);
+
+    const element = shallow(
+      <ListQoodleElement
+        id={1}
+        title={"Gas di Novembre"}
+        partecipants={6}
+        description={"quaququa anche la per un acquisto migliore"}
+        closingDate={testDate.toString()}
+        openIt={sinon.spy()}
+        />);
+  expect(element.find(Image)).to.have.length(2);
+});
+
 //COME FARE QUESTO??
   /*it('renders "danger" ListGroupItem', () =>
   {
@@ -137,15 +154,6 @@ describe("render different color if time has expired", () =>
 
 
 /*
-  it('renders image tag', () =>
-  {
-    const element = shallow(
-      <QoodleElement
-        name={'Banana'}
-        price={13.5}
-        coin={'$'} um={'kg'} />);
-  expect(element.find(Image)).to.have.length(1);
-  });
 
 
 

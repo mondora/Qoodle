@@ -882,4 +882,23 @@ option {
   border-color: #269abc;
 }
 
+
+#timer
+{
+  position: absolute;
+  left: 15px;
+  opacity: 0.8;
+}
+
+
+#lente
+{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.5;
+
+}
+
+
 /*END CREATE PAGE*/

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
-import {ListGroup, ListGroupItem, Button} from 'react-bootstrap';
+import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
 
 export default class ListQoodleElement extends Component {
 
@@ -43,11 +43,10 @@ export default class ListQoodleElement extends Component {
   renderClosingTime()
   {
     const dateFormat = {
-      day:  'dd' + ' giorni ',
-      hour:  'hh'+ ' h. ',
-      minute: 'mm'+ ' min. ',
-      second: ' e '+ 'ss' + ' sec. '
+      day:  '- dd' + ' giorni ',
     }
+
+
 
 
     const d = new Date(this.props.closingDate)
@@ -81,29 +80,33 @@ export default class ListQoodleElement extends Component {
     const {openIt} = this.props;
     var date = new Date(this.props.closingDate)
 
-    var timePadding = this.state.status === "success" ? "mancano: ": "";
+    var timePadding  =
+    this.state.status === "success" ?
+        <Image id="timer" src={'_assets/img/timer.png'}
+        style={{width: 40, height: 40}}
+        alt="loading"
+        responsive />
+    : "";
 
-
-  /*  var ciao;
-    if (typeof(Storage) !== "undefined") {
-        // Store
-        localStorage.setItem("lastname", "TEST2");
-        // Retrieve
-        ciao = localStorage.getItem("lastname");
-    } else {
-        ciao = "Sorry, your browser does not support Web Storage...";
-    }
-
-*/
 
     return(
       <div className='boxList' onClick = {() => this.props.openIt()}>
 
           <ListGroup>
-          <ListGroupItem><h2 id="QoodleCardTitle">{this.props.title}</h2></ListGroupItem>
+
+          <ListGroupItem>
+            <h2 id="QoodleCardTitle">{this.props.title}</h2>
+              <Image id="lente" src={'_assets/img/ingrandimento.png'}
+              style={{width: 40, height: 40}}
+              alt="loading"
+              responsive />
+            </ListGroupItem>
+
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
-          <ListGroupItem bsStyle={this.state.status}>{timePadding} {this.renderClosingTime()} </ListGroupItem>
+          <ListGroupItem bsStyle={this.state.status}>
+{timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}
+
           </ListGroup>
 
 

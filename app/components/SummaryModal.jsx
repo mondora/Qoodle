@@ -17,12 +17,11 @@ export default class SummaryModal extends Component {
     };
 
 
-  render () {
+  renderSummaryRows()
+  {
     var summaryRows = [];
     const elements = this.props.rows;
-    const {close} = this.props;
-    //const close = this.props.close;
-    const {check} = this.props;
+    const {purchase} = this.props;
 
     for(var i=0; i<elements.length; i++)
     {
@@ -36,15 +35,27 @@ export default class SummaryModal extends Component {
         );
       }
     }
+    return(
+        <Modal.Body>
+            {summaryRows}
+        </Modal.Body>);
+
+
+  }
+
+
+  render () {
+
+    const {close} = this.props;
+    const {check} = this.props;
+
 
       return (
           <Modal show={this.props.show}>
               <Modal.Header>
                   <Modal.Title>{"Riassunto Acquisto"}</Modal.Title>
               </Modal.Header>
-              <Modal.Body>
-                {summaryRows}
-              </Modal.Body>
+              {this.renderSummaryRows()}
               <Modal.Footer>
                   <Button id="check" onClick={check}>{"Controlla lista, INDIETRO"}</Button>
                   <Button id="continue" onClick={close}>{"Lista esatta, PROCEDI"}</Button>

@@ -23,6 +23,7 @@ export default class SummaryRow extends Component
     if(this.props.price != 0 ){
         riga = this.props.name
         + ' ( '+ this.props.price
+        + this.props.coinoption 
         + '  x  ' +
         this.props.counter +' )' +
         '    = ' + (this.props.price * this.props.counter) +

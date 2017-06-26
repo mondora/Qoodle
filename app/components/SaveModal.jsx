@@ -33,7 +33,7 @@ export default class SaveModal extends Component{
       return (
           <Modal show={this.props.show}>
               <Modal.Header>
-                  <Modal.Title>{"Scegli una data di chiusura Qoodle e salva"}</Modal.Title>
+                  <Modal.Title>{"Imposta una data termine compiere scelte."}</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>

@@ -124,6 +124,18 @@ it('render "Aggiungi elemento" nel titolo', () => {
       expect(onAdd).has.been.calledWith('name value', 'min value', 'max value', 'um value', 'price value');
 
   });
+
+
+
+  it('calls onAdd function providing name, min, max, um', () => {
+    const onAdd = sinon.spy();
+    const element = shallow(<ElementCreationModal onAdd={onAdd} targetId={3} />);
+
+    expect(element.find(Button).children().text()).to.be.equal('Modifica');
+
+});
+
+
 /*
   it('calls onAdd function providing name, min, max, um', () => {
     const onAdd = sinon.spy();

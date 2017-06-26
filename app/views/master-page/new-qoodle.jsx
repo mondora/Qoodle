@@ -24,29 +24,29 @@ export default class NewQoodle extends Component {
       elements: [
               {
                 id:1,
-                name: 'Banana',
+                name: 'Nr vegetariani',
                 min: 0,
                 max: 99999,
-                umoption: 'kg',
+                umoption: '',
                 coinoption: '€',
-                price: 1.5,
+                price: 0,
                 counter: 5,
                 imgUrl: '_assets/img/bana.png'
               },
               {
                 id:2,
-                name: 'MelaRossa',
+                name: 'intolleranti al lattosio',
                 min: 0,
                 max: 99999,
                 umoption: 'kg',
                 coinoption: '€',
-                price: 2,
+                price: 0,
                 counter: 0,
                 imgUrl: '_assets/img/redApple.png'
               },
               {
                 id:3,
-                name: 'Kiwi',
+                name: 'celiaci',
                 min: 0,
                 max: 99999,
                 umoption: '',
@@ -219,10 +219,10 @@ renderQoodleElements () {
                       </div>
 
 
-                      <Button id="saveButton"
-                      bsStyle="primary"
-                      onClick={this.sopen.bind(this)}
-                      >Salva!</Button>
+              <Button id="saveButton"
+              bsStyle="primary"
+              onClick={this.sopen.bind(this)}
+              >Salva!</Button>
 
 
 

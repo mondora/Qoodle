@@ -118,11 +118,10 @@ export default class ElementCreationModal extends Component {
 
 
         if (this.props.targetId === -1) {
-          //bottone = <Button onClick={() => onAdd(name, min, max, umoption, price)}>{"Aggiungi"}</Button>;
           bottone = <Button onClick={this.handleClick.bind(this)}>{"Aggiungi"}</Button>;
 
         } else {
-          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Aggiungi"}</Button>
+          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Modifica"}</Button>
 
         }
 

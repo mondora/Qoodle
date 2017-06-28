@@ -22,6 +22,7 @@ describe('ListQoodleElement', () => {
           description={"quaququa anche la per un acquisto migliore"}
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
+          details={sinon.spy()}
           />);
 
       expect(element.find('h2').text()).to.be.equal("Gas di Novembre");
@@ -37,6 +38,7 @@ describe('ListQoodleElement', () => {
           description={"quaququa anche la per un acquisto migliore"}
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
+          details={sinon.spy()}
           />);
         expect(element.find('ListGroupItem')).to.have.length(4);
     });
@@ -51,6 +53,7 @@ describe('ListQoodleElement', () => {
           description={"quaququa anche la per un acquisto migliore"}
           closingDate={new Date(2017, 5, 22, 12).toString()}
           openIt={sinon.spy()}
+          details={sinon.spy()}
           />);
         expect(element.find(ListGroup)).to.have.length(1);
 
@@ -74,6 +77,7 @@ describe("render different color if time has expired", () =>
         description={"quaququa anche la per un acquisto migliore"}
         closingDate={testDate.toString()}
         openIt={sinon.spy()}
+        details={sinon.spy()}
         />);
 
 
@@ -96,6 +100,7 @@ describe("render different color if time has expired", () =>
         description={"quaququa anche la per un acquisto migliore"}
         closingDate={testDate.toString()}
         openIt={sinon.spy()}
+        details={sinon.spy()}
         />);
 
 
@@ -119,9 +124,60 @@ describe("render different color if time has expired", () =>
         description={"quaququa anche la per un acquisto migliore"}
         closingDate={testDate.toString()}
         openIt={sinon.spy()}
+        details={sinon.spy()}
         />);
   expect(element.find(Image)).to.have.length(2);
 });
+
+it('renders icon for magnifyng glass and timer', () =>
+{
+  const testDate = new Date();
+  testDate.setSeconds(testDate.getSeconds() + 30);
+
+  const element = shallow(
+    <ListQoodleElement
+      id={1}
+      title={"Gas di Novembre"}
+      partecipants={6}
+      description={"quaququa anche la per un acquisto migliore"}
+      closingDate={testDate.toString()}
+      openIt={sinon.spy()}
+      details={sinon.spy()}
+      />);
+expect(element.find(Image)).to.have.length(2);
+});
+
+
+it('check calls details function when click title(or magnifyng glass)', () =>
+{
+  const testDate = new Date();
+  testDate.setSeconds(testDate.getSeconds() + 30);
+
+  var details = sinon.spy();
+
+  const element = shallow(
+    <ListQoodleElement
+      id={1}
+      title={"Gas di Novembre"}
+      partecipants={6}
+      description={"quaququa anche la per un acquisto migliore"}
+      closingDate={testDate.toString()}
+      openIt={sinon.spy()}
+      details={details}
+      />);
+
+
+element.find('#QoodleBoxTitle').simulate('click');
+
+
+expect(details).has.been.calledWith(1);
+
+});
+
+
+
+
+
 
 //COME FARE QUESTO??
   /*it('renders "danger" ListGroupItem', () =>

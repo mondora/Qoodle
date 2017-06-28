@@ -24,7 +24,8 @@ export default class ListQoodleElement extends Component {
     partecipants: PropTypes.number,
     description: PropTypes.string.isRequired,
     closingDate: PropTypes.any.isRequired,
-    openIt: PropTypes.func.isRequired
+    openIt: PropTypes.func.isRequired,
+    details: PropTypes.func.isRequired
   }
 
 
@@ -78,6 +79,9 @@ export default class ListQoodleElement extends Component {
   render()
   {
     const {openIt} = this.props;
+    const {details} = this.props;
+    const targetId = this.props.id;
+
     var date = new Date(this.props.closingDate)
 
     var timePadding  =
@@ -94,7 +98,7 @@ export default class ListQoodleElement extends Component {
 
           <ListGroup>
 
-          <ListGroupItem>
+          <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
               <Image id="lente" src={'_assets/img/ingrandimento.png'}
               style={{width: 40, height: 40}}

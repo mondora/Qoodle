@@ -46,5 +46,23 @@ describe('SummaryRow', () => {
   });
 
 
+  describe('SummaryRow for check structure choice', () => {
+
+    it('Render button', ()=>{
+      const nom = 'Vegani';
+      const pri = 0;
+      const cou = 4;
+      const coi = '€';
+      const um = 'persone'
+
+      const element = shallow(<SummaryRow name = {nom} price = {pri}  counter = {cou} coinoption ={coi} umoption={um} focus={true}/>);
+
+      expect(element.find(Button)).to.have.length(1);
+
+
+
+    });
+
+  });
 
 });

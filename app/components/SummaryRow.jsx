@@ -1,11 +1,17 @@
 import React, {Component, PropTypes} from "react";
-
+import {Button} from 'react-bootstrap';
 
 export default class SummaryRow extends Component
 {
-  constructor(props)
+
+  static defaultProps =
   {
-    super(props);
+    focus: false
+  }
+
+  constructor()
+  {
+    super();
   }
 
   static propTypes = {
@@ -13,7 +19,8 @@ export default class SummaryRow extends Component
     price: PropTypes.number.isRequired,
     counter: PropTypes.number.isRequired,
     coinoption: PropTypes.string.isRequired,
-    umoption: PropTypes.string
+    umoption: PropTypes.string,
+    focus: PropTypes.bool
 };
 
 
@@ -23,7 +30,7 @@ export default class SummaryRow extends Component
     if(this.props.price != 0 ){
         riga = this.props.name
         + ' ( '+ this.props.price
-        + this.props.coinoption 
+        + this.props.coinoption
         + '  x  ' +
         this.props.counter +' )' +
         '    = ' + (this.props.price * this.props.counter) +
@@ -41,8 +48,10 @@ export default class SummaryRow extends Component
 
   render()
   {
+    var bottone = this.props.focus ? <Button>FOCUS</Button>: "";
+
     return (
-    <p>{this.renderDifferentRowType()}</p>
+    <p>{this.renderDifferentRowType()}{bottone}</p>
     );
   }
 }

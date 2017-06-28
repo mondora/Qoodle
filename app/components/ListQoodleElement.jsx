@@ -46,7 +46,7 @@ export default class ListQoodleElement extends Component {
   {
     const dateFormat = {
       day:  '- dd' + ' giorni ',
-    }
+  }
 
     const d = new Date(this.props.closingDate)
 

@@ -5,9 +5,9 @@ import SummaryRow from "components/SummaryRow";
 
 export default class SummaryModal extends Component {
 
-  constructor(props)
+  constructor()
   {
-    super(props);
+    super();
   }
 
 

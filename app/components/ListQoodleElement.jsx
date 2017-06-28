@@ -36,8 +36,9 @@ export default class ListQoodleElement extends Component {
 
   renderParticipates()
   {
+    const {openIt} = this.props;
     if(this.state.status === "success")
-      return ( <ListGroupItem bsStyle={"warning"}>PARTECIPA!</ListGroupItem> );
+      return ( <ListGroupItem bsStyle={"warning"} id="partecipates" onClick = {() => openIt(this.props.id)}>PARTECIPA!</ListGroupItem> );
       //  return <Button bsStyle="info">PARTECIPA!</Button>;
   }
 
@@ -106,7 +107,7 @@ export default class ListQoodleElement extends Component {
             </ListGroupItem>
 
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
-          <ListGroupItem bsStyle={this.state.status} id="partecipates" onClick = {() => openIt(targetId)}>
+          <ListGroupItem bsStyle={this.state.status} >
 {timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}
 

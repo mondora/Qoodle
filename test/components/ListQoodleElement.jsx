@@ -148,6 +148,12 @@ expect(element.find(Image)).to.have.length(2);
 });
 
 
+
+
+
+
+
+
 it('check calls details function when click title(or magnifyng glass)', () =>
 {
   const testDate = new Date();
@@ -157,7 +163,7 @@ it('check calls details function when click title(or magnifyng glass)', () =>
 
   const element = shallow(
     <ListQoodleElement
-      id={1}
+      id={2}
       title={"Gas di Novembre"}
       partecipants={6}
       description={"quaququa anche la per un acquisto migliore"}
@@ -170,7 +176,34 @@ it('check calls details function when click title(or magnifyng glass)', () =>
 element.find('#QoodleBoxTitle').simulate('click');
 
 
-expect(details).has.been.calledWith(1);
+expect(details).has.been.calledWith(2);
+
+});
+
+
+it('check calls openIt function when click "PARTECIPA!"', () =>
+{
+  const testDate = new Date();
+  testDate.setSeconds(testDate.getSeconds() + 30);
+
+  var open = sinon.spy();
+
+  const element = shallow(
+    <ListQoodleElement
+      id={2}
+      title={"Gas di Novembre"}
+      partecipants={6}
+      description={"quaququa anche la per un acquisto migliore"}
+      closingDate={testDate.toString()}
+      openIt={open}
+      details={sinon.spy()}
+      />);
+
+
+element.find('#partecipates').simulate('click');
+
+
+expect(open).has.been.calledWith(2);
 
 });
 

@@ -34,11 +34,13 @@ class ListPage extends Component {
 
 
     open(){
-      {alert("per i dettagli stiamo lavorando")}
+      {alert("partecipa al qoodle")}
     }
 
-
-
+    details()
+    {
+      {alert("visualizza dettagli")}
+    }
 
     renderListQoodleElements () {
       return this.state.Qoodle.map(element => (
@@ -50,6 +52,7 @@ class ListPage extends Component {
             description={element.descrizione}
             closingDate={element.dataChiusura.toString()}
             openIt={this.open.bind(this)}
+            details={this.details.bind(this)}
             />
       </div>
       ));

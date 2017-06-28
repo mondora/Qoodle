@@ -47,9 +47,6 @@ export default class ListQoodleElement extends Component {
       day:  '- dd' + ' giorni ',
     }
 
-
-
-
     const d = new Date(this.props.closingDate)
 
     const element=
@@ -93,8 +90,10 @@ export default class ListQoodleElement extends Component {
     : "";
 
 
+
+
     return(
-      <div className='boxList' onClick = {() => this.props.openIt()}>
+      <div className='boxList' >
 
           <ListGroup>
 
@@ -107,7 +106,7 @@ export default class ListQoodleElement extends Component {
             </ListGroupItem>
 
           <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
-          <ListGroupItem bsStyle={this.state.status}>
+          <ListGroupItem bsStyle={this.state.status} id="partecipates" onClick = {() => openIt(targetId)}>
 {timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}
 

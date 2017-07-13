@@ -29,7 +29,7 @@ export default class QoodleView extends Component {
           showSummaryModal: false,
           title: 'Acquisto di gruppo di novembre',
           description: 'È a disposizione sortita varietà di verdure e frutta di stagione',
-          elements: [
+          elements: []/*[
                     {
                       id:1,
                       name: 'Banana',
@@ -129,7 +129,7 @@ export default class QoodleView extends Component {
                       counter: 0,
                       imgUrl: '_assets/img/kiwi.png'
                     }
-                ]
+                ]*/
           }
         }
 
@@ -138,37 +138,15 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      var myImage = document.querySelector('img');
-      fetch('_assets/img/kiwi.png').then(
-        function(response) {
-        return response.blob();
-        })
-        .then(function(myBlob) {
-        var objectURL = URL.createObjectURL(myBlob);
-        myImage.src = objectURL;
-      });
 
-    /*  var myDemo = document.querySelector('#demo');
 
-       fetch('_assets/img/prova.json').then(
+
+      var data = fetch('_assets/img/provaElements.json').then(
         function(response) {
         return response.json();
-        })
-        .then(function(data) {
-          myDemo.innerHTML = data.name;
-              console.log( "ciao" , data.name) ;
-      });*/
-
-
-      var myDemo = document.getElementById('demo');
-
-       fetch('_assets/img/provaElement.json').then(
-        function(response) {
-        return response.json();
-        })
-        .then(function(data) {
-          myDemo.innerHTML =  " " + data.counter
-      });
+      }).then(function(data) {
+          {this.setState({elements: data.ciao});}
+      }.bind(this));
 
     }
 
@@ -271,7 +249,7 @@ else
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={new Date("July 13, 2017 13:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={new Date("July 13, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

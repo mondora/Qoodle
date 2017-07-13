@@ -1,4 +1,4 @@
-{
+"ciao" :{
   "id":1,
   "name": "Banana",
   "min": 0,
@@ -8,4 +8,5 @@
   "price": 1.5,
   "counter": 5,
   "imgUrl": "_assets/img/bana.png"
+}
 }

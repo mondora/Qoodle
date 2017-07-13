@@ -58,10 +58,6 @@ export default class QoodleElement extends Component {
     }
 
 
-  /*  if(this.props.coin != '')
-    {
-      coin = " " + this.props.coin + " al "
-    }*/
 
 
     return(

@@ -29,107 +29,7 @@ export default class QoodleView extends Component {
           showSummaryModal: false,
           title: 'Acquisto di gruppo di novembre',
           description: 'È a disposizione sortita varietà di verdure e frutta di stagione',
-          elements: []/*[
-                    {
-                      id:1,
-                      name: 'Banana',
-                      min: 0,
-                      max: 99999,
-                      umoption: 'kg',
-                      coinoption: '$',
-                      price: 1.5,
-                      counter: 5,
-                      imgUrl: '_assets/img/bana.png'
-                    },
-                    {
-                      id:2,
-                      name: 'MelaRossa',
-                      min: 0,
-                      max: 99999,
-                      umoption: 'kg',
-                      coinoption: '€',
-                      price: 2,
-                      counter: 0,
-                      imgUrl: '_assets/img/redApple.png'
-                    },
-                    {
-                      id:3,
-                      name: 'Kiwi',
-                      min: 0,
-                      max: 99999,
-                      umoption: '',
-                      coinoption: '',
-                      price: 0,
-                      counter: 0,
-                      imgUrl: '_assets/img/kiwi.png'
-                    },
-                    {
-                      id:4,
-                      name: 'Pesca',
-                      min: 0,
-                      max: 99999,
-                      umoption: '',
-                      coinoption: '€',
-                      price: 0,
-                      counter: 5,
-                      imgUrl: '_assets/img/bana.png'
-                    },
-                    {
-                      id:5,
-                      name: 'Uva',
-                      min: 0,
-                      max: 99999,
-                      umoption: '',
-                      coinoption: '€',
-                      price: 0,
-                      counter: 0,
-                      imgUrl: '_assets/img/redApple.png'
-                    },
-                    {
-                      id:6,
-                      name: 'Number of Vegetarian',
-                      min: 0,
-                      max: 99999,
-                      umoption: '',
-                      coinoption: '€',
-                      price: 0,
-                      counter: 0,
-                      imgUrl: '_assets/img/kiwi.png'
-                    },
-                    {
-                      id:7,
-                      name: 'Kiwi',
-                      min: 0,
-                      max: 99999,
-                      umoption: 'bott',
-                      coinoption: '€',
-                      price: 3,
-                      counter: 5,
-                      imgUrl: '_assets/img/bana.png'
-                    },
-                    {
-                      id: 8,
-                      name: 'Number Of People',
-                      min: 0,
-                      max: 99999,
-                      umoption: 'kg',
-                      coinoption: '€',
-                      price: 4,
-                      counter: 0,
-                      imgUrl: '_assets/img/redApple.png'
-                    },
-                    {
-                      id: 9,
-                      name: 'Number of Veggie',
-                      min: 0,
-                      max: 99999,
-                      umoption: 'person',
-                      coinoption: '',
-                      price: 0,
-                      counter: 0,
-                      imgUrl: '_assets/img/kiwi.png'
-                    }
-                ]*/
+          elements: []
           }
         }
 
@@ -145,7 +45,7 @@ export default class QoodleView extends Component {
         function(response) {
         return response.json();
       }).then(function(data) {
-          {this.setState({elements: data.ciao});}
+          {this.setState({elements: data});}
       }.bind(this));
 
     }

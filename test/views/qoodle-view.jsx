@@ -5,6 +5,7 @@ import {Button, FormControl, Panel} from 'react-bootstrap';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
+
 import QoodleElement from 'components/QoodleElement';
 import QoodleView from 'views/master-page/qoodle-view';
 import Summary from 'components/Summary';
@@ -12,11 +13,21 @@ import Timer from 'components/Timer';
 
 chai.use(sinonChai);
 
+
+
+
+
+
 describe('QoodleView', () => {
+
+
 
   it('render Title and Description',() =>{
 
-    const element = shallow(<QoodleView />);
+
+
+
+    const element = mount(<QoodleView />);
     expect(
       element
       .find('h1')

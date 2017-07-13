@@ -5,6 +5,13 @@ import SummaryRow from "components/SummaryRow";
 
 export default class SummaryModal extends Component {
 
+  static defaultProps =
+  {
+    focus: false
+  }
+
+
+
   constructor()
   {
     super();
@@ -13,7 +20,8 @@ export default class SummaryModal extends Component {
 
   static propTypes = {
     rows: PropTypes.array,
-    close: PropTypes.func
+    close: PropTypes.func,
+    focus: PropTypes.bool
     };
 
 
@@ -32,7 +40,8 @@ export default class SummaryModal extends Component {
           price={elements[i].price}
           counter = {elements[i].counter}
           coinoption ={elements[i].coinoption}
-          umoption={elements[i].umoption}/></p>
+          umoption={elements[i].umoption}
+          focus={this.props.focus}/></p>
         );
       }
 

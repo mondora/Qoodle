@@ -164,7 +164,7 @@ handleAddElement(na, mi, ma, um, pr)
 
 renderQoodleElements () {
   return this.state.elements.map(element => (
-    <div className="col">
+    <div className="col" key ={element.id.toString()}>
       <QoodleElement
         counter={element.counter}
         id={element.id}

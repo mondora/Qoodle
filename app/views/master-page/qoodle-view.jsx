@@ -46,7 +46,7 @@ export default class QoodleView extends Component {
         return response.json();
       }).then(function(data) {
           {this.setState({elements: data});}
-      }.bind(this));
+      }.bind(this)).catch((error) => { console.error(error); });;
 
     }
 

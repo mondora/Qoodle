@@ -133,6 +133,46 @@ export default class QoodleView extends Component {
           }
         }
 
+
+
+
+    componentDidMount()
+    {
+      var myImage = document.querySelector('img');
+      fetch('_assets/img/kiwi.png').then(
+        function(response) {
+        return response.blob();
+        })
+        .then(function(myBlob) {
+        var objectURL = URL.createObjectURL(myBlob);
+        myImage.src = objectURL;
+      });
+
+    /*  var myDemo = document.querySelector('#demo');
+
+       fetch('_assets/img/prova.json').then(
+        function(response) {
+        return response.json();
+        })
+        .then(function(data) {
+          myDemo.innerHTML = data.name;
+              console.log( "ciao" , data.name) ;
+      });*/
+
+
+      var myDemo = document.getElementById('demo');
+
+       fetch('_assets/img/provaElement.json').then(
+        function(response) {
+        return response.json();
+        })
+        .then(function(data) {
+          myDemo.innerHTML =  " " + data.counter
+      });
+
+    }
+
+
     renderSum()
     {
       var elementi = this.state.elements;
@@ -229,8 +269,9 @@ else
 
       return(
         <div className="body">
-
-          <Timer closingQoodle={new Date("July 13, 2017 10:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <img className="immagineFetch"></img>
+          <div id ="demo"></div>
+          <Timer closingQoodle={new Date("July 13, 2017 13:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

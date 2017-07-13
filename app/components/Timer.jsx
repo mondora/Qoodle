@@ -12,7 +12,7 @@ constructor(){
 static propTypes = {
     closingQoodle: PropTypes.any.isRequired,
     title: PropTypes.string.isRequired,
-    finish: PropTypes.func.isRequired,
+    onFinished: PropTypes.func.isRequired,
 }
 
 render(){

@@ -22,7 +22,8 @@ export default class Summary extends Component
       if(elements[i].price * elements[i].counter)
       {
         summaryRows.push(
-          <SummaryRow name={elements[i].name}
+          <SummaryRow key={elements[i].name}
+          name={elements[i].name}
           price={elements[i].price}
           counter = {elements[i].counter}
           coinoption ={elements[i].coinoption}/>

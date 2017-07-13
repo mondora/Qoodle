@@ -19,7 +19,7 @@ export default class SummaryModal extends Component {
 
 
   static propTypes = {
-    rows: PropTypes.array,
+    rows: PropTypes.arrayOf(React.PropTypes.object),
     close: PropTypes.func,
     focus: PropTypes.bool
     };
@@ -35,8 +35,10 @@ export default class SummaryModal extends Component {
     {
       if(elements[i].counter)
       {
-        summaryRows.push(<p>
-          <SummaryRow name={elements[i].name}
+        summaryRows.push(<p key = {elements[i].name}>
+          <SummaryRow
+          key = {elements[i].name}
+          name={elements[i].name}
           price={elements[i].price}
           counter = {elements[i].counter}
           coinoption ={elements[i].coinoption}

@@ -13,8 +13,9 @@ describe('Timer', () => {
 
 
   it('check render counter object',() =>{
+    const finish = sinon.spy();
 
-    const element = shallow(<Timer closingQoodle={new Date(2017, 5, 25)} title={'Termine per acquistare:'}/>)
+    const element = shallow(<Timer closingQoodle={new Date(2017, 5, 25)} title={'Termine per acquistare:'} onFinished={finish}/>)
     expect(element.find(Countdown)).to.have.length(1);
   });
 });

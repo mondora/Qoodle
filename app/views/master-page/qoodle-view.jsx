@@ -230,7 +230,7 @@ else
       return(
         <div className="body">
 
-          <Timer closingQoodle={new Date("October 13, 2018 11:13:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={new Date("July 13, 2017 10:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

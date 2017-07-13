@@ -1,6 +1,5 @@
  import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
-import {bindActionCreators} from "redux";
 import ListQoodleElement from "components/ListQoodleElement";
 /////////////List Actions
 

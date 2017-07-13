@@ -90,8 +90,6 @@ handleAddElement(na, mi, ma, um, pr)
 {
     this.setState({showColumnModal: false});
 
-    console.log('idDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:  ', this.state.globalId, ' name:  ', na, ' min:  ', mi, ' max: ', ma, ' umoption: ', um, ' price: ', pr);
-
 
 
   let element=this.state.elements.concat({

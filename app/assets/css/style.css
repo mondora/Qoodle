@@ -541,6 +541,7 @@ color: red
 }
 
 
+
 .col{
   display: inline-block;
   position: relative;
@@ -902,3 +903,11 @@ option {
 
 
 /*END CREATE PAGE*/
+/*START LIST PAGE*/
+
+.list-group-item.list-group-item-success
+{
+  text-align: right;
+}
+
+/*END LIST PAGE*/

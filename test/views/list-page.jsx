@@ -53,17 +53,7 @@ describe('ListPage', () => {
   });
 
 
-//COME FARE??
-/*  it('calls open funcion when clic a ListQoodleElement', () =>
-  {
-    const element = shallow(<ListPage/>);
-    console.log("000000000000000000000000000000000000000000", element.findWhere(n => n.prop('className') === "col" & n.prop('id') === 1).children().html());
-
-    element.findWhere(n => n.prop('className') === "col" & n.prop('id') === 1).simulate('click');
 
 
-
-  });
-*/
 
 });

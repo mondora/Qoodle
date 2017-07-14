@@ -27,8 +27,8 @@ export default class QoodleView extends Component {
 
         this.state = {
           showSummaryModal: false,
-          title: 'Acquisto di gruppo di novembre',
-          description: 'È a disposizione sortita varietà di verdure e frutta di stagione',
+          title: '',
+          description: '',
           elements: []
           }
         }
@@ -45,7 +45,11 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       })
       .then(function(data) {
-          { this.setState({elements: data});}
+          { this.setState({
+            elements: data.ele,
+            title: data.title,
+            description: data.description
+            });}
       }
       .bind(this))
       .catch((error) => { console.error(error); });;

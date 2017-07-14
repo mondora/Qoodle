@@ -1,4 +1,8 @@
-[
+{
+   "title": "Acquisto di gruppo di novembre",
+   "description": "È a disposizione sortita varietà di verdure e frutta di stagione",
+   "ele":
+  [
           {
             "id":1,
             "name": "Banana",
@@ -99,3 +103,4 @@
             "imgUrl": "_assets/img/kiwi.png"
           }
       ]
+}

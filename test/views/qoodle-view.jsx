@@ -127,7 +127,11 @@ describe('QoodleView', () => {
 
 
           const element = shallow(<QoodleView />);
-          element.setState({elements: elementi});
+          element.setState({
+            elements: elementi,
+            title: "Acquisto di gruppo di novembre",
+            "description": "È a disposizione sortita varietà di verdure e frutta di stagione"
+          });
           expect(
             element
             .find('h1')

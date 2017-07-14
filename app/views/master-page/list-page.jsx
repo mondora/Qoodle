@@ -9,27 +9,30 @@ class ListPage extends Component {
     constructor() {
         super();
         this.state = {
-            Qoodle: [
-                {
-                    id: 1,
-                    titolo: "Gas di Novembre",
-                    descrizione: "idfsofdsijjfsdijfsdijfsijosdfjiofd",
-                    partecipanti: 6,
-                    dataChiusura: new Date("October 13, 2014 11:13:00").toDateString()
-
-    },
-                {
-                  id: 2,
-                  titolo: "Christams Dinner",
-                  descrizione: "idfsofdsijjfsdijfsdijfsijosdfjiofd",
-                  partecipanti: 4,
-                  dataChiusura: new Date("October 13, 2018 11:13:00").toDateString()
-                }
-
-
-            ]
+            Qoodle: []
         };
     }
+
+
+    componentDidMount()
+    {
+      var data = fetch('_assets/img/Qoodles.json')
+      .then( function(response) {
+        if(response.ok)
+        return response.json();
+        throw new Error("Network response was not ok")
+      })
+      .then(function(data) {
+          data.forEach( (ele)=>
+          ele.dataChiusura = new Date(ele.dataChiusura).toDateString());;
+          { this.setState({ Qoodle: data });}
+      }
+      .bind(this))
+      .catch((error) => { console.error(error); });;
+    }
+
+
+
 
 
     open(){

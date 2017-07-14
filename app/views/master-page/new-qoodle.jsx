@@ -21,45 +21,34 @@ export default class NewQoodle extends Component {
       showModifyModal: false,
       targetId: -1,
       closingDate: new Date(),
-      elements: [
-              {
-                id:1,
-                name: 'Banana',
-                min: 0,
-                max: 99999,
-                umoption: 'kg',
-                coinoption: '€',
-                price: 3.5,
-                counter: 5,
-                imgUrl: '_assets/img/bana.png'
-              },
-              {
-                id:2,
-                name: 'intolleranti al lattosio',
-                min: 0,
-                max: 99999,
-                umoption: 'kg',
-                coinoption: '€',
-                price: 0,
-                counter: 0,
-                imgUrl: '_assets/img/redApple.png'
-              },
-              {
-                id:3,
-                name: 'celiaci',
-                min: 0,
-                max: 99999,
-                umoption: '',
-                coinoption: '',
-                price: 0,
-                counter: 0,
-                imgUrl: '_assets/img/kiwi.png'
-              }
-            ],
+      elements: []
 
     }
 
   }
+
+
+
+  componentDidMount()
+  {
+    var data = fetch('_assets/img/newElements.json')
+    .then( function(response) {
+      if(response.ok)
+      return response.json();
+      throw new Error("Network response was not ok")
+    })
+    .then(function(data) {
+        { console.log(data);
+          this.setState({ elements: data });}
+    }
+    .bind(this))
+    .catch((error) => { console.error(error); });;
+
+  }
+
+
+
+
 
   close() {
     this.setState({ showColumnModal: false });

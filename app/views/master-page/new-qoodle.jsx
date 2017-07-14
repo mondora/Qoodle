@@ -14,7 +14,7 @@ export default class NewQoodle extends Component {
     super(props);
     this.state = {
       title: 'Dovrò mettere qui il Title',
-      globalId: 4,
+      globalId: 0,
       description: '',
       showColumnModal : false,
       showSaveModal: false,
@@ -39,7 +39,10 @@ export default class NewQoodle extends Component {
     })
     .then(function(data) {
         { console.log(data);
-          this.setState({ elements: data });}
+          this.setState({
+            elements: data,
+            globalId: (data.length + 1)            
+          });}
     }
     .bind(this))
     .catch((error) => { console.error(error); });;

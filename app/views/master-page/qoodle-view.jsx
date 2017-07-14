@@ -38,7 +38,6 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-
       var data = fetch('_assets/img/provaElements.json')
       .then( function(response) {
         if(response.ok)

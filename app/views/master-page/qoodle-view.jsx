@@ -39,14 +39,17 @@ export default class QoodleView extends Component {
     componentDidMount()
     {
 
-
-
-      var data = fetch('_assets/img/provaElements.json').then(
-        function(response) {
+      var data = fetch('_assets/img/provaElements.json')
+      .then( function(response) {
+        if(response.ok)
         return response.json();
-      }).then(function(data) {
-          {this.setState({elements: data});}
-      }.bind(this)).catch((error) => { console.error(error); });;
+        throw new Error("Network response was not ok")
+      })
+      .then(function(data) {
+          { this.setState({elements: data});}
+      }
+      .bind(this))
+      .catch((error) => { console.error(error); });;
 
     }
 
@@ -149,7 +152,7 @@ else
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={new Date("July 13, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={new Date("July 14, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

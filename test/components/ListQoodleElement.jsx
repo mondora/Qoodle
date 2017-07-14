@@ -213,24 +213,23 @@ expect(open).has.been.calledWith(2);
 
 
 //COME FARE QUESTO??
-  /*it('renders "danger" ListGroupItem', () =>
+/*
+it('renders "danger" ListGroupItem', () =>
   {
 
-    var testDate = new Date();
-    testDate = new Date( (testDate.getTime() - 100000));
-
+    var testDate = new Date("October 13, 2014 11:13:00").toDateString();
     const element = shallow(
       <ListQoodleElement
         id={1}
         title={"Gas di Novembre"}
         partecipants={6}
         description={"quaququa anche la per un acquisto migliore"}
-        closingDate={testDate.toString()}
+        closingDate={testDate}
         openIt={sinon.spy()}
         />);
 
 
-      expect(element.findWhere(n => n.prop('bsStyle') ==='danger')).have.length(1);
+      expect(element.find('div').findWhere(n => n.prop('className') === 'list-group-item')).to.be.equal("SCADUTO");
 
 
   });*/

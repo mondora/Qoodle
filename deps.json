@@ -12,16 +12,6 @@
         "react",
         "react-bootstrap",
         "react-dom",
-        "react-redux",
-        "react-router",
-        "redux",
-        "redux-logger",
-        "redux-storage",
-        "redux-storage-engine-localstorage",
-        "redux-storage-decorator-filter",
-        "redux-thunk"
+        "react-router"
     ]
 }
-
-
-

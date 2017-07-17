@@ -44,9 +44,23 @@ export default class ListQoodleElement extends Component {
 
   renderClosingTime()
   {
-    const dateFormat = {
-      day:  'mancano dd' + ' giorni ',
-  }
+
+    var dateFormat;
+
+
+  if(this.state.status === "success")
+    dateFormat =
+    {
+        day:  'mancano dd' + ' giorni ',
+    }
+    else
+    dateFormat =
+      {
+        day: 'SCADUTO'
+      }
+
+
+
 
     const d = new Date(this.props.closingDate)
 
@@ -59,13 +73,6 @@ export default class ListQoodleElement extends Component {
       format={dateFormat}
       onFinished={this.changeStatus.bind(this)}
       />
-
-
-      if(this.state.status === "success")
-        return (element);
-      else
-        return (<h2>SCADUTO</h2>);
-
 
     return (element);
 

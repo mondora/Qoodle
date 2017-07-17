@@ -155,7 +155,7 @@ else
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={new Date("July 14, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={new Date("July 17, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

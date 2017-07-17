@@ -38,10 +38,10 @@ export default class NewQoodle extends Component {
       throw new Error("Network response was not ok")
     })
     .then(function(data) {
-        { console.log(data);
+        {
           this.setState({
             elements: data,
-            globalId: (data.length + 1)            
+            globalId: (data.length + 1)
           });}
     }
     .bind(this))
@@ -161,7 +161,7 @@ renderQoodleElements () {
         imgUrl={element.imgUrl}
         name={element.name}
         coin={element.coinoption}
-        price={element.price}
+        price={Number (element.price)}
         um={element.umoption}
         create={() => this.modifyElement(element.id)}
       />

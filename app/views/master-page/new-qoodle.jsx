@@ -31,7 +31,7 @@ export default class NewQoodle extends Component {
 
   componentDidMount()
   {
-    var data = fetch('_assets/img/newElements.json')
+    var data = fetch('_assets/mock-server/newElements.json')
     .then( function(response) {
       if(response.ok)
       return response.json();

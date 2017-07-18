@@ -16,7 +16,7 @@ class ListPage extends Component {
 
     componentDidMount()
     {
-      var data = fetch('_assets/img/Qoodles.json')
+      var data = fetch('_assets/mock-server/Qoodles.json')
       .then( function(response) {
         if(response.ok)
         return response.json();

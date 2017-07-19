@@ -28,7 +28,57 @@ class ListPage extends Component {
           { this.setState({ Qoodle: data });}
       }
       .bind(this))
-      .catch((error) => { console.error(error); });;
+      .catch((error) => { console.error(error); });
+
+    var url = 'http://localhost:4567/hello';
+
+    fetch(url, {
+    method: 'get',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+  }).
+  then((res) => {
+    if (res.status >= 200 && res.status < 300) {
+      return res.text();
+    } else {
+      throw new Error('Ooops...something went wrong.');
+    }
+  }).then(function(data) {
+    console.log(data.toString());
+  })
+  .catch(e => console.log(e.message));
+
+
+
+/*  var url = 'http://localhost:4567/qoodles';
+
+  fetch(url, {
+  method: 'get',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+}).
+then((res) => {
+  if (res.status >= 200 && res.status < 300) {
+    return res.json();
+  } else {
+    throw new Error('Ooops...something went wrong.');
+  }
+  })
+  .then(function(data) {
+      data.forEach( (ele)=>
+      ele.dataChiusura = new Date(ele.dataChiusura).toDateString());;
+      { this.setState({ Qoodle: data });}
+  }
+  .bind(this))
+  .catch((error) => { console.error(error); });
+*/
+
+
+
     }
 
 

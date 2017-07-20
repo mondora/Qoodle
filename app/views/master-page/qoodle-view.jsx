@@ -48,7 +48,8 @@ export default class QoodleView extends Component {
           { this.setState({
             elements: data.ele,
             title: data.title,
-            description: data.description
+            description: data.description,
+            chiusura: new Date (data.chiusura)
             });}
       }
       .bind(this))
@@ -155,7 +156,7 @@ else
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={new Date("July 17, 2017 19:53:00")} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={this.state.chiusura} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

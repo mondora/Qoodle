@@ -38,7 +38,18 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      var data = fetch('_assets/mock-server/provaElements.json')
+      var url = 'http://localhost:4567/view';
+      var myInit = {
+            method: 'get',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          };
+
+
+
+      fetch(url, myInit)
       .then( function(response) {
         if(response.ok)
         return response.json();

@@ -19,29 +19,30 @@ class ListPage extends Component {
 
 
 
-  var url = 'http://localhost:4567/qoodles';
+    var url = 'http://localhost:4567/qoodles';
+    var myInit = {
+          method: 'get',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        };
 
-  fetch(url, {
-  method: 'get',
-  mode: 'cors',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-}).
-then((res) => {
-  if (res.status >= 200 && res.status < 300) {
-    return res.json();
-  } else {
-    throw new Error('Ooops...something went wrong.');
-  }
-  })
-  .then(function(data) {
-      data.forEach( (ele)=>
-      ele.dataChiusura = new Date(ele.dataChiusura).toDateString());;
-      { this.setState({ Qoodle: data });}
-  }
-  .bind(this))
-  .catch((error) => { console.error(error); });
+    fetch(url, myInit).
+  then((res) => {
+    if (res.status >= 200 && res.status < 300) {
+      return res.json();
+    } else {
+      throw new Error('Ooops...something went wrong.');
+    }
+    })
+    .then(function(data) {
+        data.forEach( (ele)=>
+        ele.dataChiusura = new Date(ele.dataChiusura).toDateString());;
+        { this.setState({ Qoodle: data });}
+    }
+    .bind(this))
+    .catch((error) => { console.error(error); });
 
 
 

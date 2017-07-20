@@ -19,7 +19,7 @@ class ListPage extends Component {
 
 
 
-    var url = 'http://localhost:4567/qoodles';
+    var url = 'http://localhost:4567/list';
     var myInit = {
           method: 'get',
           mode: 'cors',

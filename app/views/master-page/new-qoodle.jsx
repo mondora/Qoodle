@@ -31,7 +31,16 @@ export default class NewQoodle extends Component {
 
   componentDidMount()
   {
-    var data = fetch('_assets/mock-server/newElements.json')
+    var url = 'http://localhost:4567/create';
+    var myInit = {
+          method: 'get',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        };
+
+  fetch(url, myInit)
     .then( function(response) {
       if(response.ok)
       return response.json();

@@ -172,9 +172,7 @@ handleAddElement(na, mi, ma, um, pr)
 
     fetch(url, myInit)
     .then( function(response) {
-      if(response.ok)
-      console.log("operazione riuscita")
-      else
+      if(!response.ok)
       throw new Error("Network response was not ok")
     });
 

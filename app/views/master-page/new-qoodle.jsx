@@ -156,7 +156,7 @@ handleAddElement(na, mi, ma, um, pr)
   handleSave(date)
   {
 
-    var url = 'http://localhost:4567/submit';
+    var url = 'http://localhost:4567/submit-new-qoodle';
     var myInit = {
       method: 'post',
       mode: 'cors',
@@ -174,6 +174,7 @@ handleAddElement(na, mi, ma, um, pr)
     .then( function(response) {
       if(response.ok)
       console.log("operazione riuscita")
+      else
       throw new Error("Network response was not ok")
     });
 

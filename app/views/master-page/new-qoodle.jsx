@@ -155,6 +155,28 @@ handleAddElement(na, mi, ma, um, pr)
 
   handleSave(date)
   {
+
+    var url = 'http://localhost:4567/submit';
+    var myInit = {
+      method: 'post',
+      mode: 'cors',
+      body: JSON.stringify(
+        {
+          title : this.state.title,
+          description : this.state.description,
+          closingDate : this.state.closingDate,
+          elelements : this.state.elements
+        })
+    };
+
+
+    fetch(url, myInit)
+    .then( function(response) {
+      if(response.ok)
+      console.log("operazione riuscita")
+      throw new Error("Network response was not ok")
+    });
+
     this.setState({showSaveModal: false,
             closingDate: date});
   }

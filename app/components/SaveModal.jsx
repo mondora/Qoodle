@@ -8,7 +8,7 @@ export default class SaveModal extends Component{
   constructor(props){
     super(props);
     this.state = {
-      chiusura: new Date("June 24, 2017 11:13:00")
+      chiusura: new Date()
     }
   }
 
@@ -20,7 +20,7 @@ export default class SaveModal extends Component{
 
 
   selectDate(dataScadenza){
-    this.setState({chiusura: dataScadenza})
+    this.setState({chiusura: dataScadenza});
   }
 
   render () {

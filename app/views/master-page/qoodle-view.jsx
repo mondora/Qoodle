@@ -26,9 +26,11 @@ export default class QoodleView extends Component {
 
 
         this.state = {
+          id : 0,
           showSummaryModal: false,
           title: '',
           description: '',
+          chiusura: new Date(),
           elements: []
           }
         }
@@ -126,6 +128,26 @@ export default class QoodleView extends Component {
 
     OpenSummary()
     {
+      var url = 'http://localhost:4567/submit-qoodle-choices';
+      var myInit = {
+        method: 'post',
+        mode: 'cors',
+        body: JSON.stringify(
+          {
+            title : this.state.title,
+            description : this.state.description,
+            chiusura : this.state.chiusura,
+            elements : this.state.elements
+          })
+      };
+
+
+      fetch(url, myInit)
+      .then( function(response) {
+        if(!response.ok)
+        throw new Error("Network response was not ok")
+      });
+
         this.setState({showSummaryModal: true});
     }
 
@@ -183,7 +205,7 @@ else
               <SummaryModal
                 rows={this.state.elements}
                 show={this.state.showSummaryModal}
-                close={this.CloseSummary.bind(this)}
+                close={this.OpenSummary.bind(this)}
                 check={this.CloseSummary.bind(this)}
                 />
 

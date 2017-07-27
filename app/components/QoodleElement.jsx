@@ -17,7 +17,7 @@ export default class QoodleElement extends Component {
 
   static propTypes = {
     counter: PropTypes.number,
-    id: PropTypes.number.isRequired,
+    elId: PropTypes.number.isRequired,
     imgUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     coin: PropTypes.string.isRequired,
@@ -50,11 +50,11 @@ export default class QoodleElement extends Component {
     var counter;
 
     if(this.props.create === undefined){
-      plus =  (<i className="fa fa-plus" onClick={() => Inc(this.props.id)}></i>);
-      minus = (<i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.id)}></i>);
+      plus =  (<i className="fa fa-plus" onClick={() => Inc(this.props.elId)}></i>);
+      minus = (<i className="fa fa-minus" id='minus' onClick={() => Dec(this.props.elId)}></i>);
       counter = (<i  id='counter'>{this.props.counter}</i>);
     }else {
-      settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.id)}>&#9881;</i>);
+      settings = (<i className="fa fa-settings" onClick={() => changeSettings(this.props.elId)}>&#9881;</i>);
     }
 
 

@@ -22,7 +22,7 @@ describe('QoodleView', () => {
 
   const elementi = [
             {
-              "id":1,
+              "elId":1,
               "name": "Banana",
               "min": 0,
               "max": 99999,
@@ -33,7 +33,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/bana.png"
             },
             {
-              "id":2,
+              "elId":2,
               "name": "MelaRossa",
               "min": 0,
               "max": 99999,
@@ -44,7 +44,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/redApple.png"
             },
             {
-              "id":3,
+              "elId":3,
               "name": "Kiwi",
               "min": 0,
               "max": 99999,
@@ -55,7 +55,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/kiwi.png"
             },
             {
-              "id":4,
+              "elId":4,
               "name": "Pesca",
               "min": 0,
               "max": 99999,
@@ -66,7 +66,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/bana.png"
             },
             {
-              "id":5,
+              "elId":5,
               "name": "Uva",
               "min": 0,
               "max": 99999,
@@ -77,7 +77,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/redApple.png"
             },
             {
-              "id":6,
+              "elId":6,
               "name": "Number of Vegetarian",
               "min": 0,
               "max": 99999,
@@ -88,7 +88,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/kiwi.png"
             },
             {
-              "id":7,
+              "elId":7,
               "name": "Kiwi",
               "min": 0,
               "max": 99999,
@@ -99,7 +99,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/bana.png"
             },
             {
-              "id": 8,
+              "elId": 8,
               "name": "Number Of People",
               "min": 0,
               "max": 99999,
@@ -110,7 +110,7 @@ describe('QoodleView', () => {
               "imgUrl": "_assets/img/redApple.png"
             },
             {
-              "id": 9,
+              "elId": 9,
               "name": "Number of Veggie",
               "min": 0,
               "max": 99999,

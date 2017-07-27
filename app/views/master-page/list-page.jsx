@@ -28,7 +28,7 @@ class ListPage extends Component {
           },
         };
 
-    fetch(url, myInit).
+  fetch(url, myInit).
   then((res) => {
     if (res.status >= 200 && res.status < 300) {
       return res.json();
@@ -64,9 +64,9 @@ class ListPage extends Component {
 
     renderListQoodleElements () {
       return this.state.Qoodle.map(element => (
-        <div className="col" key={element.id.toString()} id ={element.id}>
+        <div className="col" key={element.qoodlesId.toString()} id ={element.qoodlesId}>
           <ListQoodleElement
-            id={element.id}
+            id={element.qoodlesId}
             title={element.titolo}
             partecipants={element.partecipanti}
             description={element.descrizione}

@@ -17,7 +17,7 @@ describe('ListPage', () => {
 
   var qoodlesProva = [
       {
-          "id": 1,
+          "qoodlesId": 1,
           "titolo": "Gas di Novembre",
           "descrizione": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
           "partecipanti": 6,
@@ -25,7 +25,7 @@ describe('ListPage', () => {
 
         },
       {
-        "id": 2,
+        "qoodlesId": 2,
         "titolo": "Christams Dinner",
         "descrizione": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
         "partecipanti": 4,

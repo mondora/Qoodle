@@ -15,7 +15,7 @@ describe('NewQoodle', () => {
 
   var elementi = [
           {
-            id:1,
+            elId:1,
             name: 'Banana',
             min: 0,
             max: 99999,
@@ -26,7 +26,7 @@ describe('NewQoodle', () => {
             imgUrl: '_assets/img/bana.png'
           },
           {
-            id:2,
+            elId:2,
             name: 'intolleranti al lattosio',
             min: 0,
             max: 99999,
@@ -37,7 +37,7 @@ describe('NewQoodle', () => {
             imgUrl: '_assets/img/redApple.png'
           },
           {
-            id:3,
+            elId:3,
             name: 'celiaci',
             min: 0,
             max: 99999,
@@ -346,7 +346,7 @@ it('call 2 addElement in sequence', (done) =>
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  if (el.id === 2) {
+  if (el.elId === 2) {
      target = el;
      targetIndex=i;
   }
@@ -358,7 +358,7 @@ it('call 2 addElement in sequence', (done) =>
           element.instance().state.elements[targetIndex]
         ).to.be.eql(
           {
-            id:2,
+            elId:2,
             name: 'pere',
             min: 4,
             max: 8,
@@ -389,7 +389,7 @@ it('call 2 addElement in sequence', (done) =>
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  if (el.id === 3) {
+  if (el.elId === 3) {
      target = el;
      targetIndex=i;
   }
@@ -401,7 +401,7 @@ it('call 2 addElement in sequence', (done) =>
           element.instance().state.elements[targetIndex]
         ).to.be.eql(
           {
-            id:3,
+            elId:3,
             name: 'pere',
             min: 0,
             max: 99999,
@@ -435,7 +435,7 @@ done();
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  if (el.id === 2) {
+  if (el.elId === 2) {
      target = el;
      targetIndex=i;
   }
@@ -447,7 +447,7 @@ done();
           element.instance().state.elements[targetIndex]
         ).to.be.eql(
           {
-            id:2,
+            elId:2,
             name: 'avocado',
             min: 7,
             max: 8,
@@ -480,7 +480,7 @@ done();
 
 //codice brutto!!
   elements.forEach(function (el, i) {
-  if (el.id === 2) {
+  if (el.elId === 2) {
      target = el;
      targetIndex=i;
   }
@@ -492,7 +492,7 @@ done();
           element.instance().state.elements[targetIndex]
         ).to.be.eql(
           {
-            id:2,
+            elId:2,
             name: 'pere',
             min: 4,
             max: 8,
@@ -525,7 +525,7 @@ done();
 
     //codice brutto!!
       elements.forEach(function (el, i) {
-      if (el.id === 3) {
+      if (el.elId === 3) {
          target = el;
          targetIndex=i;
       }
@@ -537,7 +537,7 @@ done();
               element.instance().state.elements[targetIndex]
             ).to.be.eql(
               {
-                id:3,
+                elId:3,
                 name: 'pere',
                 min: 4,
                 max: 8,

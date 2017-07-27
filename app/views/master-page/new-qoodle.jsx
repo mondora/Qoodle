@@ -94,7 +94,7 @@ handleAddElement(na, mi, ma, um, pr)
 
 
   let element=this.state.elements.concat({
-    id: this.state.globalId,
+    elId: this.state.globalId,
     name: na,
     min: mi,
     max: ma,
@@ -123,7 +123,7 @@ handleAddElement(na, mi, ma, um, pr)
 
     var target;
     elementi.forEach(function (el) {
-        if (el.id === newId) {
+        if (el.elId === newId) {
        target = el;
 
     }
@@ -138,7 +138,7 @@ handleAddElement(na, mi, ma, um, pr)
     var targetIndex = elementi.indexOf(target);
     if(targetIndex != -1)
     elementi[targetIndex] = {
-      id: newId,
+      elId: newId,
       name: na,
       min: mi,
       max: ma,
@@ -184,16 +184,16 @@ handleAddElement(na, mi, ma, um, pr)
 
 renderQoodleElements () {
   return this.state.elements.map(element => (
-    <div className="col" key ={element.id.toString()}>
+    <div className="col" key ={element.elId.toString()}>
       <QoodleElement
         counter={element.counter}
-        id={element.id}
+        elId={element.elId}
         imgUrl={element.imgUrl}
         name={element.name}
         coin={element.coinoption}
         price={Number (element.price)}
         um={element.umoption}
-        create={() => this.modifyElement(element.id)}
+        create={() => this.modifyElement(element.elId)}
       />
   </div>
   ));

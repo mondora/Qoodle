@@ -86,6 +86,10 @@ handleOnChangeTitle(e)
   this.setState({ title: e.target.value})
 }
 
+handleOnChangeDescription(e)
+{
+  this.setState( {description: e.target.value})
+}
 
 handleAddElement(na, mi, ma, um, pr)
 {
@@ -114,6 +118,8 @@ handleAddElement(na, mi, ma, um, pr)
     if(tId != -1)
     this.setState({showModifyModal: true, targetId: tId});
   }
+
+
 
 
   handleModification(newId, na, mi, ma, um, pr)
@@ -165,7 +171,7 @@ handleAddElement(na, mi, ma, um, pr)
           title : this.state.title,
           description : this.state.description,
           closingDate : this.state.closingDate,
-          elelements : this.state.elements
+          qeList : this.state.elements,
         })
     };
 
@@ -212,7 +218,9 @@ renderQoodleElements () {
                   </FormGroup>
 
                     <FormGroup className='medium'>
-                    <FormControl type="text" placeholder="Description" maxLength={80}/>
+                    <FormControl type="text" placeholder="Description"
+                      maxLength={80}
+                      onChange = {this.handleOnChangeDescription.bind(this)} />
                   </FormGroup>
 
 

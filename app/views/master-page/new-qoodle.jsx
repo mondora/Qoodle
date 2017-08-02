@@ -156,7 +156,7 @@ handleAddElement(na, mi, ma, um, pr)
   handleSave(date)
   {
 
-    var url = 'http://localhost:4567/submit-new-qoodle';
+    var url = 'http://localhost:4567/qoodles';
     var myInit = {
       method: 'post',
       mode: 'cors',

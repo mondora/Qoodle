@@ -18,18 +18,18 @@ describe('ListPage', () => {
   var qoodlesProva = [
       {
           "qoodlesId": 1,
-          "titolo": "Gas di Novembre",
-          "descrizione": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
-          "partecipanti": 6,
-          "dataChiusura": "October 13, 2014 11:13:00"
+          "title": "Gas di Novembre",
+          "description": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
+          "partecipants": 6,
+          "closingDate": "October 13, 2014 11:13:00"
 
         },
       {
         "qoodlesId": 2,
-        "titolo": "Christams Dinner",
-        "descrizione": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
-        "partecipanti": 4,
-        "dataChiusura": "October 13, 2018 11:13:00"
+        "title": "Christams Dinner",
+        "description": "idfsofdsijjfsdijfsdijfsijosdfjiofd",
+        "partecipants": 4,
+        "closingDate": "October 13, 2018 11:13:00"
       }
 
 

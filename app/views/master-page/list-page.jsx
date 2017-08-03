@@ -38,7 +38,7 @@ class ListPage extends Component {
     })
     .then(function(data) {
         data.forEach( (ele)=>
-        ele.dataChiusura = new Date(ele.dataChiusura).toDateString());;
+        ele.closingDate = new Date(ele.closingDate).toDateString());;
         { this.setState({ Qoodle: data });}
     }
     .bind(this))
@@ -67,10 +67,10 @@ class ListPage extends Component {
         <div className="col" key={element.qoodlesId.toString()} id ={element.qoodlesId}>
           <ListQoodleElement
             id={element.qoodlesId}
-            title={element.titolo}
-            partecipants={element.partecipanti}
-            description={element.descrizione}
-            closingDate={element.dataChiusura.toString()}
+            title={element.title}
+            partecipants={element.partecipants}
+            description={element.description}
+            closingDate={element.closingDate.toString()}
             openIt={this.open.bind(this)}
             details={this.details.bind(this)}
             />

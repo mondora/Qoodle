@@ -26,6 +26,7 @@ export default class QoodleView extends Component {
 
 
         this.state = {
+          username: "exampleUser",
           id : 0,//ora come esempio
           showSummaryModal: false,
           title: '',
@@ -135,9 +136,8 @@ export default class QoodleView extends Component {
         mode: 'cors',
         body: JSON.stringify(
           {
-            title : this.state.title,
-            description : this.state.description,
-            closingDate : this.state.closingDate,
+            id: this.state.id,
+            username: this.state.exampleUser,
             elements : this.state.elements
           })
       };
@@ -149,7 +149,7 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       });
 
-        this.setState({showSummaryModal: true});
+        this.setState({showSummaryModal: false});
     }
 
     CloseSummary()

@@ -26,11 +26,11 @@ export default class QoodleView extends Component {
 
 
         this.state = {
-          id : 0,
+          id : 1,//ora come esempio
           showSummaryModal: false,
           title: '',
           description: '',
-          chiusura: new Date(),
+          closingDate: new Date(),
           elements: []
           }
         }
@@ -40,14 +40,14 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      var url = 'http://localhost:4567/qoodles';
+      var url = 'http://localhost:4567/view/' + this.state.id;
       var myInit = {
             method: 'get',
             mode: 'cors',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: { "id": "2"}
+            // body: { "id": "1"}
           };
 
 
@@ -63,7 +63,7 @@ export default class QoodleView extends Component {
             elements: data.ele,
             title: data.title,
             description: data.description,
-            chiusura: new Date (data.chiusura)
+            closingDate: new Date (data.closingDate)
             });}
       }
       .bind(this))
@@ -137,7 +137,7 @@ export default class QoodleView extends Component {
           {
             title : this.state.title,
             description : this.state.description,
-            chiusura : this.state.chiusura,
+            closingDate : this.state.closingDate,
             elements : this.state.elements
           })
       };
@@ -190,7 +190,7 @@ else
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={this.state.chiusura} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

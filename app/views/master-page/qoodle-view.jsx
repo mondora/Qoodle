@@ -40,13 +40,14 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      var url = 'http://localhost:4567/view';
+      var url = 'http://localhost:4567/qoodles';
       var myInit = {
             method: 'get',
             mode: 'cors',
             headers: {
               'Content-Type': 'application/json'
             },
+            body: { "id": "2"}
           };
 
 

@@ -26,7 +26,7 @@ export default class QoodleView extends Component {
 
 
         this.state = {
-          id : 1,//ora come esempio
+          id : 0,//ora come esempio
           showSummaryModal: false,
           title: '',
           description: '',

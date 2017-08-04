@@ -130,6 +130,9 @@ export default class QoodleView extends Component {
 
     OpenSummary()
     {
+
+
+      var elementi = this.state.elements.map( el => el.counter);
       var url = 'http://localhost:4567/submit-qoodle-choices';
       var myInit = {
         method: 'post',
@@ -137,8 +140,8 @@ export default class QoodleView extends Component {
         body: JSON.stringify(
           {
             id: this.state.id,
-            username: this.state.exampleUser,
-            elements : this.state.elements
+            username: this.state.username,
+            elements : elementi
           })
       };
 
@@ -149,7 +152,7 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       });
 
-        this.setState({showSummaryModal: false});
+        this.setState({showSummaryModal: true});
     }
 
     CloseSummary()

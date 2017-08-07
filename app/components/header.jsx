@@ -30,7 +30,7 @@ export default class Header extends Component {
                 <div className="floatRight">
                     <div className="btn littleOne"><span className="ti-power-off"></span></div>
                 </div>
-                <Menu isOpenMenu={this.state.isOpenMenu}/>
+                <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
             </div>
         );
     }

@@ -12,7 +12,7 @@ export default (
         <Route component={RootPage} path="/" name="root">
             <Route component={NewQoodle} name="new" path="/create"/>
             <Route component={QoodleView} name="view" path="/qoodle/:id"/>
-            <Route component={ListPage} name="list" path="/list"/>
+            <Route component={ListPage} name="list" path="/qoodles"/>
         </Route>
 
 

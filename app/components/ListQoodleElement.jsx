@@ -87,6 +87,7 @@ export default class ListQoodleElement extends Component {
     const targetId = this.props.id;
 
     var date = new Date(this.props.closingDate)
+    date = date.getDate() + 1 ;
 
     var timePadding  =
     this.state.status === "success" ?

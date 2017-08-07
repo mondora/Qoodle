@@ -1,4 +1,3 @@
-//inutilizzato
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 
@@ -17,9 +16,6 @@ class Riassunto extends Component{
     summa(itemKey, obj)
     {
         var sum = 0;
-        //obj sono i dati dei partecipanti.
-        //prop conterrà name, numberofperson etc
-        //per ogni proprietà delloggetto (se sto considerando quella proprietà) &&  se è un numero lo sommo
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop) && itemKey === prop && typeof parseInt(obj[prop]) == "number") {
                 sum += parseInt(obj[prop]);
@@ -45,7 +41,7 @@ class Riassunto extends Component{
                 lbl = this.state.str[i].name;
             }
             else {
-                somma = this.state.elements.length;//nel primo caso devo contare quante occorrenze ho.
+                somma = this.state.elements.length;
                 lbl = "Total Response";
             }
             sintesi.push(<div className="cellStats">{somma}

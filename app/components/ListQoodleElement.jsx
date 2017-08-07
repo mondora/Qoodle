@@ -39,7 +39,6 @@ export default class ListQoodleElement extends Component {
     const {openIt} = this.props;
     if(this.state.status === "success")
       return ( <ListGroupItem bsStyle={"warning"} id="partecipates" onClick = {() => openIt(this.props.id)}>PARTECIPA!</ListGroupItem> );
-      //  return <Button bsStyle="info">PARTECIPA!</Button>;
   }
 
   renderClosingTime()

@@ -241,13 +241,13 @@ it('call of modifyElement and after addelement ', (done) =>
   0,
   99999,
   'kg',
-  0 );
+  3.2 );
 
   expect(element.instance().modifyElement).calledWith(2, '',
   0,
   99999,
   'kg',
-  0);
+  3.2);
 
 
   element.instance().handleAddElement('',
@@ -344,7 +344,6 @@ it('call 2 addElement in sequence', (done) =>
 
       var elements = element.instance().state.elements;
 
-//codice brutto!!
   elements.forEach(function (el, i) {
   if (el.elId === 2) {
      target = el;
@@ -387,7 +386,6 @@ it('call 2 addElement in sequence', (done) =>
 
       var elements = element.instance().state.elements;
 
-//codice brutto!!
   elements.forEach(function (el, i) {
   if (el.elId === 3) {
      target = el;
@@ -433,7 +431,6 @@ done();
 
       var elements = element.instance().state.elements;
 
-//codice brutto!!
   elements.forEach(function (el, i) {
   if (el.elId === 2) {
      target = el;
@@ -478,7 +475,6 @@ done();
 
       var elements = element.instance().state.elements;
 
-//codice brutto!!
   elements.forEach(function (el, i) {
   if (el.elId === 2) {
      target = el;
@@ -523,7 +519,6 @@ done();
 
           var elements = element.instance().state.elements;
 
-    //codice brutto!!
       elements.forEach(function (el, i) {
       if (el.elId === 3) {
          target = el;

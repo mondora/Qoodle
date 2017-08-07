@@ -14,7 +14,6 @@ describe('ElementCreationModal', () => {
 
 
 
-  //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an input box for column name', () => {
         const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
         expect(
@@ -31,7 +30,6 @@ describe('ElementCreationModal', () => {
 
     it('renders an input box for column Max', () =>
     {
-      //mi creo l'elemento, ricorda che qui shallow è come per instanziare loggetto
       const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
       expect(
         element.find(FormControl).findWhere(n => n.prop('placeholder') === 'Max' )
@@ -53,7 +51,7 @@ it('renders an 3 FormControl of type number', () =>
   });
 
     it('check the length of input', () =>
-    {//so di avere 4 input
+    {
       const element = shallow(<ElementCreationModal onAdd={sinon.spy()} />);
 
       expect(element.find(FormControl)).to.length(5);
@@ -65,7 +63,7 @@ it('renders an 3 FormControl of type number', () =>
     {
       const element = shallow (<ElementCreationModal onAdd={sinon.spy()} />);
       expect(element.find(FormControl).find('option')).to.length(4);
-      //modo brutto di controllare quante option ci sono.
+
   });
 
 it('render "Aggiungi elemento" nel titolo', () => {
@@ -135,90 +133,6 @@ it('render "Aggiungi elemento" nel titolo', () => {
 
 });
 
-
-/*
-  it('calls onAdd function providing name, min, max, um', () => {
-    const onAdd = sinon.spy();
-    const element = shallow(<ElementCreationModal onAdd={onAdd} />);
-
-    element
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Nome')
-        .simulate('change', {target: {value: 'name value2'}});
-
-    expect(element.state('name')).to.be.equal('name value2');
-
-    element
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Min')
-        .simulate('change', {target: {value: 'min value'}});
-
-    element
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Max')
-        .simulate('change', {target: {value: 'max value'}});
-
-
-    element
-        .find(FormControl)
-        .findWhere(n => n.prop('id') === 'um')
-        .simulate('change', {target: {value: 'um value'}});
-
-      element
-          .find(InputGroup)
-          .simulate('change', {target: {value: 'price value'}});
-
-
-
-    element.find(Button).simulate('click');
-    expect(onAdd).has.been.calledWith('name value2', 'min value', 'max value', 'um value', 'price value');
-
-
-    const onAdd2 = sinon.spy();
-    const element2 = shallow(<ElementCreationModal onAdd={onAdd2} />);
-
-
-    element2
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Nome')
-        .simulate('change', {target: {value: 'name value3'}});
-
-    //expect(element.state('name')).to.be.equal('name value3');
-
-    element2
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Min')
-        .simulate('change', {target: {value: 5}});
-
-            expect(element.state('min')).to.be.equal(5);
-
-    element2
-        .find(FormControl)
-        .findWhere(n => n.prop('placeholder') === 'Max')
-        .simulate('change', {target: {value: 'max value3'}});
-
-        expect(element.state('max')).to.be.equal('max value3');
-
-    element2
-        .find(FormControl)
-        .findWhere(n => n.prop('id') === 'um')
-        .simulate('change', {target: {value: 'um value3'}});
-
-
-        expect(element.state('umoption')).to.be.equal('um value3');
-
-      element2
-          .find(InputGroup)
-          .simulate('change', {target: {value: 'price value3'}});
-
-
-        expect(element.state('price')).to.be.equal('price value3');
-
-
-        expect(onAdd2).has.been.calledWith('name value3', 'min valu3', 'max value3', 'um value3', 'price value3');
-
-
-});*/
 
 
 
@@ -306,7 +220,6 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
 
       element.find(Button).simulate('click');
 
-      //se non simulo il change, la funzione viene chiamata con i valori di default dello stato(specificato questo nel componente)
       expect(onAdd).has.been.calledWith('Pere', 0, 99999, '');
 
     });
@@ -338,7 +251,7 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
                 .find(FormControl)
                 .findWhere(n => n.prop('placeholder') === 'Min')
                 .simulate('change', {target: {value: 'this is a new value'}});
-                //faccio un check dello state
+
             expect(element.state('min')).to.be.equal('this is a new value');
         });
 
@@ -352,7 +265,6 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
                 .find(FormControl)
                 .findWhere(n => n.prop('placeholder') === 'Max')
                 .simulate('change', {target: {value: 8}});
-                //faccio un check dello state
             expect(element.state('max')).to.be.equal(8);
         });
 
@@ -366,7 +278,6 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
                 .find(FormControl)
                 .findWhere(n => n.prop('id') === 'um')
                 .simulate('change', {target: {value: 'kg'}});
-                //faccio un check dello state
             expect(element.state('umoption')).to.be.equal('kg');
         });
 
@@ -390,7 +301,6 @@ it('calls onAdd(qui handleModification) function providing incomplete parameters
             .find(FormControl)
             .findWhere(n => n.prop('placeholder') === 'Min')
             .simulate('change', {target: {value: 'min value'}});
-//ho impostato il minimo a un valore maggiore del massimo => render error
         element
             .find(FormControl)
             .findWhere(n => n.prop('placeholder') === 'Max')

@@ -15,7 +15,6 @@ describe('ElementCreationModal', () => {
 
 
 
-  //renderizzo per finta la modale e ci attacco una funzione spia
     it('renders an InfiniteCalendar', () => {
         const element = shallow(<SaveModal onSave={sinon.spy()} />);
         expect( element.find(InfiniteCalendar) ).to.have.length(1);

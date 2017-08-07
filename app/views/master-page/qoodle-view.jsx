@@ -5,7 +5,6 @@ import SummaryModal from "components/SummaryModal";
 
 import Timer from "components/Timer"
 
-/////////////List Actions
 
 
 export default class QoodleView extends Component {
@@ -48,7 +47,6 @@ export default class QoodleView extends Component {
             headers: {
               'Content-Type': 'application/json'
             },
-            // body: { "id": "1"}
           };
 
 
@@ -98,7 +96,6 @@ export default class QoodleView extends Component {
       var sum=0;
 
       {
-//usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
       var i = elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
@@ -115,7 +112,6 @@ export default class QoodleView extends Component {
       const elementi = this.state.elements;
       var sum=0;
       {
-//usato findIndex per trovare l'indice in cui il nome è uguale a quello che cerco
       var i =elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 

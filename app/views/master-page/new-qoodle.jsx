@@ -4,7 +4,6 @@ import QoodleElement from "components/QoodleElement"
 import ElementCreationModal from "components/ElementCreationModal";
 import InfiniteCalendar from 'react-infinite-calendar';
 import SaveModal from 'components/SaveModal';
-/////////////List Actions
 
 
 export default class NewQoodle extends Component {

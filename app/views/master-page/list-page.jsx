@@ -1,7 +1,7 @@
  import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import ListQoodleElement from "components/ListQoodleElement";
-/////////////List Actions
+
 
 
 class ListPage extends Component {

@@ -212,27 +212,13 @@ expect(open).has.been.calledWith(2);
 
 
 
-//COME FARE QUESTO??
-/*
+
+
 it('renders "danger" ListGroupItem', () =>
   {
 
-    var testDate = new Date("October 13, 2014 11:13:00").toDateString();
-    const element = shallow(
-      <ListQoodleElement
-        id={1}
-        title={"Gas di Novembre"}
-        partecipants={6}
-        description={"quaququa anche la per un acquisto migliore"}
-        closingDate={testDate}
-        openIt={sinon.spy()}
-        />);
 
-
-      expect(element.find('div').findWhere(n => n.prop('className') === 'list-group-item')).to.be.equal("SCADUTO");
-
-
-  });*/
+  });
 
 });
 
@@ -241,90 +227,4 @@ it('renders "danger" ListGroupItem', () =>
 
 
 
-/*
-
-
-
-  it('check counter ', () =>
-  {
-    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-
-    expect(element.instance().props.counter).to.be.equal(0);
-  });
-
-  it('renders a title of the element', () =>
-  {
-    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-    expect(element.findWhere(n => n.prop('id') === 'title').text()).to.be.equal('banana');
-
-  });
-
-  it('renders a price of the element', () =>
-  {
-    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-    expect(element.find('p').text()).to.be.equal('35 $ al kg');
-
-
-  });
-
-  it('renders a counter of the element', () =>
-  {
-    const element = shallow(<QoodleElement imgUrl="_assets/img/bana.png" name="banana" coin="$" um="kg" price={35} />);
-    expect(element.findWhere(n => n.prop('id') === 'counter').text()).to.be.equal('0');
-  });
-
-
-  describe('when user clicks plus button', () => {
-
-     it('calls increase function providing an id', () => {
-        const Inc = sinon.spy();
-        const element = shallow(<QoodleElement id="id value"
-        imgUrl="_assets/img/bana.png" name="banana" coin="$"
-        um="kg" um="kg" price={35} counter={10} onInc={Inc}/>);
-
-
-        expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
-
-        element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id cane'}});
-  //qui praticamente simulando un click non ricambio lo stato.
-  //quindi l'id vale sembre quello con cui ho creato l'elemento
-
-        expect(Inc).has.been.calledWith('id value');
-    });
-  });
-
-  describe('when user clicks plus button', () => {
-
-    it('calls increase function providing an id', () => {
-      const Dec = sinon.spy();
-      const element = shallow(
-      <QoodleElement
-        id="id value"
-        imgUrl="_assets/img/bana.png"
-        name="banana"
-        coin="$"
-        um="kg"
-        um="kg"
-        price={35}
-        counter={10}
-        onDec={Dec}/>);
-
-
-      expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
-
-      element.findWhere(n => n.prop('className') === 'fa fa-minus').simulate('click', {target: {value: 'id cane'}});
-//qui praticamente simulando un click non ricambio lo stato.
-//quindi l'id vale sembre quello con cui ho creato l'elemento
-
-      expect(Dec).has.been.calledWith('id value');
-
-
-
-
-    });
-
-
-  });
-
-*/
 });

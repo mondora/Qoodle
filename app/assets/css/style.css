@@ -35,10 +35,7 @@ body{
   margin-top: -10px;
   z-index: 999;
 }
-/*TABLE*/
-.container {
-  margin: 5% 3%;
-}
+
 /*media queries servono per il response*/
 
 @media (min-width: 48em) {

@@ -124,8 +124,7 @@ describe('QoodleElement', () => {
         expect(element.findWhere(n => n.prop('className') === 'fa fa-plus')).to.have.length(1);
 
         element.findWhere(n => n.prop('className') === 'fa fa-plus').simulate('click', {target: {value: 'id cane'}});
-  //qui praticamente simulando un click non ricambio lo stato.
-  //quindi l'id vale sembre quello con cui ho creato l'elemento
+
 
         expect(Inc).has.been.calledWith(3);
     });
@@ -151,8 +150,7 @@ describe('QoodleElement', () => {
       expect(element.findWhere(n => n.prop('className') === 'fa fa-minus')).to.have.length(1);
 
       element.findWhere(n => n.prop('className') === 'fa fa-minus').simulate('click', {target: {value: 'id cane'}});
-//qui praticamente simulando un click non ricambio lo stato.
-//quindi l'id vale sembre quello con cui ho creato l'elemento
+
 
       expect(Dec).has.been.calledWith(3);
 

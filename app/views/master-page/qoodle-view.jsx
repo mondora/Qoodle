@@ -193,7 +193,7 @@ export default class QoodleView extends Component {
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
-          <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=> alert("non puoi più compiere acquisti")}/>
+          <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

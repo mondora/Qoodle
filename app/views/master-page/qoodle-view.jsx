@@ -133,7 +133,7 @@ export default class QoodleView extends Component {
 
 
       var elementi = this.state.elements.map( el => el.counter);
-      var url = 'http://localhost:4567/submit-qoodle-choices';
+      var url = 'http://localhost:4567/qoodle/' + this.state.id;
       var myInit = {
         method: 'post',
         mode: 'cors',

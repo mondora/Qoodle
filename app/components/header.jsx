@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from "react";
+import Menu from "components/Menu";
 
 export default class Header extends Component {
     constructor () {
@@ -18,7 +19,7 @@ export default class Header extends Component {
         return(
             <div className={"header"}>
                 <div className="floatLeft">
-                    <i className="hamburger fa fa-bars" aria-hidden="true" />
+                    <i onClick={this.toggleMenu.bind(this)} className="hamburger fa fa-bars" aria-hidden="true" />
                     <div className={this.state.isOpenMenu ? "containerMenu" : "containerMenu hidden"} >
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}} >ADD NEW QOODLE</div>
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}}>LIST QOODLE</div>
@@ -29,6 +30,7 @@ export default class Header extends Component {
                 <div className="floatRight">
                     <div className="btn littleOne"><span className="ti-power-off"></span></div>
                 </div>
+                <Menu isOpenMenu={this.state.isOpenMenu}/>
             </div>
         );
     }

@@ -22,8 +22,6 @@ export default class QoodleView extends Component {
 
 
 
-
-
         this.state = {
           username: "exampleUser",
           id : 0,//ora come esempio
@@ -40,7 +38,13 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      var url = 'http://localhost:4567/qoodle/' + this.state.id;
+      if (typeof window !== 'undefined') {
+      var id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+      this.setState({ id: id});
+    }
+
+      var url = 'http://localhost:4567/qoodle/' + id;
       var myInit = {
             method: 'get',
             mode: 'cors',
@@ -177,15 +181,15 @@ export default class QoodleView extends Component {
       ));
     }
 
+    renderNotFound()
+    {
+      return (<div> <h2>{" Qoodle nr " + this.state.id +  " non trovato!"}</h2></div>);
+    }
+
     render(){
-if(this.props.purchase === true)
 
-  <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
-else
-  <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
-
-
-      return(
+      return this.state.elements.length > 0 ?
+      (
         <div className="body">
           <img className="immagineFetch"></img>
           <div id ="demo"></div>
@@ -214,7 +218,7 @@ else
 
 
 
-      );
+      ) : this.renderNotFound();
     }
 
 

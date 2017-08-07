@@ -53,8 +53,9 @@ class ListPage extends Component {
 
 
 
-    open(){
-      {alert("partecipa al qoodle")}
+    open(link)
+    {
+         window.location = link
     }
 
     details()
@@ -71,7 +72,7 @@ class ListPage extends Component {
             partecipants={element.partecipants}
             description={element.description}
             closingDate={element.closingDate.toString()}
-            openIt={this.open.bind(this)}
+            openIt={this.open.bind(this, "#/qoodle/" + element.qoodlesId)}
             details={this.details.bind(this)}
             />
       </div>

@@ -55,6 +55,7 @@ export default class ElementCreationModal extends Component {
 
     handleUMChange(um)
     {
+
       this.setState({umoption : um.target.value});
     }
 
@@ -151,7 +152,7 @@ export default class ElementCreationModal extends Component {
                         <FormGroup>
                         <label>select Unit of measure</label>
                         <FormControl componentClass="select" id="um" onChange={this.handleUMChange.bind(this)} placeholder="select">
-                          <option value="wui">Whitout unit of measure</option>
+                          <option value="">Whitout unit of measure</option>
                           <option value="kg">Kilograms</option>
                           <option value="m">Meter</option>
                           <option value="bott">Bottles</option>

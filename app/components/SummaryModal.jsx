@@ -67,7 +67,7 @@ export default class SummaryModal extends Component {
       return (
           <Modal show={this.props.show}>
               <Modal.Header>
-                  <Modal.Title>{"Riassunto Acquisto"}</Modal.Title>
+                  <Modal.Title>{"Riassunto Scelte prese"}</Modal.Title>
               </Modal.Header>
               {this.renderSummaryRows()}
               <Modal.Footer>

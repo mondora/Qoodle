@@ -2,7 +2,7 @@
   "name": "qoodle-project",
   "version": "0.0.1",
   "description": "count something",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
     "dev": "gulp dev",
     "deploy": "npm run dev&&gh-pages -d dev"

@@ -150,7 +150,7 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       });
 
-        this.setState({showSummaryModal: true});
+        this.setState({showSummaryModal: false});
     }
 
     CloseSummary()

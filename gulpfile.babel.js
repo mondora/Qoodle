@@ -5,6 +5,7 @@ import history from "connect-history-api-fallback";
 import dotenv from "dotenv";
 import fs from "fs";
 import gulp from "gulp";
+import ghPages from "gulp-gh-pages";
 import gulpLoadPlugins from "gulp-load-plugins";
 import _ from "lodash";
 import mkdirp from "mkdirp";
@@ -300,6 +301,10 @@ gulp.task("dev", proGulp.sequence([
 /*
  *   Tasks to deploy
  */
+ gulp.task('deploy', function() {
+   return gulp.src('./dist/**/*')
+     .pipe(ghPages());
+ });
 
 /*
  *   Default task
@@ -319,6 +324,6 @@ gulp.task("default", () => {
     gp.util.log("");
     gp.util.log("Environment variables for configuration:");
     gp.util.log("  " + gp.util.colors.cyan("__CONFIG__*"));
-    gp.util.log("  " + gp.util.colors.cyan("NODE_ENV") + "                     (defaults to `development`)"); 
+    gp.util.log("  " + gp.util.colors.cyan("NODE_ENV") + "                     (defaults to `development`)");
     gp.util.log("");
 });

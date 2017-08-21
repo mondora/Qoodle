@@ -22,9 +22,13 @@ export default class Price extends Component{
   {
     var priceString='';
 
-    if(this.props.price != '0' & this.props.um !='')
+    if(this.props.price != '0')
     {
-      priceString = " " +  this.props.price + " " + this.props.coin + " al " + this.props.um;
+      priceString = " " +  this.props.price + " " + this.props.coin
+      if(this.props.um != '')
+        priceString += " al " + this.props.um;
+      else
+        priceString += " per ogni " + this.props.name;
       return(<p id="price">{priceString}</p>);
     }
 

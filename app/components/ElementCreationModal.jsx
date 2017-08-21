@@ -136,7 +136,7 @@ export default class ElementCreationModal extends Component {
                   </Modal.Header>
                 <Modal.Body>
                         <FormGroup>
-                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={15} value={name}/>
+                            <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={25} value={name}/>
                         </FormGroup>
                         <FormGroup>
                             <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0} maxLength={15}/>

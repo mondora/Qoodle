@@ -169,7 +169,7 @@ handleAddElement(na, mi, ma, um, pr)
         {
           title : this.state.title,
           description : this.state.description,
-          closingDate : this.state.closingDate,
+          closingDate : date,
           qeList : this.state.elements
         })
     };

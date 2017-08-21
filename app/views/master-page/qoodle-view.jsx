@@ -84,11 +84,13 @@ export default class QoodleView extends Component {
         sum += elementi[i].price * elementi[i].counter;
         counterSum += elementi[i].counter;
       }
+      sum = "Procedi all'acquisto " + '(Totale: ' + sum +'€)';
+      counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
-      if(sum != 0 )
-       return "Procedi all'acquisto " + '(Totale: ' + sum +'€)';
+      if(this.props.purchase)
+        return sum;
       else
-        return "Conferma le scelte prese (sono " + counterSum + ")";
+        return counterSum;
 
     }
 

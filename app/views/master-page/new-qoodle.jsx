@@ -136,8 +136,7 @@ handleAddElement(na, mi, ma, um, pr)
 
     if(na == '')   na = target.name;
     if(mi == '')   mi = target.min;
-    if(mi == '')   ma = target.max;
-    if(um == '')   um = target.umoption;
+    if(ma == '')   ma = target.max;
     if(pr == '')   pr = target.price;
 
     var targetIndex = elementi.indexOf(target);

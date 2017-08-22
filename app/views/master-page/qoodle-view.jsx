@@ -152,7 +152,12 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       });
 
-        this.setState({showSummaryModal: false});
+
+    }
+
+    Open()
+    {
+      this.setState({showSummaryModal: true});
     }
 
     CloseSummary()
@@ -204,7 +209,7 @@ export default class QoodleView extends Component {
 
 
 
-            <Button id="buyButton" bsStyle="primary" onClick={this.OpenSummary.bind(this)}>{this.renderSum()}</Button>
+            <Button id="buyButton" bsStyle="primary" onClick={this.Open.bind(this)}>{this.renderSum()}</Button>
 
               <SummaryModal
                 rows={this.state.elements}

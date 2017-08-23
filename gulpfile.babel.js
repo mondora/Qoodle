@@ -297,6 +297,12 @@ gulp.task("dev", proGulp.sequence([
     "setupWatchers"
 ]));
 
+gulp.task("start", proGulp.sequence([
+    "build",
+    "config",
+    "setupDevServer"
+]));
+
 /*
  *   Tasks to deploy
  */

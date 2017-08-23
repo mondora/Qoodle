@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "gulp dev",
     "deploy": "npm run dev&&gh-pages -d dev",
-    "mock": "sd-mock-server --delay 10 --require babel-register --watch"
+    "mock": "sd-mock-server --delay 10 --require babel-register --watch",
+    "start": "gulp start"
   },
   "repository": {
     "type": "git",

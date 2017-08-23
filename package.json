@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "history": "^3.3.0",
     "jsdom": "^11.1.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",

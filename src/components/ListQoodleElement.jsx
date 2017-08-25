@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
 import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
+import ingrandimento  from '../assets/img/ingrandimento.png'
+import timer  from '../assets/img/timer.png'
 
 export default class ListQoodleElement extends Component {
 
@@ -91,7 +93,7 @@ export default class ListQoodleElement extends Component {
 
     var timePadding  =
     this.state.status === "success" ?
-        <Image id="timer" src={'_assets/img/timer.png'}
+        <Image id="timer" src={timer}
         style={{width: 40, height: 40}}
         alt="loading"
         responsive />
@@ -107,7 +109,7 @@ export default class ListQoodleElement extends Component {
 
           <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
-              <Image id="lente" src={'_assets/img/ingrandimento.png'}
+              <Image id="lente" src={ingrandimento}
               style={{width: 40, height: 40}}
               alt="loading"
               responsive />

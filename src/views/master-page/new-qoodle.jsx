@@ -3,7 +3,6 @@ import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
-import './new-qoodle.css';
 
 export default class NewQoodle extends Component {
 

@@ -29,7 +29,7 @@ export default class NewQoodle extends Component {
 
   componentDidMount()
   {
-    var url = 'http://localhost:4567/create';
+    var url = 'http://54.77.36.67:4567/create';
     var myInit = {
           method: 'get',
           mode: 'cors',
@@ -159,7 +159,7 @@ handleAddElement(na, mi, ma, um, pr)
   handleSave(date)
   {
 
-    var url = 'http://localhost:4567/qoodles';
+    var url = 'http://54.77.36.67:4567/qoodles';
     var myInit = {
       method: 'post',
       mode: 'cors',

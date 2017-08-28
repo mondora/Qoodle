@@ -44,7 +44,7 @@ export default class QoodleView extends Component {
       this.setState({ id: id});
     }
 
-      var url = 'http://54.77.36.67:4567/qoodle/' + id;
+      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + id;
       var myInit = {
             method: 'get',
             mode: 'cors',
@@ -133,7 +133,7 @@ export default class QoodleView extends Component {
 
 
       var elementi = this.state.elements.map( el => el.counter);
-      var url = 'http://54.77.36.67:4567/qoodle/' + this.state.id;
+      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + this.state.id;
       var myInit = {
         method: 'post',
         mode: 'cors',

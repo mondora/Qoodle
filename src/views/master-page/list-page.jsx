@@ -17,8 +17,6 @@ class ListPage extends Component {
         componentDidMount()
     {
 
-      console.log("CIAOOOOOOOOOOOOO", process.env.REACT_APP_SPECIFIC_ID);
-
     var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
     var myInit = {
           method: 'get',

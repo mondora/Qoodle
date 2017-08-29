@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from "react";
 
 import Header from "../components/header"
+import ListPage from "../views/master-page/list-page"
 /* LIST COMPONENTS */
 
 export default class MasterPage extends Component {
@@ -16,6 +17,7 @@ export default class MasterPage extends Component {
                     <Header />
                     {children}
                 </div>
+                <ListPage></ListPage>
             </div>
         );
     }

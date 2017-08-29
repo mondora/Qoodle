@@ -838,7 +838,7 @@ option {
 
 #QoodleCardTitle
 {
-  color: 	#ff4e50;
+  color: 	black;
   font-weight: bold;
   font-family: 'Muli' cursive, sans-serif;
 }
@@ -864,6 +864,7 @@ option {
   border-top: 3px solid #e2f4c7 !important;
   border-top-right-radius: 10px!important;
   border-top-left-radius: 10px!important;
+  padding: 2px 2px !important;
 
 }
 
@@ -872,14 +873,25 @@ option {
   border-left: 3px solid #e2f4c7 !important;
   border-right: 3px solid #e2f4c7 !important;
   border-top: 3px !important;
+  text-align: center!important;
 }
 
 .list-group-item.list-group-item-warning{
   font-size: 32px;
   cursor: pointer; cursor: hand;
-
+  background-color:  #fc913a!important;
+  color: white;
 }
 
+.list-group-item.list-group-item-success{
+  background-color: #eae374;
+  color: white;
+  padding-left: 45px;
+}
+
+.list-group-item.list-group-item-danger{
+  color: #ff4e50;
+}
 
 
 .list-group-item.list-group-item-warning:hover {
@@ -893,7 +905,7 @@ option {
 #timer
 {
   position: absolute;
-  left: 15px;
+  left: 5px;
   opacity: 0.8;
 }
 
@@ -915,13 +927,16 @@ option {
 {
   text-align: right;
 }
-.list-group-item:first-child {
-    text-align: center!important;
-}
+
 
 #partecipants
 {
-  color: #fc913a;
+  color: grey;
+}
+
+#event
+{
+  border-radius:  5px;
 }
 
 .list-group-item:last-child {

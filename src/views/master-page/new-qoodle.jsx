@@ -3,6 +3,8 @@ import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
+import kiwi from '../../assets/img/kiwi.png';
+import redApple from '../../assets/img/redApple.png';
 
 export default class NewQoodle extends Component {
 
@@ -103,7 +105,7 @@ handleAddElement(na, mi, ma, um, pr)
     coinoption: '€',
     price: pr,
     counter: 0,
-    imgUrl: '_assets/img/kiwi.png'
+    imgUrl: kiwi
   })
 
   this.setState({elements: element,
@@ -148,7 +150,7 @@ handleAddElement(na, mi, ma, um, pr)
       coinoption: '€',
       price: pr,
       counter: 0,
-      imgUrl: '_assets/img/redApple.png'
+      imgUrl: redApple
     }
 
     this.setState({elements: elementi, targetId: -1});

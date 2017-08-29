@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
 import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
-import timer  from '../assets/img/timer.png'
+import timer  from '../assets/img/timer.png';
+import mountain from '../assets/img/montagna.jpg';
 
 export default class ListQoodleElement extends Component {
 
@@ -105,8 +106,10 @@ export default class ListQoodleElement extends Component {
       <div className='boxList' >
 
           <ListGroup id="withBorder">
-
-          <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
+          <ListGroupItem>
+          <center><Image id="event" src={mountain} alt="loading" responsive /></center>
+          </ListGroupItem>
+        <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
             </ListGroupItem>
 

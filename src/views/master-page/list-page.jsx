@@ -1,5 +1,4 @@
-import React, {Component, PropTypes} from "react";
-import ReactDOM from "react-dom";
+import React, {Component} from "react";
 import ListQoodleElement from "../../components/ListQoodleElement";
 
 
@@ -28,8 +27,8 @@ class ListPage extends Component {
           },
         };
 
-  fetch(url, myInit).
-  then((res) => {
+  fetch(url, myInit)
+  .then((res) => {
     if (res.status >= 200 && res.status < 300) {
       return res.json();
     } else {
@@ -39,7 +38,7 @@ class ListPage extends Component {
     .then(function(data) {
         data.forEach( (ele)=>
         ele.closingDate = new Date(ele.closingDate).toDateString());;
-        { this.setState({ Qoodle: data });}
+         this.setState({ Qoodle: data });
     }
     .bind(this))
     .catch((error) => { console.error(error); });
@@ -60,12 +59,12 @@ class ListPage extends Component {
 
     details()
     {
-      {alert("visualizza dettagli")}
+      alert("visualizza dettagli")
     }
 
     renderListQoodleElements () {
       return this.state.Qoodle.map(element => (
-        <div className="col" key={element.qoodlesId.toString()} id ={element.qoodlesId}>
+        <div className="col" key={element.qoodlesId.toString()} id={element.qoodlesId}>
           <ListQoodleElement
             id={element.qoodlesId}
             title={element.title}
@@ -86,11 +85,6 @@ class ListPage extends Component {
 
     render()
     {
-      var d = new Date(2017, 5, 22);
-      var n = d.toString();
-
-      var testDate = new Date();
-      testDate = new Date( (testDate.getTime() - 100000));
 
 
 

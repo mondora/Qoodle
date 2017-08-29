@@ -27,7 +27,7 @@ export default class SummaryRow extends Component
   renderDifferentRowType()
   {
     var riga = '';
-    if(this.props.price != 0 ){
+    if(this.props.price !== 0 ){
         riga = this.props.name
         + ' ( '+ this.props.price
         + this.props.coinoption

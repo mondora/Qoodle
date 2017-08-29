@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
-import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
+import {ListGroup, ListGroupItem, Image} from 'react-bootstrap';
 import timer  from '../assets/img/timer.png';
 import mountain from '../assets/img/montagna.jpg';
 import people from '../assets/img/people.png';
@@ -41,7 +41,7 @@ export default class ListQoodleElement extends Component {
   {
     const {openIt} = this.props;
     if(this.state.status === "success")
-      return ( <ListGroupItem bsStyle={"warning"} id="partecipates" onClick = {() => openIt(this.props.id)}>PARTECIPA!</ListGroupItem> );
+      return ( <ListGroupItem bsStyle={"warning"} id="partecipates" onClick={ () => openIt(this.props.id)}>PARTECIPA!</ListGroupItem> );
   }
 
   renderClosingTime()
@@ -110,7 +110,7 @@ export default class ListQoodleElement extends Component {
           <ListGroupItem>
           <center><Image id="event" src={mountain} alt="loading" responsive /></center>
           </ListGroupItem>
-        <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
+        <ListGroupItem id="QoodleBoxTitle" onClick={() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
             </ListGroupItem>
 

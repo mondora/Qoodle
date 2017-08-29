@@ -12,20 +12,14 @@ export default class Price extends Component{
 
 
 
-
-  constructor()
-  {
-    super();
-  }
-
   render()
   {
     var priceString='';
 
-    if(this.props.price != '0')
+    if(this.props.price !== '0')
     {
       priceString = " " +  this.props.price + " " + this.props.coin
-      if(this.props.um != '')
+      if(this.props.um !== '')
         priceString += " al " + this.props.um;
       else
         priceString += " per ogni " + this.props.name;

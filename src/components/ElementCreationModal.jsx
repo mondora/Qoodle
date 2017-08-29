@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
 
 
 
@@ -132,7 +132,7 @@ export default class ElementCreationModal extends Component {
 
               <Modal show={this.props.show}>
                 <Modal.Header>
-                    <Modal.Title>{this.props.targetId == -1 ? "Nuovo Elemento": "Modifica Elemento"}</Modal.Title>
+                    <Modal.Title>{this.props.targetId === -1 ? "Nuovo Elemento": "Modifica Elemento"}</Modal.Title>
                   </Modal.Header>
                 <Modal.Body>
                         <FormGroup>
@@ -144,6 +144,8 @@ export default class ElementCreationModal extends Component {
                         <FormGroup>
                             <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0} maxLength={15}/>
                         </FormGroup>
+
+
 
 
                         {this.renderAlert()}
@@ -173,7 +175,10 @@ export default class ElementCreationModal extends Component {
                     </FormGroup>
 
 
-
+                    {/*<FormGroup>
+                      <FormControl type="file" placeholder="Sfoglia"/>
+                    </FormGroup>
+                  */}
 
 
                 </Modal.Body>

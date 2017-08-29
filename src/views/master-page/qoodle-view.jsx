@@ -61,13 +61,13 @@ export default class QoodleView extends Component {
         return response.json();
         throw new Error("Network response was not ok")
       })
-      .then(function(data) {
+      .then(function(data)
           { this.setState({
             elements: data.ele,
             title: data.title,
             description: data.description,
             closingDate: new Date (data.closingDate)
-            });}
+            });
       }
       .bind(this))
       .catch((error) => { console.error(error); });;
@@ -84,7 +84,7 @@ export default class QoodleView extends Component {
         sum += elementi[i].price * elementi[i].counter;
         counterSum += elementi[i].counter;
       }
-      sum = "Procedi all'acquisto " + '(Totale: ' + sum +'€)';
+      sum = "Procedi all'acquisto " + "(Totale: " + sum + "€)";
       counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
       if(this.props.purchase)
@@ -97,9 +97,8 @@ export default class QoodleView extends Component {
     Inc(iden)
     {
       const elementi = this.state.elements;
-      var sum=0;
 
-      {
+
       var i = elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
@@ -108,14 +107,12 @@ export default class QoodleView extends Component {
 
       this.setState(this.state.elements: elementi);
 
-      }
+
     }
 
     Dec(iden)
     {
       const elementi = this.state.elements;
-      var sum=0;
-      {
       var i =elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
@@ -123,7 +120,6 @@ export default class QoodleView extends Component {
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
-      }
     }
 
 
@@ -196,8 +192,7 @@ export default class QoodleView extends Component {
       return this.state.elements.length > 0 ?
       (
         <div className="body">
-          <img className="immagineFetch"></img>
-          <div id ="demo"></div>
+          <div id="demo"></div>
           <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
 
           <center><h1 >{this.state.title}</h1></center>

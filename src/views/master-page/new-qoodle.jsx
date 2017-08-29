@@ -45,13 +45,13 @@ export default class NewQoodle extends Component {
       return response.json();
       throw new Error("Network response was not ok")
     })
-    .then(function(data) {
+    .then(function(data)
         {
           this.setState({
             elements: data,
             globalId: (data.length + 1)
-          });}
-    }
+          });
+        }
     .bind(this))
     .catch((error) => { console.error(error); });;
 
@@ -114,7 +114,7 @@ handleAddElement(na, mi, ma, um, pr)
 
   modifyElement(tId)
   {
-    if(tId != -1)
+    if(tId !== -1)
     this.setState({showModifyModal: true, targetId: tId});
   }
 
@@ -134,13 +134,13 @@ handleAddElement(na, mi, ma, um, pr)
     }
     });
 
-    if(na == '')   na = target.name;
-    if(mi == '')   mi = target.min;
-    if(ma == '')   ma = target.max;
-    if(pr == '')   pr = target.price;
+    if(na === '')   na = target.name;
+    if(mi === '')   mi = target.min;
+    if(ma === '')   ma = target.max;
+    if(pr === '')   pr = target.price;
 
     var targetIndex = elementi.indexOf(target);
-    if(targetIndex != -1)
+    if(targetIndex !== -1)
     elementi[targetIndex] = {
       elId: newId,
       name: na,
@@ -188,7 +188,7 @@ handleAddElement(na, mi, ma, um, pr)
 
 renderQoodleElements () {
   return this.state.elements.map(element => (
-    <div className="col" key ={element.elId.toString()}>
+    <div className="col" key={element.elId.toString()}>
       <QoodleElement
         counter={element.counter}
         elId={element.elId}
@@ -204,7 +204,6 @@ renderQoodleElements () {
 }
 
     render() {
-      const title = this.state.title;
         return (
             <div className="row">
 
@@ -218,7 +217,7 @@ renderQoodleElements () {
                     <FormGroup className='medium'>
                     <FormControl type="text" placeholder="Description"
                       maxLength={80}
-                      onChange = {this.handleOnChangeDescription.bind(this)} />
+                      onChange={this.handleOnChangeDescription.bind(this)} />
                   </FormGroup>
 
 

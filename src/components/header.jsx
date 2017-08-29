@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
 import Menu from "./Menu";
 import logoQoodle from '../assets/img/logo.png'
 import '../assets/css/styles.css'
@@ -30,7 +30,7 @@ export default class Header extends Component {
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}}>LIST QOODLE</div>
                         <div style={{padding: 10, borderBottom: '1px solid #ccE3E1'}}>TAKES PART IN THE QOODLE</div>
                     </div>
-                    <img src={logoQoodle} style={{verticalAlign: 'middle', width: 100}} />
+                    <img src={logoQoodle} alt="loading" style={{verticalAlign: 'middle', width: 100}} />
                 </div>
                 <div className="floatRight">
                     <div className="btn littleOne"><span className="ti-power-off"></span></div>

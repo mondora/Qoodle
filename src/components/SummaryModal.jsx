@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal, Checkbox, InputGroup} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import SummaryRow from "./SummaryRow";
 
 export default class SummaryModal extends Component {
@@ -35,13 +35,13 @@ export default class SummaryModal extends Component {
     {
       if(elements[i].counter)
       {
-        summaryRows.push(<p key = {elements[i].name}>
+        summaryRows.push(<p key={elements[i].name}>
           <SummaryRow
-          key = {elements[i].name}
+          key={elements[i].name}
           name={elements[i].name}
           price={elements[i].price}
-          counter = {elements[i].counter}
-          coinoption ={elements[i].coinoption}
+          counter={elements[i].counter}
+          coinoption={elements[i].coinoption}
           umoption={elements[i].umoption}
           focus={this.props.focus}/></p>
         );

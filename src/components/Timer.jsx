@@ -38,7 +38,7 @@ return(
                     timeSeparator={'  '}
                     leadingZero
                     onFinished={this.props.onFinished}
-                    format= {dateFormat} />
+                    format={dateFormat} />
 
          </strong>
 

@@ -25,7 +25,7 @@ export default class SaveModal extends Component{
 
   render () {
       const {onSave} = this.props;
-      var today = new Date();
+      var today = this.state.chiusura;
       var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
 
@@ -38,11 +38,10 @@ export default class SaveModal extends Component{
 
               <Modal.Body>
 
-                <div className ="block">
+                <div className="block">
                     <InfiniteCalendar
                         width={570}
                         height={300}
-                        selected={today}
                         disabledDays={[0,6]}
                         minDate={lastWeek}
                         selected={this.state.chiusura}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, Image} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import Price from './Price';
 
 export default class QoodleElement extends Component {
@@ -43,7 +43,6 @@ export default class QoodleElement extends Component {
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
     const changeSettings = this.props.create;
-    var coin="";
     var plus;
     var minus;
     var settings;

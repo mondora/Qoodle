@@ -1,4 +1,4 @@
- import React, {Component, PropTypes} from "react";
+import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import ListQoodleElement from "../../components/ListQoodleElement";
 
@@ -16,6 +16,8 @@ class ListPage extends Component {
 
         componentDidMount()
     {
+
+      console.log("test" + process.env.REACT_APP_SPECIFIC_ID );
 
     var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
     var myInit = {
@@ -95,7 +97,6 @@ class ListPage extends Component {
       return (
 
         <div id="list">
-          <h1 ><center>Lista di tutti i Qoodle</center></h1>
 
           <div className="row">
             {this.renderListQoodleElements()}

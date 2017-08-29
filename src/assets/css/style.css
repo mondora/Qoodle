@@ -329,10 +329,7 @@ table{
 
 
 /* BEGIN:: QoodleView PAGE */
-@font-face {
-  font-family: 'air';
-  src: url(../fonts/air.ttf);
-}
+
 
 #popover-basic{
   font-size: 25px;
@@ -352,7 +349,6 @@ table{
 
 .body h1 {
   padding-top: 15px;
-  font-family: "Times New Roman", Times, serif;
   color : #f5b95f;
   font-style: oblique;
   font-weight: bold;
@@ -374,7 +370,6 @@ table{
     padding-right: 5px;
     padding-bottom: 20px;
     color : #5888d6;
-    font-family: "Times New Roman", Times, serif;
 }
 
 .body #QoodleDescription {
@@ -386,7 +381,6 @@ table{
     padding-right: 5px;
     padding-bottom: 20px;
     color : #5888d6;
-    font-family: "Times New Roman", Times, serif;
 }
 
 .boxList {
@@ -397,6 +391,7 @@ table{
   margin: 0 10px;
   position: relative;
   vertical-align: top;
+  border: 1px;
 }
 .boxList Image {
     width: 230px;
@@ -833,7 +828,6 @@ option {
 /*BEGIN CREATE PAGE*/
 #list
 {
-  font-family: "Times New Roman", Times, serif;
   font-style: oblique;
   font-weight: bold;
 }
@@ -844,10 +838,17 @@ option {
 
 #QoodleCardTitle
 {
-  color: #5888d6;
-  font-family: "Times New Roman", Times, serif;
+  color: 	#ff4e50;
+  font-weight: bold;
+  font-family: 'Muli' cursive, sans-serif;
 }
 
+
+
+#withBorder
+{
+  border: 0px!important;
+}
 .box .list-group
 {
   margin-bottom: 0px;
@@ -858,18 +859,27 @@ option {
 {
   font-size: 35px;
 }
+.list-group-item:first-child
+{
+  border-top: 3px solid #e2f4c7 !important;
+  border-top-right-radius: 10px!important;
+  border-top-left-radius: 10px!important;
+
+}
 
 .list-group-item{
   font-size: 25px;
+  border-left: 3px solid #e2f4c7 !important;
+  border-right: 3px solid #e2f4c7 !important;
+  border-top: 3px !important;
 }
 
 .list-group-item.list-group-item-warning{
   font-size: 32px;
-  border: #5888d6 outset 3px;
-  border-radius: 10px;
   cursor: pointer; cursor: hand;
 
 }
+
 
 
 .list-group-item.list-group-item-warning:hover {
@@ -905,5 +915,25 @@ option {
 {
   text-align: right;
 }
+.list-group-item:first-child {
+    text-align: center!important;
+}
+
+#partecipants
+{
+  color: #fc913a;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0!important;
+    border-bottom-right-radius: 10px!important;
+    border-bottom-left-radius: 10px!important;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    border-bottom: 1px solid #e2f4c7 !important;
+    border-left: 1px solid #e2f4c7 !important;
+    border-right: 1px solid #e2f4c7 !important;
+
+}
+
 
 /*END LIST PAGE*/

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
 import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
-import ingrandimento  from '../assets/img/ingrandimento.png'
 import timer  from '../assets/img/timer.png'
 
 export default class ListQoodleElement extends Component {
@@ -105,17 +104,13 @@ export default class ListQoodleElement extends Component {
     return(
       <div className='boxList' >
 
-          <ListGroup>
+          <ListGroup id="withBorder">
 
           <ListGroupItem id="QoodleBoxTitle" onClick= {() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
-              <Image id="lente" src={ingrandimento}
-              style={{width: 40, height: 40}}
-              alt="loading"
-              responsive />
             </ListGroupItem>
 
-          <ListGroupItem>partecipanti: {this.props.partecipants}</ListGroupItem>
+          <ListGroupItem id="partecipants">partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status} >
 {timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}

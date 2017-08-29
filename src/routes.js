@@ -10,7 +10,7 @@ import ListPage from "./views/master-page/list-page.jsx";
 export default (
     <Router history={history} >
         <Route component={RootPage} path="/" name="root">
-            <Route component={ListPage} name="list" path="#/"/>
+            <Route component={ListPage} name="lists" path=""/>
             <Route component={NewQoodle} name="new" path="/create"/>
             <Route component={QoodleView} name="view" path="/qoodle/:id"/>
             <Route component={ListPage} name="list" path="/qoodles"/>

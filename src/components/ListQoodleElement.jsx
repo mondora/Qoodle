@@ -4,6 +4,7 @@ import Countdown from 'react-cntdwn';
 import {ListGroup, ListGroupItem, Button, Image} from 'react-bootstrap';
 import timer  from '../assets/img/timer.png';
 import mountain from '../assets/img/montagna.jpg';
+import people from '../assets/img/people.png';
 
 export default class ListQoodleElement extends Component {
 
@@ -113,7 +114,9 @@ export default class ListQoodleElement extends Component {
             <h2 id="QoodleCardTitle">{this.props.title}</h2>
             </ListGroupItem>
 
-          <ListGroupItem id="partecipants">partecipanti: {this.props.partecipants}</ListGroupItem>
+          <ListGroupItem id="partecipants">
+            <Image id="people" src={people} alt="loading" responsive />
+            partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status} >
 {timePadding} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}

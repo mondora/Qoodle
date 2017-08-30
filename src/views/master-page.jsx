@@ -10,7 +10,6 @@ export default class MasterPage extends Component {
     };
     renderMainPage() {
         const {children} = this.props;
-        {this.goToListPage();}
         return (
             <div>
                 <div>
@@ -20,11 +19,7 @@ export default class MasterPage extends Component {
             </div>
         );
     }
-
-    goToListPage()
-    {
-      window.location="#/qoodles";
-    }
+    
     renderLoadigInfo() {
         return (
             <div></div>

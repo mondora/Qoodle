@@ -170,7 +170,7 @@ export default class QoodleView extends Component {
           <QoodleElement
             counter={element.counter}
             elId={element.elId}
-            imgUrl={element.imgUrl}
+            img64={element.img64}
             name={element.name}
             coin={element.coinoption}
             price={element.price}

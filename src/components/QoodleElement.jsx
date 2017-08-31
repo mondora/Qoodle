@@ -18,7 +18,7 @@ export default class QoodleElement extends Component {
   static propTypes = {
     counter: PropTypes.number,
     elId: PropTypes.number.isRequired,
-    imgUrl: PropTypes.string.isRequired,
+    img64: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     coin: PropTypes.string.isRequired,
     price: PropTypes.number,
@@ -39,7 +39,7 @@ export default class QoodleElement extends Component {
 
   render()
   {
-    const backgroundImage = this.props.imgUrl;
+    const backgroundImage = this.props.img64;
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
     const changeSettings = this.props.create;

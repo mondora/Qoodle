@@ -90,9 +90,12 @@ handleOnChangeDescription(e)
   this.setState( {description: e.target.value})
 }
 
-handleAddElement(na, mi, ma, um, pr)
+handleAddElement(na, mi, ma, um, pr, img64)
 {
     this.setState({showColumnModal: false});
+
+    console.log("guarda lurl", img64);
+
 
 
 
@@ -105,11 +108,14 @@ handleAddElement(na, mi, ma, um, pr)
     coinoption: '€',
     price: pr,
     counter: 0,
-    imgUrl: kiwi
+    img64: img64
   })
+
 
   this.setState({elements: element,
                 globalId: this.state.globalId + 1});
+
+
 }
 
   modifyElement(tId)
@@ -150,7 +156,7 @@ handleAddElement(na, mi, ma, um, pr)
       coinoption: '€',
       price: pr,
       counter: 0,
-      imgUrl: redApple
+      img64: redApple
     }
 
     this.setState({elements: elementi, targetId: -1});
@@ -192,7 +198,7 @@ renderQoodleElements () {
       <QoodleElement
         counter={element.counter}
         elId={element.elId}
-        imgUrl={element.imgUrl}
+        img64={element.img64}
         name={element.name}
         coin={element.coinoption}
         price={Number (element.price)}

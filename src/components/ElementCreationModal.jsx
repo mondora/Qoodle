@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListGroup, Image} from 'react-bootstrap';
 
 
 
@@ -15,6 +15,7 @@ export default class ElementCreationModal extends Component {
             umoption: '',
             coinoption: '€',
             price: 0,
+            img64: '',
             showAlert: false
 
         };
@@ -70,6 +71,7 @@ export default class ElementCreationModal extends Component {
     }
 
 
+
     handleClick()
     {
       const {onAdd} = this.props;
@@ -79,7 +81,8 @@ export default class ElementCreationModal extends Component {
         this.state.min,
         this.state.max,
         this.state.umoption,
-        this.state.price);
+        this.state.price,
+        this.state.img64);
 
       this.setState({    name: '',
           min: 0,
@@ -87,10 +90,26 @@ export default class ElementCreationModal extends Component {
           umoption: '',
           coinoption: '€',
           price: 0,
-          showAlert: false});
+          showAlert: false,
+          img64: ''});
 
     }
 
+
+    handleImageChange(e)
+    {
+
+      let reader = new FileReader();
+      let file = e.target.files[0];
+
+      reader.onloadend = () => {
+        this.setState({
+          img64: reader.result
+        });
+      }
+
+        reader.readAsDataURL(file)
+    }
 
 
     renderAlert()
@@ -113,6 +132,7 @@ export default class ElementCreationModal extends Component {
         const umoption = this.state.umoption;
         const coinoption = this.state.coinoption;
         const price = this.state.price;
+        const img64= this.state.img64;
 
         var bottone;
 
@@ -122,7 +142,7 @@ export default class ElementCreationModal extends Component {
           bottone = <Button onClick={this.handleClick.bind(this)}>{"Aggiungi"}</Button>;
 
         } else {
-          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price)}>{"Modifica"}</Button>
+          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price,  img64)}>{"Modifica"}</Button>
 
         }
 
@@ -144,6 +164,7 @@ export default class ElementCreationModal extends Component {
                         <FormGroup>
                             <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0} maxLength={15}/>
                         </FormGroup>
+
 
 
 
@@ -175,10 +196,10 @@ export default class ElementCreationModal extends Component {
                     </FormGroup>
 
 
-                    {/*<FormGroup>
-                      <FormControl type="file" placeholder="Sfoglia"/>
-                    </FormGroup>
-                  */}
+
+                  <FormGroup>
+                    <FormControl  onChange={this.handleImageChange.bind(this)} type="file" placeholder="sfoglia"/>
+                  </FormGroup>
 
 
                 </Modal.Body>

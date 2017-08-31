@@ -127,7 +127,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
 
 
-  handleModification(newId, na, mi, ma, um, pr)
+  handleModification(newId, na, mi, ma, um, pr, img64)
   {
     this.setState({showModifyModal: false});
     var elementi = this.state.elements;
@@ -144,6 +144,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
     if(mi === '')   mi = target.min;
     if(ma === '')   ma = target.max;
     if(pr === '')   pr = target.price;
+    if(img64 === '') img64 = target.img64;
 
     var targetIndex = elementi.indexOf(target);
     if(targetIndex !== -1)
@@ -156,7 +157,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
       coinoption: '€',
       price: pr,
       counter: 0,
-      img64: redApple
+      img64: img64
     }
 
     this.setState({elements: elementi, targetId: -1});

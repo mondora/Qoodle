@@ -514,6 +514,11 @@ color: red
 
 
 /* BEGIN:: CREATE PAGE */
+
+
+
+
+
 #saveButton{
   width: 50vw;
   position: relative;
@@ -934,12 +939,21 @@ option {
 }
 
 
-#lente
+#labelinsertImage
 {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  opacity: 0.5;
+  display: inline-block;
+  padding-right: 80px;
+  padding-bottom: 20px;
+  font-family: "Muli", sans-serif;
+  color: #555;
+
+}
+
+
+#insertImage
+{
+  display: inline-block;
+  font-size: 20px;
 
 }
 

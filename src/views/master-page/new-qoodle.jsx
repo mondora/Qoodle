@@ -20,6 +20,7 @@ export default class NewQoodle extends Component {
       showModifyModal: false,
       targetId: -1,
       closingDate: new Date(),
+      backgroundImage: "",
       elements: []
 
     }
@@ -124,7 +125,20 @@ handleAddElement(na, mi, ma, um, pr, img64)
     this.setState({showModifyModal: true, targetId: tId});
   }
 
+  handleBackgroundImageChange(e)
+  {
 
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        backgroundImage: reader.result
+      });
+    }
+
+      reader.readAsDataURL(file)
+  }
 
 
   handleModification(newId, na, mi, ma, um, pr, img64)
@@ -176,7 +190,8 @@ handleAddElement(na, mi, ma, um, pr, img64)
           title : this.state.title,
           description : this.state.description,
           closingDate : date,
-          qeList : this.state.elements
+          qeList : this.state.elements,
+          backgroundImage: this.state.backgroundImage
         })
     };
 
@@ -226,6 +241,13 @@ renderQoodleElements () {
                       maxLength={80}
                       onChange={this.handleOnChangeDescription.bind(this)} />
                   </FormGroup>
+
+                  <FormGroup >
+                    <h3 id="labelinsertImage"> Sfondo del Qoodle: </h3>
+                    <FormControl  id="insertImage" onChange={this.handleBackgroundImageChange.bind(this)} type="file" placeholder="sfoglia"/>
+                  </FormGroup>
+
+
 
 
 

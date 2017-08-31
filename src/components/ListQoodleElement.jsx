@@ -28,7 +28,8 @@ export default class ListQoodleElement extends Component {
     description: PropTypes.string.isRequired,
     closingDate: PropTypes.any.isRequired,
     openIt: PropTypes.func.isRequired,
-    details: PropTypes.func.isRequired
+    details: PropTypes.func.isRequired,
+    backgroundImage: PropTypes.string.isRequired
   }
 
 
@@ -88,6 +89,7 @@ export default class ListQoodleElement extends Component {
     const {openIt} = this.props;
     const {details} = this.props;
     const targetId = this.props.id;
+    const backgroundImage = this.props.backgroundImage;
 
     var date = new Date(this.props.closingDate)
     date = date.getDate() + 1 ;
@@ -108,7 +110,7 @@ export default class ListQoodleElement extends Component {
 
           <ListGroup id="withBorder">
           <ListGroupItem>
-          <center><Image id="event" src={mountain} alt="loading" responsive /></center>
+          <center><Image id="event" src={backgroundImage} alt="loading" responsive /></center>
           </ListGroupItem>
         <ListGroupItem id="QoodleBoxTitle" onClick={() => details(targetId)}>
             <h2 id="QoodleCardTitle">{this.props.title}</h2>

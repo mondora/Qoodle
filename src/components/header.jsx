@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import ReactDOM from 'react-dom';
+import GoogleLogin from 'react-google-login';
 import Menu from "./Menu";
 import logoQoodle from '../assets/img/logo.png'
 import '../assets/css/styles.css'
@@ -14,6 +16,10 @@ export default class Header extends Component {
         };
     }
 
+
+
+
+
     toggleMenu(){
         this.setState({
             isOpenMenu: !this.state.isOpenMenu
@@ -21,6 +27,11 @@ export default class Header extends Component {
     }
 
     render(){
+
+      const responseGoogle = (response) => {
+        console.log("this is response", response);
+      }
+
         return(
             <div className={"header"}>
                 <div className="floatLeft">
@@ -30,6 +41,14 @@ export default class Header extends Component {
                 <div className="floatRight">
                     <div className="btn littleOne"><span className="ti-power-off"></span></div>
                 </div>
+
+                <GoogleLogin
+                  clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  />
+
                 <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
             </div>
         );

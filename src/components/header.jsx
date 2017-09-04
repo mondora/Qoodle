@@ -13,7 +13,7 @@ export default class Header extends Component {
         super();
         this.state = {
             isOpenMenu: false,
-            idUser: ""
+            user: {}
         };
     }
 
@@ -34,9 +34,18 @@ export default class Header extends Component {
 
         fetch(url, myInit)
         .then( function(response) {
-          if(!response.ok)
-          throw new Error("Network response was not ok")
-        });
+          if (response.status >= 200 && response.status < 300) {
+            return response.json();
+          } else {
+            throw new Error('Ooops...something went wrong.');
+          }
+        })
+        .then(function(data) {
+             this.setState({ user: data });
+        }
+        .bind(this))
+        .catch((error) => { console.error(error); });
+
 
     }
 

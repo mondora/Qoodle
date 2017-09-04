@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from 'react-dom';
+import {Button} from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import Menu from "./Menu";
 import logoQoodle from '../assets/img/logo.png'
@@ -59,10 +60,26 @@ export default class Header extends Component {
 
     render(){
 
+
+
       const responseGoogle = (response) => {
         console.log("this is response", response);
         this.onSignIn(response);
       }
+
+      var bottone;
+    if (Object.keys(this.state.user).length === 0 && this.state.user.constructor === Object)
+        bottone = <GoogleLogin
+        clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        />;
+      else {
+        bottone = <Button bsStyle="primary" bsSize="large">Logout: {this.state.user.name}</Button>
+      }
+
+
 
         return(
             <div className={"header"}>
@@ -73,12 +90,7 @@ export default class Header extends Component {
                 <div className="floatRight">
 
 
-                <GoogleLogin
-                  clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
-                  buttonText="Login"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  />
+                  {bottone}
                 </div>
 
 

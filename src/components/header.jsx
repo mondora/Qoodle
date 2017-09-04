@@ -38,23 +38,6 @@ export default class Header extends Component {
           throw new Error("Network response was not ok")
         });
 
-
-/*
-      Axios.post("http://localhost:4567/token/", {
-        idToken: "abc"
-      });
-
-     var id_token = googleUser.getAuthResponse().id_token;
-
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://localhost:4567/token/');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onload = function() {
-        console.log('Signed in as: ' + xhr.responseText);
-      };
-      xhr.send('idtoken=' + "abc");*/
-
     }
 
 
@@ -79,8 +62,7 @@ export default class Header extends Component {
                     <img src={logoQoodle} alt="loading" style={{verticalAlign: 'middle', width: 100}} />
                 </div>
                 <div className="floatRight">
-                    <div className="btn littleOne"><span className="ti-power-off"></span></div>
-                </div>
+
 
                 <GoogleLogin
                   clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
@@ -88,6 +70,8 @@ export default class Header extends Component {
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   />
+                </div>
+
 
                 <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
             </div>

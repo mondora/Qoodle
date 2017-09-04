@@ -12,11 +12,50 @@ export default class Header extends Component {
     constructor () {
         super();
         this.state = {
-            isOpenMenu: false
+            isOpenMenu: false,
+            idUser: ""
         };
     }
 
+    onSignIn(googleUser, id_client) {
 
+    var id_token = googleUser.getAuthResponse().id_token;
+
+        var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
+        var myInit = {
+          method: 'post',
+          mode: 'cors',
+          body: JSON.stringify({
+            id_token: id_token,
+            id_client: "368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+          })
+        };
+
+
+        fetch(url, myInit)
+        .then( function(response) {
+          if(!response.ok)
+          throw new Error("Network response was not ok")
+        });
+
+
+/*
+      Axios.post("http://localhost:4567/token/", {
+        idToken: "abc"
+      });
+
+     var id_token = googleUser.getAuthResponse().id_token;
+
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://localhost:4567/token/');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+        console.log('Signed in as: ' + xhr.responseText);
+      };
+      xhr.send('idtoken=' + "abc");*/
+
+    }
 
 
 
@@ -30,6 +69,7 @@ export default class Header extends Component {
 
       const responseGoogle = (response) => {
         console.log("this is response", response);
+        this.onSignIn(response);
       }
 
         return(

@@ -46,6 +46,20 @@ export default class Header extends Component {
         }
         .bind(this))
         .catch((error) => { console.error(error); });
+    }
+
+
+    onSignOut(googleUser)
+    {
+      const auth2 = window.gapi.auth2.getAuthInstance();
+
+      auth2.signOut().then( (res) => {
+        console.log("disconnesso correttamente");
+      })
+      .then(function(data) {
+                   this.setState({ user: {} });
+      }.bind(this));
+
 
 
     }
@@ -67,8 +81,10 @@ export default class Header extends Component {
         this.onSignIn(response);
       }
 
+
       var bottone;
-    if (Object.keys(this.state.user).length === 0 && this.state.user.constructor === Object)
+
+      if (Object.keys(this.state.user).length === 0 && this.state.user.constructor === Object)
         bottone = <GoogleLogin
         clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
         buttonText="Login"
@@ -76,7 +92,7 @@ export default class Header extends Component {
         onFailure={responseGoogle}
         />;
       else {
-        bottone = <Button bsStyle="primary" bsSize="large">Logout: {this.state.user.name}</Button>
+        bottone = <Button bsStyle="primary" bsSize="large" onClick={this.onSignOut.bind(this)}>Logout: {this.state.user.name}</Button>
       }
 
 

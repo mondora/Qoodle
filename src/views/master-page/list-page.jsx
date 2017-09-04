@@ -87,8 +87,6 @@ class ListPage extends Component {
     render()
     {
 
-
-
       return (
 
         <div id="list">

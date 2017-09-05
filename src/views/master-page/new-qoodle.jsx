@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, FormGroup, FormControl, Modal} from 'react-bootstrap';
+import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';

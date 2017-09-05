@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement";
 import SummaryModal from "../../components/SummaryModal";
+import InfoModal from '../../components/InfoModal';
 
 import Timer from "../../components/Timer"
 
@@ -23,6 +24,7 @@ export default class QoodleView extends Component {
           username: "",
           id : 0,//ora come esempio
           showSummaryModal: false,
+          showInfomModal: false,
           title: '',
           description: '',
           closingDate: new Date(),
@@ -51,7 +53,7 @@ export default class QoodleView extends Component {
           };
 
           var nameLogged = "exampleUser";
-          if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && window.gapi.auth2.getAuthInstance().currentUser === "undefined")
+          if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && !(window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
             nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
 
       fetch(url, myInit)
@@ -148,7 +150,16 @@ export default class QoodleView extends Component {
         throw new Error("Network response was not ok")
       });
 
-      this.setState({showSummaryModal: false});
+      this.setState({showSummaryModal: false,
+                      showInfomModal: true});
+
+    }
+
+
+    confirmChoices()
+    {
+
+      this.setState({showInfomModal: false});
 
       window.location = "#/qoodles";
     }
@@ -215,6 +226,13 @@ export default class QoodleView extends Component {
                 check={this.CloseSummary.bind(this)}
                 />
 
+
+
+                <InfoModal
+                  show={this.state.showInfomModal}
+                  title="Conferma"
+                  info={"Salvataggio delle scelte prese"}
+                  showSavedModal={this.confirmChoices.bind(this)}/>
 
         </div>
 

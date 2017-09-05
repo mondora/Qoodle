@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, FormGroup, FormControl} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
@@ -17,6 +17,7 @@ export default class NewQoodle extends Component {
       description: '',
       showColumnModal : false,
       showSaveModal: false,
+      showSavedModal: false,
       showModifyModal: false,
       targetId: -1,
       closingDate: new Date(),
@@ -203,7 +204,18 @@ handleAddElement(na, mi, ma, um, pr, img64)
     });
 
     this.setState({showSaveModal: false,
-            closingDate: date});
+                  showSavedModal: true,
+                  closingDate: date
+                  });
+
+
+  }
+
+
+  showSavedModal()
+  {
+    this.setState({showSavedModal: false});
+    window.location = "#/qoodles";
   }
 
 
@@ -291,6 +303,20 @@ renderQoodleElements () {
               onAdd={this.handleModification.bind(this)}
               show={this.state.showModifyModal}
               targetId={this.state.targetId}/>
+
+
+
+            <Modal show={this.state.showSavedModal}>
+                  <Modal.Header>
+                      <Modal.Title>{"Salvataggio"}</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <h3>Salvataggio del Qoodle effettuato correttamente {"(" + this.state.title + ")"}</h3>
+                  </Modal.Body>
+                  <Modal.Footer>
+                      <Button onClick={this.showSavedModal.bind(this)}>{"Ok"}</Button>
+                  </Modal.Footer>
+            </Modal>
 
 
             </div>

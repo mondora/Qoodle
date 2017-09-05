@@ -149,6 +149,8 @@ export default class QoodleView extends Component {
       });
 
       this.setState({showSummaryModal: false});
+
+      window.location = "#/qoodles";
     }
 
     Open()

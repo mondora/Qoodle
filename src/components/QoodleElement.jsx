@@ -68,7 +68,7 @@ export default class QoodleElement extends Component {
           {minus}
           {settings}
 
-            <Image src={backgroundImage} alt="loading" responsive />
+            <center><Image src={backgroundImage} alt="loading" responsive /></center>
           </div>
 
 

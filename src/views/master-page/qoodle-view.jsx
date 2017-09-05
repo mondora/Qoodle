@@ -51,7 +51,7 @@ export default class QoodleView extends Component {
           };
 
           var nameLogged = "exampleUser";
-          if( !(typeof window.gapi === "undefined") && !(typeof window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
+          if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && window.gapi.auth2.getAuthInstance().currentUser === "undefined")
             nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
 
       fetch(url, myInit)

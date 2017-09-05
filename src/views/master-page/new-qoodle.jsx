@@ -3,6 +3,7 @@ import {Button, FormGroup, FormControl, Modal} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
+import InfoModal from '../../components/InfoModal';
 import kiwi from '../../assets/img/kiwi.png';
 import redApple from '../../assets/img/redApple.png';
 
@@ -304,20 +305,11 @@ renderQoodleElements () {
               show={this.state.showModifyModal}
               targetId={this.state.targetId}/>
 
-
-
-            <Modal show={this.state.showSavedModal}>
-                  <Modal.Header>
-                      <Modal.Title>{"Salvataggio"}</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <h3>Salvataggio del Qoodle effettuato correttamente {"(" + this.state.title + ")"}</h3>
-                  </Modal.Body>
-                  <Modal.Footer>
-                      <Button onClick={this.showSavedModal.bind(this)}>{"Ok"}</Button>
-                  </Modal.Footer>
-            </Modal>
-
+              <InfoModal
+                show={this.state.showSavedModal}
+                title="Salvataggio"
+                info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) effettuato correttamente"}
+                showSavedModal={this.showSavedModal.bind(this)}/>
 
             </div>
         );

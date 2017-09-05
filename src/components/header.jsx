@@ -127,7 +127,7 @@ export default class Header extends Component {
                       </Modal.Header>
 
                       <Modal.Body>
-                        <h2>Disconnesso correttamente {this.state.user.name}</h2>
+                        <h3>Disconnesso correttamente {this.state.user.name}</h3>
                       </Modal.Body>
 
                       <Modal.Footer>

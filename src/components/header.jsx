@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from 'react-dom';
-import {Button} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import Menu from "./Menu";
 import logoQoodle from '../assets/img/logo.png'
@@ -14,6 +14,7 @@ export default class Header extends Component {
         super();
         this.state = {
             isOpenMenu: false,
+            show: false,
             user: {}
         };
     }
@@ -62,6 +63,8 @@ export default class Header extends Component {
 
 
 
+      this.setState({show: !this.state.show});
+
     }
 
 
@@ -72,10 +75,15 @@ export default class Header extends Component {
         })
     }
 
+    showModal(){
+      this.setState({show: !this.state.show});
+    }
+
+
+
+
+
     render(){
-
-
-
       const responseGoogle = (response) => {
         console.log("this is response", response);
         this.onSignIn(response);
@@ -103,15 +111,41 @@ export default class Header extends Component {
                     <i onClick={this.toggleMenu.bind(this)} className="hamburger fa fa-bars" aria-hidden="true" />
                     <img src={logoQoodle} alt="loading" style={{verticalAlign: 'middle', width: 100}} />
                 </div>
+
                 <div className="floatRight">
-
-
                   {bottone}
                 </div>
 
 
                 <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
-            </div>
+
+
+
+                  <Modal show={this.state.show}>
+                      <Modal.Header>
+                          <Modal.Title>{"Logout"}</Modal.Title>
+                      </Modal.Header>
+
+                      <Modal.Body>
+                        <h2>Disconnesso correttamente {this.state.user.name}</h2>
+                      </Modal.Body>
+
+                      <Modal.Footer>
+                          <Button onClick={this.showModal.bind(this)}>{"Ok"}</Button>
+                      </Modal.Footer>
+                  </Modal>
+
+
+
+
+
+
+
+
+
+
+              </div>
+
         );
     }
 }

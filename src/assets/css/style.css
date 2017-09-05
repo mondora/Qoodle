@@ -292,6 +292,7 @@ table{
 }
 .floatRight{
   float: right;
+  font-weight: bold;
 }
 
 #rowStats{

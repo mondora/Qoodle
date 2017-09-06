@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from 'react-dom';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, Image} from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import Menu from "./Menu";
 import logoQoodle from '../assets/img/logo.png'
@@ -100,7 +100,17 @@ export default class Header extends Component {
         onFailure={responseGoogle}
         />;
       else {
-        bottone = <Button bsStyle="primary" bsSize="large" onClick={this.onSignOut.bind(this)}>Logout: {this.state.user.name}</Button>
+
+        bottone =
+        (
+          <div>
+            <span id="pad">
+              <span id="name"> {this.state.user.name}  </span>
+              <Image src={this.state.user.pictureUrl} width={"10%"} height={"10%"} rounded />
+            </span>
+          <Button bsStyle="primary" bsSize="large" onClick={this.onSignOut.bind(this)}>Logout</Button>
+          </div>
+      )
       }
 
 

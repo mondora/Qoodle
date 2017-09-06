@@ -1003,3 +1003,15 @@ option {
 
 
 /*END LIST PAGE*/
+
+
+
+/*START DETAILS PAGE*/
+
+.elements
+{
+  font-weight: bold;
+  font-family: "Muli", sans;
+  font-size: 25px;
+  padding: 20px;
+}

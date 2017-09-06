@@ -232,7 +232,7 @@ export default class QoodleView extends Component {
                   show={this.state.showInfomModal}
                   title="Conferma"
                   info={"Salvataggio delle scelte prese"}
-                  showSavedModal={this.confirmChoices.bind(this)}/>
+                  showInfoModal={this.confirmChoices.bind(this)}/>
 
         </div>
 

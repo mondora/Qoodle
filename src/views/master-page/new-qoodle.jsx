@@ -18,7 +18,7 @@ export default class NewQoodle extends Component {
       description: '',
       showColumnModal : false,
       showSaveModal: false,
-      showSavedModal: false,
+      showInfoModal: false,
       showModifyModal: false,
       targetId: -1,
       closingDate: new Date(),
@@ -205,7 +205,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
     });
 
     this.setState({showSaveModal: false,
-                  showSavedModal: true,
+                  showInfoModal: true,
                   closingDate: date
                   });
 
@@ -213,9 +213,9 @@ handleAddElement(na, mi, ma, um, pr, img64)
   }
 
 
-  showSavedModal()
+  showInfoModal()
   {
-    this.setState({showSavedModal: false});
+    this.setState({showInfoModal: false});
     window.location = "#/qoodles";
   }
 
@@ -306,10 +306,10 @@ renderQoodleElements () {
               targetId={this.state.targetId}/>
 
               <InfoModal
-                show={this.state.showSavedModal}
+                show={this.state.showInfoModal}
                 title="Salvataggio"
                 info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) effettuato correttamente"}
-                showSavedModal={this.showSavedModal.bind(this)}/>
+                showInfoModal={this.showInfoModal.bind(this)}/>
 
             </div>
         );

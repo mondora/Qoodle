@@ -15,7 +15,7 @@ export default (
             <Route component={NewQoodle} name="new" path="/create"/>
             <Route component={QoodleView} name="view" path="/qoodle/:id"/>
             <Route component={ListPage} name="list" path="/qoodles"/>
-            <Route component={QoodleDetails} name="details" path="/details"/>
+            <Route component={QoodleDetails} name="details" path="/details/:id"/>
         </Route>
 
 

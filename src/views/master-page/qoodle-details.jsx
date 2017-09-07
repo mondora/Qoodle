@@ -15,6 +15,7 @@ export default class QoodleDetails extends Component {
     this.state =
     {
       nome : "",//nome qoodle che mi hanno passato
+      usrname: "",
       elements: [
         {
           what: "pere",
@@ -38,6 +39,47 @@ export default class QoodleDetails extends Component {
   {
     purchase: true
   }
+
+
+
+
+  componentDidMount()
+  {
+    var id;
+    if (typeof window !== 'undefined')
+      id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+    var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/details/' + id;
+    var myInit = {
+          method: 'get',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        };
+
+        var nameLogged = "exampleUser";
+        if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && !(window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
+          nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
+
+    fetch(url, myInit)
+    .then( function(response) {
+      if(response.ok)
+      return response.json();
+      throw new Error("Network response was not ok")
+    })
+    .then(function(data)
+        { this.setState({
+          nome: data.nome,
+          elements: data.elements,
+          username: nameLogged
+          });
+    }
+    .bind(this))
+    .catch((error) => { console.error(error); });;
+
+  }
+
 
 
 

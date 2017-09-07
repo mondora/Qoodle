@@ -16,22 +16,7 @@ export default class QoodleDetails extends Component {
     {
       nome : "",//nome qoodle che mi hanno passato
       usrname: "",
-      elements: [
-        {
-          what: "pere",
-          whos: [
-            {name: "example.com", count: 5 },
-            {name: "test2@gmail.com", count: 3}
-          ]
-      },
-      {
-        what: "mele",
-        whos: [
-          {name: "ex2.com", count: 4 },
-          {name: "test2@gmail.com", count: 15}
-        ]
-    }
-      ]
+      elements: null
     }
   }
 
@@ -91,10 +76,13 @@ export default class QoodleDetails extends Component {
 
   renderElement()
   {
+    var detailsList= "questo qoodle non ha elementi";
+    if(this.state.elements != null)
+      detailsList = (this.state.elements.map( (ele) => <div key={ele.what}> <div className="elements"> elemento : {ele.what} (  {ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  )</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
 
     return (
     <div>
-    {this.state.elements.map( (ele) => <div key={ele.what}> <div className="elements"> elemento : {ele.what} (  {ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  )</div> <div>{this.renderPeople(ele.whos)}</div>  </div> )}
+      {detailsList}
     </div>);
   }
 

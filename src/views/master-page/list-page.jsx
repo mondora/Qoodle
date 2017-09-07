@@ -57,9 +57,9 @@ class ListPage extends Component {
          window.location = link
     }
 
-    details()
+    details(link)
     {
-      alert("visualizza dettagli")
+      window.location = link
     }
 
     renderListQoodleElements () {
@@ -73,7 +73,7 @@ class ListPage extends Component {
             closingDate={element.closingDate.toString()}
             backgroundImage={element.backgroundImage}
             openIt={this.open.bind(this, "#/qoodle/" + element.qoodlesId)}
-            details={this.details.bind(this)}
+            details={this.details.bind(this, "#/details/" + element.qoodlesId)}
             />
       </div>
       ));

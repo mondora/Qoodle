@@ -1015,3 +1015,11 @@ option {
   font-size: 25px;
   padding: 20px;
 }
+
+
+#detailsElement
+{
+  font-family: "Muli", sans-serif;
+  font-size: 22px;
+  color: #555;
+}

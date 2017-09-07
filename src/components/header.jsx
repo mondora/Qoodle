@@ -21,7 +21,7 @@ export default class Header extends Component {
 
     onSignIn(googleUser, id_client) {
 
-    var id_token = googleUser.getAuthResponse().id_token;
+      var id_token = googleUser.getAuthResponse().id_token;
 
         var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
         var myInit = {
@@ -47,6 +47,9 @@ export default class Header extends Component {
         }
         .bind(this))
         .catch((error) => { console.error(error); });
+
+
+
     }
 
 

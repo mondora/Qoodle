@@ -70,7 +70,7 @@ export default class QoodleDetails extends Component {
 
   renderPeople(whos)
   {
-    return (   whos.map( (who) => <div key={who.name}> - {who.name}  ( {who.count}  ) </div>)   );
+    return (   whos.map( (who) => <div key={who.name}> - {who.name}  ne ha scelte: {who.count}  </div>)   );
   }
 
 
@@ -78,7 +78,7 @@ export default class QoodleDetails extends Component {
   {
     var detailsList= "questo qoodle non ha elementi";
     if(this.state.elements != null)
-      detailsList = (this.state.elements.map( (ele) => <div key={ele.what}> <div className="elements"> elemento : {ele.what} (  {ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  )</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
+      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  {ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
 
     return (
     <div>

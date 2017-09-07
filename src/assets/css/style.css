@@ -939,8 +939,18 @@ option {
   position: absolute;
   left: 5px;
   opacity: 0.8;
-
 }
+
+#ingrandimento
+{
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  opacity: 0.6;
+}
+
+
 #people
 {
   position: absolute;

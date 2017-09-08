@@ -45,11 +45,17 @@ export default class Header extends Component {
         })
         .then(function(data) {
              this.setState({ user: data });
+             if (typeof(Storage) !== "undefined")
+             {
+               localStorage.setItem("name", data.name);
+               localStorage.setItem("email", data.email);
+            }
         }
         .bind(this))
         .catch((error) => { console.error(error); });
 
 
+        console.log(localStorage.getItem("name"), localStorage.getItem("email"));
 
     }
 

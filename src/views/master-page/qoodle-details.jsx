@@ -40,11 +40,12 @@ export default class QoodleDetails extends Component {
         };
 
         var nameLogged = "exampleUser"; var realNameLogged = "realExample";
-        if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && !(window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
+        if (typeof(Storage) !== "undefined")
         {
-          nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
-          realNameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.name;
+          nameLogged = localStorage.getItem("email");
+          realNameLogged = localStorage.getItem("name");
         }
+
 
     fetch(url, myInit)
     .then( function(response) {

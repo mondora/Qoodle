@@ -46,9 +46,11 @@ export default class SummaryModal extends Component {
           focus={this.props.focus}/></p>
         );
       }
-
-
     }
+
+    if(summaryRows.length < 1 )
+      summaryRows.push(<div>non hai ancora scelto nulla. </div>);
+
     return(
         <Modal.Body>
             {summaryRows}

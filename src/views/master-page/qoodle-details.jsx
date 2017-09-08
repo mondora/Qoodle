@@ -70,7 +70,7 @@ export default class QoodleDetails extends Component {
 
   renderPeople(whos)
   {
-    return (   whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelte: {who.count}  </div>)   );
+    return (   whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelti: {who.count}  </div>)   );
   }
 
 

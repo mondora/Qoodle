@@ -16,13 +16,9 @@ export default class QoodleDetails extends Component {
     {
       nome : "",//nome qoodle che mi hanno passato
       usrname: "",
+      realName: "",
       elements: null
     }
-  }
-
-  static defaultProps =
-  {
-    purchase: true
   }
 
 
@@ -43,9 +39,12 @@ export default class QoodleDetails extends Component {
           },
         };
 
-        var nameLogged = "exampleUser";
+        var nameLogged = "exampleUser"; var realNameLogged = "realExample";
         if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && !(window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
+        {
           nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
+          realNameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.name;
+        }
 
     fetch(url, myInit)
     .then( function(response) {
@@ -57,7 +56,8 @@ export default class QoodleDetails extends Component {
         { this.setState({
           nome: data.nome,
           elements: data.elements,
-          username: nameLogged
+          username: nameLogged,
+          realName: realNameLogged
           });
     }
     .bind(this))
@@ -70,7 +70,7 @@ export default class QoodleDetails extends Component {
 
   renderPeople(whos)
   {
-    return (   whos.map( (who) => <div key={who.name}> - {who.name}  ne ha scelte: {who.count}  </div>)   );
+    return (   whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelte: {who.count}  </div>)   );
   }
 
 

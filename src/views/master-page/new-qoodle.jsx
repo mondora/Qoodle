@@ -246,7 +246,7 @@ renderQoodleElements () {
                     <FormControl
                     type="text"
                     placeholder="Title"
-                    onChange={ this.handleOnChangeTitle.bind(this)} maxLength={30}/>
+                    onChange={ this.handleOnChangeTitle.bind(this)} maxLength={25}/>
                   </FormGroup>
 
                     <FormGroup className='medium'>

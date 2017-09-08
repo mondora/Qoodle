@@ -15,7 +15,7 @@ export default class QoodleDetails extends Component {
     this.state =
     {
       nome : "",//nome qoodle che mi hanno passato
-      usrname: "",
+      email: "",
       realName: "",
       elements: null
     }
@@ -57,7 +57,7 @@ export default class QoodleDetails extends Component {
         { this.setState({
           nome: data.nome,
           elements: data.elements,
-          username: nameLogged,
+          email: nameLogged,
           realName: realNameLogged
           });
     }

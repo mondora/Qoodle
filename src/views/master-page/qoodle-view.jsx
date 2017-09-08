@@ -22,6 +22,7 @@ export default class QoodleView extends Component {
 
         this.state = {
           username: "",
+          realName: "",
           id : 0,//ora come esempio
           showSummaryModal: false,
           showInfomModal: false,
@@ -52,10 +53,12 @@ export default class QoodleView extends Component {
             },
           };
 
-          var nameLogged = "exampleUser";
+          var nameLogged = "exampleUser"; var realNameLogged = "realExample";
           if( window.gapi && window.gapi.auth2 && window.gapi.auth2.getAuthInstance() && !(window.gapi.auth2.getAuthInstance().currentUser === "undefined"))
+          {
             nameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.email;
-
+            realNameLogged = window.gapi.auth2.getAuthInstance().currentUser.Ab.profileObj.name;
+          }
       fetch(url, myInit)
       .then( function(response) {
         if(response.ok)
@@ -68,7 +71,8 @@ export default class QoodleView extends Component {
             title: data.title,
             description: data.description,
             closingDate: new Date (data.closingDate),
-            username: nameLogged
+            username: nameLogged,
+            realName: realNameLogged
             });
       }
       .bind(this))
@@ -139,6 +143,7 @@ export default class QoodleView extends Component {
           {
             id: this.state.id,
             username: this.state.username,
+            realName: this.state.realName,
             elements : elementi
           })
       };

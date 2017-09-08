@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Button, Modal, Image} from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import Menu from "./Menu";
+import InfoModal from "./InfoModal";
 import logoQoodle from '../assets/img/logo.png'
 import '../assets/css/styles.css'
 import '../assets/css/style.css'
@@ -133,23 +134,11 @@ export default class Header extends Component {
                 <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
 
 
-
-                  <Modal show={this.state.show}>
-                      <Modal.Header>
-                          <Modal.Title>{"Logout"}</Modal.Title>
-                      </Modal.Header>
-
-                      <Modal.Body>
-                        <h3>Disconnesso correttamente {this.state.user.name}</h3>
-                      </Modal.Body>
-
-                      <Modal.Footer>
-                          <Button onClick={this.showModal.bind(this)}>{"Ok"}</Button>
-                      </Modal.Footer>
-                  </Modal>
-
-
-
+                  <InfoModal
+                    show={this.state.show}
+                    title="Logout"
+                    info={"Disconnesso correttamente"} //aggiungere nome
+                    showInfoModal={this.showModal.bind(this)}/>
 
               </div>
 

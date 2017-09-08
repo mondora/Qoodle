@@ -376,7 +376,7 @@ table{
 
 .body h1 {
   padding-top: 15px;
-  color : #f5b95f;
+  color : #fc913a;
   font-style: oblique;
   font-weight: bold;
   width: 60vw;
@@ -407,7 +407,7 @@ table{
     padding-left: 4vw;
     padding-right: 5px;
     padding-bottom: 20px;
-    color : #5888d6;
+    color : #555;
 }
 
 .boxList {

@@ -33,30 +33,41 @@ export default class NewQoodle extends Component {
 
   componentDidMount()
   {
-    var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/create';
-    var myInit = {
-          method: 'get',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        };
+    if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
+    {
 
-  fetch(url, myInit)
-    .then( function(response) {
-      if(response.ok)
-      return response.json();
-      throw new Error("Network response was not ok")
-    })
-    .then(function(data)
-        {
-          this.setState({
-            elements: data,
-            globalId: (data.length + 1)
-          });
-        }
-    .bind(this))
-    .catch((error) => { console.error(error); });;
+        var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/create';
+        var myInit = {
+              method: 'get',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            };
+
+      fetch(url, myInit)
+        .then( function(response) {
+          if(response.ok)
+          return response.json();
+          throw new Error("Network response was not ok")
+        })
+        .then(function(data)
+            {
+              this.setState({
+                elements: data,
+                globalId: (data.length + 1)
+              });
+            }
+        .bind(this))
+        .catch((error) => { console.error(error); });;
+      }
+      else
+      {
+        alert("NON PUOI ACCEDERE");
+        window.location = "/";
+      }
+
+
 
   }
 

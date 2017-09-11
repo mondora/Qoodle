@@ -38,47 +38,57 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      if (typeof window !== 'undefined') {
-      var id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+      if(sessionStorage.getItem("email").includes("carlo") || sessionStorage.getItem("email").includes("@mondora.com"))
+      {
 
-      this.setState({ id: id});
-    }
+            if (typeof window !== 'undefined') {
+            var id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
-      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + id;
-      var myInit = {
-            method: 'get',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-          };
-
-          var nameLogged = "exampleUser"; var realNameLogged = "realExample";
-          if (typeof(Storage) !== "undefined")
-          {
-            nameLogged = localStorage.getItem("email");
-            realNameLogged = localStorage.getItem("name");
+            this.setState({ id: id});
           }
 
+            var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + id;
+            var myInit = {
+                  method: 'get',
+                  mode: 'cors',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                };
 
-      fetch(url, myInit)
-      .then( function(response) {
-        if(response.ok)
-        return response.json();
-        throw new Error("Network response was not ok")
-      })
-      .then(function(data)
-          { this.setState({
-            elements: data.ele,
-            title: data.title,
-            description: data.description,
-            closingDate: new Date (data.closingDate),
-            username: nameLogged,
-            realName: realNameLogged
-            });
-      }
-      .bind(this))
-      .catch((error) => { console.error(error); });;
+                var nameLogged = "exampleUser"; var realNameLogged = "realExample";
+                if (typeof(Storage) !== "undefined")
+                {
+                  nameLogged = localStorage.getItem("email");
+                  realNameLogged = localStorage.getItem("name");
+                }
+
+
+            fetch(url, myInit)
+            .then( function(response) {
+              if(response.ok)
+              return response.json();
+              throw new Error("Network response was not ok")
+            })
+            .then(function(data)
+                { this.setState({
+                  elements: data.ele,
+                  title: data.title,
+                  description: data.description,
+                  closingDate: new Date (data.closingDate),
+                  username: nameLogged,
+                  realName: realNameLogged
+                  });
+            }
+            .bind(this))
+            .catch((error) => { console.error(error); });;
+        }
+        else
+        {
+          alert("NON PUOI ACCEDERE");
+          window.location = "#/";
+        }
+
 
     }
 

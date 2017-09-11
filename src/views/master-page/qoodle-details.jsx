@@ -26,44 +26,54 @@ export default class QoodleDetails extends Component {
 
   componentDidMount()
   {
-    var id;
-    if (typeof window !== 'undefined')
-      id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
-    var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/details/' + id;
-    var myInit = {
-          method: 'get',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        };
+    if(sessionStorage.getItem("email").includes("carlo") || sessionStorage.getItem("email").includes("@mondora.com"))
+    {
 
-        var nameLogged = "exampleUser"; var realNameLogged = "realExample";
-        if (typeof(Storage) !== "undefined")
-        {
-          nameLogged = localStorage.getItem("email");
-          realNameLogged = localStorage.getItem("name");
+        var id;
+        if (typeof window !== 'undefined')
+          id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+        var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/details/' + id;
+        var myInit = {
+              method: 'get',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            };
+
+            var nameLogged = "exampleUser"; var realNameLogged = "realExample";
+            if (typeof(Storage) !== "undefined")
+            {
+              nameLogged = localStorage.getItem("email");
+              realNameLogged = localStorage.getItem("name");
+            }
+
+
+        fetch(url, myInit)
+        .then( function(response) {
+          if(response.ok)
+          return response.json();
+          throw new Error("Network response was not ok")
+        })
+        .then(function(data)
+            { this.setState({
+              nome: data.nome,
+              elements: data.elements,
+              email: nameLogged,
+              realName: realNameLogged
+              });
         }
+        .bind(this))
+        .catch((error) => { console.error(error); });;
 
-
-    fetch(url, myInit)
-    .then( function(response) {
-      if(response.ok)
-      return response.json();
-      throw new Error("Network response was not ok")
-    })
-    .then(function(data)
-        { this.setState({
-          nome: data.nome,
-          elements: data.elements,
-          email: nameLogged,
-          realName: realNameLogged
-          });
-    }
-    .bind(this))
-    .catch((error) => { console.error(error); });;
-
+      }
+      else
+      {
+        alert("NON PUOI ACCEDERE");
+        window.location = "#/";
+      }
   }
 
 

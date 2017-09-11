@@ -27,7 +27,7 @@ export default class Header extends Component {
         console.log("disconnesso correttamente");
       })
       .then(function(data) {
-        this.props.aggiorna("invalid", "invalid", "invalid");
+        this.props.aggiorna("invalid", "invalid", "invalid", this.props.link);
       }.bind(this));
 
 
@@ -35,7 +35,6 @@ export default class Header extends Component {
       this.setState({show: !this.state.show});
 
 
-      window.location = "#/"
 
     }
 

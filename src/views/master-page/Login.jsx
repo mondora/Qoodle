@@ -41,7 +41,7 @@ export default class Login extends Component {
            this.setState({ user: data });
            if (typeof(Storage) !== "undefined")
            {
-            this.props.aggiorna(data.name, data.email, data.pictureUrl);
+            this.props.aggiorna(data.name, data.email, data.pictureUrl, this.props.link);
           }
       }
       .bind(this))

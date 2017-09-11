@@ -17,7 +17,7 @@ export default class QoodleDetails extends Component {
       nome : "",//nome qoodle che mi hanno passato
       email: "",
       realName: "",
-      elements: null
+      elements: []
     }
   }
 
@@ -88,9 +88,12 @@ export default class QoodleDetails extends Component {
   renderElement()
   {
     var detailsList= "questo qoodle non ha elementi";
-    if(this.state.elements != null)
-      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  {ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
+    var sommaTot=0;
+    if(this.state.elements.length > 0)
+      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  {sommaTot = ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
 
+    if (sommaTot === 0)
+      detailsList = <center><h3>"Nessuno ha già scelto qualcosa, comincia tu!"</h3></center>
     return (
     <div>
       {detailsList}

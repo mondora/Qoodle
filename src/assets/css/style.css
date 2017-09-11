@@ -14,9 +14,10 @@ body{
 }
 .header{
   background-color: #FFF;
-  height: 90px;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+  height: 70px;
+  padding-top: 15px;
+  padding-left: 20px;
+  border-bottom: 0px solid #ddd;
 }
 
 #pad{
@@ -411,11 +412,11 @@ table{
 }
 
 .boxList {
-
   width: 300px;
-  background-color: #fff;
+  background-color: #e2f4c7;
   display: inline-block;
-  margin: 0 10px;
+  margin: 0px 10px;
+  padding-top: 5px;
   position: relative;
   vertical-align: top;
   border: 1px;
@@ -863,6 +864,8 @@ option {
 {
   font-style: oblique;
   font-weight: bold;
+  background-color: #e2f4c7;
+  height: 100vh;
 }
 #list h1
 {
@@ -880,7 +883,8 @@ option {
 
 #withBorder
 {
-  border: 0px!important;
+  border: 1px!important;
+  border-color: #e2f4c7;
 }
 .box .list-group
 {
@@ -894,7 +898,7 @@ option {
 }
 .list-group-item:first-child
 {
-  border-top: 3px solid #e2f4c7 !important;
+  border-top: 3px solid #f9d62e !important;
   border-top-right-radius: 10px!important;
   border-top-left-radius: 10px!important;
   padding: 2px 2px !important;
@@ -903,8 +907,8 @@ option {
 
 .list-group-item{
   font-size: 25px;
-  border-left: 3px solid #e2f4c7 !important;
-  border-right: 3px solid #e2f4c7 !important;
+  border-left: 3px solid #f9d62e !important;
+  border-right: 3px solid #f9d62e !important;
   border-top: 3px !important;
   text-align: center!important;
 }
@@ -929,7 +933,7 @@ option {
 
 .list-group-item.list-group-item-warning:hover {
   font-size: 32px;
-  color: #fc913a!important;
+  color: #f9d62e!important;
   background-color: white!important;
 }
 
@@ -1005,9 +1009,9 @@ option {
     border-bottom-right-radius: 10px!important;
     border-bottom-left-radius: 10px!important;
     box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-    border-bottom: 1px solid #e2f4c7 !important;
-    border-left: 1px solid #e2f4c7 !important;
-    border-right: 1px solid #e2f4c7 !important;
+    border-bottom: 1px solid #f9d62e !important;
+    border-left: 1px solid #f9d62e !important;
+    border-right: 1px solid #f9d62e !important;
 
 }
 

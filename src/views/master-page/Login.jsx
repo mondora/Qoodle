@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import InfoModal from '../../components/InfoModal';
 import GoogleLogin from 'react-google-login';
+import logoQoodle from '../../assets/img/logo.png'
 
 export default class Login extends Component {
 
@@ -67,7 +68,7 @@ export default class Login extends Component {
 
     if ( this.props.email === "invalid" )
       bottone = (
-        <center><h3>Per poter accedere al sito devi essere Loggato</h3>
+        <center><h3 id="initialInfo">Accedi per creare, vedere, o partecipare a un Qoodle!</h3>
         <GoogleLogin
         clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
         buttonText="Login"
@@ -85,8 +86,9 @@ export default class Login extends Component {
     }
 
 
-    return (<div>
-
+    return (
+      <div id="initial">
+        <img id="initialLogo" src={logoQoodle} alt="loading" style={{verticalAlign: 'middle', width: 200}} />
         {bottone}
       </div>)
   }

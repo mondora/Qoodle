@@ -1033,3 +1033,24 @@ option {
   font-size: 22px;
   color: #555;
 }
+/*END DETAILS PAGE*/
+
+/*START LOGIN PAGE*/
+#initialLogo
+{
+  margin: 30px;
+  border-radius: 8px;
+}
+#initialInfo
+{
+  padding: 10px;
+  font-family: "Muli", sans-serif;
+  font-style: bold;
+}
+
+#initial
+{
+    background-color: #e2f4c7;
+    height: 100vh;
+}
+/*END LOGIN PAGE*/

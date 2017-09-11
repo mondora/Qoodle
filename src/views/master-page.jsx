@@ -14,6 +14,8 @@ export default class MasterPage extends Component {
       email:"invalid",
       pictureUrl: "invalid"
     }
+
+    sessionStorage.setItem("email", "invalid");
   }
 
 
@@ -29,8 +31,10 @@ export default class MasterPage extends Component {
           email: e,
           pictureUrl: pU
       });
-    }
 
+      sessionStorage.setItem("email", e);
+      window.location = "#/qoodles";
+    }
 
 
     renderMainPage() {

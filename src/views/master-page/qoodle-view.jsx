@@ -114,8 +114,6 @@ export default class QoodleView extends Component {
       elementi[i] = elemento;
 
       this.setState(this.state.elements: elementi);
-
-
     }
 
     Dec(iden)
@@ -134,8 +132,6 @@ export default class QoodleView extends Component {
 
     OpenSummary()
     {
-
-
       var elementi = this.state.elements.map( el => el.counter);
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + this.state.id;
       var myInit = {

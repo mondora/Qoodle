@@ -49,7 +49,7 @@ export default class Login extends Component {
 
 
 
-      window.location = "#/qoodles";
+
 
 
   }

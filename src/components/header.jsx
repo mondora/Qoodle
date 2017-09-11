@@ -23,18 +23,14 @@ export default class Header extends Component {
     {
       const auth2 = window.gapi.auth2.getAuthInstance();
 
+
       auth2.signOut().then( (res) => {
         console.log("disconnesso correttamente");
+        alert("disconnesso correttamente");
       })
       .then(function(data) {
         this.props.aggiorna("invalid", "invalid", "invalid", this.props.link);
       }.bind(this));
-
-
-
-      this.setState({show: !this.state.show});
-
-
 
     }
 
@@ -45,9 +41,7 @@ export default class Header extends Component {
         })
     }
 
-    showModal(){
-      this.setState({show: !this.state.show});
-    }
+
 
 
 
@@ -86,12 +80,6 @@ export default class Header extends Component {
 
                 <Menu isOpenMenu={this.state.isOpenMenu} toggleMenu={this.toggleMenu.bind(this)}/>
 
-
-                  <InfoModal
-                    show={this.state.show}
-                    title="Logout"
-                    info={"Disconnesso correttamente"} //aggiungere nome
-                    showInfoModal={this.showModal.bind(this)}/>
 
               </div>
 

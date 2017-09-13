@@ -251,6 +251,7 @@ renderQoodleElements () {
 
     render() {
         return (
+          <div className="body">
             <div className="row">
 
                   <FormGroup className='medium' bsSize="large">
@@ -266,7 +267,7 @@ renderQoodleElements () {
                       onChange={this.handleOnChangeDescription.bind(this)} />
                   </FormGroup>
 
-                  <FormGroup >
+                  <FormGroup id="padInsertImage">
                     <h3 id="labelinsertImage"> Sfondo del Qoodle: </h3>
                     <FormControl  id="insertImage" onChange={this.handleBackgroundImageChange.bind(this)} type="file" placeholder="sfoglia"/>
                   </FormGroup>
@@ -323,6 +324,7 @@ renderQoodleElements () {
                 showInfoModal={this.showInfoModal.bind(this)}/>
 
             </div>
+          </div>
         );
     }
 

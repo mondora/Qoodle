@@ -17,7 +17,7 @@ class ListPage extends Component {
     {
 
       console.log("test" + process.env.REACT_APP_SPECIFIC_ID );
-      if(sessionStorage.getItem("email").includes("carlo"))
+      if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
       {
         console.log(this.state.auth);
 

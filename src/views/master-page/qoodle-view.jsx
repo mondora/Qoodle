@@ -38,7 +38,7 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      if(sessionStorage.getItem("email").includes("carlo") || sessionStorage.getItem("email").includes("@mondora.com"))
+      if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
       {
 
             if (typeof window !== 'undefined') {

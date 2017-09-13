@@ -27,7 +27,7 @@ export default class QoodleDetails extends Component {
   componentDidMount()
   {
 
-    if(sessionStorage.getItem("email").includes("carlo") || sessionStorage.getItem("email").includes("@mondora.com"))
+    if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
     {
 
         var id;
@@ -103,7 +103,7 @@ export default class QoodleDetails extends Component {
   render()
   {
     return(
-        <div>
+        <div className="body">
           {this.renderElement()}
         </div>
     )

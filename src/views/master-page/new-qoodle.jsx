@@ -251,7 +251,7 @@ renderQoodleElements () {
 
     render() {
         return (
-          <div className="body">
+          <div className="bodyNew">
             <div className="row">
 
                   <FormGroup className='medium' bsSize="large">

@@ -381,6 +381,13 @@ table{
   height: 100vh;
 }
 
+
+.bodyNew
+{
+  background: #e2f4c7;
+  margin-top: 20px;
+}
+
 .body h1 {
   padding-top: 15px;
   color : #fc913a;
@@ -574,9 +581,6 @@ background-color: #ff4e50 !important;
 
 .row{
   width: 100%;
-  margin-right: 0px;
-  margin-left: 0px;
-  margin: 20px;
   background: #e2f4c7;
   text-align: center;
 }
@@ -879,7 +883,6 @@ option {
   font-style: oblique;
   font-weight: bold;
   background-color: #e2f4c7;
-  height: 100%;
 }
 #list h1
 {

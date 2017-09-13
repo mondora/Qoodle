@@ -376,7 +376,7 @@ table{
 
 .body
 {
-  background: #e2f4c7;
+  background: white;
   margin-top: 20px;
   height: 100vh;
 }
@@ -384,7 +384,7 @@ table{
 
 .bodyNew
 {
-  background: #e2f4c7;
+  background: white;
   margin-top: 20px;
 }
 
@@ -426,7 +426,7 @@ table{
 
 .boxList {
   width: 300px;
-  background-color: #e2f4c7;
+  background-color: white;
   display: inline-block;
   margin: 0px 10px;
   padding-top: 5px;
@@ -581,7 +581,7 @@ background-color: #ff4e50 !important;
 
 .row{
   width: 100%;
-  background: #e2f4c7;
+  background: white;
   text-align: center;
 }
 
@@ -882,7 +882,7 @@ option {
 {
   font-style: oblique;
   font-weight: bold;
-  background-color: #e2f4c7;
+  background-color: white;
 }
 #list h1
 {
@@ -901,7 +901,7 @@ option {
 #withBorder
 {
   border: 1px!important;
-  border-color: #e2f4c7;
+  border-color: white;
 }
 .box .list-group
 {
@@ -1076,7 +1076,7 @@ option {
 
 #initial
 {
-    background-color: #e2f4c7;
+    background-color: white;
     height: 100vh;
 }
 /*END LOGIN PAGE*/

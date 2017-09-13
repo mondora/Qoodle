@@ -85,7 +85,7 @@ export default class QoodleDetails extends Component {
     var sommaTot=0;
 
 
-     detailsList =  whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelti: { who.count } </div>);
+     detailsList =  whos.map( (who) => <div className="detail" key={who.name}>- {who.realName}  ne ha scelti: { who.count } </div>);
 
 
 

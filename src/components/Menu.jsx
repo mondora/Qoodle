@@ -24,14 +24,14 @@ export default class Menu extends Component {
               </div>
 
                 <div style={{ textAlign: "center", margin: "calc((100vh - 200px - 40px) / 2 )"}}>
-                  <div onClick={this.open.bind(this, "#/qoodles")} style={{ backgroundColor:"#e2f4c7", display:"inline-block", width:"200px", height:"200px", margin:"20px", color:"#fc913a", borderRadius: "5px"}}>
+                  <div onClick={this.open.bind(this, "#/qoodles")} style={{ backgroundColor:"#e2f4c7", display:"inline-block", width:"200px", height:"200px", margin:"20px", color:"grey", borderRadius: "5px"}}>
                   <div style={{height:"70%", padding:"10px"}}>
                     <i className="fa fa-list-ol" style={{fontSize:"70px", paddingTop:"30px"}}></i>
                   </div>
                   <span style={{fontSize: "24px", fontWeight: "bold"}}>Qoodles List</span>
                     </div>
 
-                  <div onClick={this.open.bind(this, "#/create")} style={{ backgroundColor:"#e2f4c7", display:"inline-block", width:"200px", height:"200px", margin:"20px", color:"#fc913a",  borderRadius: "5px"}}>
+                  <div onClick={this.open.bind(this, "#/create")} style={{ backgroundColor:"#e2f4c7", display:"inline-block", width:"200px", height:"200px", margin:"20px", color:"grey",  borderRadius: "5px"}}>
                   <div style={{height:"70%", padding:"10px"}}>
                     <i className="fa fa-pencil-square-o" style={{fontSize:"70px", paddingTop:"30px"}}></i>
                   </div>

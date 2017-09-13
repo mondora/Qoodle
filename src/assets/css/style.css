@@ -396,8 +396,8 @@ table{
   width: 60vw;
 }
 #create{
+  color: #fc913a;
   padding:0px
-
 }
 
 
@@ -450,7 +450,7 @@ table{
   text-align: center;
   width: 100%;
   max-height: 210px;
-  background-color: #CCC;
+  background-color: #e2f4c7;
   height: 172px;
   color: #FFF
 }
@@ -515,7 +515,7 @@ table{
   display: inline-block;
   text-align: center;
   width: 100%;
-  background-color: #CCC;
+  background-color: #e2f4c7;
   height: 172px;
   color: #FFF
 }
@@ -533,15 +533,15 @@ color: red
   font-size: 30px;
   margin-top: 5vh;
   vertical-align: text-bottom;
-  background: #f9d62e;
+  background: #e2f4c7;
   border: #f9d62e;
   color: #555;
 }
 #buyButton:hover{
 font-size: 35px;
 font-style: bold;
-color: white !important;
-background-color: #ff4e50 !important;
+color: #555 !important;
+background-color: #e2f4c7 !important;
 }
 
 /* END:: QoodleView PAGE */
@@ -937,6 +937,12 @@ option {
   color: white;
 }
 
+.list-group-item.list-group-item-warning:hover {
+  font-size: 32px;
+  color: #fc913a!important;
+  background-color: white!important;
+}
+
 .list-group-item.list-group-item-success{
   color: #555;
   padding-left: 45px;
@@ -948,11 +954,6 @@ option {
 }
 
 
-.list-group-item.list-group-item-warning:hover {
-  font-size: 32px;
-  color: #f9d62e!important;
-  background-color: white!important;
-}
 
 
 #timer
@@ -1019,6 +1020,7 @@ option {
 #partecipants
 {
   color: grey;
+  background: #e2f4c7;
 }
 
 #event
@@ -1052,6 +1054,12 @@ option {
   padding: 20px;
 }
 
+
+
+.detail
+{
+  padding-left: 10px;
+}
 
 #detailsElement
 {

@@ -81,19 +81,29 @@ export default class QoodleDetails extends Component {
 
   renderPeople(whos)
   {
-    return (   whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelti: {who.count}  </div>)   );
+    var detailsList= "questo qoodle non ha elementi";
+    var sommaTot=0;
+
+
+     detailsList =  whos.map( (who) => <div key={who.name}> - {who.realName}  ne ha scelti: {who.count} {sommaTot += who.count} </div>);
+
+
+
+    if (sommaTot === 0)
+      detailsList = <div>  </div>
+
+    return (  detailsList  );
   }
 
 
   renderElement()
   {
-    var detailsList= "questo qoodle non ha elementi";
-    var sommaTot=0;
-    if(this.state.elements.length > 0)
-      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  {sommaTot = ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
+    var detailsList;
 
-    if (sommaTot === 0)
-      detailsList = <center><h3>"Nessuno ha già scelto qualcosa, comincia tu!"</h3></center>
+    if(this.state.elements.length > 0)
+      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  { ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
+
+
     return (
     <div>
       {detailsList}

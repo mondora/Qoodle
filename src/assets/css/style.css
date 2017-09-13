@@ -374,6 +374,12 @@ table{
 
 }
 
+.body
+{
+  background: #e2f4c7;
+  margin-top: 20px;
+  height: 100vh;
+}
 
 .body h1 {
   padding-top: 15px;
@@ -381,7 +387,6 @@ table{
   font-style: oblique;
   font-weight: bold;
   width: 60vw;
-  padding-right: 10vw;
 }
 #create{
   padding:0px
@@ -391,13 +396,14 @@ table{
 
 .body h3 {
     width: 100%;
+    font-size: 25px;
     margin-bottom: auto;
     text-align: center;
     padding-top: 15px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 20px;
-    color : #5888d6;
+    color : #fc913a;
 }
 
 .body #QoodleDescription {
@@ -450,7 +456,7 @@ table{
 
 
 .box {
-    border: 2px solid #5888d6;
+    border: 2px solid #fc913a;
     border-radius: 5px;
     width: 230px;
     background-color: #fff;
@@ -467,8 +473,8 @@ table{
 .box i {
     width: 50px;
     height: 50px;
-    background: #ED277F ;
-    color: #ffffff ;
+    background: #f9d62e;
+    color: #ff4e50;
     border-radius: 25px;
     text-align: center;
     line-height: 50px;
@@ -518,10 +524,17 @@ color: red
   width: 50vw;
   margin: 0 auto;
   font-size: 30px;
-  margin-left: 25vw;
-  margin-bottom: 5vh;
+  margin-top: 5vh;
   vertical-align: text-bottom;
-
+  background: #f9d62e;
+  border: #f9d62e;
+  color: #555;
+}
+#buyButton:hover{
+font-size: 35px;
+font-style: bold;
+color: white !important;
+background-color: #ff4e50 !important;
 }
 
 /* END:: QoodleView PAGE */
@@ -560,20 +573,21 @@ color: red
 }
 
 .row{
+  width: 100%;
   margin-right: 0px;
   margin-left: 0px;
   margin: 20px;
+  background: #e2f4c7;
   text-align: center;
 }
-
 
 
 .col{
   display: inline-block;
   position: relative;
   padding-right: 15px;
-  padding-left: 20px;
-  padding-bottom: 40px;
+  padding-left: 15px;
+  padding-top: 30px;
 }
 
 #sideBar {
@@ -865,7 +879,7 @@ option {
   font-style: oblique;
   font-weight: bold;
   background-color: #e2f4c7;
-  height: 100vh;
+  height: 100%;
 }
 #list h1
 {
@@ -889,7 +903,7 @@ option {
 .box .list-group
 {
   margin-bottom: 0px;
-  font-size: 20pxb
+  font-size: 20px;
 }
 
 .fa.fa-settings
@@ -965,10 +979,15 @@ option {
 
 }
 
+#padInsertImage
+{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
 
 #labelinsertImage
 {
-  display: inline-block;
+  display: inline;
   padding-right: 80px;
   padding-bottom: 20px;
   font-family: "Muli", sans-serif;

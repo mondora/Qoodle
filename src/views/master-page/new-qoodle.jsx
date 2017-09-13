@@ -286,19 +286,19 @@ renderQoodleElements () {
 
 
 
-                       <div className="body">
+
+
                          <center><h1 id="create">{this.state.title}</h1></center>
                          <div className="row">
                            {this.renderQoodleElements()}
                          </div>
-                      </div>
 
-
-              <Button id="saveButton"
-              bsStyle="primary"
+                         <center>
+              <Button
+              id="buyButton"
               onClick={this.sopen.bind(this)}
               >Salva!</Button>
-
+              </center>
 
 
 

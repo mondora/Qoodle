@@ -95,13 +95,14 @@ class ListPage extends Component {
     {
 
       return (
-
+        <div className="body">
         <div id="list">
 
           <div className="row">
             {this.renderListQoodleElements()}
           </div>
 
+        </div>
         </div>
         )
     }

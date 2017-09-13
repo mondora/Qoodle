@@ -229,8 +229,9 @@ export default class QoodleView extends Component {
           </div>
 
 
-
-            <Button id="buyButton" bsStyle="primary" onClick={this.Open.bind(this)}>{this.renderSum()}</Button>
+            <center>
+              <Button id="buyButton" bsStyle="primary" onClick={this.Open.bind(this)}>{this.renderSum()}</Button>
+            </center>
 
               <SummaryModal
                 rows={this.state.elements}

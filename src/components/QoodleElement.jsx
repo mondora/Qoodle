@@ -72,7 +72,7 @@ export default class QoodleElement extends Component {
           </div>
 
 
-        <h3 id="title">{this.props.name}</h3>
+        <h3>{this.props.name}</h3>
 
             <Price coin={this.props.coin} price={this.props.price} um={this.props.um} name={this.props.name}></Price>
 

@@ -113,8 +113,8 @@ export default class ListQoodleElement extends Component {
           <ListGroupItem>
           <center><Image id="event" src={backgroundImage} alt="loading" responsive /></center>
           </ListGroupItem>
-        <ListGroupItem id="QoodleBoxTitle" onClick={() => details(targetId)}>
-            <h2 id="QoodleCardTitle">{this.props.title}</h2>
+        <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>
+            <h2 id="qoodleCardTitle">{this.props.title}</h2>
             <Image id="ingrandimento" src={ingrandimento} width={"40px"} height={"40px"} alt="loading" responsive />
             </ListGroupItem>
 

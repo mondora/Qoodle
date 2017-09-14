@@ -444,6 +444,8 @@ table{
     font-size: 22px
 }
 
+
+
 .boxList #one
 {
   display: inline-block;
@@ -463,10 +465,10 @@ table{
 
 
 .box {
-    border: 2px solid #fc913a;
+    border: 3px solid  	#f9d62e;
     border-radius: 5px;
     width: 230px;
-    background-color: #fff;
+    background-color: #e2f4c7;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: inline-block;
     margin: 0 10px;
@@ -480,8 +482,8 @@ table{
 .box i {
     width: 50px;
     height: 50px;
-    background: #f9d62e;
-    color: #ff4e50;
+    background: white;
+    color:  	#fc913a;
     border-radius: 25px;
     text-align: center;
     line-height: 50px;
@@ -515,10 +517,17 @@ table{
   display: inline-block;
   text-align: center;
   width: 100%;
-  background-color: #e2f4c7;
+  background-color: lightgrey;
   height: 172px;
-  color: #FFF
 }
+
+.box h3
+{
+  font-family: 'Muli';
+  font-size: 28px;
+}
+
+
 .box #spa {
 
 line-height: 172px;
@@ -536,7 +545,9 @@ color: red
   background: #e2f4c7;
   border: #f9d62e;
   color: #555;
+  margin-bottom: 20px;
 }
+
 #buyButton:hover{
 font-size: 35px;
 font-style: bold;
@@ -889,9 +900,9 @@ option {
   color: #f5b95f;
 }
 
-#QoodleCardTitle
+#qoodleCardTitle
 {
-  color: 	black;
+  color: 	#555;
   font-weight: bold;
   font-family: 'Muli' cursive, sans-serif;
 }
@@ -1022,6 +1033,7 @@ option {
   color: grey;
   background: #e2f4c7;
 }
+
 
 #event
 {

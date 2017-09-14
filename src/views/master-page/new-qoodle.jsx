@@ -4,8 +4,7 @@ import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
 import InfoModal from '../../components/InfoModal';
-import kiwi from '../../assets/img/kiwi.png';
-import redApple from '../../assets/img/redApple.png';
+
 
 export default class NewQoodle extends Component {
 

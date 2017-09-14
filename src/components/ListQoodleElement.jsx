@@ -4,7 +4,6 @@ import Countdown from 'react-cntdwn';
 import {ListGroup, ListGroupItem, Image} from 'react-bootstrap';
 import timer  from '../assets/img/timer.png';
 import ingrandimento from '../assets/img/ingrandimento.png'
-import mountain from '../assets/img/montagna.jpg';
 import people from '../assets/img/people.png';
 
 export default class ListQoodleElement extends Component {

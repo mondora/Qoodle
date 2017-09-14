@@ -20,7 +20,7 @@ class ListPage extends Component {
       var client = sessionStorage.getItem("IdClient");
 
 
-      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
+      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodleList';
       var myInit = {
         method: 'post',
         mode: 'cors',

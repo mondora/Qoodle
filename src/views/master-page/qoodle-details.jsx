@@ -27,6 +27,11 @@ export default class QoodleDetails extends Component {
   componentDidMount()
   {
 
+    var token = sessionStorage.getItem("Idtoken");
+    var client = sessionStorage.getItem("IdClient");
+
+
+
     if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
     {
 
@@ -36,12 +41,13 @@ export default class QoodleDetails extends Component {
 
         var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/details/' + id;
         var myInit = {
-              method: 'get',
-              mode: 'cors',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-            };
+          method: 'post',
+          mode: 'cors',
+          body: JSON.stringify({
+            id_token: token,
+            id_client: client
+          })
+        };
 
             var nameLogged = "exampleUser"; var realNameLogged = "realExample";
             if (typeof(Storage) !== "undefined")

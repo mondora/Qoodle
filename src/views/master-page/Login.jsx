@@ -31,7 +31,6 @@ export default class Login extends Component {
         })
       };
 
-
       fetch(url, myInit)
       .then( function(response) {
         if (response.status >= 200 && response.status < 300 && response !== "Invalid ID token.") {

@@ -13,43 +13,40 @@ class ListPage extends Component {
     }
 
 
+
         componentDidMount()
     {
+      var token = sessionStorage.getItem("Idtoken");
+      var client = sessionStorage.getItem("IdClient");
 
-      console.log("test" + process.env.REACT_APP_SPECIFIC_ID );
-      if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
-      {
-        console.log(this.state.auth);
 
-          var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
-          var myInit = {
-                method: 'get',
-                mode: 'cors',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-              };
+      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
+      var myInit = {
+        method: 'post',
+        mode: 'cors',
+        body: JSON.stringify({
+          id_token: token,
+          id_client: client
+        })
+      };
 
-          fetch(url, myInit)
-          .then((res) => {
-            if (res.status >= 200 && res.status < 300) {
-              return res.json();
-            } else {
-              throw new Error('Ooops...something went wrong.');
-            }
-            })
-            .then(function(data) {
-                data.forEach( (ele)=>
-                ele.closingDate = new Date(ele.closingDate).toDateString());;
-                 this.setState({ Qoodle: data });
-            }
-            .bind(this))
-            .catch((error) => { console.error(error); });
+      fetch(url, myInit)
+      .then((res) => {
+        if (res.status >= 200 && res.status < 300) {
+          return res.json();
+        } else {
+          throw new Error('Ooops...something went wrong.');
         }
-        else {
-          alert("NON PUOI ACCEDERE");
-          window.location = "/";
+        })
+        .then(function(data) {
+          console.log(data);
+            data.forEach( (ele)=>
+            ele.closingDate = new Date(ele.closingDate).toDateString());;
+             this.setState({ Qoodle: data });
         }
+        .bind(this))
+        .catch((error) => { console.error(error); });
+
 
 
 

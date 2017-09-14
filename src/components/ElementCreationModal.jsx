@@ -16,8 +16,8 @@ export default class ElementCreationModal extends Component {
             coinoption: '€',
             price: 0,
             img64: '',
-            showAlert: false
-
+            showAlert: false,
+            allOk: true,
         };
     }
 
@@ -36,7 +36,7 @@ export default class ElementCreationModal extends Component {
     {
       if(this.state.max <= mi.target.value)
         this.setState({showAlert: true,
-                min : mi.target.value });
+                 });
       else
       this.setState({showAlert: false,
               min: mi.target.value });
@@ -47,7 +47,7 @@ export default class ElementCreationModal extends Component {
     {
       if(this.state.min > ma.target.value)
         this.setState({showAlert: true,
-                max : ma.target.value });
+                });
       else{
       this.setState({showAlert: false,
               max : ma.target.value });
@@ -118,7 +118,7 @@ export default class ElementCreationModal extends Component {
       if(this.state.showAlert){
         return(
         <ListGroup>
-          <ListGroupItem bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
+          <ListGroupItem id="minMax" bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
         </ListGroup>);
       }
     }

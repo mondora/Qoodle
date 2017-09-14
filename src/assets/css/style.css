@@ -964,6 +964,12 @@ option {
   color: #ff4e50;
 }
 
+#minMax
+{
+  border: 0px solid !important;
+  border-color: white;
+  font-size: 22px;
+}
 
 
 

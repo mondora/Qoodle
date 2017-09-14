@@ -18,6 +18,8 @@ export default class Login extends Component {
   onSignIn(googleUser, id_client) {
 
     var id_token = googleUser.getAuthResponse().id_token;
+    var id_client = "368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+
 
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
       var myInit = {
@@ -25,14 +27,14 @@ export default class Login extends Component {
         mode: 'cors',
         body: JSON.stringify({
           id_token: id_token,
-          id_client: "368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+          id_client: id_client
         })
       };
 
 
       fetch(url, myInit)
       .then( function(response) {
-        if (response.status >= 200 && response.status < 300) {
+        if (response.status >= 200 && response.status < 300 && response !== "Invalid ID token.") {
           return response.json();
         } else {
           throw new Error('Ooops...something went wrong.');
@@ -41,14 +43,14 @@ export default class Login extends Component {
       .then(function(data) {
            this.setState({ user: data });
            if (typeof(Storage) !== "undefined")
-           {
+           {//qui aggiorno sesssionstorage (se la risposta è stata positiva e il token è valido)
             this.props.aggiorna(data.name, data.email, data.pictureUrl, this.props.link);
+            sessionStorage.setItem("Idtoken", id_token);
+            sessionStorage.setItem("IdClient", id_client);
           }
       }
       .bind(this))
       .catch((error) => { console.error(error); });
-
-
 
 
   }

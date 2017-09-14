@@ -33,7 +33,7 @@ export default class MasterPage extends Component {
       });
 
       sessionStorage.setItem("email", e);
-      
+
       window.location = link;
     }
 

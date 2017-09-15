@@ -32,7 +32,6 @@ class ListPage extends Component {
               'id_token': token,
               'id_client': client,
               'email': email
-
             },
           };
 

@@ -38,9 +38,22 @@ export default class QoodleView extends Component {
 
     componentDidMount()
     {
-      if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
-      {
+      var token;
+      var client;
+      var email;
+      var realNameLogged;
 
+      if (typeof(Storage) !== "undefined")
+      {
+        token = sessionStorage.getItem("Idtoken");
+        client = sessionStorage.getItem("IdClient");
+        email = sessionStorage.getItem("email");
+        realNameLogged = localStorage.getItem("name");
+      }
+      else {
+        email = "exampleUser";
+        realNameLogged = "realExample";
+      }
             if (typeof window !== 'undefined') {
             var id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
@@ -52,16 +65,13 @@ export default class QoodleView extends Component {
                   method: 'get',
                   mode: 'cors',
                   headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'id_token': token,
+                    'id_client': client,
+                    'email': email
                   },
                 };
 
-                var nameLogged = "exampleUser"; var realNameLogged = "realExample";
-                if (typeof(Storage) !== "undefined")
-                {
-                  nameLogged = localStorage.getItem("email");
-                  realNameLogged = localStorage.getItem("name");
-                }
 
 
             fetch(url, myInit)
@@ -76,18 +86,13 @@ export default class QoodleView extends Component {
                   title: data.title,
                   description: data.description,
                   closingDate: new Date (data.closingDate),
-                  username: nameLogged,
+                  username: email,
                   realName: realNameLogged
                   });
             }
             .bind(this))
             .catch((error) => { console.error(error); });;
-        }
-        else
-        {
-          alert("NON PUOI ACCEDERE");
-          window.location = "#/";
-        }
+
 
 
     }

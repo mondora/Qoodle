@@ -32,15 +32,20 @@ export default class NewQoodle extends Component {
 
   componentDidMount()
   {
-    if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
-    {
+    var token = sessionStorage.getItem("Idtoken");
+    var client = sessionStorage.getItem("IdClient");
+    var email = sessionStorage.getItem("email");
+
 
         var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/create';
         var myInit = {
               method: 'get',
               mode: 'cors',
               headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'id_token': token,
+                'id_client': client,
+                'email': email
               },
             };
 
@@ -58,14 +63,7 @@ export default class NewQoodle extends Component {
               });
             }
         .bind(this))
-        .catch((error) => { console.error(error); });;
-      }
-      else
-      {
-        alert("NON PUOI ACCEDERE");
-        window.location = "/";
-      }
-
+        .catch((error) => { console.error(error); });
 
 
   }

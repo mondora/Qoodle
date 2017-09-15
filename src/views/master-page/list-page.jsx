@@ -50,7 +50,11 @@ class ListPage extends Component {
              this.setState({ Qoodle: data });
         }
         .bind(this))
-        .catch((error) => { console.error(error); });
+        .catch((error) => {
+          alert("NON PUOI ACCEDERE");
+          console.error(error);
+          window.location = "/";
+          });
 
 
 

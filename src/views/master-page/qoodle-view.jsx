@@ -165,7 +165,7 @@ export default class QoodleView extends Component {
       }
 
       var elementi = this.state.elements.map( el => el.counter);
-      console.log("nonarray", elementi);
+
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + this.state.id;
       var myInit = {
         method: 'post',

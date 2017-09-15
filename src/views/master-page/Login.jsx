@@ -48,7 +48,6 @@ export default class Login extends Component {
             sessionStorage.setItem("IdClient", id_client);
             sessionStorage.setItem("email", data.email);
             sessionStorage.setItem("name", data.name);
-            console.log(sessionStorage.getItem("name"));
           }
       }
       .bind(this))

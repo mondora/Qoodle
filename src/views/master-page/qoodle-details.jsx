@@ -27,11 +27,17 @@ export default class QoodleDetails extends Component {
   componentDidMount()
   {
 
-    var token = sessionStorage.getItem("Idtoken");
-    var client = sessionStorage.getItem("IdClient");
-    var email = sessionStorage.getItem("email");
+    var token;
+    var client;
+    var email;
 
 
+    if (typeof(Storage) !== "undefined")
+    {
+      token = sessionStorage.getItem("Idtoken");
+      client = sessionStorage.getItem("IdClient");
+      email = sessionStorage.getItem("email");
+    }
 
         var id;
         if (typeof window !== 'undefined')

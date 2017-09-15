@@ -16,13 +16,19 @@ class ListPage extends Component {
 
         componentDidMount()
     {
-      var token = sessionStorage.getItem("Idtoken");
-      var client = sessionStorage.getItem("IdClient");
-      var email = sessionStorage.getItem("email");
 
+      var token;
+      var client;
+      var email;
+
+      if (typeof(Storage) !== "undefined")
+      {
+        token = sessionStorage.getItem("Idtoken");
+        client = sessionStorage.getItem("IdClient");
+        email = sessionStorage.getItem("email");
+      }
 
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
-
 
       var myInit = {
             method: 'get',

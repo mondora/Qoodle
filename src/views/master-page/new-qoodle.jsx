@@ -36,6 +36,7 @@ export default class NewQoodle extends Component {
     var token;
     var client;
     var email;
+    
 
     if (typeof(Storage) !== "undefined")
     {

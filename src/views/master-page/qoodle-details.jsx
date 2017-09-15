@@ -29,7 +29,8 @@ export default class QoodleDetails extends Component {
 
     var token;
     var client;
-    var email;
+    var email = "exampleMail";
+    var realNameLogged = "exampleName";
 
 
     if (typeof(Storage) !== "undefined")
@@ -37,6 +38,7 @@ export default class QoodleDetails extends Component {
       token = sessionStorage.getItem("Idtoken");
       client = sessionStorage.getItem("IdClient");
       email = sessionStorage.getItem("email");
+      realNameLogged = localStorage.getItem("name");
     }
 
         var id;
@@ -55,12 +57,6 @@ export default class QoodleDetails extends Component {
               },
             };
 
-            var nameLogged = "exampleUser"; var realNameLogged = "realExample";
-            if (typeof(Storage) !== "undefined")
-            {
-              nameLogged = localStorage.getItem("email");
-              realNameLogged = localStorage.getItem("name");
-            }
 
 
         fetch(url, myInit)
@@ -73,7 +69,7 @@ export default class QoodleDetails extends Component {
             { this.setState({
               nome: data.nome,
               elements: data.elements,
-              email: nameLogged,
+              email: email,
               realName: realNameLogged
               });
         }

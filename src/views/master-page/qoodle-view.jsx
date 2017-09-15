@@ -48,7 +48,7 @@ export default class QoodleView extends Component {
         token = sessionStorage.getItem("Idtoken");
         client = sessionStorage.getItem("IdClient");
         email = sessionStorage.getItem("email");
-        realNameLogged = localStorage.getItem("name");
+        realNameLogged = sessionStorage.getItem("name");
       }
       else {
         email = "exampleUser";
@@ -147,12 +147,25 @@ export default class QoodleView extends Component {
 
     OpenSummary()
     {
-      var token = sessionStorage.getItem("Idtoken");
-      var client = sessionStorage.getItem("IdClient");
-      var email = sessionStorage.getItem("email");
+      var token;
+      var client;
+      var email;
+      var realNameLogged;
 
+      if (typeof(Storage) !== "undefined")
+      {
+        token = sessionStorage.getItem("Idtoken");
+        client = sessionStorage.getItem("IdClient");
+        email = sessionStorage.getItem("email");
+        realNameLogged = sessionStorage.getItem("name");
+      }
+      else {
+        email = "exampleUser";
+        realNameLogged = "realExample";
+      }
 
       var elementi = this.state.elements.map( el => el.counter);
+      console.log("nonarray", elementi);
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + this.state.id;
       var myInit = {
         method: 'post',
@@ -166,8 +179,8 @@ export default class QoodleView extends Component {
         body: JSON.stringify(
           {
             id: this.state.id,
-            username: this.state.username,
-            realName: this.state.realName,
+            username: email,
+            realName: realNameLogged,
             elements : elementi
           })
       };

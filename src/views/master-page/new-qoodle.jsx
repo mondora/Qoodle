@@ -192,11 +192,21 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
   handleSave(date)
   {
+    var token = sessionStorage.getItem("Idtoken");
+    var client = sessionStorage.getItem("IdClient");
+    var email = sessionStorage.getItem("email");
+
 
     var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
     var myInit = {
       method: 'post',
       mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'id_token': token,
+        'id_client': client,
+        'email': email
+      },
       body: JSON.stringify(
         {
           title : this.state.title,

@@ -22,15 +22,7 @@ class ListPage extends Component {
 
 
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
-      var myInit = {
-        method: 'post',
-        mode: 'cors',
-        body: JSON.stringify({
-          id_token: token,
-          id_client: client,
-          email: email
-        })
-      };
+
 
       var myInit = {
             method: 'get',

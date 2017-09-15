@@ -29,11 +29,9 @@ export default class QoodleDetails extends Component {
 
     var token = sessionStorage.getItem("Idtoken");
     var client = sessionStorage.getItem("IdClient");
+    var email = sessionStorage.getItem("email");
 
 
-
-    if(sessionStorage.getItem("email").includes("carlo.m.porelli@gm") || sessionStorage.getItem("email").includes("@mondora.com"))
-    {
 
         var id;
         if (typeof window !== 'undefined')
@@ -41,13 +39,15 @@ export default class QoodleDetails extends Component {
 
         var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/details/' + id;
         var myInit = {
-          method: 'post',
-          mode: 'cors',
-          body: JSON.stringify({
-            id_token: token,
-            id_client: client
-          })
-        };
+              method: 'get',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json',
+                'id_token': token,
+                'id_client': client,
+                'email': email
+              },
+            };
 
             var nameLogged = "exampleUser"; var realNameLogged = "realExample";
             if (typeof(Storage) !== "undefined")
@@ -74,12 +74,6 @@ export default class QoodleDetails extends Component {
         .bind(this))
         .catch((error) => { console.error(error); });;
 
-      }
-      else
-      {
-        alert("NON PUOI ACCEDERE");
-        window.location = "#/";
-      }
   }
 
 

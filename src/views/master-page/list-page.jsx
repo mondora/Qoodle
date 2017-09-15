@@ -18,17 +18,31 @@ class ListPage extends Component {
     {
       var token = sessionStorage.getItem("Idtoken");
       var client = sessionStorage.getItem("IdClient");
+      var email = sessionStorage.getItem("email");
 
 
-      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodleList';
+      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodles';
       var myInit = {
         method: 'post',
         mode: 'cors',
         body: JSON.stringify({
           id_token: token,
-          id_client: client
+          id_client: client,
+          email: email
         })
       };
+
+      var myInit = {
+            method: 'get',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+              'id_token': token,
+              'id_client': client,
+              'email': email
+
+            },
+          };
 
       fetch(url, myInit)
       .then((res) => {

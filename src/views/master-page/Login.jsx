@@ -46,6 +46,7 @@ export default class Login extends Component {
             this.props.aggiorna(data.name, data.email, data.pictureUrl, this.props.link);
             sessionStorage.setItem("Idtoken", id_token);
             sessionStorage.setItem("IdClient", id_client);
+            sessionStorage.setItem("email", data.email);
           }
       }
       .bind(this))

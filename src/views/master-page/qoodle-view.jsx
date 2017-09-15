@@ -147,11 +147,22 @@ export default class QoodleView extends Component {
 
     OpenSummary()
     {
+      var token = sessionStorage.getItem("Idtoken");
+      var client = sessionStorage.getItem("IdClient");
+      var email = sessionStorage.getItem("email");
+
+
       var elementi = this.state.elements.map( el => el.counter);
       var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + this.state.id;
       var myInit = {
         method: 'post',
         mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'id_token': token,
+          'id_client': client,
+          'email': email
+        },
         body: JSON.stringify(
           {
             id: this.state.id,

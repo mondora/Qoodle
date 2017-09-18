@@ -17,7 +17,6 @@ export default class ElementCreationModal extends Component {
             price: 0,
             img64: '',
             showAlert: false,
-            allOk: true,
         };
     }
 
@@ -35,14 +34,12 @@ export default class ElementCreationModal extends Component {
     handleMinChange(mi)
     {
       this.setState({min: mi.target.value});
-      console.log("questo è il minimo ", mi.target.value);
     }
 
 
     handleMaxChange(ma)
     {
       this.setState({max: ma.target.value});
-      console.log("questo è il max ", ma.target.value);
     }
 
     handleUMChange(um)

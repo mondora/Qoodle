@@ -86,7 +86,6 @@ export default class ListQoodleElement extends Component {
 
   render()
   {
-    const {openIt} = this.props;
     const {details} = this.props;
     const targetId = this.props.id;
     const backgroundImage = this.props.backgroundImage;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListGroup, Image} from 'react-bootstrap';
+import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
 
 
 
@@ -61,9 +61,6 @@ export default class ElementCreationModal extends Component {
 
     handleClick()
     {
-      const {onAdd} = this.props;
-
-
       this.props.onAdd(this.state.name,
         this.state.min,
         this.state.max,

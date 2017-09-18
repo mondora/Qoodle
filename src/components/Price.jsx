@@ -16,7 +16,7 @@ export default class Price extends Component{
   {
     var priceString='';
 
-    if(this.props.price != '0')
+    if(this.props.price !== '0')
     {
       priceString = " " +  this.props.price + " " + this.props.coin
       if(this.props.um !== '')

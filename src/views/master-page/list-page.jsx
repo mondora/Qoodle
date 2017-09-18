@@ -50,7 +50,6 @@ class ListPage extends Component {
         }
         })
         .then(function(data) {
-          console.log(data);
             data.forEach( (ele)=>
             ele.closingDate = new Date(ele.closingDate).toDateString());;
              this.setState({ Qoodle: data });

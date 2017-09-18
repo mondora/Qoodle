@@ -1,9 +1,6 @@
 import React, {Component} from "react";
-import ReactDOM from 'react-dom';
-import {Button, Modal, Image} from 'react-bootstrap';
-import GoogleLogin from 'react-google-login';
+import {Button, Image} from 'react-bootstrap';
 import Menu from "./Menu";
-import InfoModal from "./InfoModal";
 import logoQoodle from '../assets/img/logo.png'
 import '../assets/css/styles.css'
 import '../assets/css/style.css'
@@ -50,7 +47,7 @@ export default class Header extends Component {
     render(){
       var bottone;
 
-      if(sessionStorage.getItem("email") != "invalid")
+      if(sessionStorage.getItem("email") !== "invalid")
       {  bottone =
         (
           <div>

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
-import {Button, FormGroup, FormControl, Modal} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 
 export default class InfoModal extends Component {
 

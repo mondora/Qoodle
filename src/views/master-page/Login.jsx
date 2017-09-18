@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-import {Button, FormGroup, FormControl} from 'react-bootstrap';
-import InfoModal from '../../components/InfoModal';
 import GoogleLogin from 'react-google-login';
 import logoQoodle from '../../assets/img/logo.png'
 

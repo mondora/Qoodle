@@ -35,7 +35,7 @@ export default class SummaryModal extends Component {
     {
       if(elements[i].counter)
       {
-        summaryRows.push(<p key={elements[i].name}>
+        summaryRows.push(
           <SummaryRow
           key={elements[i].name}
           name={elements[i].name}
@@ -43,7 +43,7 @@ export default class SummaryModal extends Component {
           counter={elements[i].counter}
           coinoption={elements[i].coinoption}
           umoption={elements[i].umoption}
-          focus={this.props.focus}/></p>
+          focus={this.props.focus}/>
         );
       }
     }

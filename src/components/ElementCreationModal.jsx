@@ -34,29 +34,19 @@ export default class ElementCreationModal extends Component {
 
     handleMinChange(mi)
     {
-      if(this.state.max <= mi.target.value)
-        this.setState({showAlert: true,
-                 });
-      else
-      this.setState({showAlert: false,
-              min: mi.target.value });
+      this.setState({min: mi.target.value});
+      console.log("questo è il minimo ", mi.target.value);
     }
 
 
     handleMaxChange(ma)
     {
-      if(this.state.min > ma.target.value)
-        this.setState({showAlert: true,
-                });
-      else{
-      this.setState({showAlert: false,
-              max : ma.target.value });
-      }
+      this.setState({max: ma.target.value});
+      console.log("questo è il max ", ma.target.value);
     }
 
     handleUMChange(um)
     {
-
       this.setState({umoption : um.target.value});
     }
 
@@ -114,8 +104,7 @@ export default class ElementCreationModal extends Component {
 
     renderAlert()
     {
-
-      if(this.state.showAlert){
+      if(Number(this.state.max) < Number(this.state.min)){
         return(
         <ListGroup>
           <ListGroupItem id="minMax" bsStyle="danger">Il minimo impostato deve essere minore del massimo</ListGroupItem>
@@ -159,10 +148,10 @@ export default class ElementCreationModal extends Component {
                             <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={25} value={name}/>
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" min={0} maxLength={15}/>
+                            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" />
                         </FormGroup>
                         <FormGroup>
-                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" min={0} maxLength={15}/>
+                            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
                         </FormGroup>
 
 

@@ -26,7 +26,7 @@ export default class Header extends Component {
         alert("disconnesso correttamente");
       })
       .then(function(data) {
-        this.props.aggiorna("invalid", "invalid", "invalid", this.props.link);
+        this.props.update("invalid", "invalid", "invalid", this.props.link);
       }.bind(this));
 
     }

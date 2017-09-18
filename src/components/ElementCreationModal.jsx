@@ -33,13 +33,20 @@ export default class ElementCreationModal extends Component {
 
     handleMinChange(mi)
     {
-      this.setState({min: mi.target.value});
+      if(Number(mi.target.value) >= 0)
+        this.setState({min: mi.target.value});
+      else
+        alert("non puoi inserire numeri negativi");
+
     }
 
 
     handleMaxChange(ma)
     {
-      this.setState({max: ma.target.value});
+      if(Number(ma.target.value) >= 0)
+        this.setState({max: ma.target.value});
+      else
+        alert("non puoi inserire numeri negativi");
     }
 
     handleUMChange(um)
@@ -54,7 +61,10 @@ export default class ElementCreationModal extends Component {
 
     handlePriceChange(pr)
     {
-      this.setState({price : pr.target.value});
+      if(Number(pr.target.value) >= 0)
+        this.setState({price : pr.target.value});
+      else
+        alert("il prezzo deve essere un numero positivo");
     }
 
 

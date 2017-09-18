@@ -41,7 +41,7 @@ export default class Login extends Component {
            this.setState({ user: data });
            if (typeof(Storage) !== "undefined")
            {//qui aggiorno sesssionstorage (se la risposta è stata positiva e il token è valido)
-            this.props.aggiorna(data.name, data.email, data.pictureUrl, this.props.link);
+            this.props.update(data.name, data.email, data.pictureUrl, this.props.link);
             sessionStorage.setItem("Idtoken", id_token);
             sessionStorage.setItem("IdClient", id_client);
             sessionStorage.setItem("email", data.email);

@@ -46,10 +46,10 @@ export default class MasterPage extends Component {
 
         if(this.state.email === "invalid")
         {//se è settato, ma non a invalid
-          all = (<div> <Login aggiorna={this.check.bind(this)} email={this.state.email} link={"#/qoodles"} /></div>);
+          all = (<div> <Login update={this.check.bind(this)} email={this.state.email} link={"#/qoodles"} /></div>);
         }
         else {
-          all = (     <div>  <Header aggiorna={this.check.bind(this)} name={this.state.name} pictureUrl={this.state.pictureUrl} link={"#/"}/> {children}   </div>);
+          all = (     <div>  <Header update={this.check.bind(this)} name={this.state.name} pictureUrl={this.state.pictureUrl} link={"#/"}/> {children}   </div>);
         }
 
         return ( <div> {all} </div> );

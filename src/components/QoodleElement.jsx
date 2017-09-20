@@ -34,6 +34,15 @@ export default class QoodleElement extends Component {
   }
 
 
+  renderElementImage()
+  {
+    if (this.props.img64 !== "")
+      return   (
+          <center><Image id="event" src={this.props.img64} alt="loading" responsive /></center>
+    );
+    else return "";
+  }
+
 
 
 
@@ -68,7 +77,7 @@ export default class QoodleElement extends Component {
           {minus}
           {settings}
 
-            <center><Image src={backgroundImage} alt="loading" responsive /></center>
+          {this.renderElementImage()}
           </div>
 
 

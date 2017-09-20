@@ -82,7 +82,16 @@ export default class ListQoodleElement extends Component {
 
   }
 
-
+  renderQoodleImage()
+  {
+    if (this.props.backgroundImage !== "")
+      return   (
+        <ListGroupItem>
+          <center><Image id="event" src={this.props.backgroundImage} alt="loading" responsive /></center>
+        </ListGroupItem>
+    );
+    else return "";
+  }
 
   render()
   {
@@ -108,9 +117,9 @@ export default class ListQoodleElement extends Component {
       <div className='boxList' >
 
           <ListGroup id="withBorder">
-          <ListGroupItem>
-          <center><Image id="event" src={backgroundImage} alt="loading" responsive /></center>
-          </ListGroupItem>
+
+            {this.renderQoodleImage()}
+
         <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>
             <h2 id="qoodleCardTitle">{this.props.title}</h2>
             <Image id="ingrandimento" src={ingrandimento} width={"40px"} height={"40px"} alt="loading" responsive />

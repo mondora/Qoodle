@@ -36,7 +36,7 @@ export default class NewQoodle extends Component {
     var token;
     var client;
     var email;
-    
+
 
     if (typeof(Storage) !== "undefined")
     {
@@ -284,14 +284,15 @@ renderQoodleElements () {
 
                   <FormGroup id="padInsertImage">
                     <h3 id="labelinsertImage"> Sfondo del Qoodle: </h3>
-                    <FormControl  id="insertImage" onChange={this.handleBackgroundImageChange.bind(this)} type="file" placeholder="sfoglia"/>
-                  </FormGroup>
+                      <FormControl  id="insertImage" onChange={this.handleBackgroundImageChange.bind(this)} type="file" placeholder="sfoglia"/>
+                </FormGroup>
 
 
 
 
 
                   <Button
+                  id="addButton"
                   className="cent"
                   bsStyle="primary"
                   bsSize="large"

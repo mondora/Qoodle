@@ -20,10 +20,14 @@ body{
   border-bottom: 0px solid #ddd;
 }
 
+
+
 @media screen and (max-width: 650px) {
     #name, #logoutText{
       display: none;
     }
+
+
 }
 
 
@@ -592,9 +596,9 @@ color: red
 }
 
 #buyButton{
-  width: 50vw;
+  width: 600px;
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 36px;
   margin-top: 5vh;
   vertical-align: text-bottom;
   background: #e2f4c7;
@@ -604,11 +608,40 @@ color: red
 }
 
 #buyButton:hover{
-font-size: 35px;
+font-size: 40px;
 font-style: bold;
 color: #555 !important;
 background-color: #e2f4c7 !important;
 }
+
+
+@media screen and (max-width: 650px) {
+    #buyButton, #addButton{
+      width: 300px;
+    }
+
+    #create
+    {
+      width: 350px
+    }
+
+
+    #labelinsertImage
+    {
+      padding: 10px 10px 10px 30px;
+      display: block;
+    }
+
+    #insertImage
+    {
+      margin: auto;
+      padding: 20px 10px 10px 60px;
+
+      display: block;
+    }
+
+}
+
 
 /* END:: QoodleView PAGE */
 
@@ -616,6 +649,13 @@ background-color: #e2f4c7 !important;
 /* BEGIN:: CREATE PAGE */
 
 
+
+
+.cent
+{
+  width: 500px;
+  font-size: 28px!important;
+}
 
 
 
@@ -1064,8 +1104,9 @@ option {
 #labelinsertImage
 {
   display: inline;
-  padding-right: 80px;
+  padding-right: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
   font-family: "Muli", sans-serif;
   color: #555;
 
@@ -1076,7 +1117,7 @@ option {
 {
   display: inline-block;
   font-size: 20px;
-
+  margin: auto;
 }
 
 

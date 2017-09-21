@@ -53,9 +53,9 @@ export default class Header extends Component {
           <div>
             <span id="pad">
               <span id="name"> {this.props.name}  </span>
-              <Image src={this.props.pictureUrl} width={"10%"} height={"10%"} rounded />
+              <Image src={this.props.pictureUrl} width={"48px"} height={"48px"} rounded />
             </span>
-          <Button bsStyle="primary" bsSize="large" onClick={this.onSignOut.bind(this)}>Logout</Button>
+          <Button className="logoutButton" bsStyle="primary" bsSize="large" onClick={this.onSignOut.bind(this)}><span id="logoutText">Logout</span> <i className="fa fa-sign-out"></i></Button>
           </div>
         )
       }

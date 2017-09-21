@@ -23,15 +23,15 @@ export default class Menu extends Component {
                 <i className="fa fa-times"></i>
               </div>
 
-                <div style={{ textAlign: "center", margin: "calc((100vh - 250px - 40px) / 2 )"}}>
-                  <div id="menuElement" onClick={this.open.bind(this, "#/qoodles")} >
+                <div id="allMenu" >
+                  <div className="menuElement" onClick={this.open.bind(this, "#/qoodles")} >
                   <div className="boxMenu">
                     <i className="fa fa-list-ol" ></i>
                   </div>
                   <span>Qoodles List</span>
                     </div>
 
-                  <div id="menuElement" onClick={this.open.bind(this, "#/create")} style={{ backgroundColor:"#e2f4c7", display:"inline-block", width:"200px", height:"200px", margin:"20px", color:"grey",  borderRadius: "5px"}}>
+                  <div className="menuElement" onClick={this.open.bind(this, "#/create")} >
                   <div className="boxMenu">
                     <i className="fa fa-pencil-square-o"></i>
                   </div>

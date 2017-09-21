@@ -33,13 +33,21 @@ body{
 
 
 .menu{
-  position: absolute;
-  top: 0px;
+  top:0;
+  left:0;
   background-color: white;
-  height: 100vh;
-  width:100vw;
+  position:fixed;
+  padding:0;
+  padding-bottom: 200px;
+  margin:0;
+  width: 100%;
+  height: 100%;
   z-index: 998;
-  margin-right: 20px;
+}
+
+#allMenu{
+  text-align:  center;
+  margin: calc((100vh - 250px - 40px) / 2 );
 }
 .toggleMenu{
   font-size: 50px;
@@ -49,7 +57,7 @@ body{
 
 
 
-#menuElement{
+.menuElement{
   background-color: #e2f4c7;
   display: inline-block;
   width:200px;
@@ -58,7 +66,7 @@ body{
   color:grey;
   border-radius: 5px
 }
-#menuElement span{
+.menuElement span{
   font-size: 24px;
   font-weight: bold
 }
@@ -636,13 +644,60 @@ background-color: #e2f4c7 !important;
     {
       margin: auto;
       padding: 20px 10px 10px 60px;
-
       display: block;
+    }
+
+
+    .menuElement{
+      background-color: #e2f4c7;
+      display: block;
+      width:200px;
+      height:200px;
+      margin:20px;
+      color:grey;
+      border-radius: 5px
+    }
+
+    .menuElement:last-child{
+      background-color: #e2f4c7;
+      display: block;
+      margin-bottom: 200px;
+      width:200px;
+      height:200px;
+      margin:20px;
+      color:grey;
+      border-radius: 5px
+    }
+
+    #allMenu
+    {
+      text-align:  center;
+      margin: 16vh;
     }
 
 }
 
+@media screen and (max-width: 950px) and (min-width: 650px) {
 
+
+  .menuElement{
+    background-color: #e2f4c7;
+    display: block;
+    width:200px;
+    height:200px;
+    margin:20px;
+    color:grey;
+    border-radius: 5px
+  }
+
+#allMenu
+{
+  text-align:  center;
+  margin: 24vh;
+  margin-top: 16vh;
+
+}
+}
 /* END:: QoodleView PAGE */
 
 

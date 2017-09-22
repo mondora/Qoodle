@@ -748,6 +748,9 @@ background-color: #e2f4c7 !important;
       display: none;
     }
 
+    #allMenu{
+      margin: 75px;
+    }
 
 
 }
@@ -782,7 +785,6 @@ background-color: #e2f4c7 !important;
   text-align:  center;
   margin: 24vh;
   margin-top: 16vh;
-
 }
 }
 /* END:: QoodleView PAGE */

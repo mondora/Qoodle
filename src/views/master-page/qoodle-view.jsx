@@ -5,7 +5,7 @@ import SummaryModal from "../../components/SummaryModal";
 import InfoModal from '../../components/InfoModal';
 
 import Timer from "../../components/Timer"
-
+import MobileTimer from "../../components/MobileTimer"
 
 
 export default class QoodleView extends Component {
@@ -248,7 +248,9 @@ export default class QoodleView extends Component {
       (
         <div className="body">
           <div id="demo"></div>
+
           <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
+          <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
 
           <center><h1 >{this.state.title}</h1></center>
           <h3 id="QoodleDescription">{this.state.description}</h3>

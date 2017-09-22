@@ -1,9 +1,8 @@
 import Countdown from 'react-cntdwn';
 import React, {Component} from "react";
-import {Popover} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-export default class Timer extends Component{
+export default class MobileTimer extends Component{
 
 constructor(){
   super();
@@ -19,19 +18,15 @@ render(){
 
   const dateFormat =  {
     day:  'dd' + ' giorni ',
-    hour:  'hh'+ ' ore ',
+    hour:  'hh'+ ' ore ' ,
     minute: 'mm'+ ' minuti ',
     second: ' e '+ 'ss' + ' secondi '
   }
 return(
-    <div id="popover-div">
-      <Popover
-        id="popover-basic"
-        placement="right"
-        title={this.props.title}
-      >
+    <div id="mtimer">
+        <div id="end">{this.props.title}</div>
 
-         <strong>
+         <div id="time"><strong>
                   <Countdown targetDate={this.props.closingQoodle}
                     interval={1000}
                     startDelay={2000}
@@ -40,9 +35,8 @@ return(
                     onFinished={this.props.onFinished}
                     format={dateFormat} />
 
-         </strong>
+                </strong></div>
 
-      </Popover>
     </div>
     )
 }

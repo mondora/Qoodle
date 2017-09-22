@@ -24,7 +24,7 @@ render(){
   }
 return(
     <div id="mtimer">
-        <div id="end">{this.props.title}</div>
+        <div id="endLabel">{this.props.title}</div>
 
          <div id="time"><strong>
                   <Countdown targetDate={this.props.closingQoodle}

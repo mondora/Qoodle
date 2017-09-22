@@ -97,6 +97,26 @@ export default class QoodleView extends Component {
 
     }
 
+    renderMobileSum()
+    {
+      var elementi = this.state.elements;
+
+      var sum = 0, counterSum = 0;
+      for(var i = 0; i<elementi.length; i++){
+        sum += elementi[i].price * elementi[i].counter;
+        counterSum += elementi[i].counter;
+      }
+      sum = "Continua" + "(Totale: " + sum + "€)";
+      counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
+
+      if(this.props.purchase)
+        return sum;
+      else
+        return counterSum;
+
+    }
+
+
 
     renderSum()
     {
@@ -217,6 +237,13 @@ export default class QoodleView extends Component {
     }
 
 
+    renderDescription()
+    {
+      if(this.state.description !== '')
+        return <h3 id="QoodleDescription">{this.state.description}</h3>
+
+
+    }
 
     renderQoodleElements () {
 
@@ -253,15 +280,14 @@ export default class QoodleView extends Component {
           <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
 
           <center><h1 >{this.state.title}</h1></center>
-          <h3 id="QoodleDescription">{this.state.description}</h3>
-
+          {this.renderDescription()}
           <div className="row">
             {this.renderQoodleElements()}
           </div>
 
 
             <center>
-              <Button id="buyButton" bsStyle="primary" onClick={this.Open.bind(this)}>{this.renderSum()}</Button>
+              <Button id="buyButton" bsStyle="primary" onClick={this.Open.bind(this)}><span id="dsum">{this.renderSum()}</span><span id="msum">{this.renderMobileSum()}</span></Button>
             </center>
 
               <SummaryModal

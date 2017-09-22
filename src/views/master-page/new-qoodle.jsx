@@ -311,7 +311,7 @@ renderQoodleElements () {
 
                          <center>
               <Button
-              id="buyButton"
+              id="saveButton"
               onClick={this.sopen.bind(this)}
               >Salva!</Button>
               </center>

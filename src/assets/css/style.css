@@ -430,17 +430,19 @@ table{
   background-color: #f9d62e;
   opacity: 0.7;
   margin: 10px;
+  margin-top: 25px;
   padding: 7px;
   border-radius: 8%;
 }
 
 
-#end
+#endLabel
 {
   text-align: center;
   color: red;
   font-size: 25px;
-  font-family: "Muli";
+  font-family: "Muli", sans-serif;
+  font-weight: bold;
 }
 
 #time
@@ -632,8 +634,8 @@ color: red
 #buyButton{
   width: 600px;
   margin: 0 auto;
-  font-size: 36px;
-  margin-top: 5vh;
+  font-size: 32px;
+  margin-top: 40px;
   vertical-align: text-bottom;
   background: #e2f4c7;
   border: #f9d62e;
@@ -641,8 +643,27 @@ color: red
   margin-bottom: 20px;
 }
 
+#saveButton{
+  width: 600px;
+  margin: 0 auto;
+  font-size: 40px;
+  margin-top: 5vh;
+  vertical-align: text-bottom;
+  color: #555 !important;
+  background-color: #e2f4c7 !important;
+  margin-bottom: 25px;
+}
+
+#saveButton:hover{
+font-size: 50px;
+font-style: bold;
+color: #555 !important;
+background-color: #e2f4c7 !important;
+}
+
+
 #buyButton:hover{
-font-size: 40px;
+font-size: 37px;
 font-style: bold;
 color: #555 !important;
 background-color: #e2f4c7 !important;
@@ -650,9 +671,19 @@ background-color: #e2f4c7 !important;
 
 
 @media screen and (max-width: 660px) {
-    #buyButton, #addButton{
+    #buyButton{
+      width: 350px;
+      margin-top: 30px;
+    }
+
+    #addButton{
       width: 300px;
     }
+
+    #saveButton{
+      width: 300px;
+    }
+
 
     #create
     {
@@ -713,12 +744,21 @@ background-color: #e2f4c7 !important;
       display: none;
     }
 
+    #dsum{
+      display: none;
+    }
+
 
 
 }
 
 @media screen and (min-width: 660px) {
     #mtimer
+    {
+      display: none;
+    }
+
+    #msum
     {
       display: none;
     }

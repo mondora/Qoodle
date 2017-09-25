@@ -668,6 +668,10 @@ color: #555 !important;
 background-color: #e2f4c7 !important;
 }
 
+.Cal__Container__root
+{
+  width: 550px!important;
+}
 
 @media screen and (max-width: 660px) {
     #buyButton{
@@ -1257,6 +1261,8 @@ option {
 
 .list-group-item.list-group-item-danger{
   color: #ff4e50;
+  font-size: 45px;
+  padding: 11px;
 }
 
 #minMax

@@ -67,14 +67,14 @@ export default class SummaryModal extends Component {
 
 
       return (
-          <Modal show={this.props.show}>
+          <Modal id="summary" show={this.props.show}>
               <Modal.Header>
                   <Modal.Title>{"Riassunto Scelte prese"}</Modal.Title>
               </Modal.Header>
               {this.renderSummaryRows()}
               <Modal.Footer>
-                  <Button id="check" onClick={check}>{"Controlla lista, INDIETRO"}</Button>
-                  <Button id="continue" onClick={close}>{"Lista esatta, PROCEDI"}</Button>
+                  <Button id="check" onClick={check}><span id="checkList">{"Controlla lista, "}</span>{"INDIETRO"}</Button>
+                  <Button id="continue" onClick={close}><span id="okList">{"Lista esatta, "}</span>{"PROCEDI"}</Button>
               </Modal.Footer>
           </Modal>
       )

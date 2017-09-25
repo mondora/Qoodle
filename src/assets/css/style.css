@@ -647,7 +647,6 @@ color: red
   width: 600px;
   margin: 0 auto;
   font-size: 40px;
-  margin-top: 5vh;
   vertical-align: text-bottom;
   color: #555 !important;
   background-color: #e2f4c7 !important;
@@ -670,7 +669,7 @@ background-color: #e2f4c7 !important;
 }
 
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 670px) {
     #buyButton{
       width: 350px;
       margin-top: 30px;
@@ -753,6 +752,23 @@ background-color: #e2f4c7 !important;
     }
 
 
+
+    #checkList, #okList{
+      display: none;
+    }
+
+
+    #summary
+    {
+      margin-top: 80px;
+    }
+
+    .modal-body
+    {
+      padding:35 px;
+    }
+
+
 }
 
 @media screen and (min-width: 660px) {
@@ -787,6 +803,17 @@ background-color: #e2f4c7 !important;
   margin-top: 16vh;
 }
 }
+
+#continue
+{
+  background-color:  	#e2f4c7;
+  font-weight: bold;
+}
+
+#check
+{
+  background-color: #f9d62e;
+}
 /* END:: QoodleView PAGE */
 
 
@@ -808,6 +835,7 @@ background-color: #e2f4c7 !important;
   position: relative;
   font-size: 35px;
   background-color: green;
+  margin-top: 25px;
 }
 
 

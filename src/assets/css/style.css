@@ -1223,7 +1223,7 @@ option {
   border-top: 3px solid #f9d62e !important;
   border-top-right-radius: 10px!important;
   border-top-left-radius: 10px!important;
-  padding: 2px 2px !important;
+  padding: 1px 2px !important;
 
 }
 
@@ -1233,6 +1233,7 @@ option {
   border-right: 3px solid #f9d62e !important;
   border-top: 3px !important;
   text-align: center!important;
+  top: -7px;
 }
 
 .list-group-item.list-group-item-warning{
@@ -1339,6 +1340,7 @@ option {
 #event
 {
   border-radius:  5px;
+
 }
 
 .list-group-item:last-child {
@@ -1351,6 +1353,21 @@ option {
     border-right: 1px solid #f9d62e !important;
 
 }
+
+  #oneEvent
+  {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background-color: lightyellow;
+    height: 152px;
+    border-top-left-radius:  10px;
+    border-top-right-radius: 10px;
+    border-left: 3px solid #f9d62e !important;
+    border-right: 3px solid #f9d62e !important;
+    border-top: 3px solid #f9d62e !important;
+
+  }
 
 
 

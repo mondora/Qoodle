@@ -12,7 +12,7 @@ export default class NewQoodle extends Component {
   {
     super(props);
     this.state = {
-      title: 'Dovrò mettere qui il Title',
+      title: 'Inserisci titolo',
       globalId: 0,
       description: '',
       showColumnModal : false,
@@ -273,7 +273,7 @@ renderQoodleElements () {
                     <FormControl
                     type="text"
                     placeholder="Title"
-                    onChange={ this.handleOnChangeTitle.bind(this)} maxLength={25}/>
+                    onChange={ this.handleOnChangeTitle.bind(this)} maxLength={15}/>
                   </FormGroup>
 
                     <FormGroup className='medium'>

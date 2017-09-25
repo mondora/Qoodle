@@ -669,7 +669,7 @@ background-color: #e2f4c7 !important;
 }
 
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 660px) {
     #buyButton{
       width: 350px;
       margin-top: 30px;
@@ -768,6 +768,32 @@ background-color: #e2f4c7 !important;
       padding:35 px;
     }
 
+    .Cal__Container__root
+    {
+      width: 342px!important;
+    }
+
+    .modal-body
+    {
+      padding: 3px;
+      height:390px;
+    }
+
+    #save
+    {
+      padding-left: 0px!important;
+      height: 540px;
+    }
+
+    #save .modal-body
+    {
+      padding: 1px;
+    }
+
+    #fade.in.modal
+    {
+      height: 550px!important;
+    }
 
 }
 
@@ -783,7 +809,7 @@ background-color: #e2f4c7 !important;
     }
 }
 
-@media screen and (max-width: 950px) and (min-width: 650px) {
+@media screen and (max-width: 950px) and (min-width: 660px) {
 
 
   .menuElement{

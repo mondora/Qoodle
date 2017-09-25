@@ -31,7 +31,7 @@ export default class SaveModal extends Component{
 
 
       return (
-          <Modal show={this.props.show}>
+          <Modal id="save" show={this.props.show}>
               <Modal.Header>
                   <Modal.Title>{"Imposta una data termine compiere scelte."}</Modal.Title>
               </Modal.Header>
@@ -39,10 +39,8 @@ export default class SaveModal extends Component{
               <Modal.Body>
 
                 <div className="block">
-                    <InfiniteCalendar
-                        width={570}
-                        height={300}
-                        disabledDays={[0,6]}
+                    <InfiniteCalendar id="calendar"
+                        height={250}
                         minDate={lastWeek}
                         selected={this.state.chiusura}
                         onSelect={this.selectDate.bind(this)}

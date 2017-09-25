@@ -71,7 +71,9 @@ export default class SummaryModal extends Component {
               <Modal.Header>
                   <Modal.Title>{"Riassunto Scelte prese"}</Modal.Title>
               </Modal.Header>
+            <Modal.Body id="checkL">
               {this.renderSummaryRows()}
+            </Modal.Body>
               <Modal.Footer>
                   <Button id="check" onClick={check}><span id="checkList">{"Controlla lista, "}</span>{"INDIETRO"}</Button>
                   <Button id="continue" onClick={close}><span id="okList">{"Lista esatta, "}</span>{"PROCEDI"}</Button>

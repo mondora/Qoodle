@@ -69,13 +69,18 @@ export default class Login extends Component {
 
     if ( this.props.email === "invalid" )
       bottone = (
+
         <center><h3 id="initialInfo">Accedi per creare, vedere, o partecipare a un Qoodle!</h3>
-        <GoogleLogin
-        clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        /></center>);
+        
+          <GoogleLogin
+          clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          >
+            <span id="loginLabel">Login</span>
+          </GoogleLogin>
+        </center>
+        );
     else {
 
       bottone =

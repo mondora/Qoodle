@@ -1417,6 +1417,7 @@ option {
   margin: 30px;
   border-radius: 8px;
 }
+
 #initialInfo
 {
   padding: 10px;
@@ -1429,4 +1430,11 @@ option {
     background-color: white;
     height: 100vh;
 }
+
+#loginLabel
+{
+  font-size: 40px;
+  font-family: 'Muli', serif;
+}
+
 /*END LOGIN PAGE*/

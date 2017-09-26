@@ -76,6 +76,9 @@ export default class QoodleDetails extends Component {
         .bind(this))
         .catch((error) => { console.error(error); });;
 
+
+
+
   }
 
 
@@ -83,11 +86,16 @@ export default class QoodleDetails extends Component {
 
   renderPeople(whos)
   {
-    var detailsList= "questo qoodle non ha elementi";
-    var sommaTot=0;
+    var detailsList= [];
 
 
-     detailsList =  whos.map( (who) => <div className="detail" key={who.name}>- {who.realName}  ne ha scelti: { who.count } </div>);
+    whos.map( (who) =>
+        detailsList.push( {
+              who:  who.realName,
+              how:  who.count
+          }
+        )
+      );
 
 
 
@@ -97,15 +105,39 @@ export default class QoodleDetails extends Component {
 
   renderElement()
   {
-    var detailsList;
+  /*  var detailsList;
+    console.log(this.state.elements);
 
     if(this.state.elements.length > 0)
-      detailsList = (this.state.elements.map( (ele) => <div id="detailsElement" key={ele.what}> <div className="elements"> l'elemento ( {ele.what} ) è stato scelto scelto complessivamente:  { ele.whos.reduce( (pv, cv) => pv + cv.count , 0)}  volte</div> <div>{this.renderPeople(ele.whos)}</div>  </div> ));
+      detailsList = (this.state.elements.map( (ele) =>
+      JSON.stringify({
+        "what": ele.what,
+        "howPurchase": ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
+        "whos": [this.renderPeople(ele.whos)],
+      })
+    ));*/
 
+
+    var detailsList=[];
+    console.log(this.state.elements);
+
+    if(this.state.elements.length > 0)
+      this.state.elements.forEach( (ele) =>
+      detailsList.push( {
+        what: ele.what,
+        howPurchase: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
+        whos: this.renderPeople(ele.whos),
+      })
+    );
+
+    console.log("PRIMA", detailsList)
+    detailsList = JSON.stringify(detailsList);
+
+    console.log(detailsList);
 
     return (
     <div>
-      {detailsList}
+      ciao
     </div>);
   }
 

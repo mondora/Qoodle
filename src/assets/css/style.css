@@ -9,6 +9,18 @@ body{
   background-color: #F4F4F4;
 }
 
+#pie
+{
+  width: 500px;
+  height: 500px;
+}
+#legend
+{
+  position: absolute;
+  right: 50px;
+  top: 100px;
+}
+
 .hidden{
   display: none;
 }

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import Pie from "../../components/Pie.jsx";
 
 
 
@@ -103,7 +104,7 @@ export default class QoodleDetails extends Component {
   }
 
 
-  renderElement()
+  render()
   {
   /*  var detailsList;
     console.log(this.state.elements);
@@ -124,31 +125,36 @@ export default class QoodleDetails extends Component {
     if(this.state.elements.length > 0)
       this.state.elements.forEach( (ele) =>
       detailsList.push( {
-        what: ele.what,
-        howPurchase: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
-        whos: this.renderPeople(ele.whos),
+        label: ele.what,
+        value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0)
       })
     );
 
     console.log("PRIMA", detailsList)
-    detailsList = JSON.stringify(detailsList);
+    console.log("nr el", detailsList.length);
+    var tot = detailsList.reduce( (pv, el) => pv + el.value , 0)
+    console.log("TOTALE: ", tot);
+    var sliceList = [];
 
-    console.log(detailsList);
+    var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
 
-    return (
-    <div>
-      ciao
-    </div>);
-  }
+    var i = 0;
+    detailsList.forEach( (el) =>
+       sliceList.push( {
+            label: el.label,
+            value: Math.round(el.value / tot * 100, -1),
+            color: palette[(i++) % detailsList.length]
+          }) );
 
-  render()
-  {
+    console.log("PRIMA", sliceList);
     return(
         <div className="body">
-          {this.renderElement()}
+          <Pie data={sliceList} />
         </div>
-    )
+    );
   }
+
+
 
 
 }

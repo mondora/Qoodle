@@ -132,26 +132,30 @@ export default class QoodleDetails extends Component {
 
     console.log("PRIMA", detailsList)
     console.log("nr el", detailsList.length);
-    var tot = detailsList.reduce( (pv, el) => pv + el.value , 0)
+    var tot = detailsList.reduce( (pv, el) => pv + el.value , 0);
     console.log("TOTALE: ", tot);
     var sliceList = [];
 
     var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
 
-    var i = 0;
-    detailsList.forEach( (el) =>
-       sliceList.push( {
-            label: el.label,
-            value: Math.round(el.value / tot * 100, -1),
-            color: palette[(i++) % detailsList.length]
-          }) );
+    if (detailsList.length > 0 && tot !== 0)
+    {
+            var i = 0;
+            detailsList.forEach( (el) =>
+               sliceList.push( {
+                    label: el.label,
+                    value: Math.round(el.value / tot * 100, -1),
+                    color: palette[(i++) % detailsList.length]
+                  }) );
 
-    console.log("PRIMA", sliceList);
-    return(
-        <div className="body">
-          <Pie data={sliceList} />
-        </div>
-    );
+            console.log("PRIMA", sliceList);
+            return(
+                <div className="body">
+                  <Pie data={sliceList} />
+                </div>
+            );
+        }
+        else{ return <div className="body"><center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center></div>}
   }
 
 

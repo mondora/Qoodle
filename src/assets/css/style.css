@@ -11,8 +11,9 @@ body{
 
 #pie
 {
-  width: 500px;
-  height: 500px;
+  width: 750px;
+  height: 750px;
+  padding-left: 200px;
 }
 #legend
 {
@@ -812,6 +813,23 @@ background-color: #e2f4c7 !important;
     #fade.in.modal
     {
       height: 550px!important;
+    }
+
+
+    #pie
+    {
+      width: 300px;
+      height: 300px;
+      padding-left: 70px;
+      padding-top: 10px;
+    }
+    #legend
+    {
+      font-size: 20px;
+      position: relative;
+      top:0px;
+      right: 0px;
+      margin: 5px;
     }
 
 }

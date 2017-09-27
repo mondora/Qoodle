@@ -26,7 +26,6 @@ const {expandedSector} = this.state
 
      return (
        <div>
-       <center >
        <div id="pie">
        <PieChart
            data={ this.props.data }
@@ -38,7 +37,7 @@ const {expandedSector} = this.state
            expandOnHover
            shrinkOnTouchEnd
        />
-
+</div>
 
      <div  id="legend">
 
@@ -46,15 +45,14 @@ const {expandedSector} = this.state
             this.props.data.map((element, i) => (
                 <div key={i} >
                     <span style={{backgroundColor: element.color}}></span>
-                      <span style={{fontWeight: this.state.expandedSector === i ? "bold" : null, color: element.color, fontSize: "30px"}}>
-                         {element.label} : {element.value}
+                      <span style={{fontWeight: this.state.expandedSector === i ? "bold" : null, color: element.color, fontSize: "25px"}}>
+                        {element.label} è stato scelto/a: {element.value} volte
                     </span>
                 </div>
             ))
         }
-        </div>
+
       </div>
-      </center>
       </div>);
 
   }

@@ -120,7 +120,7 @@ export default class QoodleDetails extends Component {
             console.log("DOPO slice", sliceList);
             return(
 
-                  <Pie data={sliceList}  />
+                  <Pie data={sliceList} tot={tot} />
 
             );
         }
@@ -196,7 +196,7 @@ export default class QoodleDetails extends Component {
                 console.log("PRIMA", sliceList);
                 return(
 
-                      <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} />
+                      <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} />
 
                 );
             }

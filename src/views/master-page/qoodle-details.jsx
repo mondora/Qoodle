@@ -126,7 +126,8 @@ export default class QoodleDetails extends Component {
       this.state.elements.forEach( (ele) =>
       detailsList.push( {
         label: ele.what,
-        value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0)
+        value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
+        whos: [this.renderPeople(ele.whos)],
       })
     );
 

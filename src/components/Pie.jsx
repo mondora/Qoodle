@@ -46,7 +46,7 @@ const {expandedSector} = this.state
                 <div key={i} >
                     <span style={{backgroundColor: element.color}}></span>
                       <span style={{fontWeight: this.state.expandedSector === i ? "bold" : null, color: element.color, fontSize: "25px"}}>
-                        {element.label} è stato scelto/a: {element.value} volte
+                       L'elemento {element.label} è stato scelto: {element.value} volte
                     </span>
                 </div>
             ))

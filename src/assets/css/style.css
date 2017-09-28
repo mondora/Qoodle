@@ -13,13 +13,20 @@ body{
 {
   width: 750px;
   height: 750px;
-  padding-left: 200px;
+  padding-left: 180px;
 }
 #legend
 {
+  font-family: 'Muli', serif;
   position: absolute;
   right: 50px;
   top: 100px;
+  background-color: #555;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0.9;
+  max-width: 650px;
+  width: 590px;
 }
 
 .hidden{
@@ -830,6 +837,7 @@ background-color: #e2f4c7 !important;
       top:0px;
       right: 0px;
       margin: 5px;
+      max-width: 360px;
     }
 
 }

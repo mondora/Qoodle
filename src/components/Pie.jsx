@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import PieChart from "react-svg-piechart"
+import Torta from "./Torta.jsx";
 
 export default class Pie extends Component {
 
@@ -27,7 +27,7 @@ const {expandedSector} = this.state
      return (
        <div>
        <div id="pie">
-       <PieChart
+       <Torta
            data={ this.props.data }
            sectorStrokeWidth={2}
            expandedSector={expandedSector}
@@ -53,6 +53,19 @@ const {expandedSector} = this.state
         }
 
       </div>
+
+      <Torta
+          data={ this.props.data }
+          sectorStrokeWidth={2}
+          expandedSector={expandedSector}
+          onSectorHover={this.handleMouseEnterOnSector.bind(this)}
+          width={500}
+          height={500}
+          expandOnHover
+          shrinkOnTouchEnd
+      />
+
+
       </div>);
 
   }

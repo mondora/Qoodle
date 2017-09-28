@@ -34,7 +34,7 @@ export default class Pie extends Component {
   if(this.props.onSectorClick)
     legendString = "L'elemento " + element.label + " è stato scelto: " + Math.round(element.value  * this.props.tot / 100) +" volte";
   else
-    legendString = element.label + " ha scelto " + this.props.element + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
+    legendString = element.label + " ha scelto " + this.props.title + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
 
     return legendString;
   }
@@ -54,6 +54,7 @@ const {expandedSector} = this.state
      return (
        <div>
        <div id="pie">
+         <center><h1> {this.props.title}</h1></center>
        <Torta
            data={ this.props.data }
            sectorStrokeWidth={2}

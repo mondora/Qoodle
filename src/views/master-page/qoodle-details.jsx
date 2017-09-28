@@ -113,7 +113,7 @@ export default class QoodleDetails extends Component {
                   }) );
 
             console.log("DOPO slice", sliceList);
-            return(  <Pie data={sliceList} tot={tot} element={detailsList[sector].label} back={this.returnAtQoodle.bind(this)}/>  );
+            return(  <Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} />  );
         }
         else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
 
@@ -144,7 +144,7 @@ export default class QoodleDetails extends Component {
                       }) );
 
                 //console.log("PRIMA", sliceList);
-                return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} /> );
+                return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome}/> );
             }
             else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
 

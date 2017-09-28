@@ -31,7 +31,7 @@ export default class Pie extends Component {
   if(this.props.onSectorClick)
     legendString = "L'elemento " + element.label + " è stato scelto: " + Math.round(element.value  * this.props.tot / 100) +" volte";
   else
-    legendString = element.label + " ha scelto " + Math.round(element.value  * this.props.tot / 100)+ " volte";
+    legendString = element.label + " ha scelto " + this.props.element + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
 
     return legendString;
   }

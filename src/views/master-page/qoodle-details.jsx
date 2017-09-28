@@ -120,7 +120,7 @@ export default class QoodleDetails extends Component {
             console.log("DOPO slice", sliceList);
             return(
 
-                  <Pie data={sliceList} tot={tot} />
+                  <Pie data={sliceList} tot={tot} element={detailsList[sector].label}/>
 
             );
         }

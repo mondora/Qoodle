@@ -83,7 +83,6 @@ export default class QoodleDetails extends Component {
 
 
   handleClickOnSector(sect) {
-    console.log("DENTROPIE SETTORE:",sect);
 
     this.setState({sector: sect});
   }
@@ -97,7 +96,6 @@ export default class QoodleDetails extends Component {
 
         //riduco il settore chi ha fatto quelle scelte
     var tot = detailsList[sector].whos.reduce( (pv, el) => pv + el.how , 0);
-    console.log("TOTALE: ", tot);
     var sliceList = [];
 
     var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
@@ -152,7 +150,7 @@ export default class QoodleDetails extends Component {
 
   renderPart(){
     var detailsList = [];
-    console.log(this.state.elements);
+    //console.log(this.state.elements);
 
     if(this.state.elements.length > 0)
       this.state.elements.forEach( (ele) =>

@@ -147,8 +147,6 @@ export default class QoodleView extends Component {
       var elemento = elementi[i];
 
 
-      console.log(elemento.counter , "max", elemento.max)
-
       if( (elemento.counter +1) <=  elemento.max  ){
         elemento.counter++;
         elementi[i] = elemento;
@@ -166,8 +164,6 @@ export default class QoodleView extends Component {
       var i =elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
-
-      console.log(elemento.counter , "min", elemento.min)
       if(elemento.counter >= 0 && (elemento.counter -1) >= elemento.min)
       {
         elemento.counter--;

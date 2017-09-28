@@ -18,7 +18,8 @@ export default class QoodleDetails extends Component {
       nome : "",//nome qoodle che mi hanno passato
       email: "",
       realName: "",
-      elements: []
+      elements: [],
+      sector: -1
     }
   }
 
@@ -82,6 +83,60 @@ export default class QoodleDetails extends Component {
 
   }
 
+  renderElementPie()
+  {
+    var sector = this.state.sector;
+    var detailsList=[];
+    console.log(this.state.elements);
+
+    if(this.state.elements.length > 0)
+      this.state.elements.forEach( (ele) =>
+      detailsList.push( {
+        label: ele.what,
+        value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
+        whos: this.renderPeople(ele.whos),
+      })
+    );
+
+    console.log("PRIMA", detailsList[sector])
+    console.log("nr el", detailsList.length);
+    //riduco il settore chi ha fatto quelle scelte
+    var tot = detailsList[sector].whos.reduce( (pv, el) => pv + el.how , 0);
+    console.log("TOTALE: ", tot);
+    var sliceList = [];
+
+    var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
+
+    if (detailsList[sector].whos.length > 0 && tot !== 0)
+    {
+            var i = 0;
+            detailsList[sector].whos.forEach( (el) =>
+               sliceList.push( {
+                    label: el.who,
+                    value: Math.round(el.how / tot * 100, -1),
+                    color: palette[(i++) % detailsList[sector].whos.length]
+                  }) );
+
+            console.log("DOPO slice", sliceList);
+            return(
+
+                  <Pie data={sliceList}  />
+
+            );
+        }
+        else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
+
+  }
+
+  handleClickOnSector(sect) {
+      console.log("DENTROPIE SETTORE:",sect);
+      alert("CLICCATO SUL fdsafdsaSETTORE", sect);//WHY??
+
+      this.setState({sector: sect});
+
+
+
+  }
 
 
 
@@ -104,59 +159,58 @@ export default class QoodleDetails extends Component {
   }
 
 
+
+  renderQoodle()
+  {
+
+        var detailsList=[];
+        console.log(this.state.elements);
+
+        if(this.state.elements.length > 0)
+          this.state.elements.forEach( (ele) =>
+          detailsList.push( {
+            label: ele.what,
+            value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
+            whos: [this.renderPeople(ele.whos)],
+          })
+        );
+
+        console.log("PRIMA", detailsList)
+        console.log("nr el", detailsList.length);
+        var tot = detailsList.reduce( (pv, el) => pv + el.value , 0);
+        console.log("TOTALE: ", tot);
+        var sliceList = [];
+
+        var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
+
+        if (detailsList.length > 0 && tot !== 0)
+        {
+                var i = 0;
+                detailsList.forEach( (el) =>
+                   sliceList.push( {
+                        label: el.label,
+                        value: Math.round(el.value / tot * 100, -1),
+                        color: palette[(i++) % detailsList.length]
+                      }) );
+
+                console.log("PRIMA", sliceList);
+                return(
+
+                      <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} />
+
+                );
+            }
+            else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
+
+  }
+
   render()
   {
-  /*  var detailsList;
-    console.log(this.state.elements);
+    if(this.state.sector === -1)
+      return <div className="body">{this.renderQoodle()}</div>;
+    else
+      return <div className="body">{this.renderElementPie()}</div>;
 
-    if(this.state.elements.length > 0)
-      detailsList = (this.state.elements.map( (ele) =>
-      JSON.stringify({
-        "what": ele.what,
-        "howPurchase": ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
-        "whos": [this.renderPeople(ele.whos)],
-      })
-    ));*/
-
-
-    var detailsList=[];
-    console.log(this.state.elements);
-
-    if(this.state.elements.length > 0)
-      this.state.elements.forEach( (ele) =>
-      detailsList.push( {
-        label: ele.what,
-        value: ele.whos.reduce( (pv, cv) => pv + cv.count , 0),
-        whos: [this.renderPeople(ele.whos)],
-      })
-    );
-
-    console.log("PRIMA", detailsList)
-    console.log("nr el", detailsList.length);
-    var tot = detailsList.reduce( (pv, el) => pv + el.value , 0);
-    console.log("TOTALE: ", tot);
-    var sliceList = [];
-
-    var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
-
-    if (detailsList.length > 0 && tot !== 0)
-    {
-            var i = 0;
-            detailsList.forEach( (el) =>
-               sliceList.push( {
-                    label: el.label,
-                    value: Math.round(el.value / tot * 100, -1),
-                    color: palette[(i++) % detailsList.length]
-                  }) );
-
-            console.log("PRIMA", sliceList);
-            return(
-                <div className="body">
-                  <Pie data={sliceList} />
-                </div>
-            );
-        }
-        else{ return <div className="body"><center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center></div>}
   }
 
 

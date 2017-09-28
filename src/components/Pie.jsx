@@ -15,14 +15,32 @@ export default class Pie extends Component {
 
   }
 
+
+  handleClickOnSector(sector) {
+      console.log("DENTROPIE SETTORE:",sector);
+      alert("CLICCATO SUL SETTORE", sector);//WHY??
+  }
+
   handleMouseEnterOnSector(sector) {
       this.setState({expandedSector: sector})
   }
 
 
+  renderLegendElement(element){
+    var legendString ="";
+  if(this.props.onSectorClick)
+    legendString = "L'elemento " + element.label + " è stato scelto: " + element.value +" volte";
+  else
+    legendString = element.label + " ha scelto " + element.value + " volte";
+
+    return legendString;
+  }
+
 
 render() {
 const {expandedSector} = this.state
+
+
 
      return (
        <div>
@@ -32,6 +50,7 @@ const {expandedSector} = this.state
            sectorStrokeWidth={2}
            expandedSector={expandedSector}
            onSectorHover={this.handleMouseEnterOnSector.bind(this)}
+           onSectorClick={this.props.onSectorClick}
            width={500}
            height={500}
            expandOnHover
@@ -46,7 +65,7 @@ const {expandedSector} = this.state
                 <div key={i} >
                     <span style={{backgroundColor: element.color}}></span>
                       <span style={{fontWeight: this.state.expandedSector === i ? "bold" : null, color: element.color, fontSize: "25px"}}>
-                       L'elemento {element.label} è stato scelto: {element.value} volte
+                       {this.renderLegendElement(element)}
                     </span>
                 </div>
             ))
@@ -54,16 +73,6 @@ const {expandedSector} = this.state
 
       </div>
 
-      <Torta
-          data={ this.props.data }
-          sectorStrokeWidth={2}
-          expandedSector={expandedSector}
-          onSectorHover={this.handleMouseEnterOnSector.bind(this)}
-          width={500}
-          height={500}
-          expandOnHover
-          shrinkOnTouchEnd
-      />
 
 
       </div>);

@@ -29,6 +29,12 @@ body{
   width: 590px;
 }
 
+#back
+{
+  float: right;
+  margin: 30px;
+}
+
 .hidden{
   display: none;
 }
@@ -833,11 +839,21 @@ background-color: #e2f4c7 !important;
     #legend
     {
       font-size: 20px;
+      padding-bottom: 44px;
       position: relative;
       top:0px;
       right: 0px;
       margin: 5px;
       max-width: 360px;
+    }
+
+    #back
+    {
+      width: 50px;
+      height: 50px;
+      margin:0px;
+      margin-top: -6px;
+      margin-right: 10px;
     }
 
 }

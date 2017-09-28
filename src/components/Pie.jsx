@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import Torta from "./Torta.jsx";
+import {Image} from "react-bootstrap";
+import back from "../assets/img/wBack.png"
+
 
 export default class Pie extends Component {
 
@@ -40,6 +43,12 @@ export default class Pie extends Component {
 render() {
 const {expandedSector} = this.state
 
+  var bottone = <span></span>;
+  if(this.props.back)
+  {
+    bottone =<Image id="back" src={back} onClick={this.props.back} width={150} height={150}></Image>
+  }
+
 
 
      return (
@@ -71,6 +80,7 @@ const {expandedSector} = this.state
             ))
         }
 
+        {bottone}
       </div>
 
 

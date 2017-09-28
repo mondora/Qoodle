@@ -142,13 +142,22 @@ export default class QoodleView extends Component {
       const elementi = this.state.elements;
 
 
+
       var i = elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
-      elemento.counter++;
-      elementi[i] = elemento;
 
-      this.setState(this.state.elements: elementi);
+      console.log(elemento.counter , "max", elemento.max)
+
+      if( (elemento.counter +1) <=  elemento.max  ){
+        elemento.counter++;
+        elementi[i] = elemento;
+        this.setState(this.state.elements: elementi);
+      }
+      else
+        alert("Non puoi scegliere più di " + elemento.max + " " + elemento.name );
+
+
     }
 
     Dec(iden)
@@ -157,10 +166,18 @@ export default class QoodleView extends Component {
       var i =elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
-      if(elemento.counter > 0) elemento.counter-- ;
-      elementi[i] = elemento;
 
-      this.setState(this.state.elements: elementi);
+      console.log(elemento.counter , "min", elemento.min)
+      if(elemento.counter >= 0 && (elemento.counter -1) >= elemento.min)
+      {
+        elemento.counter--;
+        elementi[i] = elemento;
+
+        this.setState(this.state.elements: elementi);
+      }
+      else
+        alert("Non puoi scegliere meno di " + elemento.min + " " + elemento.name );
+
     }
 
 

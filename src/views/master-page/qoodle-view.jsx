@@ -20,6 +20,8 @@ export default class QoodleView extends Component {
     constructor () {
         super();
 
+
+
         this.state = {
           username: "",
           realName: "",
@@ -29,9 +31,10 @@ export default class QoodleView extends Component {
           title: '',
           description: '',
           closingDate: new Date(),
-          elements: []
+          elements: [],
+          point: 0,
           }
-        }
+    }
 
 
 
@@ -87,7 +90,9 @@ export default class QoodleView extends Component {
                   description: data.description,
                   closingDate: new Date (data.closingDate),
                   username: email,
-                  realName: realNameLogged
+                  realName: realNameLogged,
+                  type: data.type,
+                  point: data.type === "dem" ? 10 : 0,
                   });
             }
             .bind(this))
@@ -109,7 +114,7 @@ export default class QoodleView extends Component {
       sum = "Continua" + "(Totale: " + sum + "€)";
       counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
-      if(this.props.purchase)
+      if(this.state.type === "purchase")
         return sum;
       else
         return counterSum;
@@ -130,7 +135,7 @@ export default class QoodleView extends Component {
       sum = "Procedi all'acquisto " + "(Totale: " + sum + "€)";
       counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
-      if(this.props.purchase)
+      if(this.state.type !== "dem")
         return sum;
       else
         return counterSum;
@@ -146,14 +151,21 @@ export default class QoodleView extends Component {
       var i = elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
+      var po = this.state.point;
 
-      if( (elemento.counter +1) <=  elemento.max  ){
+      if( (elemento.counter +1) <=  elemento.max &&
+        (  (this.state.type === "dem" && po -1  >= 0 )  || (this.state.type !== "dem")   )
+      ){
         elemento.counter++;
+        po--;
         elementi[i] = elemento;
-        this.setState(this.state.elements: elementi);
+        this.setState({
+          elements: elementi,
+          point: po
+        });
       }
       else
-        alert("Non puoi scegliere più di " + elemento.max + " " + elemento.name );
+        alert("Non puoi la quantità desiderata di: " + elemento.name );
 
 
     }
@@ -164,15 +176,24 @@ export default class QoodleView extends Component {
       var i =elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
 
-      if(elemento.counter >= 0 && (elemento.counter -1) >= elemento.min)
+      var po = this.state.point;
+
+
+      if(elemento.counter >= 0 && (elemento.counter -1) >= elemento.min &&
+      (  (this.state.type === "dem" && po +1  <= 10 )  || (this.state.type !== "dem")   )
+    )
       {
         elemento.counter--;
+        po++;
         elementi[i] = elemento;
 
-        this.setState(this.state.elements: elementi);
+        this.setState({
+          elements: elementi,
+          point: po
+        });
       }
       else
-        alert("Non puoi scegliere meno di " + elemento.min + " " + elemento.name );
+        alert("Non puoi la quantità desiderata di: " + elemento.name );
 
     }
 
@@ -254,8 +275,12 @@ export default class QoodleView extends Component {
     {
       if(this.state.description !== '')
         return <h3 id="QoodleDescription">{this.state.description}</h3>
+    }
 
-
+    renderPoint()
+    {
+      if(this.state.type === "dem")
+        return <p>{this.state.point}</p>
     }
 
     renderQoodleElements () {
@@ -287,6 +312,7 @@ export default class QoodleView extends Component {
       return this.state.elements.length > 0 ?
       (
         <div className="body">
+          {this.renderPoint()}
           <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>

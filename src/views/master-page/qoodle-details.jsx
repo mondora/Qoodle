@@ -20,7 +20,8 @@ export default class QoodleDetails extends Component {
       email: "",
       realName: "",
       elements: [],
-      sector: -1
+      sector: -1,
+      type: ""
     }
   }
 
@@ -73,7 +74,8 @@ export default class QoodleDetails extends Component {
               nome: data.nome,
               elements: data.elements,
               email: email,
-              realName: realNameLogged
+              realName: realNameLogged,
+              type : data.type
               });
         }
         .bind(this))
@@ -131,6 +133,12 @@ export default class QoodleDetails extends Component {
 
         var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
 
+        var win = "blue";
+        if(this.state.type === "dem"){
+          palette = ["grey", "grey", "grey", "grey", "grey" ];
+          win = "green";
+      }
+
         if (detailsList.length > 0 && tot !== 0)
         {
                 var i = 0;
@@ -142,6 +150,13 @@ export default class QoodleDetails extends Component {
                       }) );
 
                 //console.log("PRIMA", sliceList);
+
+
+                if(this.state.type === "dem"){
+                  var indexOfMaxValue = sliceList.reduce((iMax, x, i, arr) => x.value > arr[iMax].value ? i : iMax, 0);
+                  console.log("più voti", sliceList[indexOfMaxValue].label);
+                  sliceList[indexOfMaxValue].color = win;
+                }
                 return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome}/> );
             }
             else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}

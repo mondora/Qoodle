@@ -227,7 +227,8 @@ handleAddElement(na, mi, ma, um, pr, img64)
           description : this.state.description,
           closingDate : date,
           qeList : this.state.elements,
-          backgroundImage: this.state.backgroundImage
+          backgroundImage: this.state.backgroundImage,
+          type: this.state.type,
         })
     };
 

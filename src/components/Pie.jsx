@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import Torta from "./Torta.jsx";
 import {Image} from "react-bootstrap";
-import back from "../assets/img/wBack.png"
+import back from "../assets/img/wBack.png";
+import PropTypes from "prop-types"
 
 
 export default class Pie extends Component {
@@ -91,4 +92,19 @@ const {expandedSector} = this.state
   }
 
 
+}
+
+
+
+
+Pie.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.number,
+    color: PropTypes.string,
+  })),
+  onSectorClick: PropTypes.func,
+  tot: PropTypes.number,
+  title: PropTypes.string,
+  back: PropTypes.func,
 }

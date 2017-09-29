@@ -4,6 +4,7 @@ import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
 import InfoModal from '../../components/InfoModal';
+import SimpleChoiceModal from '../../components/SimpleChoiceModal';
 
 
 export default class NewQoodle extends Component {
@@ -22,7 +23,9 @@ export default class NewQoodle extends Component {
       targetId: -1,
       closingDate: new Date(),
       backgroundImage: "",
-      elements: []
+      elements: [],
+      type: "generic",
+      showSimpleChoiceModal: true,
 
     }
 
@@ -113,8 +116,10 @@ handleAddElement(na, mi, ma, um, pr, img64)
 {
     this.setState({showColumnModal: false});
 
-    console.log("guarda lurl", img64);
+    console.log("guarda dfsafdsa", this.state.type);
 
+
+    um = this.state.type === "dem" ? "vote" : "";
 
 
 
@@ -171,6 +176,9 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
     }
     });
+
+    um = this.state.type === "dem" ? "vote" : "";
+
 
     if(na === '')   na = target.name;
     if(mi === '')   mi = target.min;
@@ -247,6 +255,13 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
 
 
+
+  chooseT(t)
+  {
+    this.setState({type: t,
+      showSimpleChoiceModal: false});
+  }
+
 renderQoodleElements () {
   return this.state.elements.map(element => (
     <div className="col" key={element.elId.toString()}>
@@ -321,7 +336,8 @@ renderQoodleElements () {
               <ElementCreationModal
               onAdd={this.handleAddElement.bind(this)}
               show={this.state.showColumnModal}
-              targetId={this.state.targetId}/>
+              targetId={this.state.targetId}
+              type={this.state.type}/>
 
               <SaveModal
               onSave={this.handleSave.bind(this)}
@@ -331,13 +347,19 @@ renderQoodleElements () {
             <ElementCreationModal
               onAdd={this.handleModification.bind(this)}
               show={this.state.showModifyModal}
-              targetId={this.state.targetId}/>
+              targetId={this.state.targetId}
+              type={this.state.type}/>
 
               <InfoModal
                 show={this.state.showInfoModal}
                 title="Salvataggio"
                 info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) effettuato correttamente"}
                 showInfoModal={this.showInfoModal.bind(this)}/>
+
+
+              <SimpleChoiceModal
+              show={this.state.showSimpleChoiceModal}
+              choose={this.chooseT.bind(this)}/>
 
             </div>
           </div>

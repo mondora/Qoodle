@@ -6,13 +6,16 @@ import {Button, FormGroup, FormControl, Modal,  InputGroup, ListGroupItem, ListG
 
 export default class ElementCreationModal extends Component {
 
-    constructor () {
-        super();
-        this.state = {
+    constructor (props) {
+
+
+        super(props);
+
+          this.state = {
             name: '',
             min: 0,
             max: 99999,
-            umoption: '',
+            umoption: "",
             coinoption: '€',
             price: 0,
             img64: '',
@@ -21,10 +24,12 @@ export default class ElementCreationModal extends Component {
     }
 
 
+
     static propTypes = {
         onAdd: PropTypes.func.isRequired,
         targetId: PropTypes.number
     }
+
 
     handleNameChange(nome)
     {
@@ -117,14 +122,41 @@ export default class ElementCreationModal extends Component {
     }
 
 
+
+    renderUmEPrice(){
+      const coinoption = this.state.coinoption;
+      const price = this.state.price;
+
+      if(this.props.type !== "dem")
+      return(   <div>
+        <FormGroup>
+        <label>select Unit of measure</label>
+        <FormControl componentClass="select" id="um" onChange={this.handleUMChange.bind(this)} placeholder="select">
+          <option value="">Whitout unit of measure</option>
+          <option value="kg">Kilograms</option>
+          <option value="m">Meter</option>
+          <option value="bott">Bottles</option>
+        </FormControl>
+      </FormGroup>
+
+        <FormGroup>
+        <label>select price relative of Measure Unit</label>
+
+          <InputGroup onChange={this.handlePriceChange.bind(this)} >
+          <FormControl type="number" min={0} maxLength={15} value={price}/>
+          <InputGroup.Addon>{coinoption}</InputGroup.Addon>
+          </InputGroup>
+        </FormGroup>
+    </div>);
+
+}
+
     render () {
         const {onAdd} = this.props;
         const name = this.state.name;
         const min = this.state.min;
         const max = this.state.max;
         const umoption = this.state.umoption;
-        const coinoption = this.state.coinoption;
-        const price = this.state.price;
         const img64= this.state.img64;
 
         var bottone;
@@ -135,7 +167,7 @@ export default class ElementCreationModal extends Component {
           bottone = <Button onClick={this.handleClick.bind(this)}>{"Aggiungi"}</Button>;
 
         } else {
-          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, umoption, price,  img64)}>{"Modifica"}</Button>
+          bottone = <Button onClick={() => onAdd(this.props.targetId, name, min, max, this.state.umoption, this.state.price,  img64)}>{"Modifica"}</Button>
 
         }
 
@@ -165,28 +197,10 @@ export default class ElementCreationModal extends Component {
                         {this.renderAlert()}
 
 
-                        <FormGroup>
-                        <label>select Unit of measure</label>
-                        <FormControl componentClass="select" id="um" onChange={this.handleUMChange.bind(this)} placeholder="select">
-                          <option value="">Whitout unit of measure</option>
-                          <option value="kg">Kilograms</option>
-                          <option value="m">Meter</option>
-                          <option value="bott">Bottles</option>
-                        </FormControl>
-                      </FormGroup>
-
-                      <FormGroup>
-                      <label>select price relative of Measure Unit</label>
+                        {this.renderUmEPrice()}
 
 
 
-
-                        <InputGroup onChange={this.handlePriceChange.bind(this)} >
-                          <FormControl type="number" min={0} maxLength={15} value={price}/>
-                          <InputGroup.Addon>{coinoption}</InputGroup.Addon>
-                        </InputGroup>
-
-                    </FormGroup>
 
 
 

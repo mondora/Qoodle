@@ -112,7 +112,7 @@ export default class QoodleView extends Component {
         counterSum += elementi[i].counter;
       }
       sum = "Continua" + "(Totale: " + sum + "€)";
-      counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
+      counterSum = "Conferma scelte: ( " + counterSum + " )";
 
       if(this.state.type === "purchase")
         return sum;
@@ -274,13 +274,13 @@ export default class QoodleView extends Component {
     renderDescription()
     {
       if(this.state.description !== '')
-        return <h3 id="QoodleDescription">{this.state.description}</h3>
+        return <center><h3 id="QoodleDescription">{this.state.description}</h3></center>
     }
 
     renderPoint()
     {
       if(this.state.type === "dem")
-        return <p>{this.state.point}</p>
+        return <center><div  id="votePointLabel">Punti voto:   <span id="votePoint">   {this.state.point}</span></div></center>
     }
 
     renderQoodleElements () {
@@ -312,11 +312,12 @@ export default class QoodleView extends Component {
       return this.state.elements.length > 0 ?
       (
         <div className="body">
-          {this.renderPoint()}
           <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
           <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
+
+          {this.renderPoint()}
 
           <center><h1 >{this.state.title}</h1></center>
           {this.renderDescription()}

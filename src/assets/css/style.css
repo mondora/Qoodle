@@ -538,7 +538,7 @@ table{
 }
 
 .body #QoodleDescription {
-    width: 80vw;
+    width: 40vw;
     margin-bottom: auto;
     text-align: center;
     padding-top: 15px;
@@ -695,6 +695,36 @@ font-size: 37px;
 font-style: bold;
 color: #555 !important;
 background-color: #e2f4c7 !important;
+}
+
+#votePointLabel
+{
+    font-size: 30px;
+    font-style: 'Muli';
+    color: #f9d62e;
+    margin: 20px;
+    padding-right:  30px;
+    background-color:#6666FF;
+    width: 400px;
+    border-radius: 4px;
+    padding: 7px;
+    vertical-align: middle;
+    border: 4px solid;
+}
+
+
+#votePoint{
+  font-size: 45px;
+  color:  	#ff4e50;
+  font-family: 'Muli', serif;
+  font-weight: bold;
+  border-style: solid 3px;
+  width: 100%;
+  border-top-left-radius: 15em 1em;
+  border-bottom-right-radius: 15em 1em;
+  background-color: white;
+  padding: 4px;
+
 }
 
 .Cal__Container__root
@@ -855,6 +885,26 @@ background-color: #e2f4c7 !important;
       margin:0px;
       margin-top: -6px;
       margin-right: 10px;
+    }
+
+
+    #votePointLabel
+    {
+        background-color:#6666FF;
+        opacity: 0.9;
+        width: 300px;
+    }
+
+    .body h1
+    {
+      width: 80vw;
+    }
+
+
+
+    .body #QoodleDescription
+    {
+      width: 95vw;
     }
 
 }

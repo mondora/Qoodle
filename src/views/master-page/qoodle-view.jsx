@@ -132,7 +132,7 @@ export default class QoodleView extends Component {
         sum += elementi[i].price * elementi[i].counter;
         counterSum += elementi[i].counter;
       }
-      sum = "Procedi all'acquisto " + "(Totale: " + sum + "€)";
+      sum = "Procedi all'ordine " + "(Totale: " + sum + "€)";
       counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
       if(this.state.type !== "dem")
@@ -280,7 +280,7 @@ export default class QoodleView extends Component {
     renderPoint()
     {
       if(this.state.type === "dem")
-        return <center><div  id="votePointLabel">Punti voto:   <span id="votePoint">   {this.state.point}</span></div></center>
+        return <center><div  id="votePointLabel">Voti disponibili:   <span id="votePoint">   {this.state.point}</span></div></center>
     }
 
     renderQoodleElements () {

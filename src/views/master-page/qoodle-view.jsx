@@ -132,7 +132,7 @@ export default class QoodleView extends Component {
       if(this.state.type === "purchase")
         return (ordine + sum + "€)");
       else
-        return (scelte + counterSum + ")");
+        return (scelte + counterSum + " )");
 
     }
 

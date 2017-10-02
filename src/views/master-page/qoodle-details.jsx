@@ -135,8 +135,8 @@ export default class QoodleDetails extends Component {
 
         var win = "blue";
         if(this.state.type === "dem"){
-          palette = ["grey", "grey", "grey", "grey", "grey" ];
-          win = "green";
+          palette = ["lightgrey", "lightgrey", "lightgrey", "lightgrey", "lightgrey" ];
+          win = "lightgreen";
       }
 
         if (detailsList.length > 0 && tot !== 0)

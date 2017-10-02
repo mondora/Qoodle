@@ -50,14 +50,15 @@ const {expandedSector} = this.state
     bottone =<Image id="back" src={back} onClick={this.props.back} width={150} height={150}></Image>
   }
 
-
+    var realData=[];
+    this.props.data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
 
      return (
        <div>
        <div id="pie">
          <center><h1> {this.props.title}</h1></center>
        <Torta
-           data={ this.props.data }
+           data={ realData }
            sectorStrokeWidth={2}
            expandedSector={expandedSector}
            onSectorHover={this.handleMouseEnterOnSector.bind(this)}

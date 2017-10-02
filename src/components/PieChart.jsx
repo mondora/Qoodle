@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 
-class Torta extends Component {
+class PieChart extends Component {
   handleSectorHover(i, e) {
     if (e.type === "touchend" && !this.props.shrinkOnTouchEnd) return
     e.preventDefault()
@@ -98,7 +98,7 @@ class Torta extends Component {
   }
 }
 
-Torta.propTypes = {
+PieChart.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.number,
@@ -115,7 +115,7 @@ Torta.propTypes = {
   onSectorClick: PropTypes.func,
 }
 
-Torta.defaultProps = {
+PieChart.defaultProps = {
   data: [],
   palette: [
     "#2ecc71",
@@ -134,4 +134,4 @@ Torta.defaultProps = {
   viewBoxWidth: 300,
 }
 
-export default Torta
+export default PieChart

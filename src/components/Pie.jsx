@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Torta from "./Torta.jsx";
+import PieChart from "./PieChart.jsx";
 import {Image} from "react-bootstrap";
 import back from "../assets/img/wBack.png";
 import PropTypes from "prop-types"
@@ -57,7 +57,7 @@ const {expandedSector} = this.state
        <div>
        <div id="pie">
          <center><h1> {this.props.title}</h1></center>
-       <Torta
+       <PieChart
            data={ realData }
            sectorStrokeWidth={2}
            expandedSector={expandedSector}

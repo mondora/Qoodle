@@ -102,29 +102,25 @@ export default class QoodleView extends Component {
 
     }
 
-    renderMobileSum()
-    {
-      var elementi = this.state.elements;
-
-      var sum = 0, counterSum = 0;
-      for(var i = 0; i<elementi.length; i++){
-        sum += elementi[i].price * elementi[i].counter;
-        counterSum += elementi[i].counter;
-      }
-      sum = "Continua" + "(Totale: " + sum + "€)";
-      counterSum = "Conferma scelte: ( " + counterSum + " )";
-
-      if(this.state.type === "purchase")
-        return sum;
-      else
-        return counterSum;
-
-    }
-
-
-
     renderSum()
     {
+      var ordine = "Procedi all'ordine " + "(Totale: " ;
+      var scelta = "Conferma le scelte prese (sono " ;
+
+      return this.renderTotal(ordine, scelta);
+    }
+
+    renderMobileSum()
+    {
+      var ordine = "Continua" + "(Totale: ";
+      var scelta = "Conferma scelte: ( ";
+
+      return this.renderTotal(ordine, scelta);
+
+    }
+
+    renderTotal(ordine, scelte)
+    {
       var elementi = this.state.elements;
 
       var sum = 0, counterSum = 0;
@@ -132,15 +128,15 @@ export default class QoodleView extends Component {
         sum += elementi[i].price * elementi[i].counter;
         counterSum += elementi[i].counter;
       }
-      sum = "Procedi all'ordine " + "(Totale: " + sum + "€)";
-      counterSum = "Conferma le scelte prese (sono " + counterSum + ")" ;
 
-      if(this.state.type !== "dem")
-        return sum;
+
+      if(this.state.type === "purchase")
+        return (ordine + sum + "€)");
       else
-        return counterSum;
+        return (scelte + counterSum + ")");
 
     }
+
 
     Inc(iden)
     {

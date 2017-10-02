@@ -20,10 +20,6 @@ export default class Pie extends Component {
   }
 
 
-  handleClickOnSector(sector) {
-      console.log("DENTROPIE SETTORE:",sector);
-      alert("CLICCATO SUL SETTORE", sector);//WHY??
-  }
 
   handleMouseEnterOnSector(sector) {
       this.setState({expandedSector: sector})
@@ -41,14 +37,20 @@ export default class Pie extends Component {
   }
 
 
-render() {
-const {expandedSector} = this.state
-
-  var bottone = <span></span>;
-  if(this.props.back)
+  renderBackButton()
   {
-    bottone =<Image id="back" src={back} onClick={this.props.back} width={150} height={150}></Image>
+    var button = <span></span>;
+    if(this.props.back)
+    {
+      button =<Image id="back" src={back} onClick={this.props.back} width={150} height={150}></Image>
+    }
+    return button;
   }
+
+
+render() {
+  const {expandedSector} = this.state
+
 
     var realData=[];
     this.props.data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
@@ -83,7 +85,7 @@ const {expandedSector} = this.state
             ))
         }
 
-        {bottone}
+        {this.renderBackButton()}
       </div>
 
 

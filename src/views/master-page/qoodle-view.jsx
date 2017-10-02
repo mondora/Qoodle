@@ -116,7 +116,6 @@ export default class QoodleView extends Component {
       var scelta = "Conferma scelte: ( ";
 
       return this.renderTotal(ordine, scelta);
-
     }
 
     renderTotal(ordine, scelte)
@@ -141,8 +140,6 @@ export default class QoodleView extends Component {
     Inc(iden)
     {
       const elementi = this.state.elements;
-
-
 
       var i = elementi.findIndex(el => el.elId === iden );
       var elemento = elementi[i];
@@ -173,7 +170,6 @@ export default class QoodleView extends Component {
       var elemento = elementi[i];
 
       var po = this.state.point;
-
 
       if(elemento.counter >= 0 && (elemento.counter -1) >= elemento.min &&
       (  (this.state.type === "dem" && po +1  <= 10 )  || (this.state.type !== "dem")   )

@@ -207,7 +207,10 @@ export default class QoodleDetails extends Component {
 
 
     if(this.state.sector === -1)
-      return <div className="body">{this.renderQoodle()}</div>;
+      return <div className="body">
+                <h1 className="titlePage">Riassunto scelte compartecipate</h1>
+                {this.renderQoodle()}
+             </div>;
     else
       return (
               <div className="body">

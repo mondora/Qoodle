@@ -54,7 +54,7 @@ export default class ListQoodleElement extends Component {
   if(this.state.status === "success")
     dateFormat =
     {
-        day:  'mancano dd' + ' giorni ',
+        day:  'mancano dd ' + 'giorni',
     }
     else
     dateFormat =

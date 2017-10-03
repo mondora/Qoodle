@@ -15,12 +15,23 @@ body{
   height: 750px;
   padding-left: 180px;
 }
+
+.titlePage
+{
+  width: 100vw!important;
+  height: 80px;
+  font-size: 50px;
+  background-color: #e2f4c7;
+  text-align: center;
+  border-radius: 3px;
+  padding-left: 0px;
+}
 #legend
 {
   font-family: 'Muli', serif;
   position: absolute;
   right: 50px;
-  top: 100px;
+  top: 300px;
   background-color: #160E64;
   border-radius: 8px;
   padding: 10px;
@@ -905,6 +916,17 @@ background-color: #e2f4c7 !important;
     .body #QoodleDescription
     {
       width: 95vw;
+    }
+
+    .titlePage
+    {
+      width: 100vw!important;
+      height: 80px;
+      font-size: 25px;
+      background-color: #e2f4c7;
+      text-align: center;
+      border-radius: 3px;
+      padding-left: 0px;
     }
 
 }

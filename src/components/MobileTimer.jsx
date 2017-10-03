@@ -17,25 +17,26 @@ static propTypes = {
 render(){
 
   const dateFormat =  {
-    day:  'dd' + ' giorni ',
-    hour:  'hh'+ ' ore ' ,
-    minute: 'mm'+ ' minuti ',
-    second: ' e '+ 'ss' + ' secondi '
+    day:  'dd' + ' giorni e ',
+    hour:  'hh'+ ' ore '
   }
 return(
     <div id="mtimer">
         <div id="endLabel">{this.props.title}</div>
 
-         <div id="time"><strong>
+         <div id="time">
+           <center><strong>
                   <Countdown targetDate={this.props.closingQoodle}
                     interval={1000}
-                    startDelay={2000}
+                    startDelay={3000}
                     timeSeparator={'  '}
                     leadingZero
                     onFinished={this.props.onFinished}
                     format={dateFormat} />
 
-                </strong></div>
+                </strong>
+                </center>
+          </div>
 
     </div>
     )

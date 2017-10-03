@@ -304,6 +304,8 @@ export default class QoodleView extends Component {
       return this.state.elements.length > 0 ?
       (
         <div className="body">
+          <h1 className="titlePage">Partecipa a un Qoodle</h1>
+          <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
           <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>

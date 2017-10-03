@@ -131,7 +131,7 @@ export default class QoodleDetails extends Component {
 
         var sliceList = [];
 
-        var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
+        var palette=["#e2f4c7","#eae374", "#f9d62e", "#fc913a", "#ff4e50"];
 
         var win = "blue";
         if(this.state.type === "dem"){
@@ -208,7 +208,7 @@ export default class QoodleDetails extends Component {
 
     if(this.state.sector === -1)
       return <div className="body">
-                <h1 className="titlePage">Riassunto scelte compartecipate</h1>
+                <h1 id="summaryTitle" className="titlePage">Riassunto scelte compartecipate</h1>
                 {this.renderQoodle()}
              </div>;
     else

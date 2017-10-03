@@ -107,6 +107,7 @@ class ListPage extends Component {
 
       return (
         <div className="body">
+          <h1 className="titlePage">Lista dei qoodle</h1>
         <div id="list">
 
           <div className="row">

@@ -282,7 +282,9 @@ renderQoodleElements () {
 
     render() {
         return (
-          <div className="bodyNew">
+          <div className="body">
+            <h1 className="titlePage">Creazione nuovo Qoodle</h1>
+
             <div className="row">
 
                   <FormGroup className='medium' bsSize="large">

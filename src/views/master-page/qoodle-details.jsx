@@ -201,22 +201,27 @@ export default class QoodleDetails extends Component {
   }
 
 
+  renderCorrectPie()
+  {
+        if(this.state.sector === -1)
+          return this.renderQoodle();
+        else
+          return this.renderElementPie();
+  }
+
+
   render()
   {
 
 
 
-    if(this.state.sector === -1)
+
       return <div className="body">
                 <h1 id="summaryTitle" className="titlePage">Riassunto scelte compartecipate</h1>
-                {this.renderQoodle()}
+                {this.renderCorrectPie()}
              </div>;
-    else
-      return (
-              <div className="body">
-                {this.renderElementPie()}
-              </div>
-            );
+
+
 
   }
 

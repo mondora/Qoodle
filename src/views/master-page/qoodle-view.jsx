@@ -275,6 +275,14 @@ export default class QoodleView extends Component {
         return <center><div  id="votePointLabel">Voti disponibili:   <span id="votePoint">   {this.state.point}</span></div></center>
     }
 
+    renderScadenza()
+    {
+      if( this.state.type === "purchase")
+        return 'Puoi acquistare ancora per:';
+      else
+        return 'Puoi votare ancora per:'
+    }
+
     renderQoodleElements () {
 
       return this.state.elements.map(element => (
@@ -308,7 +316,7 @@ export default class QoodleView extends Component {
           <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
           <div id="demo"></div>
 
-          <Timer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
+          <Timer closingQoodle={this.state.closingDate} title={this.renderScadenza()} onFinished={ ()=>  window.location = "#/qoodles"}/>
           <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
 
           {this.renderPoint()}

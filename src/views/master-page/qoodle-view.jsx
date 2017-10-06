@@ -307,13 +307,21 @@ export default class QoodleView extends Component {
       return (<div> <h2>{" Qoodle nr " + this.state.id +  " non trovato!"}</h2></div>);
     }
 
+    renderWhatDo()
+    {
+      if (this.state.type === "dem")
+        return <h2 className="subTitlePage">Metti i tuoi 10 voti dove preferisci!</h2>
+      else
+        return <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
+    }
+
     render(){
 
       return this.state.elements.length > 0 ?
       (
         <div className="body">
           <h1 className="titlePage">Partecipa a un Qoodle</h1>
-          <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
+          {this.renderWhatDo()}
           <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={this.renderScadenza()} onFinished={ ()=>  window.location = "#/qoodles"}/>

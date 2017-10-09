@@ -158,7 +158,7 @@ export default class QoodleView extends Component {
         point: this.state.point - po,
       });
     }
-    else alert ( "non si può!");
+    else alert ( "Non puoi assegnare " + value + " voti, perchè disponi ancora di soltanto " + this.state.point);
 }
 
     Inc(iden)

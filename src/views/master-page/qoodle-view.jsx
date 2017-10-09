@@ -357,7 +357,7 @@ export default class QoodleView extends Component {
     renderWhatDo()
     {
       if (this.state.type === "dem")
-      return <h2 className="subTitlePage">Metti i tuoi 10 voti dove preferisci!</h2>
+      return <h2 className="subTitlePage">Distribuisci i tuoi voti tra le possibili scelte</h2>
       else
       return <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
     }

@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {Button} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement";
+import QoodleVoteElement from "../../components/QoodleVoteElement";
 import SummaryModal from "../../components/SummaryModal";
 import InfoModal from '../../components/InfoModal';
-
 import Timer from "../../components/Timer"
 import MobileTimer from "../../components/MobileTimer"
 
@@ -92,7 +92,7 @@ export default class QoodleView extends Component {
                   username: email,
                   realName: realNameLogged,
                   type: data.type,
-                  point: data.type === "dem" ? 10 : 0,
+                  point: data.type === "dem" ? Math.round(data.ele.length * ( 10 / 3)) : 0,
                   });
             }
             .bind(this))
@@ -136,6 +136,30 @@ export default class QoodleView extends Component {
 
     }
 
+
+    onStarClick(iden, value) {
+    console.log('id: %s, value: %s', iden, value);
+
+    const elementi = this.state.elements;
+    var i = elementi.findIndex(el => el.elId == iden );
+    var elemento = elementi[i];
+
+
+    var po = value -  elemento.counter;
+
+
+    console.log("sarei a: ", this.state.point - (po));
+
+    if( elemento.counter <= 5 && elemento.counter >=0 && (this.state.point - po) >= 0 )
+    {
+      elemento.counter = value;
+      this.setState({
+        elements: elementi,
+        point: this.state.point - po,
+      });
+    }
+    else alert ( "non si può!");
+}
 
     Inc(iden)
     {
@@ -272,7 +296,7 @@ export default class QoodleView extends Component {
     renderPoint()
     {
       if(this.state.type === "dem")
-        return <center><div  id="votePointLabel">Voti disponibili:   <span id="votePoint">   {this.state.point}</span></div></center>
+        return <center><div  id="votePointLabel">Voti disponibili:   <span id="votePoint">   {this.state.point} </span><span className="votes"> &#x2714;</span></div></center>
     }
 
     renderScadenza()
@@ -302,17 +326,40 @@ export default class QoodleView extends Component {
       ));
     }
 
+    renderQoodleVoteElements () {
+
+      return this.state.elements.map(element => (
+        <div className="col" key={element.elId}>
+          <QoodleVoteElement
+            counter={element.counter}
+            elId={element.elId}
+            img64={element.img64}
+            name={element.name}
+            um={element.umoption}
+            budget={this.state.point}
+            onStarClick={this.onStarClick.bind(this)}
+          />
+      </div>
+      ));
+    }
+
     renderNotFound()
     {
       return (<div> <h2>{" Qoodle nr " + this.state.id +  " non trovato!"}</h2></div>);
     }
 
+
+    renderElements()
+    {
+      return (this.state.type === "dem" ? this.renderQoodleVoteElements() : this.renderQoodleElements()  );
+    }
+
     renderWhatDo()
     {
       if (this.state.type === "dem")
-        return <h2 className="subTitlePage">Metti i tuoi 10 voti dove preferisci!</h2>
+      return <h2 className="subTitlePage">Metti i tuoi 10 voti dove preferisci!</h2>
       else
-        return <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
+      return <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
     }
 
     render(){
@@ -322,7 +369,7 @@ export default class QoodleView extends Component {
         <div className="body">
           <h1 className="titlePage">Partecipa a un Qoodle</h1>
           {this.renderWhatDo()}
-          <div id="demo"></div>
+            <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={this.renderScadenza()} onFinished={ ()=>  window.location = "#/qoodles"}/>
           <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={ ()=>  window.location = "#/qoodles"}/>
@@ -332,7 +379,7 @@ export default class QoodleView extends Component {
           <center><h1 >{this.state.title}</h1></center>
           {this.renderDescription()}
           <div className="row">
-            {this.renderQoodleElements()}
+            {this.renderElements()}
           </div>
 
 

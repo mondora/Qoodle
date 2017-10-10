@@ -29,7 +29,8 @@ export default class ListQoodleElement extends Component {
     closingDate: PropTypes.any.isRequired,
     openIt: PropTypes.func.isRequired,
     details: PropTypes.func.isRequired,
-    backgroundImage: PropTypes.string.isRequired
+    backgroundImage: PropTypes.string.isRequired,
+    owner: PropTypes.string,
   }
 
 
@@ -92,6 +93,17 @@ export default class ListQoodleElement extends Component {
     else return "";
   }
 
+
+  renderTimer()
+  {
+    return  (  this.state.status === "success" ?
+            <Image id="timer" src={timer}
+            style={{width: 40, height: 40}}
+            alt="loading"
+            responsive />
+          : "");
+  }
+
   render()
   {
     const {details} = this.props;
@@ -101,13 +113,6 @@ export default class ListQoodleElement extends Component {
     var date = new Date(this.props.closingDate)
     date = date.getDate() + 1 ;
 
-    var timePadding  =
-    this.state.status === "success" ?
-        <Image id="timer" src={timer}
-        style={{width: 40, height: 40}}
-        alt="loading"
-        responsive />
-    : "";
 
 
 
@@ -129,7 +134,7 @@ export default class ListQoodleElement extends Component {
             <Image id="people" src={people} alt="loading" responsive />
             partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status} >
-{timePadding} {this.renderClosingTime()} </ListGroupItem>
+{this.renderTimer()} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}
 
           </ListGroup>

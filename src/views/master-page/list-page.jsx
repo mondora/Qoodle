@@ -93,6 +93,7 @@ class ListPage extends Component {
             backgroundImage={element.backgroundImage}
             openIt={this.open.bind(this, "#/qoodle/" + element.qoodlesId)}
             details={this.details.bind(this, "#/details/" + element.qoodlesId)}
+            owner={element.owner}
             />
       </div>
       ));

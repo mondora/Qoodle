@@ -80,7 +80,6 @@ export default class ListQoodleElement extends Component {
 
     return (element);
 
-
   }
 
   renderQoodleImage()
@@ -104,6 +103,13 @@ export default class ListQoodleElement extends Component {
           : "");
   }
 
+
+  deleteQoodle()
+  {
+
+  }
+
+
   render()
   {
     const {details} = this.props;
@@ -114,15 +120,13 @@ export default class ListQoodleElement extends Component {
     date = date.getDate() + 1 ;
 
 
-
-
-
     return(
       <div className='boxList' >
 
           <ListGroup id="withBorder">
             <div id="oneEvent">
               {this.renderQoodleImage()}
+              <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={this.deleteQoodle.bind(this)}></i>
             </div>
 
         <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>

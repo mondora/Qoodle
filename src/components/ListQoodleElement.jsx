@@ -104,15 +104,37 @@ export default class ListQoodleElement extends Component {
   }
 
 
+  renderDelete()
+  {
+    const {owner} = this.props;
+    const {remove} = this.props;
+    const targetId = this.props.id;
 
+    var token;
+    var client;
+    var email;
+
+    if (typeof(Storage) !== "undefined")
+    {
+      token = sessionStorage.getItem("Idtoken");
+      client = sessionStorage.getItem("IdClient");
+      email = sessionStorage.getItem("email");
+    }
+
+    if(email === this.props.owner)
+     return <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={() => remove(targetId, owner)}></i>
+    else
+      return "";
+
+  }
 
 
   render()
   {
-    const {details} = this.props;
-    const {remove} = this.props;
     const {owner} = this.props;
+    const {details} = this.props;
     const targetId = this.props.id;
+
     const backgroundImage = this.props.backgroundImage;
 
     var date = new Date(this.props.closingDate)
@@ -126,7 +148,7 @@ export default class ListQoodleElement extends Component {
           <ListGroup id="withBorder">
             <div id="oneEvent">
               {this.renderQoodleImage()}
-              <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={() => remove(targetId, owner)}></i>
+              {this.renderDelete()}
             </div>
 
         <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>

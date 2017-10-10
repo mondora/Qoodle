@@ -50,8 +50,9 @@ class ListPage extends Component {
         }
         })
         .then(function(data) {
-            data.forEach( (ele)=>
-            ele.closingDate = new Date(ele.closingDate).toDateString());;
+            data.map( (ele)=>
+            ele.closingDate = new Date(ele.closingDate).toDateString());
+            data.sort( (a, b) => new Date(a.closingDate) < new Date(b.closingDate) ? -1 : 1);
              this.setState({ Qoodle: data });
         }
         .bind(this))

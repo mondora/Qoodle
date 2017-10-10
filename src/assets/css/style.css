@@ -1597,8 +1597,14 @@ option {
     font-size: 65px;
     font-weight: bold;
     position: absolute;
+    opacity: 0.9;
     right: 22px;
     top: 4px;
+  }
+
+  #deleteMinus:hover
+  {
+    font-size: 80px;
   }
 
 

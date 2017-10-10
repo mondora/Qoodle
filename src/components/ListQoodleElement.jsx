@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
-import {ListGroup, ListGroupItem, Image} from 'react-bootstrap';
+import {ListGroup, ListGroupItem, Image, Modal, Button} from 'react-bootstrap';
 import timer  from '../assets/img/timer.png';
 import ingrandimento from '../assets/img/ingrandimento.png'
 import people from '../assets/img/people.png';
@@ -14,7 +14,8 @@ export default class ListQoodleElement extends Component {
 
 
     this.state = {
-      status: "success"
+      status: "success",
+      show: false,
           }
   }
 
@@ -103,26 +104,19 @@ export default class ListQoodleElement extends Component {
           : "");
   }
 
+  tryDelete()
+  {
+    this.setState({show: !this.state.show});
+  }
 
   renderDelete()
   {
     const {owner} = this.props;
-    const {remove} = this.props;
-    const targetId = this.props.id;
 
-    var token;
-    var client;
-    var email;
+    var email = typeof(Storage) !== "undefined" ? sessionStorage.getItem("email") : "";
 
-    if (typeof(Storage) !== "undefined")
-    {
-      token = sessionStorage.getItem("Idtoken");
-      client = sessionStorage.getItem("IdClient");
-      email = sessionStorage.getItem("email");
-    }
-
-    if(email === this.props.owner)
-     return <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={() => remove(targetId, owner)}></i>
+    if(email === owner && this.state.status === "success")
+     return <i id="deleteMinus"aria-hidden="true" onClick={this.tryDelete.bind(this)}>⊗</i>
     else
       return "";
 
@@ -131,11 +125,10 @@ export default class ListQoodleElement extends Component {
 
   render()
   {
+    const {remove} = this.props;
     const {owner} = this.props;
     const {details} = this.props;
     const targetId = this.props.id;
-
-    const backgroundImage = this.props.backgroundImage;
 
     var date = new Date(this.props.closingDate)
     date = date.getDate() + 1 ;
@@ -164,6 +157,21 @@ export default class ListQoodleElement extends Component {
           {this.renderParticipates()}
 
           </ListGroup>
+
+
+
+          <Modal show={this.state.show}>
+            <Modal.Header>
+                <Modal.Title>Vuoi davvero cancellare {this.props.title} ?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <center>
+              <p><Button onClick={() => remove(targetId, owner)}>RIMUOVI IL QOODLE</Button></p>
+              <p><Button onClick={this.tryDelete.bind(this)}>ANNULLA OPERAZIONE</Button></p></center>
+            </Modal.Body>
+
+          </Modal>
+
 
 
       </div>

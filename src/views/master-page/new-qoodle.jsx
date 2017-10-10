@@ -229,6 +229,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
           qeList : this.state.elements,
           backgroundImage: this.state.backgroundImage,
           type: this.state.type,
+          owner: email,
         })
     };
 

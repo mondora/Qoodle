@@ -67,7 +67,65 @@ class ListPage extends Component {
 
     }
 
+    deleteQoodle(iden, owner)
+    {
+        var token = sessionStorage.getItem("Idtoken");
+        var client = sessionStorage.getItem("IdClient");
+        var email = sessionStorage.getItem("email");
 
+
+        var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/qoodle/' + iden;
+        var myInit = {
+          method: 'delete',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+            'id_token': token,
+            'id_client': client,
+            'email': email,
+            'owner': owner,
+          },
+          body: ""
+        };
+
+
+        fetch(url, myInit)
+        .then( function(response) {
+          if(response.status === 200){
+              alert("Eliminato correttamente il Qoodle");
+              return true;
+          }
+          else
+          {
+            if(response.status === 401){
+            alert("Non sei atuorizzato per cancellare questo Qoodle");
+            return false;
+            }
+            else {
+                  throw new Error("Network response was not ok");
+            }
+          }
+
+        }).then( (x) =>
+          {
+            if(x){
+              var removeIndex = this.state.Qoodle.findIndex( (el) => el.qoodlesId === iden);
+              var elementi = this.state.Qoodle;
+              elementi.splice(removeIndex, 1);
+              this.setState({
+                Qoodle: elementi
+              });
+            }
+          });
+
+  //      var removeIndex = this.state.Qoodle.findIndex( (el) => el.qoodlesId === iden);
+    //    var elementi = this.state.Qoodle;
+      //  elementi.splice(removeIndex, 1);
+      //  this.setState({
+      //    Qoodle: elementi
+      //  })
+
+    }
 
 
 
@@ -94,6 +152,7 @@ class ListPage extends Component {
             openIt={this.open.bind(this, "#/qoodle/" + element.qoodlesId)}
             details={this.details.bind(this, "#/details/" + element.qoodlesId)}
             owner={element.owner}
+            remove={this.deleteQoodle.bind(this)}
             />
       </div>
       ));

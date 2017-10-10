@@ -104,21 +104,21 @@ export default class ListQoodleElement extends Component {
   }
 
 
-  deleteQoodle()
-  {
 
-  }
 
 
   render()
   {
     const {details} = this.props;
+    const {remove} = this.props;
+    const {owner} = this.props;
     const targetId = this.props.id;
     const backgroundImage = this.props.backgroundImage;
 
     var date = new Date(this.props.closingDate)
     date = date.getDate() + 1 ;
 
+    console.log("OWNER", owner);
 
     return(
       <div className='boxList' >
@@ -126,7 +126,7 @@ export default class ListQoodleElement extends Component {
           <ListGroup id="withBorder">
             <div id="oneEvent">
               {this.renderQoodleImage()}
-              <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={this.deleteQoodle.bind(this)}></i>
+              <i id="deleteMinus" className="fa fa-minus" aria-hidden="true" onClick={() => remove(targetId, owner)}></i>
             </div>
 
         <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>

@@ -313,22 +313,29 @@ handleAddElement(na, mi, ma, um, pr, img64)
       showSimpleChoiceModal: false});
   }
 
-renderQoodleElements () {
-  return this.state.elements.map(element => (
-    <div className="col" key={element.elId.toString()}>
-      <QoodleElement
-        counter={element.counter}
-        elId={element.elId}
-        img64={element.img64}
-        name={element.name}
-        coin={element.coinoption}
-        price={Number (element.price)}
-        um={element.umoption}
-        create={() => this.modifyElement(element.elId)}
-      />
-  </div>
-  ));
-}
+  closeSimpleChoice()
+  {
+    this.setState({showSimpleChoiceModal: false});
+    window.location = "#/qoodles";
+  }
+
+
+  renderQoodleElements () {
+    return this.state.elements.map(element => (
+      <div className="col" key={element.elId.toString()}>
+        <QoodleElement
+          counter={element.counter}
+          elId={element.elId}
+          img64={element.img64}
+          name={element.name}
+          coin={element.coinoption}
+          price={Number (element.price)}
+          um={element.umoption}
+          create={() => this.modifyElement(element.elId)}
+        />
+    </div>
+    ));
+  }
 
     render() {
         return (
@@ -418,7 +425,8 @@ renderQoodleElements () {
 
               <SimpleChoiceModal
               show={this.state.showSimpleChoiceModal}
-              choose={this.chooseT.bind(this)}/>
+              choose={this.chooseT.bind(this)}
+              close={this.closeSimpleChoice.bind(this)}/>
 
             </div>
           </div>

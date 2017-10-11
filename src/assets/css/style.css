@@ -1119,6 +1119,13 @@ background-color: #e2f4c7 !important;
   padding-top: 30px;
 }
 
+#closeSimpleChoice{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+}
+
 #sideBar {
   padding-top: 20px;
   padding-left: 0px;

@@ -13,15 +13,20 @@ export default class SimpleChoiceModal extends Component {
 
 
 
+
   render()
   {
 
     const {choose} = this.props;
+    const {close} = this.props;
 
     return(
     <Modal show={this.props.show}>
       <Modal.Header>
           <Modal.Title>Che tipo di scelte vuoi trattare?</Modal.Title>
+            <div onClick={() => close()}>
+              <i id="closeSimpleChoice" className="fa fa-times"></i>
+            </div>
       </Modal.Header>
       <Modal.Body>
         <center><p><Button onClick={() => choose("generic")}>{"SCELTE GENERICHE"}</Button></p>

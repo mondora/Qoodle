@@ -109,7 +109,7 @@ export default class QoodleDetails extends Component {
                sliceList.push( {
                     label: el.who,
                     value: Math.round(el.how / tot * 100, -1),
-                    color: palette[(i++) % detailsList[sector].whos.length]
+                    color: palette[(i++ % palette.length)]
                   }) );
 
             console.log("DOPO slice", sliceList);
@@ -146,7 +146,7 @@ export default class QoodleDetails extends Component {
                    sliceList.push( {
                         label: el.label,
                         value: Math.round(el.value / tot * 100, -1),
-                        color: palette[(i++) % detailsList.length]
+                        color: palette[(i++ % palette.length)]
                       }) );
 
                 //console.log("PRIMA", sliceList);

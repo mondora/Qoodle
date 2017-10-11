@@ -27,7 +27,9 @@ export default class ElementCreationModal extends Component {
 
     static propTypes = {
         onAdd: PropTypes.func.isRequired,
-        targetId: PropTypes.number
+        show: PropTypes.bool,
+        targetId: PropTypes.number,
+        type: PropTypes.string,
     }
 
 

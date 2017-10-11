@@ -8,7 +8,7 @@ export default class InfoModal extends Component {
       show: PropTypes.bool,
       title: PropTypes.string,
       info: PropTypes.string.isRequired,
-      showInfoModal: PropTypes.func.isRequired
+      showModal: PropTypes.func.isRequired
   }
 
   constructor()
@@ -17,6 +17,7 @@ export default class InfoModal extends Component {
   }
 
   render(){
+    const { showModal } = this.props;
 
 
     return(
@@ -28,7 +29,7 @@ export default class InfoModal extends Component {
         <h3>{this.props.info}</h3>
       </Modal.Body>
       <Modal.Footer>
-          <Button onClick={() => this.props.showInfoModal()}>{"Ok"}</Button>
+          <Button onClick={() => showModal()}>{"Ok"}</Button>
       </Modal.Footer>
     </Modal>)
   }

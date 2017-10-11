@@ -19,6 +19,7 @@ export default class NewQoodle extends Component {
       showColumnModal : false,
       showSaveModal: false,
       showInfoModal: false,
+      showErrorInfoModal: false,
       showModifyModal: false,
       targetId: -1,
       closingDate: new Date(),
@@ -116,7 +117,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
 {
     this.setState({showColumnModal: false});
 
-    console.log("guarda dfsafdsa", this.state.type);
+    console.log("tipologia", this.state.type);
 
 
     um = this.state.type === "dem" ? "vote" : "";
@@ -236,22 +237,70 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
     fetch(url, myInit)
     .then( function(response) {
-      if(!response.ok)
-      throw new Error("Network response was not ok")
-    });
+      console.log(response, response.status);
+      if(response.status === 200)
+          return 0;
+      else
+      {
+        if(response.status === 401){
+          return 1;
+        }
+        else {
+          if(response.status === 500)
+            return 2;
+          else
+           return 3;
 
-    this.setState({showSaveModal: false,
-                  showInfoModal: true,
-                  closingDate: date
-                  });
-
+        }
+      }
+    }).then( (x) =>
+      {
+        console.log(x);
+        switch (x) {
+          case 0:
+          {
+            this.setState({showSaveModal: false,
+              showInfoModal: true,
+              closingDate: date
+});
+            console.log("sono in zero");
+            break;
+          }
+          case 1:
+          {
+            alert("Non sei autorizzato a cancellare questo Qoodle");
+            console.log("sono in zero");
+            break;
+          }
+          case 2:
+          {
+            this.setState({showSaveModal: false,
+                          showErrorInfoModal: true,
+                          closingDate: date
+                          });
+            break;
+          }
+          default:
+          {
+            throw new Error("Network response was not ok");
+            break;
+          }
+        }
+      });
 
   }
 
 
   showInfoModal()
   {
+    console.log("sono in giusto")
     this.setState({showInfoModal: false});
+    window.location = "#/qoodles";
+  }
+
+  showErrorInfoModal()
+  {
+    this.setState({showErrorInfoModal: false});
     window.location = "#/qoodles";
   }
 
@@ -358,7 +407,13 @@ renderQoodleElements () {
                 show={this.state.showInfoModal}
                 title="Salvataggio"
                 info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) effettuato correttamente"}
-                showInfoModal={this.showInfoModal.bind(this)}/>
+                showModal={this.showInfoModal.bind(this)}/>
+
+                <InfoModal
+                  show={this.state.showErrorInfoModal}
+                  title="Salvataggio"
+                  info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) NON È ANDATO A BUON FINE"}
+                  showModal={this.showErrorInfoModal.bind(this)}/>
 
 
               <SimpleChoiceModal

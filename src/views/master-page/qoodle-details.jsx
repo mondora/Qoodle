@@ -113,7 +113,7 @@ export default class QoodleDetails extends Component {
                   }) );
 
             console.log("DOPO slice", sliceList);
-            return(  <Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} />  );
+            return(  <Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} type={this.state.type}/>  );
         }
         else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
 
@@ -157,7 +157,7 @@ export default class QoodleDetails extends Component {
                   console.log("più voti", sliceList[indexOfMaxValue].label);
                   sliceList[indexOfMaxValue].color = win;
                 }
-                return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome}/> );
+                return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome} type={this.state.type}/> );
             }
             else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
 

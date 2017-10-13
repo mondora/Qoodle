@@ -27,9 +27,12 @@ export default class Pie extends Component {
 
 
   renderLegendElement(element){
-    var legendString ="";
+    var legendString = "";
+    var {type} = this.props;
+    var labelChoice = type === "dem" ? " è stato votato: " : (type === "purchase" ? " è stato comprato: " : " è stato scelto: ");
+
   if(this.props.onSectorClick)
-    legendString = "L'elemento " + element.label + " è stato scelto: " + Math.round(element.value  * this.props.tot / 100) +" volte";
+    legendString = "L'elemento " + element.label + labelChoice + Math.round(element.value  * this.props.tot / 100) +" volte";
   else
     legendString = element.label + " ha scelto " + this.props.title + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
 
@@ -107,7 +110,8 @@ Pie.propTypes = {
     color: PropTypes.string,
   })),
   onSectorClick: PropTypes.func,
-  tot: PropTypes.number,
+  tot: PropTypes.number.isRequired,
   title: PropTypes.string,
   back: PropTypes.func,
+  type: PropTypes.string
 }

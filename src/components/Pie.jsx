@@ -29,12 +29,14 @@ export default class Pie extends Component {
   renderLegendElement(element){
     var legendString = "";
     var {type} = this.props;
-    var labelChoice = type === "dem" ? " è stato votato: " : (type === "purchase" ? " è stato comprato: " : " è stato scelto: ");
+
+    var labelChoice = type === "dem" ? [" è stato votato: ", " ha votato: "]  : (type === "purchase" ? [" è stato comprato: "," ha comprato " ] : [" è stato scelto: ", " ha scelto "]);
+
 
   if(this.props.onSectorClick)
-    legendString = "L'elemento " + element.label + labelChoice + Math.round(element.value  * this.props.tot / 100) +" volte";
+    legendString = "L'elemento " + element.label + labelChoice[0] + Math.round(element.value  * this.props.tot / 100) +" volte";
   else
-    legendString = element.label + " ha scelto " + this.props.title + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
+    legendString = element.label + labelChoice[1] + this.props.title + ": "+ Math.round(element.value  * this.props.tot / 100)+ " volte";
 
     return legendString;
   }

@@ -28,7 +28,7 @@ return(
            <center><strong>
                   <Countdown targetDate={this.props.closingQoodle}
                     interval={1000}
-                    startDelay={3000}
+                    startDelay={1000}
                     timeSeparator={'  '}
                     leadingZero
                     onFinished={this.props.onFinished}

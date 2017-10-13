@@ -890,6 +890,10 @@ background-color: #e2f4c7 !important;
       display: none;
     }
 
+    #chooseType{
+      padding-top: 20px;
+      height: 180px;
+    }
 
     #summary
     {

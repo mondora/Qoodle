@@ -118,12 +118,6 @@ class ListPage extends Component {
             }
           });
 
-  //      var removeIndex = this.state.Qoodle.findIndex( (el) => el.qoodlesId === iden);
-    //    var elementi = this.state.Qoodle;
-      //  elementi.splice(removeIndex, 1);
-      //  this.setState({
-      //    Qoodle: elementi
-      //  })
 
     }
 

@@ -258,9 +258,15 @@ export default class QoodleView extends Component {
 
       fetch(url, myInit)
       .then( function(response) {
-        if(!response.ok)
-        throw new Error("Network response was not ok")
+        if(response.status === 400)
+          alert("non sei autorizzato");
+        else {
+          if(!response.ok)
+          throw new Error("Network response was not ok");
+        }
+
       });
+
 
       this.setState({showSummaryModal: false,
                       showInfomModal: true});

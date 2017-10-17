@@ -19,39 +19,39 @@ export default class Login extends Component {
     var id_client = "368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
 
 
-      var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
-      var myInit = {
+    var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
+    var myInit = {
         method: 'post',
         mode: 'cors',
         body: JSON.stringify({
-          id_token: id_token,
-          id_client: id_client
+            id_token: id_token,
+            id_client: id_client
         })
-      };
+    };
 
-      fetch(url, myInit)
-      .then( function(response) {
-        if (response.status >= 200 && response.status < 300 && response !== "Invalid ID token.") {
-          return response.json();
+    fetch(url, myInit)
+    .then(response => {
+        if (response.status == 200) {
+            return response.json();
         } else {
-          throw new Error('Ooops...something went wrong.');
+            throw new Error("Chiamata auth non andata a buon fine.");
         }
-      })
-      .then(function(data) {
-           this.setState({ user: data });
-           if (typeof(Storage) !== "undefined")
-           {//qui aggiorno sesssionstorage (se la risposta è stata positiva e il token è valido)
-            this.props.update(data.name, data.email, data.pictureUrl, this.props.link);
-            sessionStorage.setItem("Idtoken", id_token);
-            sessionStorage.setItem("IdClient", id_client);
-            sessionStorage.setItem("email", data.email);
-            sessionStorage.setItem("name", data.name);
-          }
-      }
-      .bind(this))
-      .catch((error) => { console.error(error); });
-
-
+    })
+    .then(response => {
+        console.log({ response });
+        const { name, email, pictureUrl } = response.data;
+        this.setState({ user: response });
+        this.props.update(name, email, pictureUrl, this.props.link);
+        sessionStorage.setItem("Idtoken", id_token);
+        sessionStorage.setItem("IdClient", id_client);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("name", name);
+    })
+    .bind(this)
+    .catch(error => {
+        console.error(error);
+        alert("Autenticazion fallita!");
+    });
   }
 
 
@@ -71,7 +71,7 @@ export default class Login extends Component {
       bottone = (
 
         <center><h3 id="initialInfo">Accedi per creare, vedere, o partecipare a un Qoodle!</h3>
-        
+
           <GoogleLogin
           clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
           onSuccess={responseGoogle}

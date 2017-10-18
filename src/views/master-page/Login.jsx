@@ -30,14 +30,15 @@ export default class Login extends Component {
     };
 
     fetch(url, myInit)
-    .then(response => {
-        if (response.status == 200) {
-            return response.json();
-        } else {
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      }
+      else {
             throw new Error("Chiamata auth non andata a buon fine.");
-        }
-    })
-    .then(response => {
+      }
+      })
+    .then((response => {
         console.log({ response });
         const { name, email, pictureUrl } = response.data;
         this.setState({ user: response });
@@ -46,8 +47,7 @@ export default class Login extends Component {
         sessionStorage.setItem("IdClient", id_client);
         sessionStorage.setItem("email", email);
         sessionStorage.setItem("name", name);
-    })
-    .bind(this)
+    }))
     .catch(error => {
         console.error(error);
         alert("Autenticazion fallita!");

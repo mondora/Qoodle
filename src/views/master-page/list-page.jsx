@@ -43,21 +43,21 @@ class ListPage extends Component {
 
       fetch(url, myInit)
       .then((res) => {
-        if (res.status >= 200 && res.status < 300) {
+        if (res.status === 200) {
           return res.json();
         } else {
           throw new Error('Ooops...something went wrong.');
         }
         })
-        .then(function(data) {
+        .then((data => {
             data.map( (ele)=>
             ele.closingDate = new Date(ele.closingDate).toDateString());
             data.sort( (a, b) => new Date(a.closingDate) < new Date(b.closingDate) ? -1 : 1);
              this.setState({ Qoodle: data });
-        }
-        .bind(this))
+        })
+        )
         .catch((error) => {
-          alert("NON PUOI ACCEDERE");
+          alert("Non puoi vedere la lista dei qoodle.");
           console.error(error);
           window.location = "/";
           });

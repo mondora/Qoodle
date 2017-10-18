@@ -3,7 +3,6 @@ import {Button} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement";
 import QoodleVoteElement from "../../components/QoodleVoteElement";
 import SummaryModal from "../../components/SummaryModal";
-import InfoModal from '../../components/InfoModal';
 import Timer from "../../components/Timer"
 import MobileTimer from "../../components/MobileTimer"
 
@@ -27,7 +26,6 @@ export default class QoodleView extends Component {
           realName: "",
           id : 0,//ora come esempio
           showSummaryModal: false,
-          showInfomModal: false,
           title: '',
           description: '',
           closingDate: new Date(),
@@ -271,19 +269,13 @@ export default class QoodleView extends Component {
     });
 
 
-      this.setState({showSummaryModal: false,
-                      showInfomModal: true});
-
-    }
-
-
-    confirmChoices()
-    {
-
-      this.setState({showInfomModal: false});
-
+      this.setState({showSummaryModal: false});
       window.location = "#/qoodles";
+
     }
+
+
+
 
     Open()
     {
@@ -405,11 +397,7 @@ export default class QoodleView extends Component {
 
 
 
-                <InfoModal
-                  show={this.state.showInfomModal}
-                  title="Conferma"
-                  info={"Salvataggio delle scelte prese"}
-                  showModal={this.confirmChoices.bind(this)}/>
+
 
         </div>
 

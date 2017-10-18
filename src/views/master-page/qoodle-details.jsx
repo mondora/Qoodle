@@ -63,13 +63,15 @@ export default class QoodleDetails extends Component {
 
 
 
-        fetch(url, myInit)
-        .then( function(response) {
-          if(response.ok)
-          return response.json();
-          throw new Error("Network response was not ok")
-        })
-        .then(function(data)
+            fetch(url, myInit)
+            .then((res) => {
+              if (res.status === 200) {
+                return res.json();
+              } else {
+                throw new Error('Ooops...something went wrong.');
+              }
+              })
+        .then((data =>
             { this.setState({
               nome: data.nome,
               elements: data.elements,
@@ -77,8 +79,7 @@ export default class QoodleDetails extends Component {
               realName: realNameLogged,
               type : data.type
               });
-        }
-        .bind(this))
+        }))
         .catch((error) => { console.error(error); });;
 
   }

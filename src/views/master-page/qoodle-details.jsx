@@ -80,7 +80,10 @@ export default class QoodleDetails extends Component {
               type : data.type
               });
         }))
-        .catch((error) => { console.error(error); });;
+        .catch((error) => {
+            console.error(error);
+            alert("Non puoi vedere i dettagli");
+         });;
 
   }
 

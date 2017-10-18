@@ -31,7 +31,7 @@ export default class Login extends Component {
 
     fetch(url, myInit)
     .then((res) => {
-      if (res.status === 200) {
+      if (res.ok) {
         return res.json();
       }
       else {

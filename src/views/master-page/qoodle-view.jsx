@@ -257,15 +257,18 @@ export default class QoodleView extends Component {
 
 
       fetch(url, myInit)
-      .then( function(response) {
-        if(response.status === 400)
-          alert("non sei autorizzato");
+      .then( (response => {
+        if(response.ok){
+            alert("Voto effettuato correttamente");
+        }
         else {
-          if(!response.ok)
           throw new Error("Network response was not ok");
         }
-
-      });
+    }))
+    .catch(error => {
+        console.error(error);
+        alert("Non è stato possibile effettuare la votazione richiesta!");
+    });
 
 
       this.setState({showSummaryModal: false,

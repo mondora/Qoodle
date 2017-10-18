@@ -213,7 +213,7 @@ export default class QoodleView extends Component {
 
 
 
-    OpenSummary()
+    submitVotes()
     {
       var token;
       var client;
@@ -391,7 +391,7 @@ export default class QoodleView extends Component {
               <SummaryModal
                 rows={this.state.elements}
                 show={this.state.showSummaryModal}
-                close={this.OpenSummary.bind(this)}
+                close={this.submitVotes.bind(this)}
                 check={this.CloseSummary.bind(this)}
                 />
 

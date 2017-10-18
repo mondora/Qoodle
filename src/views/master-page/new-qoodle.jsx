@@ -236,72 +236,23 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
 
     fetch(url, myInit)
-    .then( function(response) {
-      console.log(response, response.status);
-      if(response.status === 200)
-          return 0;
-      else
-      {
-        if(response.status === 401){
-          return 1;
-        }
-        else {
-          if(response.status === 500)
-            return 2;
-          else
-           return 3;
+    .then( (response => {
+        this.setState({showSaveModal: false,
+                closingDate: date});
+    window.location = "#/qoodles";
 
-        }
+      if(response.ok){
+          alert("Qoodle creato correttamente");
       }
-    }).then( (x) =>
-      {
-        console.log(x);
-        switch (x) {
-          case 0:
-          {
-            this.setState({showSaveModal: false,
-              showInfoModal: true,
-              closingDate: date
-});
-            console.log("sono in zero");
-            break;
-          }
-          case 1:
-          {
-            alert("Non sei autorizzato a cancellare questo Qoodle");
-            console.log("sono in zero");
-            break;
-          }
-          case 2:
-          {
-            this.setState({showSaveModal: false,
-                          showErrorInfoModal: true,
-                          closingDate: date
-                          });
-            break;
-          }
-          default:
-          {
-            throw new Error("Network response was not ok");
-            break;
-          }
-        }
-      });
+      else {
+        throw new Error("Network response was not ok");
+      }
+  }))
+  .catch(error => {
+      console.error(error);
+      alert("Il Qoodle non è stato creato correttamente.");
+  });
 
-  }
-
-
-  showInfoModal()
-  {
-    console.log("sono in giusto")
-    this.setState({showInfoModal: false});
-    window.location = "#/qoodles";
-  }
-
-  showErrorInfoModal()
-  {
-    this.setState({showErrorInfoModal: false});
-    window.location = "#/qoodles";
   }
 
 
@@ -364,8 +315,6 @@ handleAddElement(na, mi, ma, um, pr, img64)
 
 
 
-
-
                   <Button
                   id="addButton"
                   className="cent"
@@ -374,9 +323,6 @@ handleAddElement(na, mi, ma, um, pr, img64)
                   onClick={this.open.bind(this)}>
                     Add Element
                      </Button>
-
-
-
 
 
                          <center><h1 id="create">{this.state.title}</h1></center>
@@ -409,18 +355,6 @@ handleAddElement(na, mi, ma, um, pr, img64)
               show={this.state.showModifyModal}
               targetId={this.state.targetId}
               type={this.state.type}/>
-
-              <InfoModal
-                show={this.state.showInfoModal}
-                title="Salvataggio"
-                info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) effettuato correttamente"}
-                showModal={this.showInfoModal.bind(this)}/>
-
-                <InfoModal
-                  show={this.state.showErrorInfoModal}
-                  title="Salvataggio"
-                  info={"Salvataggio del Qoodle ( " +  this.state.title   + " ) NON È ANDATO A BUON FINE"}
-                  showModal={this.showErrorInfoModal.bind(this)}/>
 
 
               <SimpleChoiceModal

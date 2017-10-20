@@ -9,10 +9,6 @@ export default class SummaryRow extends Component
     focus: false
   }
 
-  constructor()
-  {
-    super();
-  }
 
   static propTypes = {
     name: PropTypes.string.isRequired,

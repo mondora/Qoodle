@@ -47,7 +47,7 @@ class StarRatingComponent extends Component {
       return;
     }
 
-    console.log("sono nel change", this.props.name, value);
+    console.log("sono nel change", name, value);
     var po = value - this.state.value
 
     if(this.state.value <= 5 && this.state.value >=0 && (budget - po) >= 0)
@@ -89,7 +89,6 @@ class StarRatingComponent extends Component {
         />
       );
 
-      const {onStarClick} = this.props.onStarClick;
 
       const starNodeLabel = (
         <label
@@ -97,7 +96,7 @@ class StarRatingComponent extends Component {
           style={starStyles(i, value)}
           className={'dv-star-rating-star ' + (value >= i ? 'dv-star-rating-full-star' : 'dv-star-rating-empty-star')}
           htmlFor={id}
-          onClick={()=> this.props.onStarClick(Number(name.slice(-1)) , i)}
+          onClick={()=> onStarClick(Number(name.slice(-1)) , i)}
         >
           {this.renderIcon(i, value, name)}
         </label>

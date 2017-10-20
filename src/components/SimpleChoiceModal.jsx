@@ -6,12 +6,6 @@ import {Button, Modal} from 'react-bootstrap';
 
 export default class SimpleChoiceModal extends Component {
 
-  constructor()
-  {
-    super();
-  }
-
-
 
 
   render()

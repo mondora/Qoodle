@@ -3,7 +3,6 @@ import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
-import InfoModal from '../../components/InfoModal';
 import SimpleChoiceModal from '../../components/SimpleChoiceModal';
 
 
@@ -71,7 +70,7 @@ export default class NewQoodle extends Component {
           }
           })
           .then((data =>
-              data.map( (ele)=>
+              data.forEach( (ele)=>
               {
                 this.setState({
                   elements: data,

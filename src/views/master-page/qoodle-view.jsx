@@ -102,7 +102,7 @@ export default class QoodleView extends Component {
 
     renderSum()
     {
-      var ordine = "Procedi all'ordine " + "(Totale: " ;
+      var ordine = "Procedi all'ordine (Totale: " ;
       var scelta = "Conferma le scelte prese (sono " ;
 
       return this.renderTotal(ordine, scelta);
@@ -110,7 +110,7 @@ export default class QoodleView extends Component {
 
     renderMobileSum()
     {
-      var ordine = "Continua" + "(Totale: ";
+      var ordine = "Continua (Totale: ";
       var scelta = "Conferma scelte: ( ";
 
       return this.renderTotal(ordine, scelta);

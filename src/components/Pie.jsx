@@ -58,7 +58,7 @@ render() {
 
 
     var realData=[];
-    this.props.data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
+    this.props.data.forEach( (el) => el.value !== 0 ?  realData.push(el) : "" );
 
      return (
        <div>

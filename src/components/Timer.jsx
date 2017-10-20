@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 
 export default class Timer extends Component{
 
-constructor(){
-  super();
-}
 
 static propTypes = {
     closingQoodle: PropTypes.any.isRequired,
@@ -18,10 +15,10 @@ static propTypes = {
 render(){
 
   const dateFormat =  {
-    day:  'dd' + ' giorni ',
-    hour:  'hh'+ ' ore ',
-    minute: 'mm'+ ' minuti ',
-    second: ' e '+ 'ss' + ' secondi '
+    day:  'dd giorni ',
+    hour:  'hh ore ',
+    minute: 'mm minuti ',
+    second: ' e ss secondi '
   }
 return(
     <div id="popover-div">

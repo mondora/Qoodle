@@ -136,7 +136,7 @@ export default class QoodleView extends Component {
 
 
     onStarClick(iden, value) {
-    console.log('id: %s, value: %s', iden, value);
+    //console.log('id: %s, value: %s', iden, value);
 
     const elementi = this.state.elements;
     var i = elementi.findIndex(el => el.elId === iden );
@@ -146,8 +146,7 @@ export default class QoodleView extends Component {
     var po = value -  elemento.counter;
 
 
-    console.log("sarei a: ", this.state.point - (po));
-
+    
     if( elemento.counter <= 5 && elemento.counter >=0 && (this.state.point - po) >= 0 )
     {
       elemento.counter = value;

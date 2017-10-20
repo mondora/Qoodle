@@ -14,7 +14,7 @@ export default class SummaryModal extends Component {
 
 
   static propTypes = {
-    rows: PropTypes.arrayOf(React.PropTypes.object),
+    rows: PropTypes.arrayOf(PropTypes.object),
     close: PropTypes.func,
     focus: PropTypes.bool
     };

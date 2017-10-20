@@ -40,18 +40,18 @@ class StarRatingComponent extends Component {
 
   onChange(value) {
     const { editing } = this.props;
-    const { name } = this.props.name;
     const { budget } = this.props.budget;
 
     if (!editing) {
       return;
     }
 
-    console.log("sono nel change", name, value);
+    //console.log("sono nel change", name, value);
     var po = value - this.state.value
 
-    if(this.state.value <= 5 && this.state.value >=0 && (budget - po) >= 0)
+    if (this.state.value <= 5 && this.state.value >= 0 && (budget - po) >= 0) {
       this.setState({ value });
+    }
     else
       console.log("non potevi farlo");
   }

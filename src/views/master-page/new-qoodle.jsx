@@ -132,7 +132,7 @@ handleAddElement(na, mi, ma, um, pr, img64)
 {
     this.setState({showColumnModal: false});
 
-    console.log("tipologia", this.state.type);
+
 
 
     um = this.state.type === "dem" ? "vote" : "";

@@ -115,7 +115,7 @@ export default class QoodleDetails extends Component {
                     color: palette[(i++ % palette.length)]
                   }) );
 
-            console.log("DOPO slice", sliceList);
+            //console.log("DOPO slice", sliceList);
             return(  <Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} type={this.state.type}/>  );
         }
         else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
@@ -157,7 +157,7 @@ export default class QoodleDetails extends Component {
 
                 if(this.state.type === "dem"){
                   var indexOfMaxValue = sliceList.reduce((iMax, x, i, arr) => x.value > arr[iMax].value ? i : iMax, 0);
-                  console.log("più voti", sliceList[indexOfMaxValue].label);
+                  //console.log("più voti", sliceList[indexOfMaxValue].label);
                   sliceList[indexOfMaxValue].color = win;
                 }
                 return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome} type={this.state.type}/> );

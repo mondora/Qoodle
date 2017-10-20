@@ -22,7 +22,6 @@ export default class Header extends Component {
 
 
       auth2.signOut().then( (res) => {
-        console.log("disconnesso correttamente");
         alert("disconnesso correttamente");
       })
       .then(function(data) {

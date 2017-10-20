@@ -130,7 +130,7 @@ export default class ListQoodleElement extends Component {
     const {details} = this.props;
     const targetId = this.props.id;
 
-    console.log("OWNER", owner);
+    //console.log("OWNER", owner);
 
     return(
       <div className='boxList' >

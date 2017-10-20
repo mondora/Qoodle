@@ -31,7 +31,7 @@ export default class Login extends Component {
       }
       })
     .then((response => {
-        console.log({ response });
+        //console.log({ response });
         const { name, email, pictureUrl } = response.data;
         this.setState({ user: response });
         this.props.update(name, email, pictureUrl, this.props.link);
@@ -52,7 +52,6 @@ export default class Login extends Component {
   render()
   {
     const responseGoogle = (response) => {
-      console.log("this is response", response);
       this.onSignIn(response);
     }
 

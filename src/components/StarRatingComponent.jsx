@@ -97,7 +97,7 @@ class StarRatingComponent extends Component {
           style={starStyles(i, value)}
           className={'dv-star-rating-star ' + (value >= i ? 'dv-star-rating-full-star' : 'dv-star-rating-empty-star')}
           htmlFor={id}
-          onClick={()=> this.props.onStarClick(name.slice(-1) , i)}
+          onClick={()=> this.props.onStarClick(Number(name.slice(-1)) , i)}
         >
           {this.renderIcon(i, value, name)}
         </label>

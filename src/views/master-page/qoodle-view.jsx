@@ -139,7 +139,7 @@ export default class QoodleView extends Component {
     console.log('id: %s, value: %s', iden, value);
 
     const elementi = this.state.elements;
-    var i = elementi.findIndex(el => el.elId == iden );
+    var i = elementi.findIndex(el => el.elId === iden );
     var elemento = elementi[i];
 
 

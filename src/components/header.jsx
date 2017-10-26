@@ -21,8 +21,10 @@ export default class Header extends Component {
       const auth2 = window.gapi.auth2.getAuthInstance();
 
 
-      auth2.signOut().then( (res) => {
-        alert("disconnesso correttamente");
+      auth2.signOut().then((res) => {
+        if (res.ok) {
+          alert("disconnesso correttamente");
+        }  
       })
       .then(function(data) {
         this.props.update("invalid", "invalid", "invalid", this.props.link);

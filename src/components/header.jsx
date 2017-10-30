@@ -16,7 +16,7 @@ export default class Header extends Component {
         };
     }
 
-    onSignOut(googleUser)
+    onSignOut()
     {
       const auth2 = window.gapi.auth2.getAuthInstance();
 

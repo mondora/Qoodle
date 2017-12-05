@@ -57,7 +57,11 @@ export default class Pie extends Component {
     const {expandedSector} = this.state;
     var spessore;
 
-    if(expandedSector !== null && realData[expandedSector].label === element.label)
+    //console.log("dati da stampare nella torta", realData);
+    //console.log("indice: ", expandedSector);
+    
+    //la seconda condizione, serve ad aspettare di eseguire la funzione
+    if(expandedSector !== null &&  realData[expandedSector] !== undefined &&  realData[expandedSector].label === element.label)
         return(<span style={{fontWeight: "bold", color: element.color, fontSize: "25px"}}>
                   {this.renderLegendElement(element)}
               </span>);

@@ -1,15 +1,8 @@
 import React, {Component} from "react";
+import PropTypes from 'prop-types';
 import Pie from "../../components/Pie.jsx";
 
-
-
-
-
-
 export default class QoodleDetails extends Component {
-
-
-
   constructor(){
     super();
 
@@ -23,9 +16,6 @@ export default class QoodleDetails extends Component {
       type: ""
     }
   }
-
-
-
 
   componentDidMount()
   {
@@ -41,7 +31,7 @@ export default class QoodleDetails extends Component {
       token = sessionStorage.getItem("Idtoken");
       client = sessionStorage.getItem("IdClient");
       email = sessionStorage.getItem("email");
-      realNameLogged = localStorage.getItem("name");
+      realNameLogged = sessionStorage.getItem("name");
     }
 
         var id;
@@ -87,9 +77,17 @@ export default class QoodleDetails extends Component {
   }
 
 
-  handleClickOnSector(sect) {
+  handleClickOnSector(sect) { 
+    console.log("questo è il settore: ", sect);
 
-    this.setState({sector: sect});
+    var detailsList = this.renderPart();
+
+  
+      var padding = detailsList.reduce( (pv, cv, i) => pv + ( cv.value === 0 && i <= sect? 1 : 0), 0);
+  
+      console.log(sect + padding);
+      this.setState({sector: sect + padding});
+    
   }
 
   renderElementPie()
@@ -97,11 +95,13 @@ export default class QoodleDetails extends Component {
     var sector = this.state.sector;//tipico
     var detailsList = this.renderPart();
 
-    //console.log("PRIMA", detailsList[sector])
+    console.log("PRIMA", detailsList[sector])
 
         //riduco il settore chi ha fatto quelle scelte
     var tot = detailsList[sector].whos.reduce( (pv, el) => pv + el.how , 0);
     var sliceList = [];
+
+    //console.log("questi sarebbero gli elementi nel settore", detailsList[sector]);
 
     var palette=["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
 
@@ -115,7 +115,7 @@ export default class QoodleDetails extends Component {
                     color: palette[(i++ % palette.length)]
                   }) );
 
-            //console.log("DOPO slice", sliceList);
+            console.log("DOPO slice", sliceList);
             return(  <Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} type={this.state.type}/>  );
         }
         else{ return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center>}
@@ -157,7 +157,7 @@ export default class QoodleDetails extends Component {
 
                 if(this.state.type === "dem"){
                   var indexOfMaxValue = sliceList.reduce((iMax, x, i, arr) => x.value > arr[iMax].value ? i : iMax, 0);
-                  //console.log("più voti", sliceList[indexOfMaxValue].label);
+                  console.log("più voti", sliceList[indexOfMaxValue].label);
                   sliceList[indexOfMaxValue].color = win;
                 }
                 return( <Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome} type={this.state.type}/> );
@@ -168,7 +168,7 @@ export default class QoodleDetails extends Component {
 
   renderPart(){
     var detailsList = [];
-    //console.log(this.state.elements);
+    console.log("elementi nello stato", this.state.elements);
 
     if(this.state.elements.length > 0)
       this.state.elements.forEach( (ele) =>
@@ -178,6 +178,8 @@ export default class QoodleDetails extends Component {
         whos: this.renderPeople(ele.whos),
       })
     );
+
+    console.log("elementi nella lista dettagli", detailsList);
 
     return detailsList;
   }

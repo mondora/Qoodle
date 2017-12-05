@@ -51,14 +51,33 @@ export default class Pie extends Component {
     }
     return button;
   }
+  
+  
+  changeFontWeight(realData, element){
+    const {expandedSector} = this.state;
+    var spessore;
 
+    if(expandedSector !== null && realData[expandedSector].label === element.label)
+        return(<span style={{fontWeight: "bold", color: element.color, fontSize: "25px"}}>
+                  {this.renderLegendElement(element)}
+              </span>);
+
+           return(<span style={{ color: element.color, fontSize: "25px"}}>
+                {this.renderLegendElement(element)}
+            </span>)
+
+
+  }
 
 render() {
-  const {expandedSector} = this.state
+  const {expandedSector} = this.state;
+  const {data} = this.props;
+  var spessore;
 
+  var supportSector;
 
     var realData=[];
-    this.props.data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
+    data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
 
      return (
        <div>
@@ -79,13 +98,15 @@ render() {
 
      <div  id="legend">
 
+      {console.log(expandedSector)}
+      
         {
-            this.props.data.map((element, i) => (
+         
+            data.map((element, i) => (
                 <div key={i} >
                     <span style={{backgroundColor: element.color}}></span>
-                      <span style={{fontWeight: this.state.expandedSector === i ? "bold" : null, color: element.color, fontSize: "25px"}}>
-                       {this.renderLegendElement(element)}
-                    </span>
+                    { this.changeFontWeight(realData, element)}
+
                 </div>
             ))
         }

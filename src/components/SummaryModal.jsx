@@ -12,14 +12,9 @@ export default class SummaryModal extends Component {
 
 
 
-  constructor()
-  {
-    super();
-  }
-
 
   static propTypes = {
-    rows: PropTypes.arrayOf(React.PropTypes.object),
+    rows: PropTypes.arrayOf(PropTypes.object),
     close: PropTypes.func,
     focus: PropTypes.bool
     };
@@ -29,7 +24,6 @@ export default class SummaryModal extends Component {
   {
     var summaryRows = [];
     const elements = this.props.rows;
-    const {purchase} = this.props;
 
     for(var i=0; i<elements.length; i++)
     {

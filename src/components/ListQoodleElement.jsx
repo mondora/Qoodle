@@ -56,7 +56,7 @@ export default class ListQoodleElement extends Component {
   if(this.state.status === "success")
     dateFormat =
     {
-        day:  'mancano dd ' + 'giorni',
+        day:  "mancano dd giorni",
     }
     else
     dateFormat =
@@ -130,10 +130,7 @@ export default class ListQoodleElement extends Component {
     const {details} = this.props;
     const targetId = this.props.id;
 
-    var date = new Date(this.props.closingDate)
-    date = date.getDate() + 1 ;
-
-    console.log("OWNER", owner);
+    //console.log("OWNER", owner);
 
     return(
       <div className='boxList' >

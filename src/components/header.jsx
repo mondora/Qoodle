@@ -16,16 +16,17 @@ export default class Header extends Component {
         };
     }
 
-    onSignOut(googleUser)
+    onSignOut()
     {
       const auth2 = window.gapi.auth2.getAuthInstance();
 
 
-      auth2.signOut().then( (res) => {
-        console.log("disconnesso correttamente");
-        alert("disconnesso correttamente");
+      auth2.signOut().then((res) => {
+        if ( typeof res != "undefined" && res.ok) {
+          alert("disconnesso correttamente");
+        }  
       })
-      .then(function(data) {
+      .then(function() {
         this.props.update("invalid", "invalid", "invalid", this.props.link);
       }.bind(this));
 

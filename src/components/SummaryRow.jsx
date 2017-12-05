@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
 export default class SummaryRow extends Component
@@ -9,10 +10,6 @@ export default class SummaryRow extends Component
     focus: false
   }
 
-  constructor()
-  {
-    super();
-  }
 
   static propTypes = {
     name: PropTypes.string.isRequired,

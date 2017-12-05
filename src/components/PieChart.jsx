@@ -11,8 +11,8 @@ class PieChart extends Component {
   }
 
   handleSectorClick(i,e) {
-    console.log("HAI cliccato!", e);
-    console.log("numero", i);
+    //console.log("HAI cliccato!", e);
+    //console.log("numero", i);
 
     e.preventDefault();
     if (this.props.onSectorClick) {

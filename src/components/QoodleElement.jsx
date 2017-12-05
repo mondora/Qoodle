@@ -30,11 +30,6 @@ export default class QoodleElement extends Component {
 
   }
 
-  constructor()
-  {
-    super();
-  }
-
 
   renderElementImage()
   {
@@ -50,7 +45,6 @@ export default class QoodleElement extends Component {
 
   render()
   {
-    const backgroundImage = this.props.img64;
     const Inc = this.props.onInc;
     const Dec = this.props.onDec;
     const changeSettings = this.props.create;

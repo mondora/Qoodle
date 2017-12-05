@@ -4,16 +4,8 @@ import logoQoodle from '../../assets/img/logo.png'
 
 export default class Login extends Component {
 
-  constructor(props)
-  {
-    super(props);
 
-  }
-
-
-
-
-  onSignIn(googleUser, id_client) {
+  onSignIn(googleUser) {
 
     var id_token = googleUser.getAuthResponse().id_token;
     var id_client = "368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
@@ -39,7 +31,7 @@ export default class Login extends Component {
       }
       })
     .then((response => {
-        console.log({ response });
+        //console.log({ response });
         const { name, email, pictureUrl } = response.data;
         this.setState({ user: response });
         this.props.update(name, email, pictureUrl, this.props.link);
@@ -60,7 +52,6 @@ export default class Login extends Component {
   render()
   {
     const responseGoogle = (response) => {
-      console.log("this is response", response);
       this.onSignIn(response);
     }
 

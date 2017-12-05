@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Image} from 'react-bootstrap';
-import vote from '../assets/img/icon.svg';
 import StarRatingComponent from './StarRatingComponent.jsx';
 
 export default class QoodleVoteElement extends Component {
@@ -25,10 +24,6 @@ export default class QoodleVoteElement extends Component {
 
   }
 
-  constructor(props)
-  {
-    super(props);
-  }
 
 
   renderElementImage()
@@ -43,9 +38,7 @@ export default class QoodleVoteElement extends Component {
 
   render()
   {
-    const backgroundImage = this.props.img64;
-
-
+   
     var realName = "rate" + this.props.elId;
 
 
@@ -60,7 +53,7 @@ export default class QoodleVoteElement extends Component {
 
           <h3>{this.props.name}</h3>
           <StarRatingComponent
-                  name= {realName}
+                  name={realName}
                   value={this.props.counter}
                   onStarClick={this.props.onStarClick}
                   budget={this.props.budget}

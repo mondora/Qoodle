@@ -102,7 +102,7 @@ export default class QoodleView extends Component {
 
     renderSum()
     {
-      var ordine = "Procedi all'ordine " + "(Totale: " ;
+      var ordine = "Procedi all'ordine (Totale: " ;
       var scelta = "Conferma le scelte prese (sono " ;
 
       return this.renderTotal(ordine, scelta);
@@ -110,7 +110,7 @@ export default class QoodleView extends Component {
 
     renderMobileSum()
     {
-      var ordine = "Continua" + "(Totale: ";
+      var ordine = "Continua (Totale: ";
       var scelta = "Conferma scelte: ( ";
 
       return this.renderTotal(ordine, scelta);
@@ -136,18 +136,17 @@ export default class QoodleView extends Component {
 
 
     onStarClick(iden, value) {
-    console.log('id: %s, value: %s', iden, value);
+    //console.log('id: %s, value: %s', iden, value);
 
     const elementi = this.state.elements;
-    var i = elementi.findIndex(el => el.elId == iden );
+    var i = elementi.findIndex(el => el.elId === iden );
     var elemento = elementi[i];
 
 
     var po = value -  elemento.counter;
 
 
-    console.log("sarei a: ", this.state.point - (po));
-
+    
     if( elemento.counter <= 5 && elemento.counter >=0 && (this.state.point - po) >= 0 )
     {
       elemento.counter = value;

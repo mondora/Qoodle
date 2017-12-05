@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 
 export default class MobileTimer extends Component{
 
-constructor(){
-  super();
-}
-
 static propTypes = {
     closingQoodle: PropTypes.any.isRequired,
     title: PropTypes.string.isRequired,
@@ -17,8 +13,8 @@ static propTypes = {
 render(){
 
   const dateFormat =  {
-    day:  'dd' + ' giorni e ',
-    hour:  'hh'+ ' ore '
+    day:  'dd giorni e ',
+    hour:  'hh ore '
   }
 return(
     <div id="mtimer">

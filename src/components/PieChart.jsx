@@ -16,7 +16,7 @@ class PieChart extends Component {
 
     e.preventDefault();
     if (this.props.onSectorClick) {
-      this.props.onSectorClick(i)
+      this.props.onSectorClick(i, this.props.data[i].label)
     }
   }
 

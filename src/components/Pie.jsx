@@ -56,7 +56,7 @@ export default class Pie extends Component {
   componentWillReceiveProps(nextProps){
     if(this.props.data !== nextProps.data)
     {
-      this.setState({pieData: nextProps.data});
+      this.setState({pieData: nextProps.data, expandedSector:null});
     }
   }
   
@@ -65,10 +65,7 @@ export default class Pie extends Component {
     const {expandedSector} = this.state;
     var spessore;
 
-    //console.log("dati da stampare nella torta", realData);
-    //console.log("indice: ", expandedSector);
-    //la seconda condizione, serve ad aspettare di eseguire la funzione
-    if(expandedSector !== null &&  this.props.onSectorClick &&  realData[expandedSector].label === element.label)
+    if(expandedSector !== null &&  realData[expandedSector].label === element.label)
         return(<span style={{fontWeight: "bold", color: element.color, fontSize: "25px"}}>
                   {this.renderLegendElement(element)}
               </span>);

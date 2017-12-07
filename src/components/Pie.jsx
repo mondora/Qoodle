@@ -13,7 +13,8 @@ export default class Pie extends Component {
     super(props);
 
     this.state = {
-            expandedSector: null,
+            pieData: this.props.data,
+            expandedSector: null
         }
 
 
@@ -51,6 +52,13 @@ export default class Pie extends Component {
     }
     return button;
   }
+
+  componentWillReceiveProps(nextProps){
+    if(this.props.data !== nextProps.data)
+    {
+      this.setState({pieData: nextProps.data});
+    }
+  }
   
   
   changeFontWeight(realData, element){
@@ -59,29 +67,26 @@ export default class Pie extends Component {
 
     //console.log("dati da stampare nella torta", realData);
     //console.log("indice: ", expandedSector);
-    
     //la seconda condizione, serve ad aspettare di eseguire la funzione
-    if(expandedSector !== null &&  realData[expandedSector] !== undefined &&  realData[expandedSector].label === element.label)
+    if(expandedSector !== null &&  this.props.onSectorClick &&  realData[expandedSector].label === element.label)
         return(<span style={{fontWeight: "bold", color: element.color, fontSize: "25px"}}>
                   {this.renderLegendElement(element)}
               </span>);
 
            return(<span style={{ color: element.color, fontSize: "25px"}}>
-                {this.renderLegendElement(element)}
-            </span>)
-
-
+                    {this.renderLegendElement(element)}
+                  </span>)
   }
 
 render() {
   const {expandedSector} = this.state;
-  const {data} = this.props;
+  const {pieData} = this.state;
   var spessore;
 
   var supportSector;
 
     var realData=[];
-    data.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
+    pieData.forEach( (el) => el.value != 0 ?  realData.push(el) : "" );
 
      return (
        <div>
@@ -106,7 +111,7 @@ render() {
       
         {
          
-            data.map((element, i) => (
+            pieData.map((element, i) => (
                 <div key={i} >
                     <span style={{backgroundColor: element.color}}></span>
                     { this.changeFontWeight(realData, element)}

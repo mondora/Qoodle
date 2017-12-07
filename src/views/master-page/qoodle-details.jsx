@@ -79,17 +79,13 @@ export default class QoodleDetails extends Component {
 
   handleClickOnSector(sect, label) { 
     console.log("questo è il settore: ", sect);
-
     var detailsList = this.renderPart();
-
     var limitIndex = detailsList.findIndex( (el) => el.label === label);
+
+    var padding = detailsList.reduce( (pv, cv, i) => pv + ( cv.value === 0 && i <= limitIndex ? 1 : 0), 0);
   
-    console.log("indice limite: ", limitIndex,"  ",   detailsList, " e poi label arrivata", label);
-    
-      var padding = detailsList.reduce( (pv, cv, i) => pv + ( cv.value === 0 && i <= limitIndex ? 1 : 0), 0);
-  
-      console.log("array index",sect + padding);
-      this.setState({sector: sect + padding});
+    console.log("array index",sect + padding);
+    this.setState({sector: sect + padding});
     
   }
 

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import GoogleLogin from 'react-google-login';
 import logoQoodle from '../../assets/img/logo.png'
 
@@ -13,24 +13,24 @@ export default class Login extends Component {
 
     var url = 'http://' + process.env.REACT_APP_SPECIFIC_ID + ':4567/token';
     var myInit = {
-        method: 'post',
-        mode: 'cors',
-        body: JSON.stringify({
-            id_token: id_token,
-            id_client: id_client
-        })
+      method: 'post',
+      mode: 'cors',
+      body: JSON.stringify({
+        id_token: id_token,
+        id_client: id_client
+      })
     };
 
     fetch(url, myInit)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      else {
-            throw new Error("Chiamata auth non andata a buon fine.");
-      }
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        else {
+          throw new Error("Chiamata auth non andata a buon fine.");
+        }
       })
-    .then((response => {
+      .then((response => {
         //console.log({ response });
         const { name, email, pictureUrl } = response.data;
         this.setState({ user: response });
@@ -39,18 +39,17 @@ export default class Login extends Component {
         sessionStorage.setItem("IdClient", id_client);
         sessionStorage.setItem("email", email);
         sessionStorage.setItem("name", name);
-    }))
-    .catch(error => {
+      }))
+      .catch(error => {
         console.error(error);
         alert("Autenticazion fallita!");
-    });
+      });
   }
 
 
 
 
-  render()
-  {
+  render() {
     const responseGoogle = (response) => {
       this.onSignIn(response);
     }
@@ -58,34 +57,34 @@ export default class Login extends Component {
 
     var bottone;
 
-    if ( this.props.email === "invalid" )
+    if (this.props.email === "invalid")
       bottone = (
 
         <center><h3 id="initialInfo">Accedi per creare, vedere, o partecipare a un Qoodle!</h3>
 
           <GoogleLogin
-          clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
+            clientId="368137741089-hsrpuqdglviv781adke5kjva4ik9aum8.apps.googleusercontent.com"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
           >
             <span id="loginLabel">Login</span>
           </GoogleLogin>
         </center>
-        );
+      );
     else {
 
       bottone =
-      (
-        <div>
-              Sloggati
+        (
+          <div>
+            Sloggati
         </div>
-    )
+        )
     }
 
 
     return (
       <div id="initial">
-        <img id="initialLogo" src={logoQoodle} alt="loading" style={{verticalAlign: 'middle', width: 200}} />
+        <img id="initialLogo" src={logoQoodle} alt="loading" style={{ verticalAlign: 'middle', width: 200 }} />
         {bottone}
       </div>)
   }

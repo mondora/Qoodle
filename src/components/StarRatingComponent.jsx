@@ -96,7 +96,7 @@ class StarRatingComponent extends Component {
           style={starStyles(i, value)}
           className={'dv-star-rating-star ' + (value >= i ? 'dv-star-rating-full-star' : 'dv-star-rating-empty-star')}
           htmlFor={id}
-          onClick={()=> onStarClick(Number(name.slice(-1)) , i)}
+          onClick={() => onStarClick(Number(name.slice(-1)), i)}
         >
           {this.renderIcon(i, value, name)}
         </label>
@@ -124,7 +124,7 @@ class StarRatingComponent extends Component {
       return renderStarIcon(index, value, name);
     }
 
-    return <i style={{fontStyle: 'normal'}}>&#9733;</i>;
+    return <i style={{ fontStyle: 'normal' }}>&#9733;</i>;
   }
 
   render() {
@@ -134,9 +134,9 @@ class StarRatingComponent extends Component {
     }, className);
 
     return (
-      <div style={{display: 'inline-block', position: 'relative'}} className={classes}>
+      <div style={{ display: 'inline-block', position: 'relative' }} className={classes}>
         {this.renderStars()}
-       </div>
+      </div>
     );
   }
 }

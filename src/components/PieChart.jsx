@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 class PieChart extends Component {
@@ -10,7 +10,7 @@ class PieChart extends Component {
     }
   }
 
-  handleSectorClick(i,e) {
+  handleSectorClick(i, e) {
     //console.log("HAI cliccato!", e);
     //console.log("numero", i);
 
@@ -21,7 +21,7 @@ class PieChart extends Component {
   }
 
   getSector() {
-    const {data, expandOnHover, expandPx, expandedSector, palette, viewBoxWidth} = this.props
+    const { data, expandOnHover, expandPx, expandedSector, palette, viewBoxWidth } = this.props
     const center = viewBoxWidth / 2
     const expandVal = expandOnHover && expandedSector === 0 ? expandPx : 0
     return (
@@ -38,7 +38,7 @@ class PieChart extends Component {
   }
 
   getSectors() {
-    const {data, palette, sectorStrokeWidth, expandOnHover, expandedSector, expandPx, viewBoxWidth} = this.props
+    const { data, palette, sectorStrokeWidth, expandOnHover, expandedSector, expandPx, viewBoxWidth } = this.props
     const total = Math.ceil(data.reduce((prev, current) => current.value + prev, 0))
     const center = viewBoxWidth / 2
     let startAngle = 0
@@ -84,7 +84,7 @@ class PieChart extends Component {
   }
 
   render() {
-    const {className, data, expandPx, viewBoxWidth} = this.props
+    const { className, data, expandPx, viewBoxWidth } = this.props
     return (
       <svg className={className} viewBox={`0 0 ${viewBoxWidth + expandPx * 2} ${viewBoxWidth + expandPx * 2}`}>
         <g transform={`translate(${expandPx}, ${expandPx})`}>

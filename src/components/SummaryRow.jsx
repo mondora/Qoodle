@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-export default class SummaryRow extends Component
-{
+export default class SummaryRow extends Component {
 
   static defaultProps =
-  {
-    focus: false
-  }
+    {
+      focus: false
+    }
 
 
   static propTypes = {
@@ -18,37 +17,35 @@ export default class SummaryRow extends Component
     coinoption: PropTypes.string.isRequired,
     umoption: PropTypes.string,
     focus: PropTypes.bool
-};
+  };
 
 
-  renderDifferentRowType()
-  {
+  renderDifferentRowType() {
     var riga = '';
-    if(this.props.price !== 0 ){
-        riga = this.props.name
-        + ' ( '+ this.props.price
+    if (this.props.price !== 0) {
+      riga = this.props.name
+        + ' ( ' + this.props.price
         + this.props.coinoption
         + '  x  ' +
-        this.props.counter +' )' +
+        this.props.counter + ' )' +
         '    = ' + (this.props.price * this.props.counter) +
         this.props.coinoption
-    }else {
+    } else {
       riga = "Numero di " +
-      this.props.name + ": " +
-      this.props.counter + " " +
-      this.props.umoption
+        this.props.name + ": " +
+        this.props.counter + " " +
+        this.props.umoption
     }
 
 
-    return    (  riga );
+    return (riga);
   }
 
-  render()
-  {
-    var bottone = this.props.focus ? <Button>FOCUS</Button>: "";
+  render() {
+    var bottone = this.props.focus ? <Button>FOCUS</Button> : "";
 
     return (
-    <p>{this.renderDifferentRowType()}{bottone}</p>
+      <p>{this.renderDifferentRowType()}{bottone}</p>
     );
   }
 }

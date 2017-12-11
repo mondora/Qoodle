@@ -1,22 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Countdown from 'react-cntdwn';
-import {ListGroup, ListGroupItem, Image, Modal, Button} from 'react-bootstrap';
-import timer  from '../assets/img/timer.png';
+import { ListGroup, ListGroupItem, Image, Modal, Button } from 'react-bootstrap';
+import timer from '../assets/img/timer.png';
 import ingrandimento from '../assets/img/ingrandimento.png'
 import people from '../assets/img/people.png';
 
 export default class ListQoodleElement extends Component {
 
-  constructor()
-  {
+  constructor() {
     super();
 
 
     this.state = {
       status: "success",
       show: false,
-          }
+    }
   }
 
 
@@ -35,144 +34,137 @@ export default class ListQoodleElement extends Component {
   }
 
 
-  changeStatus(){
-    this.setState({status: "danger"})
+  changeStatus() {
+    this.setState({ status: "danger" })
   }
 
 
-  renderParticipates()
-  {
-    const {openIt} = this.props;
-    if(this.state.status === "success")
-      return ( <ListGroupItem bsStyle={"warning"} id="partecipates" onClick={ () => openIt(this.props.id)}>PARTECIPA!</ListGroupItem> );
+  renderParticipates() {
+    const { openIt } = this.props;
+    if (this.state.status === "success")
+      return (<ListGroupItem bsStyle={"warning"} id="partecipates" onClick={() => openIt(this.props.id)}>PARTECIPA!</ListGroupItem>);
   }
 
-  renderClosingTime()
-  {
+  renderClosingTime() {
 
     var dateFormat;
 
 
-  if(this.state.status === "success")
-    dateFormat =
-    {
-        day:  "mancano dd giorni",
-    }
+    if (this.state.status === "success")
+      dateFormat =
+        {
+          day: "mancano dd giorni",
+        }
     else
-    dateFormat =
-      {
-        day: 'SCADUTO'
-      }
+      dateFormat =
+        {
+          day: 'SCADUTO'
+        }
 
 
 
 
     const d = new Date(this.props.closingDate)
 
-    const element=
-    <Countdown
-      targetDate={d}
-      interval={1000}
-      timeSeparator={'  '}
-      leadingZero
-      format={dateFormat}
-      onFinished={this.changeStatus.bind(this)}
+    const element =
+      <Countdown
+        targetDate={d}
+        interval={1000}
+        timeSeparator={'  '}
+        leadingZero
+        format={dateFormat}
+        onFinished={this.changeStatus.bind(this)}
       />
 
     return (element);
 
   }
 
-  renderQoodleImage()
-  {
+  renderQoodleImage() {
     if (this.props.backgroundImage !== "")
-      return   (
+      return (
 
-          <center><Image id="event" src={this.props.backgroundImage} alt="loading" responsive /></center>
-    );
+        <center><Image id="event" src={this.props.backgroundImage} alt="loading" responsive /></center>
+      );
     else return "";
   }
 
 
-  renderTimer()
-  {
-    return  (  this.state.status === "success" ?
-            <Image id="timer" src={timer}
-            style={{width: 40, height: 40}}
-            alt="loading"
-            responsive />
-          : "");
+  renderTimer() {
+    return (this.state.status === "success" ?
+      <Image id="timer" src={timer}
+        style={{ width: 40, height: 40 }}
+        alt="loading"
+        responsive />
+      : "");
   }
 
-  tryDelete()
-  {
-    this.setState({show: !this.state.show});
+  tryDelete() {
+    this.setState({ show: !this.state.show });
   }
 
-  renderDelete()
-  {
-    const {owner} = this.props;
+  renderDelete() {
+    const { owner } = this.props;
 
-    var email = typeof(Storage) !== "undefined" ? sessionStorage.getItem("email") : "";
+    var email = typeof (Storage) !== "undefined" ? sessionStorage.getItem("email") : "";
 
-    if(email === owner && this.state.status === "success")
-     return <i id="deleteMinus"aria-hidden="true" onClick={this.tryDelete.bind(this)}>⊗</i>
+    if (email === owner && this.state.status === "success")
+      return <i id="deleteMinus" aria-hidden="true" onClick={this.tryDelete.bind(this)}>⊗</i>
     else
       return "";
 
   }
 
 
-  render()
-  {
-    const {remove} = this.props;
-    const {owner} = this.props;
-    const {details} = this.props;
+  render() {
+    const { remove } = this.props;
+    const { owner } = this.props;
+    const { details } = this.props;
     const targetId = this.props.id;
 
     //console.log("OWNER", owner);
 
-    return(
+    return (
       <div className='boxList' >
 
-          <ListGroup id="withBorder">
-            <div id="oneEvent">
-              {this.renderQoodleImage()}
-              {this.renderDelete()}
-            </div>
+        <ListGroup id="withBorder">
+          <div id="oneEvent">
+            {this.renderQoodleImage()}
+            {this.renderDelete()}
+          </div>
 
-        <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>
+          <ListGroupItem id="qoodleBoxTitle" onClick={() => details(targetId)}>
             <h2 id="qoodleCardTitle">{this.props.title}</h2>
             <Image id="ingrandimento" src={ingrandimento} width={"40px"} height={"40px"} alt="loading" responsive />
-            </ListGroupItem>
+          </ListGroupItem>
 
           <ListGroupItem id="partecipants">
             <Image id="people" src={people} alt="loading" responsive />
             partecipanti: {this.props.partecipants}</ListGroupItem>
           <ListGroupItem bsStyle={this.state.status} >
-{this.renderTimer()} {this.renderClosingTime()} </ListGroupItem>
+            {this.renderTimer()} {this.renderClosingTime()} </ListGroupItem>
           {this.renderParticipates()}
 
-          </ListGroup>
+        </ListGroup>
 
 
 
-          <Modal show={this.state.show}>
-            <Modal.Header>
-                <Modal.Title>Vuoi davvero cancellare {this.props.title} ?</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <center>
+        <Modal show={this.state.show}>
+          <Modal.Header>
+            <Modal.Title>Vuoi davvero cancellare {this.props.title} ?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <center>
               <p><Button onClick={() => remove(targetId, owner)}>RIMUOVI IL QOODLE</Button></p>
               <p><Button onClick={this.tryDelete.bind(this)}>ANNULLA OPERAZIONE</Button></p></center>
-            </Modal.Body>
+          </Modal.Body>
 
-          </Modal>
+        </Modal>
 
 
 
       </div>
-);
+    );
 
 
   }

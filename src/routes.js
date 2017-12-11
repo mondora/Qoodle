@@ -1,5 +1,5 @@
 import React from "react";
-import {Router, Route} from "react-router";
+import { Router, Route } from "react-router";
 import history from "./components/libs/history";
 import RootPage from "./views/root-page.jsx";
 import NewQoodle from "./views/master-page/new-qoodle.jsx";
@@ -11,11 +11,11 @@ import Login from './views/master-page/Login.jsx';
 export default (
     <Router history={history} >
         <Route component={RootPage} path="" name="root">
-            <Route component={Login} name="login" path="/"/>
-            <Route component={NewQoodle} name="new" path="/create"/>
-            <Route component={QoodleView} name="view" path="/qoodle/:id"/>
-            <Route component={ListPage} name="list" path="/qoodles"/>
-            <Route component={QoodleDetails} name="details" path="/details/:id"/>
+            <Route component={Login} name="login" path="/" />
+            <Route component={NewQoodle} name="new" path="/create" />
+            <Route component={QoodleView} name="view" path="/qoodle/:id" />
+            <Route component={ListPage} name="list" path="/qoodles" />
+            <Route component={QoodleDetails} name="details" path="/details/:id" />
         </Route>
 
 

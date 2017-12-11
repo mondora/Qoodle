@@ -15,7 +15,7 @@ class RootPage extends Component {
     }
 
     renderAppPage() {
-        const {children} = this.props;
+        const { children } = this.props;
 
         return (
             <MasterPage>

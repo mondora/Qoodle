@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Image} from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import StarRatingComponent from './StarRatingComponent.jsx';
 
 export default class QoodleVoteElement extends Component {
 
   static defaultProps =
-  {
+    {
       um: '',
       coin: '',
 
-  }
+    }
 
 
 
@@ -26,41 +26,39 @@ export default class QoodleVoteElement extends Component {
 
 
 
-  renderElementImage()
-  {
+  renderElementImage() {
     if (this.props.img64 !== "")
-      return   (
-          <center><Image id="event" src={this.props.img64} alt="loading" responsive /></center>
-    );
+      return (
+        <center><Image id="event" src={this.props.img64} alt="loading" responsive /></center>
+      );
     else return "";
   }
 
 
-  render()
-  {
-   
+  render() {
+
     var realName = "rate" + this.props.elId;
 
 
-    return(      <div id="star">
+    return (<div id="star">
 
 
-    <div id='one'>
+      <div id='one'>
 
 
         {this.renderElementImage()}
-        </div>
+      </div>
 
-          <h3>{this.props.name}</h3>
-          <StarRatingComponent
-                  name={realName}
-                  value={this.props.counter}
-                  onStarClick={this.props.onStarClick}
-                  budget={this.props.budget}
-                  renderStarIcon={() => <span className="votes">&#x2714;</span>}
-              />
-        </div>
-);
+      <h3>{this.props.name}</h3>
+      <StarRatingComponent
+        name={realName}
+        value={this.props.counter}
+        onStarClick={this.props.onStarClick}
+        budget={this.props.budget}
+        renderStarIcon={() => <span className="votes">&#x2714;</span>}
+      />
+    </div>
+    );
 
 
   }

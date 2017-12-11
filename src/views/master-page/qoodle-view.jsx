@@ -280,10 +280,7 @@ export default class QoodleView extends Component {
     }
     
     renderDescpritionPadding(){
-      var descriptionPadding=this.state.description===''? "block":"none";
-      
-      return <span style={{display: descriptionPadding, padding: 40}}></span>
-      
+      return this.state.description === ''? 100: 30;    
   }
 
   renderPoint() {
@@ -364,8 +361,8 @@ export default class QoodleView extends Component {
 
           {this.renderPoint()}
 
-          <center><h1>{this.state.title}</h1></center>
-          {this.renderDescpritionPadding()}
+          <center><h1 style={{paddingBottom: this.renderDescpritionPadding()}}>{this.state.title}</h1></center>
+          
           {this.renderDescription()}
           <div className="row">
             {this.renderElements()}

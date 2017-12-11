@@ -255,28 +255,35 @@ export default class QoodleView extends Component {
         console.error(error);
         alert("Non è stato possibile effettuare la votazione richiesta!");
       });
-
-
-    this.setState({ showSummaryModal: false });
-    window.location = "#/qoodles";
-
-  }
-
-
-
-
-  Open() {
-    this.setState({ showSummaryModal: true });
-  }
-
-  CloseSummary() {
-    this.setState({ showSummaryModal: false })
-  }
-
-
-  renderDescription() {
-    if (this.state.description !== '')
+      
+      
+      this.setState({ showSummaryModal: false });
+      window.location = "#/qoodles";
+      
+    }
+    
+    
+    
+    
+    Open() {
+      this.setState({ showSummaryModal: true });
+    }
+    
+    CloseSummary() {
+      this.setState({ showSummaryModal: false })
+    }
+    
+    
+    renderDescription() {
+      if (this.state.description !== '')
       return <center><h3 id="QoodleDescription">{this.state.description}</h3></center>
+    }
+    
+    renderDescpritionPadding(){
+      var descriptionPadding=this.state.description===''? "block":"none";
+      
+      return <span style={{display: descriptionPadding, padding: 40}}></span>
+      
   }
 
   renderPoint() {
@@ -342,6 +349,7 @@ export default class QoodleView extends Component {
     else
       return <h2 className="subTitlePage">Per ogni elemento dovrai scegliere una quantità.</h2>
   }
+  
 
   render() {
 
@@ -350,7 +358,6 @@ export default class QoodleView extends Component {
         <div className="body">
           <h1 className="titlePage">Partecipa a un Qoodle</h1>
           {this.renderWhatDo()}
-          <div id="demo"></div>
 
           <Timer closingQoodle={this.state.closingDate} title={this.renderScadenza()} onFinished={() => window.location = "#/qoodles"} />
           <MobileTimer closingQoodle={this.state.closingDate} title={'Termine per acquistare:'} onFinished={() => window.location = "#/qoodles"} />
@@ -358,6 +365,7 @@ export default class QoodleView extends Component {
           {this.renderPoint()}
 
           <center><h1>{this.state.title}</h1></center>
+          {this.renderDescpritionPadding()}
           {this.renderDescription()}
           <div className="row">
             {this.renderElements()}

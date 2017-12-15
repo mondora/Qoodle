@@ -1180,6 +1180,13 @@ background-color: #e2f4c7 !important;
   border: 1px solid #DDD;
 }
 
+#advanced{
+  margin-top: 3px;
+  margin-bottom: 18px;
+  width: 150px;
+  height: 40px;
+}
+
 @media (min-width: 992px){
   .col-md-3 {
     width: calc(25vw - 5px);

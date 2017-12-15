@@ -20,6 +20,7 @@ export default class ElementCreationModal extends Component {
       price: 0,
       img64: '',
       showAlert: false,
+      advanced: false,
     };
   }
 
@@ -116,6 +117,10 @@ export default class ElementCreationModal extends Component {
     }
   }
 
+  setAdvanced(){
+    this.setState({advanced: !this.state.advanced});
+  }
+
 
 
   renderUmEPrice() {
@@ -153,6 +158,7 @@ export default class ElementCreationModal extends Component {
     const max = this.state.max;
     const umoption = this.state.umoption;
     const img64 = this.state.img64;
+    const showAdvanced = this.state.advanced ? "block": "none";
 
     var bottone;
 
@@ -178,30 +184,36 @@ export default class ElementCreationModal extends Component {
           <FormGroup>
             <FormControl onChange={this.handleNameChange.bind(this)} type="text" placeholder="Nome" maxLength={25} value={name} />
           </FormGroup>
-          <FormGroup>
-            <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" />
-          </FormGroup>
-          <FormGroup>
-            <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
-          </FormGroup>
-
-
-
-
-
-          {this.renderAlert()}
-
-
-          {this.renderUmEPrice()}
-
-
-
-
-
 
           <FormGroup>
             <FormControl onChange={this.handleImageChange.bind(this)} type="file" placeholder="sfoglia" />
           </FormGroup>
+
+          <Button id="advanced" onClick={() => this.setAdvanced()} >Advanced settings</Button>
+
+
+          <div style={{display: showAdvanced}}>
+            <FormGroup>
+              <FormControl onChange={this.handleMinChange.bind(this)} type="number" placeholder="Min" />
+            </FormGroup>
+            <FormGroup>
+              <FormControl onChange={this.handleMaxChange.bind(this)} type="number" placeholder="Max" />
+            </FormGroup>
+
+
+
+
+
+            {this.renderAlert()}
+
+
+            {this.renderUmEPrice()}
+          </div>
+
+
+
+
+
 
 
         </Modal.Body>

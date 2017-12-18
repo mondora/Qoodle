@@ -4,6 +4,7 @@ import QoodleElement from "../../components/QoodleElement"
 import ElementCreationModal from "../../components/ElementCreationModal";
 import SaveModal from '../../components/SaveModal';
 import SimpleChoiceModal from '../../components/SimpleChoiceModal';
+import InfoModal from '../../components/InfoModal';
 
 
 export default class NewQoodle extends Component {
@@ -25,6 +26,8 @@ export default class NewQoodle extends Component {
       elements: [],
       type: "generic",
       showSimpleChoiceModal: true,
+      showLoadingModal: false,
+      stringaLoading: "Loading ..."
 
     }
 
@@ -79,21 +82,7 @@ export default class NewQoodle extends Component {
         console.error(error);
         window.location = "/";
       });
-
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
 
   close() {
     this.setState({ showColumnModal: false });
@@ -110,9 +99,6 @@ export default class NewQoodle extends Component {
   sopen() {
     this.setState({ showSaveModal: true });
   }
-
-
-
 
   handleOnChangeTitle(e) {
     this.setState({ title: e.target.value })
@@ -239,18 +225,20 @@ export default class NewQoodle extends Component {
           owner: email,
         })
     };
-
+    
+    this.setState({showLoadingModal: true});
 
     fetch(url, myInit)
       .then((response => {
         this.setState({
           showSaveModal: false,
-          closingDate: date
+          closingDate: date,
         });
-        window.location = "#/qoodles";
 
+        
         if (response.ok) {
-          alert("Qoodle creato correttamente");
+          //alert("Qoodle creato correttamente");
+          this.setState({stringaLoading: "Qoodle creato correttamente"});
         }
         else {
           throw new Error("Network response was not ok");
@@ -260,9 +248,14 @@ export default class NewQoodle extends Component {
         console.error(error);
         alert("Il Qoodle non è stato creato correttamente.");
       });
-
+      
   }
+  
 
+  closeLoading(){
+    this.setState({showLoadingModal: false});
+    window.location = "#/qoodles";
+  }
 
 
 
@@ -344,6 +337,14 @@ export default class NewQoodle extends Component {
               onClick={this.sopen.bind(this)}
             >Salva!</Button>
           </center>
+
+
+          <InfoModal
+          show={this.state.showLoadingModal}
+          title="Creazione Qoodle in corso"
+          info={this.state.stringaLoading}
+          showModal={this.closeLoading.bind(this)}
+          />
 
 
 

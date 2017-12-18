@@ -13,7 +13,8 @@ export default class QoodleDetails extends Component {
         realName: "",
         elements: [],
         sector: -1,
-        type: ""
+        type: "",
+        loading: true,
       }
   }
 
@@ -64,12 +65,14 @@ export default class QoodleDetails extends Component {
           elements: data.elements,
           email: email,
           realName: realNameLogged,
-          type: data.type
+          type: data.type,
+          loading: false
         });
       }))
       .catch((error) => {
         console.error(error);
         alert("Non puoi vedere i dettagli");
+        this.setState({loading: false});
       });;
 
   }
@@ -96,21 +99,24 @@ export default class QoodleDetails extends Component {
     var sliceList = [];
 
     var palette = ["#ff4e50", "#fc913a", "#f9d62e", "#eae374", "#e2f4c7"];
+    if(!this.state.loading)
+    {
+        if (detailsList[sector].whos.length > 0 && tot !== 0) {
+          var i = 0;
+          detailsList[sector].whos.forEach((el) =>
+            sliceList.push({
+              label: el.who,
+              value: Math.round(el.how / tot * 100, -1),
+              color: palette[(i++ % palette.length)]
+            }));
 
-    if (detailsList[sector].whos.length > 0 && tot !== 0) {
-      var i = 0;
-      detailsList[sector].whos.forEach((el) =>
-        sliceList.push({
-          label: el.who,
-          value: Math.round(el.how / tot * 100, -1),
-          color: palette[(i++ % palette.length)]
-        }));
+          console.log("DOPO slice", sliceList);
+          return (<Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} type={this.state.type} />);
+        }
+        else { return this.state.loading? <div><h2>Loading</h2></div> : <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center> }
 
-      console.log("DOPO slice", sliceList);
-      return (<Pie data={sliceList} tot={tot} title={detailsList[sector].label} back={this.returnAtQoodle.bind(this)} type={this.state.type} />);
-    }
-    else { return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center> }
-
+  } return <div><h2>Loading</h2></div>;
+      
   }
 
   renderQoodle() {
@@ -131,27 +137,29 @@ export default class QoodleDetails extends Component {
       palette = ["lightgrey", "lightgrey", "lightgrey", "lightgrey", "lightgrey"];
       win = "lightgreen";
     }
+    if(!this.state.loading){
+      if (detailsList.length > 0 && tot !== 0) {
+        var i = 0;
+        detailsList.forEach((el) =>
+          sliceList.push({
+            label: el.label,
+            value: Math.round(el.value / tot * 100, -1),
+            color: palette[(i++ % palette.length)]
+          }));
 
-    if (detailsList.length > 0 && tot !== 0) {
-      var i = 0;
-      detailsList.forEach((el) =>
-        sliceList.push({
-          label: el.label,
-          value: Math.round(el.value / tot * 100, -1),
-          color: palette[(i++ % palette.length)]
-        }));
 
-
-      if (this.state.type === "dem") {
-        var indexOfMaxValue = sliceList.reduce((iMax, x, i, arr) => x.value > arr[iMax].value ? i : iMax, 0);
-        console.log("più voti", sliceList[indexOfMaxValue].label);
-        sliceList[indexOfMaxValue].color = win;
+        if (this.state.type === "dem") {
+          var indexOfMaxValue = sliceList.reduce((iMax, x, i, arr) => x.value > arr[iMax].value ? i : iMax, 0);
+          console.log("più voti", sliceList[indexOfMaxValue].label);
+          sliceList[indexOfMaxValue].color = win;
+        }
+        return (<Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome} type={this.state.type} />);
       }
-      return (<Pie data={sliceList} onSectorClick={this.handleClickOnSector.bind(this)} tot={tot} title={this.state.nome} type={this.state.type} />);
-    }
-    else { return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center> }
+      else { return <center><h2>NESSUNO HA ANCORA EFFETTUATO SCELTE SIGNIFICATIVE</h2></center> }
 
-  }
+  } return <div><h2>Loading</h2></div>;
+
+}
 
   renderPart() {
     var detailsList = [];

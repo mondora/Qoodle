@@ -31,6 +31,7 @@ export default class QoodleView extends Component {
       closingDate: new Date(),
       elements: [],
       point: 0,
+      loading: true
     }
   }
 
@@ -92,7 +93,10 @@ export default class QoodleView extends Component {
         });
       }
         .bind(this))
-      .catch((error) => { console.error(error); });;
+      .catch((error) => {
+        console.error(error);
+        this.setState({loading: false});
+       });;
 
 
 
@@ -332,7 +336,7 @@ export default class QoodleView extends Component {
   }
 
   renderNotFound() {
-    return (<div> <h2>{" Qoodle nr " + this.state.id + " non trovato!"}</h2></div>);
+    return this.state.loading ? (<div><h2>Loading</h2></div>) :(<div> <h2>{" Qoodle nr " + this.state.id + " non trovato!"}</h2></div>);
   }
 
 
@@ -379,14 +383,7 @@ export default class QoodleView extends Component {
             close={this.submitVotes.bind(this)}
             check={this.CloseSummary.bind(this)}
           />
-
-
-
-
-
         </div>
-
-
 
       ) : this.renderNotFound();
   }
